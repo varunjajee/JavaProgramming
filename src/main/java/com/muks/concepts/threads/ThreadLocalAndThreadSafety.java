@@ -1,4 +1,4 @@
-package com.muks.threads;
+package com.muks.concepts.threads;
 
 /*
  * Topics covered:
@@ -41,11 +41,12 @@ public class ThreadLocalAndThreadSafety implements Runnable{
         System.out.println("\nThread Name = " + Thread.currentThread().getName() +
             ", Default Formatter = " + formatter.get().toPattern());
         try {
-            Thread.sleep(new Random().nextInt(1000));
+            Thread.sleep(new Random().nextInt(1000));   // sleep for random amount of time
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
+        System.out.println("Default format: " + formatter.get().toPattern());
         formatter.set(new SimpleDateFormat());
 
         System.out.println("Thread Name = " + Thread.currentThread().getName() +
