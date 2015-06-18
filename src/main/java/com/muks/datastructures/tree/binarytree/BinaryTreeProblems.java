@@ -13,13 +13,15 @@ public class BinaryTreeProblems {
      DFS - Depth First Search
     */
     public static void printVerticleOrder(BNode root) {
+        System.out.println("\n# Print Verticle Order Traversal #");
         HashMap<Integer, ArrayList<Integer>> hMap = new HashMap<>();
 
         int hd = 0;
         verticleOrderTraversal(root, hd, hMap);
 
-        System.out.println(hMap.toString());
+        System.out.println("+ Verticle Order: " + hMap.toString() + "\n");
     }
+
     public static void verticleOrderTraversal(BNode node, int hd,
         HashMap<Integer, ArrayList<Integer>> hMap) {
 
@@ -42,66 +44,51 @@ public class BinaryTreeProblems {
     /* ==================================================================================
      Print tree nodes in level order traversal
     */
-    public static void printLevelOrder(BNode root) {
-        if (root == null) return;
-
-        Queue<BNode> queue = new LinkedList<>();
-
-
-    }
-
-
-    /* ==================================================================================
-     Print tree nodes in level order traversal
-    */
     // BFS - Breadth First Search
-    public static void levelOrderTraversal(BNode root) {
-        System.out.println("+ Level order traversal:");
-        HashMap<Integer, ArrayList<Integer>> hMap = new HashMap<>();
-        int vd = 0; // vd = verticle distance or level
+    public static void printLevelOrder(BNode root) {
+        System.out.println("# Print - Level order traversal #");
 
-        if (root == null) {
-            System.out.println("+ Tree is EMPTY.");
-        }
-        else {
+        HashMap<Integer, ArrayList<Integer>> levelOrderTree = new HashMap<>();
+        ArrayList<ArrayList<Integer>> al = new ArrayList<>();
+        ArrayList<Integer> nodeValues = new ArrayList<>();
 
-            Queue<BNode> queue = new LinkedList<BNode>();
-            queue.add(root);
-            if (hMap.get(vd) == null) {
-                hMap.put(vd, new ArrayList<Integer>(root.getValue()));
-            } else {
-                hMap.get(vd).add(root.getValue());
-            }
+        int vd = 0;
+        if(root == null)
+            return;
 
-            while (queue.peek() != null) {
+        LinkedList<BNode> current = new LinkedList<>();
+        LinkedList<BNode> next = new LinkedList<>();
+        current.add(root);
+
+        levelOrderTree.put(vd, new ArrayList<Integer>(root.getValue()));
+
+        while(!current.isEmpty()) {
+            BNode node = current.remove();
+
+            if(node.left != null)
+                next.add(node.left);
+
+            if(node.right != null)
+                next.add(node.right);
+
+            nodeValues.add(node.getValue());
+            if(current.isEmpty()) {
+                current = next;
+                next = new LinkedList<>();
+                al.add(nodeValues);
+
+                levelOrderTree.put(vd,  new ArrayList(Collections.singleton( nodeValues )));
                 vd++;
-                // remove() and poll() are same just that remove() throws exception when queue is empty
-                BNode tmpNode = queue.remove();
-                System.out.println(tmpNode.getValue());
 
-                if (hMap.get(vd) == null) {
-                    hMap.put(vd, new ArrayList<Integer>(tmpNode.getValue()));
-                } else {
-                    hMap.get(vd).add(tmpNode.getValue());
-                }
-
-                if (tmpNode.left != null) {
-                    queue.add(tmpNode.left);
-                    hMap.get(vd).add(tmpNode.left.getValue());
-                }
-
-                if (tmpNode.right != null) {
-                    queue.add(tmpNode.right);
-                    hMap.get(vd).add(tmpNode.right.getValue());
-                }
-
-
+                nodeValues = new ArrayList();
             }
+
         }
 
-        System.out.println("+ Final output: " + hMap.toString());
-    }
+        System.out.println("+ All nodes: " + al.toString());
+        System.out.println("+ Level Order: " + levelOrderTree.toString());
 
+    }
 
 
 }   // end class

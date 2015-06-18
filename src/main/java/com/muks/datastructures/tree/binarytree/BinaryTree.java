@@ -99,7 +99,7 @@ public class BinaryTree {
 				b1.right.right.right = new BNode(9);
 				b1.right.right.left = new BNode(7);
 
-				BinaryTreeProblems.levelOrderTraversal(b1);
+				BinaryTreeProblems.printLevelOrder(b1);
 				BinaryTreeProblems.printVerticleOrder(b1);
 				System.exit(0);
 
