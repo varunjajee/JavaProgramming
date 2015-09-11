@@ -1,4 +1,4 @@
-package oops;
+package com.muks.oops;
 
 public class Shikari {
 	
