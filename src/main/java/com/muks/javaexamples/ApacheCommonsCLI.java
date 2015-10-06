@@ -57,12 +57,12 @@ public class ApacheCommonsCLI {
         }
 
         public void helpFormatter() {
-            String helpText =
+            String helpWithUsageText =
                 "java -cp com.muks.javaexamples.ApacheCommonsCLI -configFile <config-file>";
 
             // automatically generate the help statement
             HelpFormatter formatter = new HelpFormatter();
-            formatter.printHelp(helpText, options);
+            formatter.printHelp(helpWithUsageText, options);
         }
     }
 }
