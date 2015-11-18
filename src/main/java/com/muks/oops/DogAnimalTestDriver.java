@@ -1,7 +1,5 @@
 package com.muks.oops;
 
-import oops.Dog;
-
 /**
  * Created by mukthar.ahmed on 12/09/15.
  */
