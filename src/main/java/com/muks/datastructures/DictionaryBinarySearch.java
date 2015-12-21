@@ -27,7 +27,7 @@ public class DictionaryBinarySearch {
 	 *  	B-trees
 	 *  
 	 *  In Java
-	 *  	java.utils.Dictionary - Abstract class
+	 *  	java.adgenutils.Dictionary - Abstract class
 	 *  	java.util.Map - interface
 	 *  
 	 *  
