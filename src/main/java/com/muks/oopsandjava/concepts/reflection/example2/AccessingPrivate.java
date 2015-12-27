@@ -21,7 +21,7 @@ public class AccessingPrivate {
 
 
         // How to access private methods during run time
-        PrivateObjectClass privateObjClass = new PrivateObjectClass("The Private Value");
+        PrivateObjectClass privateObjClass = new PrivateObjectClass();
 
         try {
             // Accessing private method and set var value
@@ -29,7 +29,7 @@ public class AccessingPrivate {
                     PrivateObjectClass.class.getDeclaredMethod("setPrivateStringByValue",
                             String.class);
 
-            System.out.println("+ Accessing Method: " + privateStrMethod.getName());
+            System.out.println("+ Accessing Method: (" + privateStrMethod.getName() + ")");
             privateStrMethod.setAccessible(true);
             privateStrMethod.invoke(privateObjClass, "Mukthar here.");
 
@@ -41,19 +41,23 @@ public class AccessingPrivate {
                     methodGetPrivateString.invoke(privateObjClass, null));
 
 
+
             // ###### Accessing private field from a class #######
             System.out.println("\n");
 
             // How to access private field
-            //Field privateStringField = PrivateObjectClass.class.getDeclaredField("privateString");
-            Field privateStringField = PrivateObjectClass.class.getDeclaredField("PRIVATE_FIELD");
+            Field privateStringField = PrivateObjectClass.class.getDeclaredField("PRIVATE_STRING_FIELD");
             privateStringField.setAccessible(true); // change the accessibility to true
 
             String fieldValue = (String) privateStringField.get(privateObjClass);
             System.out.println("Existing value of field: " + fieldValue);
-
             privateStringField.set(privateObjClass, "new string value");
-            System.out.println("fieldValue = " + fieldValue);
+            System.out.println("fieldValue = " + privateObjClass.getPrivateFieldStringForTesting());
+
+            Field privateIntField = PrivateObjectClass.class.getDeclaredField("PRIVATE_INT_FIELD");
+            privateIntField.setAccessible(true);
+            int intFieldValue = (int) privateIntField.get(privateObjClass);
+            System.out.println("\nAccessing int private field by reflection: " + intFieldValue);
 
         } catch (Exception e) {
             e.printStackTrace();

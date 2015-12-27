@@ -18,4 +18,6 @@ public class Dog implements SampleAnimalInterface {
     public boolean foreleged() {
         return true;
     }
+
+    
 }
