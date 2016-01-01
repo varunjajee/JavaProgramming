@@ -1,4 +1,4 @@
-package frameworkalgo;
+package com.muks.frameworkalgo;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -6,21 +6,17 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-
-import com.sun.tools.doclets.internal.toolkit.util.DirectoryManager;
 
 public class SearchRegEx {
 
 	/**
 	 * @param args
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 
 	String mriadURL = "<script src=\"http://inmobisdk-a.akamaihd.net/sdk/android/mraid.js\"> </script>";
@@ -38,7 +34,7 @@ public class SearchRegEx {
 	String clickSyncXhtmlUrl = "<a href=\"http://10.14.100.249:8080/psowebapp/Click?test=2&release=sdk360&responsetype=xhtml_sync&platform=android\"";
 	String beaconXhtmlURL = "img src=\"http://10.14.100.249:8080/psowebapp/Beacon?test=3&release=sdk360&responsetype=xhtml_sync&platform=android&m=18\"";
 	String beaconM101 = "img src=\"http://10.14.100.249:8080/psowebapp/Beacon?test=testAndroidTemplate1&release=imai_async&platform=android&m=101\"";
-	
+
 	public static void main(String[] args) throws IOException {
 		SearchRegEx reg = new SearchRegEx();
 		//String myDir = "/Users/muktharahmed/Data2/toDelete/banner_320X48_300X50.new";
@@ -65,7 +61,7 @@ public class SearchRegEx {
 
 	}	// main()
 
-	
+
 	// searchAndReplace:  to search for a string within a file and replace
 		public void searchAndReplacePlainBeaconURL (File inFile) throws IOException {
 
@@ -106,7 +102,7 @@ public class SearchRegEx {
 
 		}	// end searchAndReplace()
 
-	
+
 	// ####################################################################################################
 	// searchAndReplace:  to search for a string within a file and replace
 	public void searchAndReplaceInASyncXHTML (File inFile) throws IOException {
@@ -141,13 +137,13 @@ public class SearchRegEx {
 					System.out.println("\n+ Beacon URL at xhtml file: " + beaconUrlMatchInxHTML);
 					line = line.replace(beaconUrlMatchInxHTML, beaconURL);
 				}
-				
+
 				String clickUrlMatch = regEx.matchClickASyncURLInXHTML(line);
 				if (clickUrlMatch != null) {
 					System.out.println("\n+ Click URL at xhtml file: " + clickUrlMatch);
 					line = line.replace(clickUrlMatch, clickASyncXhtmlUrl);
 				}
-				
+
 				if (regEx.iSHtmlbody(line)) {
 					writer.println(line);	// write the buffered line with searched & replaced pattern.
 				}
@@ -163,7 +159,7 @@ public class SearchRegEx {
 
 	}	// end searchAndReplace()
 
-	
+
 	// ####################################################################################################
 	// searchAndReplace:  to search for a string within a file and replace
 	public void searchAndReplaceInSyncXHTML (File inFile) throws IOException {
@@ -198,13 +194,13 @@ public class SearchRegEx {
 					System.out.println("\n+ Beacon URL at xhtml file: " + beaconUrlMatchInxHTML);
 					line = line.replace(beaconUrlMatchInxHTML, beaconXhtmlURL);
 				}
-				
+
 				String clickUrlMatch = regEx.matchClickURLInXHTML(line);
 				if (clickUrlMatch != null) {
 					System.out.println("\n+ Click URL at xhtml file: " + clickUrlMatch);
 					line = line.replace(clickUrlMatch, clickRedirectXhtml);
 				}
-				
+
 				if (regEx.iSHtmlbody(line)) {
 					writer.println(line);	// write the buffered line with searched & replaced pattern.
 				}

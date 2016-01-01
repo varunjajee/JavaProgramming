@@ -1,4 +1,4 @@
-package com.muks.javaexamples.enumex;
+package com.muks.javaexamples.myenums;
 
 /**
  * Created by mukthar.ahmed on 22/04/15.

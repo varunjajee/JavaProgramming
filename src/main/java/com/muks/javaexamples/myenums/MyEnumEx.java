@@ -1,9 +1,9 @@
-package com.muks.enumexamples;
+package com.muks.javaexamples.myenums;
 
 /**
- * Created by mukthar.ahmed on 08/06/15.
+ * Created by mukthar.ahmed on 1/1/16.
  */
-public class EnumExamples {
+public class MyEnumEx {
 
     // If you want to have string constraints
     private enum Weekdays {
@@ -68,7 +68,7 @@ public class EnumExamples {
 
         int idLookup = 2;
         System.out.printf("\n+ Status with ID - " + idLookup + " = " +
-            Status.findByValue(idLookup) );
+                Status.findByValue(idLookup) );
 
         String statusLookup = "PAUSED";
         System.out.println("\n+ By Ordinal: " + Status.findByOrdinal(statusLookup));
