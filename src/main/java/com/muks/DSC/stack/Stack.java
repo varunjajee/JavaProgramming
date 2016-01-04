@@ -34,7 +34,6 @@ public class Stack {
     }
 
     public void push(Object element) throws Exception {
-//        if (topIndex == capacity -1) {
         if (stackSize == capacity) {
             throw new Exception("Stack full exception");
         }
@@ -57,7 +56,7 @@ public class Stack {
 
     public int getSize() { return stackSize; }
 
-    public void printStack(Stack stack) {
+    public void display(Stack stack) {
         System.out.println("\n### Printing stack of size=" + stack.getSize() + " ###");
         StringBuilder sb = new StringBuilder();
 

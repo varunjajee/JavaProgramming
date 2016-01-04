@@ -102,7 +102,7 @@ public class DoublyLinkedList {
 			current = current.next;
 		}
 
-	} // printList()
+	} // display()
 
 
 

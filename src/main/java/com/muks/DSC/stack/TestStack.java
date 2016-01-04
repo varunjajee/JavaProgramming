@@ -16,7 +16,7 @@ public class TestStack {
 
 
             System.out.println("+ Size=" + stack.getSize());
-            stack.printStack(stack);
+            stack.display(stack);
 
 //            System.out.println("+ Pop'd # 1 = " + stack.pop());
 //            System.out.println("+ Pop'd # 2 = " + stack.pop());
@@ -40,7 +40,7 @@ public class TestStack {
             }
         }
 
-        nameStack.printStack(nameStack);
+        nameStack.display(nameStack);
 
     }
 }

@@ -12,64 +12,11 @@ public class LinkedList {
 
 	public static void main(String[] args) {
 		LinkedList list = new LinkedList();
-
-		//	1 = 5 -->4-->2-->9
-		//	2 =7-->3-->1-->1
-		//		list.insert(9);
-		//		list.insert(2);
-		//		list.insert(4);
-		//		list.insert(5);
-		//		
-		//		list.insert2(1);
-		//		list.insert2(1);
-		//		list.insert2(3);
-		//		list.insert2(7);
-
-		list.insert(5);
-		list.insert(4);
-		list.insert(3);
-		list.insert(2);
-		list.insert(1);
-
-		list.printList();
-		list.recursiveReverse(list.first);
-		
-		list.printList();
-		System.exit(0);
-
-		list.insert2(10);
-		list.insert2(9);
-		list.insert2(8);
-
-		list.printList();
-		list.printList2();
-
-
-
-		Link resHead = list.addLists(list.first, list.first2);	// adding 2 link lists
-
-		// return head of the resultant list
-		list.printListWithHead(resHead);
-		System.exit(0);
-
-
-		//		list.insert(30);
-		//		list.insert(15);
-		//		list.insert(9);
-		//		list.insert(6);
-		//		list.insert(3);
-		//
-		//		list.insert2(10);
-		//		//		list.insert2(15);
-		//
-		//		list.printList();
-		//		list.printList2();
-		//
-		//		genIntersectedList(first, first2);	// To get a intersected linked list
-		//		int intersPoint = findIntersectionPoint(first, first2);
-		//		System.out.println("\n+ Intersection Is Found @ : " + intersPoint); 
-		//
-		//		System.exit(0);
+//		genIntersectedList(first, first2);	// To get a intersected linked list
+//		int intersPoint = findIntersectionPoint(first, first2);
+//		System.out.println("\n+ Intersection Is Found @ : " + intersPoint);
+//
+//		System.exit(0);
 
 
 		//		list.insert(1, 2.02);
@@ -79,17 +26,6 @@ public class LinkedList {
 		//		list.insert(5, 4.04);
 		//		list.insert(7, 5.05);
 
-		list.insert(11);
-		list.insert(10);
-		list.insert(9);
-		list.insert(8);
-		list.insert(7);
-		list.insert(6);
-		list.insert(5);
-		list.insert(1);
-		list.insert(3);
-		list.insert(2);
-		list.insert(4);
 
 		list.getCyclicLinkedList(list.first);
 		Link f = list.findEnd(list.first);
@@ -100,51 +36,40 @@ public class LinkedList {
 		//		mid.printLink();
 
 		//		segregateEvenAndOdd(list.first);
-		//		list.printList();
+		//		list.display();
 
-		System.out.println("+ Original List: ");
-		list.printList();
+
 
 		segregateOddAndEven(first);
 		System.out.println("+++ Segregated: " );
 
-		list.printList();
-		System.exit(0);
-
-		//		System.out.println("+ Original List: ");
-		//		list.printList();
-		//		reverseInplace(list.first);
-		//		
 		segregateList(list.first);
 		System.exit(0);
 
-		System.out.println("Lenght of the Linked-List: " + size(list.first));
-		list.printList();
-
 		list.reverseList(list.first);
-		list.printList();
+
 
 		deleteDupsOnUnsorted(list.first);
 		System.out.println("++ Deleing duplicates...");
-		list.printList();
+
 
 		//		list.addNode(5, 45);
-		//		list.printList();
+		//		list.display();
 
 		//		list.insertAtTail(1111);
-		//		list.printList();
+		//		list.display();
 
 		//		System.out.println("\n+++ Deleting tail.. ");
 		//		Link oldTail = list.deleteTail();
 		//		System.out.println("+++ Deleted: ");
 		//		oldTail.printLink();
 		//
-		//		list.printList();
+		//		list.display();
 
 		//		System.out.println("+++ Delete Node: 3");
 		//		Link deletedNode = list.deleteNode(first, 1);
 		//		
-		//		list.printList();
+		//		list.display();
 		//		
 
 		//		Link listTail = list.findTail(first);
@@ -156,7 +81,7 @@ public class LinkedList {
 		//		deleted.printLink();
 		//		
 		//		System.out.println("\n+++ new linked-list is: ");
-		//		list.printList();
+		//		list.display();
 		//		
 		////		list.deleteNode(first, 4);
 		////		
@@ -165,70 +90,6 @@ public class LinkedList {
 
 	} // end main()
 
-
-	Link reverse2(Link start){
-	    if(start==null)
-	        return null;
-	    if((start).nextLink==null)
-	        return start;
-	    Link next=(start).nextLink;
-	    (start).nextLink = null;
-	    Link head = reverse2(next);
-	    next.nextLink = (start);
-	    return head;
-	}
-
-	public void recursiveReverse (Link node) {
-
-		/* empty list */
-		if (node == null)
-			return;   
-
-
-		if (node.nextLink == null) {
-			first = node;
-			System.out.println(" Last: " + first.data1);
-			return;
-
-		}
-
-		Link rest = node.nextLink;
-
-		if (rest == null) {
-			return;
-		}
-
-		System.out.println(" rest: " + rest.data1);
-		recursiveReverse(rest);
-		node.nextLink.nextLink = node;
-		node.nextLink = null;
-		node = rest;
-
-		first = node;
-
-	}
-
-
-	public static Link ReverseLinkedListRec(Link node) {
-		//base case
-		//last node of the list
-		//head passed as null
-		if (node == null || node.nextLink == null) return null;
-
-		//Next node sequentially moving forward.....
-		Link nextNode = node.nextLink;
-
-		//Just remove all the link before the call
-		node.nextLink = null;
-
-		//Whenever the callstack starts shrinking only the code from below will be executed. 
-		//Stack local variables take care of the rest.
-		Link retNode = ReverseLinkedListRec(nextNode);	//stack stores the reference of nextNode sequentially anode passes it back. Reverse traversal starts from here.  
-
-		nextNode.nextLink = node;	//Link nextNode to the current node where you're coming from
-
-		return retNode == null ? nextNode : retNode;	//This makes sure that properly head is passed back instead of a null.
-	}
 
 
 
@@ -260,7 +121,7 @@ public class LinkedList {
 			prev  = temp;
 
 			// Move first and second pointers to next nodes
-			if (link1 != null) { 
+			if (link1 != null) {
 				link1 = link1.nextLink;
 			}
 
@@ -293,7 +154,7 @@ public class LinkedList {
 
 
 	@SuppressWarnings("null")
-	public void getCyclicLinkedList (Link head) { 
+	public void getCyclicLinkedList (Link head) {
 		Link current = head;
 		Link loopNode = null;
 		Link linkEnd = findTail(head);
@@ -358,106 +219,106 @@ public class LinkedList {
 	} // findEnd()
 
 
-	// ###################################################################################################
-	/* Code to have 2 intersected linked list at the 3rd node of 1st linked list
-	 */
-	public static void genIntersectedList (Link head1, Link head2) {
-		System.out.println("\n+++ Generating a intersected linked list +++");
-
-		Link current1 = head1;
-		Link current2 = head2;
-
-		for (int i=0; i < 3; i++) { 
-			current1 = current1.nextLink;
-		}
-
-		while (current2.nextLink != null) {
-			current2 = current2.nextLink;
-		}
-
-		System.out.println("+ Linked list will intersect at the point: "  + current1.data1 + " & " + current2.data1);
-		current2.nextLink = current1;
-
-		System.out.println("+ Current2's value: " + current2.data1);
-		System.out.println("+ Proof of intersection: current2.data1: " + current2.data1 + " => " + current2.nextLink.data1);
-
-		/* 	Time complexity: O(m+n)
-		 * 	Implementation details:
-			1) Get count of the nodes in first list, let count be c1.
-			2) Get count of the nodes in second list, let count be c2.
-			3) Get the difference of counts d = abs(c1 � c2)
-			4) Now traverse the bigger list from the first node till d nodes so that from here onwards both the lists have equal no of nodes.
-			5) Then we can traverse both the lists in parallel till we come across a common node. (Note that getting a common node is done by comparing the address of the nodes)
-		 */
-	}
-
-
-	// ###################################################################################################
-	/* Function to get the intersection point of two linked
-	   lists head1 and head2 */
-	public static int findIntersectionPoint (Link head1, Link head2) {
-		int c1 = size(head1);
-		int c2 = size(head2);
-		int d;		// Difference in the sizes
-
-		if(c1 > c2) {
-			d = c1 - c2;
-			return getIntesectionNode (d, head1, head2);
-		}
-		else {
-			d = c2 - c1;
-			return getIntesectionNode (d, head2, head1);
-		}
-
-	}	// end getIntesectionNode()
-
-
-	// ###################################################################################################
-	/* function to get the intersection point of two linked
-	   lists head1 and head2 where head1 has d more nodes than
-	   head2 */
-	public static int getIntesectionNode(int d, Link head1, Link head2) {
-		int i;
-		Link current1 = head1;
-		Link current2 = head2;
-
-		for(i = 0; i < d; i++) {
-			if(current1 == null) {  
-				return -1;
-			}
-
-			current1 = current1.nextLink;
-
-		}
-
-		System.out.println("+ current1: " + current1.data1 + " current2: " + current2.data1);
-		while(current1 !=  null && current2 != null) {
-			if(current1 == current2) {
-				return current1.data1;
-			}
-
-			current1 = current1.nextLink;
-			current2 = current2.nextLink;
-		}
-
-		return -1;
-	}
+//	// ###################################################################################################
+//	/* Code to have 2 intersected linked list at the 3rd node of 1st linked list
+//	 */
+//	public static void genIntersectedList (Link head1, Link head2) {
+//		System.out.println("\n+++ Generating a intersected linked list +++");
+//
+//		Link current1 = head1;
+//		Link current2 = head2;
+//
+//		for (int i=0; i < 3; i++) {
+//			current1 = current1.nextLink;
+//		}
+//
+//		while (current2.nextLink != null) {
+//			current2 = current2.nextLink;
+//		}
+//
+//		System.out.println("+ Linked list will intersect at the point: "  + current1.data1 + " & " + current2.data1);
+//		current2.nextLink = current1;
+//
+//		System.out.println("+ Current2's value: " + current2.data1);
+//		System.out.println("+ Proof of intersection: current2.data1: " + current2.data1 + " => " + current2.nextLink.data1);
+//
+//		/* 	Time complexity: O(m+n)
+//		 * 	Implementation details:
+//			1) Get count of the nodes in first list, let count be c1.
+//			2) Get count of the nodes in second list, let count be c2.
+//			3) Get the difference of counts d = abs(c1 � c2)
+//			4) Now traverse the bigger list from the first node till d nodes so that from here onwards both the lists have equal no of nodes.
+//			5) Then we can traverse both the lists in parallel till we come across a common node. (Note that getting a common node is done by comparing the address of the nodes)
+//		 */
+//	}
+//
+//
+//	// ###################################################################################################
+//	/* Function to get the intersection point of two linked
+//	   lists head1 and head2 */
+//	public static int findIntersectionPoint (Link head1, Link head2) {
+//		int c1 = size(head1);
+//		int c2 = size(head2);
+//		int d;		// Difference in the sizes
+//
+//		if(c1 > c2) {
+//			d = c1 - c2;
+//			return getIntesectionNode (d, head1, head2);
+//		}
+//		else {
+//			d = c2 - c1;
+//			return getIntesectionNode (d, head2, head1);
+//		}
+//
+//	}	// end getIntesectionNode()
+//
+//
+//	// ###################################################################################################
+//	/* function to get the intersection point of two linked
+//	   lists head1 and head2 where head1 has d more nodes than
+//	   head2 */
+//	public static int getIntesectionNode(int d, Link head1, Link head2) {
+//		int i;
+//		Link current1 = head1;
+//		Link current2 = head2;
+//
+//		for(i = 0; i < d; i++) {
+//			if(current1 == null) {
+//				return -1;
+//			}
+//
+//			current1 = current1.nextLink;
+//
+//		}
+//
+//		System.out.println("+ current1: " + current1.data1 + " current2: " + current2.data1);
+//		while(current1 !=  null && current2 != null) {
+//			if(current1 == current2) {
+//				return current1.data1;
+//			}
+//
+//			current1 = current1.nextLink;
+//			current2 = current2.nextLink;
+//		}
+//
+//		return -1;
+//	}
 
 	// ###################################################################################################
 	public static void segregateList (Link head) {
 		LinkedList list = new LinkedList();
 
 		Link pivotHead = head;
-		Link current = head; 
-		Link evenNode; 
-		Link pre_oddNode = null; 
+		Link current = head;
+		Link evenNode;
+		Link pre_oddNode = null;
 
 		while (current != null) {
 
-			evenNode = current.nextLink; 
-			current.nextLink = current.nextLink.nextLink; 
-			evenNode.nextLink = pre_oddNode; 
-			pre_oddNode = evenNode;  
+			evenNode = current.nextLink;
+			current.nextLink = current.nextLink.nextLink;
+			evenNode.nextLink = pre_oddNode;
+			pre_oddNode = evenNode;
 
 
 			if (current.nextLink != null) {
@@ -469,7 +330,7 @@ public class LinkedList {
 			System.out.println("+ Head: " + pivotHead.data1);
 
 
-		} 
+		}
 
 		System.out.println(" pivotHead: " + pivotHead.data1);
 		first = pivotHead;
@@ -520,7 +381,7 @@ public class LinkedList {
 
 				newEnd.nextLink.nextLink = null;
 				newEnd = newEnd.nextLink;
-				current = prev.nextLink; 
+				current = prev.nextLink;
 
 			}
 		} // while()
@@ -591,7 +452,7 @@ public class LinkedList {
 				curr = curr.nextLink;
 
 			} else {
-				prev.nextLink = curr.nextLink;		/* break the link between prev and current */ 
+				prev.nextLink = curr.nextLink;		/* break the link between prev and current */
 				curr.nextLink = null;				/* Make next of curr as null  */
 
 				new_end.nextLink = curr;			/* Move curr to end */
@@ -657,7 +518,7 @@ public class LinkedList {
 	 * 
 	 */
 	public static void deleteDupsOnUnsorted (Link head) {
-		if (head == null)  
+		if (head == null)
 			return;
 		if (head.nextLink == null)
 			return;
@@ -707,7 +568,7 @@ public class LinkedList {
 	 * 
 	 */
 	public static void deleteDuplicatesOnSorted (Link head) {
-		if (head == null)  
+		if (head == null)
 			return;
 
 		if (head.nextLink == null)
@@ -727,43 +588,7 @@ public class LinkedList {
 
 	}
 
-	// ###################################################################################################
-	// Reverse the linked-list
-	/*
-	 * Case # 	1. If the list is empty
-	 *			2. If the list has just 1 element
-	 *			3. If the list has n elements
-	 */
 
-	public void reverseList (Link head) {
-		// Swapping method
-		//	which can basically be summarised as
-		//	t = q->next
-		//	q->next=p
-		//	p=q;
-		//	q=t
-
-
-		Link prev, current, next;
-
-		if (head == null) { System.out.println("+ List Is Empty... "); }
-		if (head.nextLink == null) { System.out.println("+ List has just 1 node...!!!"); }
-
-		prev = null; 
-		current = head;
-
-		while (current != null) {
-			next = current.nextLink;
-			current.nextLink = prev;
-
-			prev = current;
-			current = next;
-
-		}
-
-		first = prev;
-
-	}	
 
 	// ###################################################################################################
 	/*	In-place swapping as below leaves out the last elements un-swapped
@@ -800,7 +625,7 @@ public class LinkedList {
 		Link head = first;
 		Link tail = findTail(head);
 
-		if (!isEmpty()) { 
+		if (!isEmpty()) {
 			current = first; found = false;
 
 			while ( ( current.nextLink != null ) && (!found) ) {
@@ -845,9 +670,9 @@ public class LinkedList {
 
 	// ###################################################################################################
 	/*
-	 * 1. Delete from head/front - Default delete 
+	 * 1. Delete from head/front - Default delete
 	 * 2. Delete from tail
-	 * 3. Delete the exact node 
+	 * 3. Delete the exact node
 	 */
 
 	// (1) default delete: deletes first node by default.
@@ -953,7 +778,7 @@ public class LinkedList {
 	public static Link findTail(Link first) {
 		Link currentLink = first;
 
-		if (currentLink.nextLink == null) return currentLink;   // Logic: Tail is a point 	
+		if (currentLink.nextLink == null) return currentLink;   // Logic: Tail is a point
 		return findTail(currentLink.nextLink); // recursive statement
 
 	} // end findTail
@@ -982,7 +807,7 @@ public class LinkedList {
 	}
 
 
-	// ###################################################################################################	
+	// ###################################################################################################
 	// insert at tail.
 	public void insertAtTail (int d) {
 
