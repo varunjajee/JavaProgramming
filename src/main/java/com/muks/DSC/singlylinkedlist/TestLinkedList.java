@@ -31,10 +31,10 @@ public class TestLinkedList {
 
 
 
-        /* Create linked list out of a array list */
-        ArrayList<Object> values1 = new ArrayList<Object>(Arrays.asList(1, 3, 9, 4, 5, 3, 7, 7));
-
-        SinglyLinkedList mainList = new SinglyLinkedList(values1);
+//        /* Create linked list out of a array list */
+//        ArrayList<Object> values1 = new ArrayList<Object>(Arrays.asList(1, 3, 9, 4, 5, 3, 7, 7));
+//
+//        SinglyLinkedList mainList = new SinglyLinkedList(values1);
         //SinglyLinkedList.reverse(mainList);
 
         //mainList.recursiveReverse(mainList.head);
@@ -62,8 +62,23 @@ public class TestLinkedList {
         //SinglyLinkedList.segregateEvenAndOdd(mainList);
         //SinglyLinkedList.evenAndOdd(mainList);
 
-        SinglyLinkedList.deleteDuplicatesOnSorted(mainList);
-        SinglyLinkedList.deleteUnSortedDuplicates(mainList);
+         /* Create linked list out of a array list */
+        ArrayList<Object> values1 = new ArrayList<Object>(Arrays.asList(5, 4, 3, 2, 1, 6));
+        SinglyLinkedList mainList = new SinglyLinkedList(values1);
+
+        ArrayList<Object> values2 = new ArrayList<Object>(Arrays.asList(2, 3, 20));
+        SinglyLinkedList subList = new SinglyLinkedList(values2);
+
+
+        //System.out.println(SinglyLinkedList.mergeSortedList(mainList, subList));
+//        System.out.println(
+//                "+ Merged: "
+//                        + SinglyLinkedList.recursiveMergeSortedList(mainList.head,
+//                subList.head).toString());
+
+        //SinglyLinkedList.mergeLinkedListRecursion(mainList, subList);
+        //SinglyLinkedList.rotateList(mainList, 4);
+        SinglyLinkedList.sortLinkedlist(mainList);
 
     }
 

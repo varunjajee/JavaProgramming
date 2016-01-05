@@ -49,8 +49,7 @@ public class LinkedList {
 		//list.reverseList(list.first);
 
 
-		deleteDupsOnUnsorted(list.first);
-		System.out.println("++ Deleing duplicates...");
+
 
 
 		//		list.addNode(5, 45);
@@ -513,71 +512,6 @@ public class LinkedList {
 	}
 
 
-
-
-
-
-
-	// ###################################################################################################
-	public static Link deleteNode (Link first, int d2) {
-		Link current = null, previous = null; boolean found;
-		Link tail = findTail(first);
-		Link head = first;
-
-		System.out.println("+ INFO: Value to delete: " + d2);
-
-		if (!isEmpty()) {
-			current = first; previous = null; found = false;
-			System.out.println("=>  Current: " + current.data1 + " Previous: " );
-
-			while ( (current.nextLink != null) && (!found) ) {
-				System.out.println("+ while{} Current: " + current.data1 + " Previous: " );
-
-				if ( ( current.data1 == d2 ) ) {
-					System.out.println("+ if{} Current: " + current.data1);
-					found = true;
-
-				} else {
-					System.out.println("+ else{} Current: " + current.data1);
-					previous = current;
-					current = current.nextLink;
-
-					//found = true; // this will cause pain and will terminate the loop
-					System.out.println("+ else{} Previous: " + previous.data1 + " now() Current: "  + current.data1);
-
-				}
-
-			} // end while()
-
-			if ( found ) {
-				if ( current.data1 == (head.data1) ) {
-					System.out.println("+ Found \"Sentinal node\" - HEAD to be deleted + ");
-					return deleteFront();
-
-				} else {
-					System.out.println("+ Found MID-NODE to be deleted + ");
-					previous.nextLink = current.nextLink;
-					return current;
-
-				} // end; if (found)
-
-			} else if ( ( current.data1 == tail.data1 ) && (!found) ) {
-				System.out.println("+ Found \"Sentinal node\" -TAIL to be deleted + ");
-				return deleteTail();
-
-			} else {
-				System.out.println("+++ Warning: No Match Found!!!, ");
-			}
-
-
-		} else {
-			System.out.println("The list is empty...");
-
-		}
-
-		return current;
-
-	} // end deleteNode();
 
 
 	// ###################################################################################################

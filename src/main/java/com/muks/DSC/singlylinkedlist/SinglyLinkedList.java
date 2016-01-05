@@ -679,4 +679,222 @@ public class SinglyLinkedList {
     }
 
 
+    /*  ==========================================================================================
+        Merge 2 sorted linked list of un-equal sizes
+
+     */
+    public static Node mergeTwoLists(Node l1, Node l2) {
+
+        Node p1 = l1;
+        Node p2 = l2;
+
+        SinglyLinkedList newList = new SinglyLinkedList();
+        newList.insertDefault(0);
+
+        Node fakeHead = newList.head;
+        Node p = fakeHead;
+
+        while(p1 != null && p2 != null){
+            if((Integer) p1.data <= (Integer)  p2.data){
+                p.next = p1;
+                p1 = p1.next;
+            }else{
+                p.next = p2;
+                p2 = p2.next;
+            }
+
+            p = p.next;
+        }
+
+        if(p1 != null)
+            p.next = p1;
+        if(p2 != null)
+            p.next = p2;
+
+        fakeHead = fakeHead.next;
+        newList.head = newList.head.next;
+
+        System.out.println(newList.toString());
+        return fakeHead.next;
+    }
+
+
+    /*  ==========================================================================================
+        Merging 2 sorted linked list in such a way that is in ascending order, small -> big number
+
+        Note:
+        Solve without reverse, O(1) auxiliary space (in-place) and only one traversal of both lists
+
+        Steps:
+        (1) init a new linked list with head = 0
+        (2) pivot the head as - p
+        (3) traverse both the linked list at the same time using pointers p1 and p2
+        (4) if p1 < p2 then attach it to next of "p" (pivot head as p.next = p1)
+        (5) else attached p2 to the pivot head (p.next = p2)
+        (6) advance p as p.next as new pivot
+        (7) at last which ever is still left as NOT null, attach entire remaining list to pivot
+        (8) Update the head from 0 (initialized to) to head = head.next
+     */
+    public static SinglyLinkedList mergeSortedList(SinglyLinkedList list1, SinglyLinkedList list2) {
+        SinglyLinkedList mergedLinkedList = new SinglyLinkedList();
+        mergedLinkedList.insertDefault(0);
+
+        Node p = mergedLinkedList.head;
+        Node p1 = list1.head;                                   // Step - 1
+        Node p2 = list2.head;                                   // Step - 2
+
+        while (p1 != null && p2 != null) {                      // Step - 3
+            if ((Integer) p1.data < (Integer) p2.data ) {       // Step - 4
+                p.next = p1;
+                p1 = p1.next;
+
+                p = p.next;     // Step -6, This is common and can be pulled out of if-else
+            }
+            else {      // Step - 5
+                p.next = p2;
+                p2 = p2.next;
+
+                p = p.next;     // Step -6, This is common and can be pulled out of if-else
+            }
+
+        }
+
+
+        if (p1 != null) {   // Step - 7
+            p.next = p1;
+        }
+        else {
+            p.next = p2;
+        }
+
+        mergedLinkedList.head = mergedLinkedList.head.next; // Step - 8
+
+        return mergedLinkedList;
+
+    }   // end mergedSortedList()
+
+
+    /*  =========================================================================================
+        Recursively merge 2 sorted linked list
+
+        Steps:
+            - Are as same as iterative but in a recursive way.
+     */
+    public static void mergeLinkedListRecursion(SinglyLinkedList list1, SinglyLinkedList list2) {
+        System.out.println("\n+ Merging by recursion +");
+
+        if (list2 == null) {
+            return;
+        }
+        Node first = mergeLinkedListRecursive(list1.head, list2.head);
+
+        Node current = first;       // try to get head by using instance object 'this.head'
+
+
+        StringBuilder sb = new StringBuilder("\nDisplay LinkedList: [ -HEAD -> ");
+        while ( current != null ) {
+            sb.append(current.data + " -> ");
+            current = current.next;
+        }
+
+        sb.append("NULL");
+        System.out.println(sb.toString());
+
+    }
+
+    private static Node mergeLinkedListRecursive(Node node1, Node node2) {
+        if (node1 == null) {
+            return node2;
+        }
+
+        if (node2 == null) {
+            return node1;
+        }
+
+        if ((Integer) node1.data < (Integer) node2.data) {
+            node1.next = mergeLinkedListRecursive(node1.next, node2);
+            return node1;
+        } else {
+            node2.next = mergeLinkedListRecursive(node1, node2.next);
+            return node2;
+        }
+    }
+
+
+    /*  =====================================================================================
+        Rotate a linked list around an element
+
+        Steps:
+            1) Traverse the list by k nodes.
+            2) Keep kth node in temp.
+            3) Travese till end of list and set last node pointer to start.
+            4) Set kth nodes next to head.
+            5) Point kth node next to NULL.
+     */
+    public static void rotateList(SinglyLinkedList list, int rotateAt) {
+        Node curr = list.head;
+
+        Node prev = null;
+        while (curr != null) {
+            if ((Integer) curr.data == rotateAt) {
+                break;
+            }
+            prev = curr;
+            curr = curr.next;
+        }
+
+        list.tail.next = list.head;
+        prev.next = null;
+        list.head = curr;
+        list.tail = prev;
+
+        System.out.println("Rotated : " + list.toString());
+    }
+
+
+    /*  =====================================================================================
+        In place Sort linked list -> O(n)
+
+        An Efficient Solution works in O(n) time. Below are all steps.
+        Steps:
+                1. Have 2 pointers, insertion pointer and curr pointer.
+                2. insertion pointing = head and curr = 2nd node, head.next
+                3. while (curr != null) - tail
+                4. reset insertion pointer to original head of the list
+                5. while (insertion pointer != curr ) , move insertion pointer till both pointers
+                co-inside
+                6. if (insertion > curr) then swap
+                   else advance insertion pointer
+                7. advance curr to curr.next
+     */
+    public static void sortLinkedlist(SinglyLinkedList list) {
+        System.out.println("+ Original list : " + list.toString());
+
+        Node listHead = list.head;
+        Node insertion = listHead;
+        Node curr = insertion.next;
+
+        while (curr != null) {
+            insertion = listHead;
+
+            while (insertion != curr) {
+                if ((Integer) insertion.data > (Integer) curr.data) {
+                    Object tmp = curr.data;
+                    curr.data = insertion.data;
+                    insertion.data = tmp;
+                }
+                else {
+                    insertion = insertion.next;
+                }
+
+            }
+
+            curr = curr.next;
+
+        }
+
+        System.out.println("+ Sorted : " + list.toString());
+
+    }
+
 }   // end of class SinglyLinkedList()
