@@ -46,7 +46,7 @@ public class LinkedList {
 		segregateList(list.first);
 		System.exit(0);
 
-		list.reverseList(list.first);
+		//list.reverseList(list.first);
 
 
 		deleteDupsOnUnsorted(list.first);
@@ -200,7 +200,7 @@ public class LinkedList {
 
 
 		p1 = head;
-		while (p1.nextLink != p2.nextLink) {		// difference between find the start and end point is comparing p1.next with p2.next;
+		while (p1.nextLink != p2.nextLink) {    // difference between find the start and end point is comparing p1.next with p2.next;
 			p1 = p1.nextLink;
 			p2 = p2.nextLink;
 		}
@@ -426,7 +426,7 @@ public class LinkedList {
 		System.out.println("+++ Head: " + head.data1 + " Tail: " + tailPivot);
 
 		/* Consider all odd nodes before the first even node
-	     and move then after end 
+	     and move them after end
 		 */
 		while ( ( (curr.data1 % 2) != 0) && (curr != tailPivot) ) {
 			new_end.nextLink = curr;
@@ -513,174 +513,9 @@ public class LinkedList {
 	}
 
 
-	// ###################################################################################################
-	/* Remove duplicates from a linked list
-	 * 
-	 */
-	public static void deleteDupsOnUnsorted (Link head) {
-		if (head == null)
-			return;
-		if (head.nextLink == null)
-			return;
-
-		Link previous = head;
-		Link current = head.nextLink;
-
-		while (current != null) {
-			Link runner = head;
-
-			while (runner != current) {
-
-				if (runner.data1 == current.data1) {
-					deleteNode(head, current.data1); 	// use deleteNode() so that it handles tail and head case appropriately
-					break;
-
-				} else {
-					runner = runner.nextLink;
-
-				}
-
-			} // end while (runner != current)
-
-			if (runner == current) {
-				previous = current;
-				current = current.nextLink;
-			}
-
-		}
-	} // end deleteOnUnsorted()
-
-	// ###################################################################################################
-	/*
-	 * To delete a node without using many other pointers possible only "when the node is at the center"
-	 */
-	public static void deleteWhenOnlyNodeProvide ( Link node ) {
-		if ( (node == null) || (node.nextLink == null) )
-			return;
-
-		node.data1 = node.nextLink.data1;
-		node.nextLink = node.nextLink.nextLink;
-
-	}
-
-	// ###################################################################################################
-	/* Remove duplicates from a linked list
-	 * 
-	 */
-	public static void deleteDuplicatesOnSorted (Link head) {
-		if (head == null)
-			return;
-
-		if (head.nextLink == null)
-			return;
-
-		Link previous = head;
-		Link current = head.nextLink;
-
-		while (current != null) {
-			if (previous.data1 == current.data1) {
-				deleteNode(head, current.data1);
-			}
-			previous = current;
-			current = current.nextLink;
-
-		}
-
-	}
 
 
 
-	// ###################################################################################################
-	/*	In-place swapping as below leaves out the last elements un-swapped
-	 * 
-	 */
-	public static void reverseInplace (Link head) {
-		LinkedList list = new LinkedList();
-
-		Link pivotHead = head;
-		Link prev = head;
-		Link curr = head.nextLink;
-
-
-		while (curr != null) {
-			prev.nextLink = curr.nextLink;
-			curr.nextLink = pivotHead;
-
-			pivotHead = curr;
-			curr = prev.nextLink;
-
-
-		}
-
-		first = pivotHead;
-		System.out.println("\n+ Final: ");
-		list.printList();	// debug
-
-	}
-
-	// ###################################################################################################
-	// adding a new node
-	public void addNode (int insertBefore, int d) {
-		Link current = null; Link previous = null; boolean found;
-		Link head = first;
-		Link tail = findTail(head);
-
-		if (!isEmpty()) {
-			current = first; found = false;
-
-			while ( ( current.nextLink != null ) && (!found) ) {
-
-				if ( current.data1 == insertBefore ) {
-					found = true;
-
-				} else {
-					previous = current;
-					current = current.nextLink;
-
-				}
-
-			}
-
-			if ( found ) {
-				if ( current.data1 == head.data1 ) {
-					System.out.println("+ Found:: Current: " + current.data1 + ";");
-					this.insert(d);
-
-				} else {
-					System.out.println("+ Found:: Current: " + current.data1 + "; Previous: " + previous.data1);
-					Link link = new Link(d);
-					previous.nextLink = link;
-					link.nextLink = current;
-
-				}
-
-			} else if ( ( current.data1 == tail.data1 ) && ( !found ) ) {
-				System.out.println("+ Warning: Invalid key search!!! :: Current: " + current.data1 + "; Previous: " + previous.data1);
-				insertAtTail(d);
-
-			} else {
-				System.out.println("+ Data node NOT found... !!!");
-
-			}
-
-		}
-
-	}
-
-
-	// ###################################################################################################
-	/*
-	 * 1. Delete from head/front - Default delete
-	 * 2. Delete from tail
-	 * 3. Delete the exact node
-	 */
-
-	// (1) default delete: deletes first node by default.
-	public static Link deleteFront () {
-		Link temp = first;
-		first = first.nextLink;
-		return temp;
-	}
 
 
 	// ###################################################################################################

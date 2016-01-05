@@ -32,13 +32,15 @@ public class TestLinkedList {
 
 
         /* Create linked list out of a array list */
-        ArrayList<Object> values1 = new ArrayList<Object>(Arrays.asList(1, 2, 3, 4, 5, 6));
+        ArrayList<Object> values1 = new ArrayList<Object>(Arrays.asList(1, 3, 9, 4, 5, 3, 7, 7));
 
         SinglyLinkedList mainList = new SinglyLinkedList(values1);
         //SinglyLinkedList.reverse(mainList);
 
-        mainList.recursiveReverse(mainList.head);
-        System.out.println("+ Reversed linked list => " + mainList.toString());
+        //mainList.recursiveReverse(mainList.head);
+        //System.out.println("+ Reversed linked list => " + mainList.toString());
+
+        //System.out.println("Tail node: " + SinglyLinkedList.findTailRecursively(mainList.head));
 
 
 //        ArrayList<Object> values2 = new ArrayList<Object>(Arrays.asList('a', 'b', 'c'));
@@ -49,6 +51,19 @@ public class TestLinkedList {
 //        SinglyLinkedList.makeIntersectingList(mainList, subList, 3); // force intersect lists
 //        SinglyLinkedList.getIntersectionPoint(mainList, subList); // find intersection
 
+
+
+        //SinglyLinkedList.circularLinkedListMeetingPoint(mainList);
+        //SinglyLinkedList.makeCyclicLinkedList(mainList.head, 3);
+
+        //System.out.println(mainList.toString());
+        //SinglyLinkedList.circularLinkedListMeetingPoint(mainList);
+
+        //SinglyLinkedList.segregateEvenAndOdd(mainList);
+        //SinglyLinkedList.evenAndOdd(mainList);
+
+        SinglyLinkedList.deleteDuplicatesOnSorted(mainList);
+        SinglyLinkedList.deleteUnSortedDuplicates(mainList);
 
     }
 
