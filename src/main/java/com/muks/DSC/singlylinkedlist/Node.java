@@ -9,9 +9,10 @@ package com.muks.DSC.singlylinkedlist;
 
 public class Node {
     public Object data;
-    public Node first;
+    //public Node first;
     public Node next;
 
+    public Node() {}
     public Node(Object value) {
         this.data = value;
     }

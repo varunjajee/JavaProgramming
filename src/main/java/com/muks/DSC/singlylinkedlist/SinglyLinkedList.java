@@ -1,12 +1,14 @@
 package com.muks.DSC.singlylinkedlist;
 
+import com.muks.DSC.linkedlist.LinkedList;
+
 import java.util.List;
 import java.util.NoSuchElementException;
 
 /*
  * Created by mukthar.ahmed on 1/3/16.
  */
-public class SinglyLinkedList {
+public class SinglyLinkedList extends LinkedList {
     public Node head;
     public Node tail;
 
@@ -68,6 +70,8 @@ public class SinglyLinkedList {
     }
 
 
+
+
     /* insert in between */
     public void addNodeAfter(SinglyLinkedList linkedList, int toInsertAfter, Object nodeValue) {
         System.out.println("\nAdding another node after " + toInsertAfter);
@@ -98,7 +102,7 @@ public class SinglyLinkedList {
 
 
     /* Insert node or create linked list */
-    public void deleteByDefault() {     // this deletes tail node by default
+    public void deleteDefault() {     // this deletes tail node by default
         Node current = head;
         Node previous = null;
 

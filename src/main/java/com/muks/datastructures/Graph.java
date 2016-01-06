@@ -9,7 +9,7 @@
 //import java.util.Collection;
 //import java.util.List;
 //import java.util.Map;
-//import java.util.LinkedList;
+//import java.util.LinkedListBasics;
 //import java.util.HashMap;
 //import java.util.Iterator;
 //import java.util.NoSuchElementException;
@@ -71,7 +71,7 @@
 //    public int        scratch;// Extra variable used in algorithm
 //
 //    public Vertex( String nm )
-//      { name = nm; adj = new LinkedList( ); reset( ); }
+//      { name = nm; adj = new LinkedListBasics( ); reset( ); }
 //
 //    public void reset( )
 //      { dist = Graph.INFINITY; prev = null; pos = null; scratch = 0; }
@@ -181,7 +181,7 @@
 //        if( start == null )
 //            throw new NoSuchElementException( "Start vertex not found" );
 //
-//        LinkedList q = new LinkedList( );
+//        LinkedListBasics q = new LinkedListBasics( );
 //        q.addLast( start ); start.dist = 0;
 //
 //        while( !q.isEmpty( ) )
@@ -300,7 +300,7 @@
 //        if( start == null )
 //            throw new NoSuchElementException( "Start vertex not found" );
 //
-//        LinkedList q = new LinkedList( );
+//        LinkedListBasics q = new LinkedListBasics( );
 //        q.addLast( start ); start.dist = 0; start.scratch++;
 //
 //        while( !q.isEmpty( ) )
@@ -339,7 +339,7 @@
 //            throw new NoSuchElementException( "Start vertex not found" );
 //
 //        clearAll( );
-//        LinkedList q = new LinkedList( );
+//        LinkedListBasics q = new LinkedListBasics( );
 //        start.dist = 0;
 //
 //          // Compute the indegrees

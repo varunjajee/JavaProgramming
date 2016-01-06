@@ -20,7 +20,7 @@ public class TestLinkedList {
         //System.out.println("Head: " + singlyLinkedList.head);   // get head
         //System.out.println("Tail: " + singlyLinkedList.tail);   // get tail
 
-        //singlyLinkedList.deleteByDefault();
+        //singlyLinkedList.deleteDefault();
         //System.out.println(singlyLinkedList.toString());
 
         //System.out.println("+ Size: " + singlyLinkedList.size(singlyLinkedList.head));
@@ -79,6 +79,7 @@ public class TestLinkedList {
         //SinglyLinkedList.mergeLinkedListRecursion(mainList, subList);
         //SinglyLinkedList.rotateList(mainList, 4);
         SinglyLinkedList.sortLinkedlist(mainList);
+
 
     }
 
