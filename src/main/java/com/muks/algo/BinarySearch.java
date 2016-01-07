@@ -45,7 +45,7 @@ public class BinarySearch {
 			return 0; 
 			
 		} else {
-				int mid = (low + high)/2;
+				int mid = (low + high)/2;	// low + (high - low)/2
 				if (k == arr[mid]) {
 					return mid;
 				

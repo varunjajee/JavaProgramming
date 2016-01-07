@@ -9,11 +9,11 @@ public class ArrayStack implements Stack {
 	 * 
 	 */
 	
-	public static final int CAPACITY = 1024;	// this is the default capactiy for the stack
+	public static final int CAPACITY = 1024;	// this is the default capactiy for the Stack
 	 
-	private int N;			// or the non default capacity of the stack is - "N" 
-	private Object S [];	// S - is the array of the stack objects
-	private int t = -1;		// is the top element of the stack, initially its if empty, hence t = "-1"
+	private int N;			// or the non default capacity of the Stack is - "N"
+	private Object S [];	// S - is the array of the Stack objects
+	private int t = -1;		// is the top element of the Stack, initially its if empty, hence t = "-1"
 	
 	
 	//public static void main(String[] args) throws StackFullException, StackEmptyException {
@@ -22,7 +22,7 @@ public class ArrayStack implements Stack {
 		
 		q.myStack();
 		
-		// emptying the stack
+		// emptying the Stack
 		//q.pEmptyMyStack();
 		//q.pEmptyMyStack();
 		
@@ -33,7 +33,7 @@ public class ArrayStack implements Stack {
 	}	
 	
 	// ###################################################################################################
-	// print the entire stack
+	// print the entire Stack
 	
 	public void pEmptyMyStack () throws StackEmptyException {
 		if (size() < 1) { new StackEmptyException("The stack is empty"); }
@@ -46,13 +46,13 @@ public class ArrayStack implements Stack {
 	}
 	
 	// ###################################################################################################
-	// this is to initialize the stack with default capacity
+	// this is to initialize the Stack with default capacity
 	public ArrayStack() throws StackFullException {
 		this(CAPACITY);
 	}
 
 	// ###################################################################################################
-	// this is to initilize the stack with given capacity "int cap"
+	// this is to initilize the Stack with given capacity "int cap"
 	public ArrayStack(int cap) throws StackFullException {
 		N = cap;
 		S = new Object[N];
@@ -81,7 +81,7 @@ public class ArrayStack implements Stack {
 	
 	
 	// ###################################################################################################
-	// size() getting the size of the stack
+	// size() getting the size of the Stack
 	public int size() {
 		return (t+1); // index + 1
 	}
@@ -112,7 +112,7 @@ public class ArrayStack implements Stack {
 	
 	
 	// ###################################################################################################
-	// pop() removes the top most element from stack
+	// pop() removes the top most element from Stack
 	public Object pop() throws StackEmptyException {
 		Object elem;
 		
@@ -132,7 +132,7 @@ public class ArrayStack implements Stack {
 	}
 	
 	// ###################################################################################################
-	// Method to print the entire stack
+	// Method to print the entire Stack
 	
 	public void myStack() {
 		if (size() < 0) { new StackEmptyException("The stack is empty!!!");	}

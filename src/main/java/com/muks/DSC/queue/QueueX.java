@@ -1,4 +1,4 @@
-package com.muks.DSC.queue;
+package com.muks.DSC.Queue;
 
 import java.util.NoSuchElementException;
 
@@ -18,17 +18,17 @@ public class QueueX {
         rear = -1;
     }
 
-    /*  Function to check if queue is empty */
+    /*  Function to check if Queue is empty */
     public boolean isEmpty() {
         return front == -1;
     }
 
-    /*  Function to check if queue is full */
+    /*  Function to check if Queue is full */
     public boolean isFull() {
         return front==0 && rear == size -1 ;
     }
 
-    /*  Function to get the size of the queue */
+    /*  Function to get the size of the Queue */
     public int getSize() { return len; }
 
     public int peek() {
@@ -38,7 +38,7 @@ public class QueueX {
         return Queue[front];
     }
 
-    /*  Function to insert an element to the queue */
+    /*  Function to insert an element to the Queue */
     public void insert(int i) {
         if (rear == -1) {
             front = 0;
@@ -54,7 +54,7 @@ public class QueueX {
         len++ ;
     }
 
-    /*  Function to remove front element from the queue */
+    /*  Function to remove front element from the Queue */
 
     public int remove() {
         if (isEmpty()) {
@@ -72,7 +72,7 @@ public class QueueX {
         }
     }
 
-    /*  Function to display the status of the queue */
+    /*  Function to display the status of the Queue */
 
     public void display() {
         System.out.print("\nQueue = ");

@@ -10,7 +10,7 @@ public class BinarySearchTree {
 	 * Is a binary tree where each node has 2 children.
 	 * Height of the binary tree is max when each node has 2 children and min when each node has 4 children
 	 * 
-	 * Binary Search Tree: (Defination):
+	 * Binary Search TreeNode: (Defination):
 	 * 	A binary search tree is a binary tree which has search property on it.
 	 * 
 	 * 		BINARY SEARCH PROPERTY:

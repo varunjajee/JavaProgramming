@@ -15,8 +15,10 @@ public class FactorialByRecursion {
 	 * Logic:
 	 * -----
 	 * Factorial of 5 ( 5! ) => 5x4x3x2x1 = 120 
-	 * 
-	 * 
+	 *
+	 *
+	 * Explaination on how recursive fuctions work ???
+	 * Link = http://www.programmerinterview.com/index.php/recursion/explanation-of-recursion/
 	 */
 	
 	

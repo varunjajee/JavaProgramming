@@ -1,4 +1,4 @@
-package com.muks.DSC.stack;
+package com.muks.DSC.Stack;
 
 /*
  * Created by mukthar.ahmed on 1/1/16.
@@ -18,11 +18,11 @@ public class TestStack {
             System.out.println("+ Size=" + stack.getSize());
             stack.display(stack);
 
-//            System.out.println("+ Pop'd # 1 = " + stack.pop());
-//            System.out.println("+ Pop'd # 2 = " + stack.pop());
-//            System.out.println("+ Pop'd # 3 = " + stack.pop());
-//            System.out.println("+ Pop'd # 4 = " + stack.pop());
-            //System.out.println("+ Pop'd # 5 = " + stack.pop());
+//            System.out.println("+ Pop'd # 1 = " + Stack.pop());
+//            System.out.println("+ Pop'd # 2 = " + Stack.pop());
+//            System.out.println("+ Pop'd # 3 = " + Stack.pop());
+//            System.out.println("+ Pop'd # 4 = " + Stack.pop());
+            //System.out.println("+ Pop'd # 5 = " + Stack.pop());
 
         } catch (Exception e) {
             e.printStackTrace();

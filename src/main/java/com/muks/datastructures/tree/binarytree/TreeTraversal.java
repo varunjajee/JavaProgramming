@@ -4,7 +4,7 @@ public class TreeTraversal {
 
 	/**
 	 * 
-	 * Tree walk/traversal is a way of visiting all the nodes in a tree in a specified order
+	 * TreeNode walk/traversal is a way of visiting all the nodes in a tree in a specified order
 	 * 
 	 * Pre-order: processes each node before processing its children
 	 * 

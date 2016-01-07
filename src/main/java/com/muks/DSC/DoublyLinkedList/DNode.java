@@ -4,12 +4,10 @@ package com.muks.DSC.DoublyLinkedList;
  * Created by mukthar.ahmed on 1/6/16.
  */
 
-import com.muks.DSC.singlylinkedlist.Node;
+import com.muks.DSC.SinglyLinkedList.Node;
 
 public class DNode extends Node{
-
     public Object data;
-    //public DNode fist;
     public DNode next;
     public DNode previous;
 

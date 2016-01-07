@@ -14,13 +14,13 @@ public class TreeNotes {
 	 * "Degree" = degree of the tree is "the number of children a node has..
 	 * 
 	 * 
-	 * Ordered Tree:
+	 * Ordered TreeNode:
 	 * ------------
 	 * An ordered tree in one in which children of each node are ordered. Say a family tree where 
 	 * eldest child is towards left an youngest towards right - some ordered.
 	 * 
 	 * 
-	 * Binary Tree:
+	 * Binary TreeNode:
 	 * ------------
 	 * Binary tree is a ordered tree where each node has a left child and a right child.
 	 * Binary tree is a ordered tree where every node has atmost 2 child.

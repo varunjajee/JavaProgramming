@@ -1,6 +1,6 @@
-package com.muks.DSC.singlylinkedlist;
+package com.muks.DSC.SinglyLinkedList;
 
-import com.muks.DSC.linkedlist.LinkedList;
+import com.muks.DSC.LinkedList.LinkedList;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -300,7 +300,6 @@ public class SinglyLinkedList extends LinkedList {
 
         while (current.next != null) {
             nextNode = current.next;
-            System.out.println("Next: " + nextNode);
 
             current.next = newTail;
             newTail = current;
@@ -308,9 +307,11 @@ public class SinglyLinkedList extends LinkedList {
 
             System.out.println("Current: " + current + ", NewTail: " + newTail);
         }
-        current.next = newTail;
 
+        current.next = newTail;
         linkedList.head = current;  // This line is important coz headless list will not be reversed
+
+
 
         System.out.println(linkedList.toString());
     }
@@ -332,7 +333,7 @@ public class SinglyLinkedList extends LinkedList {
             return;
         }
 
-        /* Step 3 : traverse the entire list pushing it to stack */
+        /* Step 3 : traverse the entire list pushing it to Stack */
         recursiveReverse(curr.next);
 
         // curr.next still points to the last element of reversed sub-list.
@@ -792,15 +793,14 @@ public class SinglyLinkedList extends LinkedList {
         }
         Node first = mergeLinkedListRecursive(list1.head, list2.head);
 
+
+        // Print the linked list using head
         Node current = first;       // try to get head by using instance object 'this.head'
-
-
         StringBuilder sb = new StringBuilder("\nDisplay LinkedList: [ -HEAD -> ");
         while ( current != null ) {
             sb.append(current.data + " -> ");
             current = current.next;
         }
-
         sb.append("NULL");
         System.out.println(sb.toString());
 

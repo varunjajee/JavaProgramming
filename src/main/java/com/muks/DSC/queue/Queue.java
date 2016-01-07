@@ -1,11 +1,11 @@
-package com.muks.DSC.queue;
+package com.muks.DSC.Queue;
 
 /*
  * Created by mukthar.ahmed on 1/1/16.
  *
  * - Operates as FIFO
- * - Enqueue - inserting elements at the rearIndex of the queue
- * - Dequeue - removing/poping out elements from the frontIndex of the queue
+ * - Enqueue - inserting elements at the rearIndex of the Queue
+ * - Dequeue - removing/poping out elements from the frontIndex of the Queue
  * - peek( ) function is oftenly used to return the value of first element without dequeuing it.
  *
  */
@@ -20,33 +20,33 @@ public class Queue {
 
     public Queue(int size) {
         capacity = size;
-        queue = new Object[size];  // init queue with the required size
+        queue = new Object[size];  // init Queue with the required size
 
         // set total elements
         frontIndex = -1;
         rearIndex = -1;
         totalItems = 0;
 
-        System.out.println("+ Queue: Initialized queue with size - " + size
+        System.out.println("+ Queue: Initialized Queue with size - " + size
                 + ", length - " + queue.length );
     }   // end constructor
 
     public Queue(int size, String name) {
         this.name = name;
         capacity = size;
-        queue = new Object[size];  // init queue with the required size
+        queue = new Object[size];  // init Queue with the required size
 
         // set total elements
         frontIndex = -1;
         rearIndex = -1;
         totalItems = 0;
 
-        System.out.println("+ Queue: Initialized queue with size - " + size
+        System.out.println("+ Queue: Initialized Queue with size - " + size
                 + ", length - " + queue.length );
     }   // end constructor
 
 
-    // Put an item to the "END OF THE" queue
+    // Put an item to the "END OF THE" Queue
     public void enqueue(Object queueItem) throws Exception {
         if (rearIndex+1 >= capacity) {
             throw new IndexOutOfBoundsException("Overflow Exception");
@@ -68,7 +68,7 @@ public class Queue {
     }
 
 
-    // pop element from "FRONT" of the queue
+    // pop element from "FRONT" of the Queue
     public Object dequeue() throws Exception {
         StringBuilder sb = new StringBuilder(name
                 + " => Dequeue: Front=" + frontIndex + ", Rear=" + rearIndex);

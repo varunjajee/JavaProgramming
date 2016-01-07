@@ -1,4 +1,4 @@
-package com.muks.DSC.stack;
+package com.muks.DSC.Stack;
 
 /*
  * Created by mukthar.ahmed on 1/1/16.
@@ -14,12 +14,12 @@ package com.muks.DSC.stack;
  *      -   To reverse a word. Insert all elements in right order and pop out for reversal
  *      -   "Undo" mechanism of any text editor.
  *
- *  - Backtracking purposes/usages, all use stack where most recent changes are to be tracked.
+ *  - Backtracking purposes/usages, all use Stack where most recent changes are to be tracked.
  *
  *  - Language processing usages
- *      - spaces for parameters and local variables are created internally using stack
- *      - compiler syntax checks for matching braces is implemented using stack
- *      - support for recursion (is developed using stack)
+ *      - spaces for parameters and local variables are created internally using Stack
+ *      - compiler syntax checks for matching braces is implemented using Stack
+ *      - support for recursion (is developed using Stack)
  */
 
 public class Stack {
@@ -57,7 +57,7 @@ public class Stack {
     public int getSize() { return stackSize; }
 
     public void display(Stack stack) {
-        System.out.println("\n### Printing stack of size=" + stack.getSize() + " ###");
+        System.out.println("\n### Printing Stack of size=" + stack.getSize() + " ###");
         StringBuilder sb = new StringBuilder();
 
         int i = stack.getSize();

@@ -5,7 +5,7 @@ package com.muks.oopsandjava.concepts.threads.semaphore.singleconsumer;
  */
 
 class Producer extends Thread {
-    ProductQueue prodQ; // producer queue/semaphore name
+    ProductQueue prodQ; // producer Queue/semaphore name
 
     Producer(ProductQueue q) {
         this.prodQ = q;

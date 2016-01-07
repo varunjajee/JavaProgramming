@@ -10,7 +10,13 @@ public class TestDoublyLinkedList {
         doublyLinkedList.insertDefault(1);
         doublyLinkedList.insertDefault(2);
         doublyLinkedList.insertDefault(3);
+        doublyLinkedList.insertDefault(4);
 
-        System.out.println(doublyLinkedList.toString());
+        System.out.println("+ List: " + doublyLinkedList.toString());
+        DoublyLinkedList.reverseDLL(doublyLinkedList);
+        System.out.println("+ size = " + doublyLinkedList.getSize());
+
+
+
     }
 }

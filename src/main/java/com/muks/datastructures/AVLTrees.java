@@ -6,7 +6,7 @@ public class AVLTrees {
 	 * and the height of the tree can be very bad too, as bad a o(n)
 	 * 
 	 * 
-	 * AVL Tree - as called as height balanced tree
+	 * AVL TreeNode - as called as height balanced tree
 	 * 	AVL Inveriant - Height Invariant property: At any given "node" in the tree, the "heights of the left and right subtrees differ by at most 1"
 	 * 
 	 *  What ever the rotation is taken to balance the tree, the inorder variant should satisfy.

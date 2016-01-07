@@ -41,7 +41,7 @@
 //    }
 //}
 //
-//// Represents an entry in the priority queue for Dijkstra's algorithm.
+//// Represents an entry in the priority Queue for Dijkstra's algorithm.
 //class Path implements Comparable
 //{
 //    public Vertex     dest;   // w
@@ -319,7 +319,7 @@
 //                {
 //                    w.dist = v.dist + cvw;
 //                    w.prev = v;
-//                      // Enqueue only if not already on the queue
+//                      // Enqueue only if not already on the Queue
 //                    if( w.scratch++ % 2 == 0 )
 //                        q.addLast( w );
 //                    else
