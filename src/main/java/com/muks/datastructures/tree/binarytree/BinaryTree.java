@@ -99,8 +99,8 @@ public class BinaryTree {
 		b1.right.right.right = new BNode(9);
 		b1.right.right.left = new BNode(7);
 
-		BinaryTreeProblems.printLevelOrder(b1);
-		BinaryTreeProblems.printVerticleOrder(b1);
+//		BinaryTreeProblems.printLevelOrder(b1);
+//		BinaryTreeProblems.printVerticleOrder(b1);
 		System.exit(0);
 
 		BNode.printTree(b1);
@@ -220,27 +220,6 @@ public class BinaryTree {
 
 
 	} // end main()
-
-
-	// #######################################################################################################
-	// Sum of all nodes excluding the leaf nodes
-	public static int sumFromNodesExcludingLeaves(BNode node, int sum) {
-		if (node == null) {
-			return 0;
-		}
-
-		if (node.left == null && node.right == null) {
-			return 0;
-		}
-
-		sumFromNodesExcludingLeaves(node.left, sum);
-		sumFromNodesExcludingLeaves(node.right, sum);
-
-		sum = sum + node.value;
-
-		return sum;
-
-	}	// sumFromNodesExcludingLeaves()
 
 
 	// #######################################################################################################
@@ -1093,6 +1072,8 @@ public class BinaryTree {
 		return leavesList;
 
 	}	// end BFSPrint
+
+
 
 	Stack<BNode> myQueue = new Stack<BNode>();
 	public void printNodesByLevelNull(BNode node) {
