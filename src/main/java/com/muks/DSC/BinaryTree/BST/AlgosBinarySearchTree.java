@@ -435,9 +435,14 @@ public class AlgosBinarySearchTree {
     }
 
 
-
-
-    // ================================================================================
+    /* ================================================================================
+    (1)  Call Mirror for left-subtree    i.e., Mirror(left-subtree)
+    (2)  Call Mirror for right-subtree  i.e., Mirror(right-subtree)
+    (3)  Swap left and right subtrees.
+          temp = left-subtree
+          left-subtree = right-subtree
+          right-subtree = temp
+     */
     
     // mirror or rotate a binary tree at its root
     public static void mirrorTree(TreeNode node) {
@@ -533,66 +538,16 @@ public class AlgosBinarySearchTree {
     }*/
 
 
-    // ================================================================================#########
-    // Get the Lowest Common Ancestor of 2 nodes
-    // from the node, traverse up till the root node, see if the nodes match while traversing up
-    public static TreeNode LCA(TreeNode root, TreeNode a, TreeNode b){
-        TreeNode left = null, right = null;
-        if(root==null) {
-            return root;
-        }
-        if(root==a || root==b) {
-            return root;
-        }
-        left=LCA(root.left,a,b);
-        right=LCA(root.right,a,b);
+	/* ============================================================================================
+	    - Distance(X, Y) = Distance(root, X) + Distance(root, Y) — 2 x (Distance(root to LCA(X,Y) )
 
-        if(left!=null && right!=null) {
-            return root;
-        }
-        return (left!=null)?left:right;
-    }
+	    => Eg:
+	        Distance(root, 20) = 2
+            Distance(root, 45) = 3
+            LCA(20, 45) = 10
+            Distance(root, 10) = 1
 
-
-    public TreeNode findLCA(TreeNode root, TreeNode p, TreeNode q) {
-
-        // no root no LCA.
-        if(root == null) {
-            return null;
-        }
-
-        // if either p or q is the root then root is LCA.
-        if(root == p || root==q) {
-            return root;
-        } else {
-            // get LCA of p and q in left subtree.
-            TreeNode l = findLCA(root.left , p , q);
-
-            // get LCA of p and q in right subtree.
-            TreeNode r = findLCA(root.right , p, q);
-
-            // if one of p or q is in leftsubtree and other is in right
-            // then root it the LCA.
-            if(l != null && r != null) {
-                return root;
-            }
-            else {		// else if l is not null, l is LCA.
-                TreeNode temp = (l != null) ? l:r;
-                return temp;
-            }
-
-        }
-    }
-
-
-
-
-	/* ================================================================================##############
-	 * 1. We will first find out the path of the two nodes from root using recursive path finding algorithm.
-	 * 2. Now we will traverse simultaneously along the two paths till we find a mismatch.
-	 * 3. Then we know the size of the two paths, so we can easily calculate the distance by the formula,
-	 * 	  => length of path1 + length of path2 - 2*length of the common part
-	 *
+            Finally => Distance(20,45) = 2+3 — 2*1 = 3
 	 */
 
     private static int findDistanceBtwn2Nodes(TreeNode root, int val1, int val2) {
@@ -624,15 +579,22 @@ public class AlgosBinarySearchTree {
 
     }
 
-    // method to fetch path to the given node
-    private static boolean findPath(TreeNode root, int value, List<TreeNode> path) {
+
+    /* =======================================================================================
+        Logic: to fetch path to a given node from root
+        - Finds the path from root node to given node of the tree, while traversing, store all
+        the traversed nodes into Vector<TreeNode> or List<TreeNode>
+
+        - Return true if path exists otherwise false with returning root node back
+     */
+    static boolean findPath(TreeNode root, int value, List<TreeNode> path) {
         if (root == null) {
             return false;
         }
 
-        path.add(root);
+        path.add(root);     // Add the node to path traversed List<TreeNode>
 
-        if (root.data == value) {
+        if (root.data == value) { //if found, return true and the list will have all nodes traversed
             return true;
         }
 
@@ -640,12 +602,41 @@ public class AlgosBinarySearchTree {
             return true;
         }
 
+        /* Even till here, if node not found, remove root node as well and
+         return empty List<TreeNode> with size = 0
+        */
+
         path.remove(root);
         return false;
-
     }
 
 
+
+    // =========================================================================================
+    /*
+        Following is simple O(n) algorithm to find LCA of n1 and n2.
+            1) Find path from root to n1 and store it in a vector or array.
+            2) Find path from root to n2 and store it in another vector or array.
+            3) Traverse both paths till the values in arrays are same. Return the common element 
+            just before the mismatch.
+     */
+    static int findLowestCommonAncestor(TreeNode root, int p, int q) {
+        List<TreeNode> pathP = new ArrayList<>();
+        List<TreeNode> pathQ = new ArrayList<>();
+
+        if (!findPath(root, p, pathP) || !findPath(root, q, pathQ)) {
+            return -1;
+        }
+
+        /* Compare the paths to get the first different value */
+        int i;
+        for (i = 0; i < pathP.size() && i < pathQ.size() ; i++)
+            if (pathP.get(i) != pathQ.get(i))
+                break;
+
+        return pathP.get(i-1).data;
+
+    }
 
 
 

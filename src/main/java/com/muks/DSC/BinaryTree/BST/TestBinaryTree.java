@@ -5,6 +5,9 @@ package com.muks.DSC.BinaryTree.BST;
  */
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestBinaryTree {
 
 
@@ -71,10 +74,16 @@ public class TestBinaryTree {
 
         //AlgosBinarySearchTree.printTopView(myTree);
 
+//        BinarySearchTree.inOrderTraversal(myTree);
+//        AlgosBinarySearchTree.mirrorTree(myTree);
+        List<TreeNode> mylist = new ArrayList<>();
         BinarySearchTree.inOrderTraversal(myTree);
-        AlgosBinarySearchTree.mirrorTree(myTree);
-        System.out.println("\n");
-        BinarySearchTree.inOrderTraversal(myTree);
+        AlgosBinarySearchTree.findPath(myTree, 6, mylist);
+        System.out.println(mylist.toString());
+
+        System.out.println("+ LCA = "
+                + AlgosBinarySearchTree.findLowestCommonAncestor(myTree, 1, 9) );
+
 
         //System.out.println("===== " + AlgosBinarySearchTree.postOrder(myTree, 2));
 
