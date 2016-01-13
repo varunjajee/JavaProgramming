@@ -550,34 +550,29 @@ public class AlgosBinarySearchTree {
             Finally => Distance(20,45) = 2+3 — 2*1 = 3
 	 */
 
-    private static int findDistanceBtwn2Nodes(TreeNode root, int val1, int val2) {
-        List<TreeNode> path1 = new ArrayList<TreeNode>();
-        List<TreeNode> path2 = new ArrayList<TreeNode>();
+    public static int findDistanceBtwn2Nodes(TreeNode root, int val1, int val2) {
+        List<TreeNode> path1 = new ArrayList<>();
+        List<TreeNode> path2 = new ArrayList<>();
+        List<TreeNode> path3 = new ArrayList<>();
 
         findPath(root, val1, path1);
         findPath(root, val2, path2);
 
-        System.out.println("\n+ size-path1: " + path1.size() + " - " + "size-path2: " + path2.size());
+        int lca = findLowestCommonAncestor(root, val1, val2);
+        findPath(root, lca, path3);
+
+        System.out.println("\n"
+                + "+ size-path1: " + path1.size()
+                + " - " + "size-path2: " + path2.size()
+                + " - " + "size-path3: " + path3.size());
 
         if (path1.size() == 0 || path2.size() == 0) {
             return -1;
         }
 
-        int index = 0;
-        for (; index < path1.size(); index++) {
+        return path1.size() + path2.size() - 2 * path3.size();
 
-            System.out.println(path1.get(index).data + " != " + path2.get(index).data);
-
-            if (path1.get(index) != path2.get(index)) {
-                break;
-            }
-
-        }
-
-        System.out.println("\n + size-path1: " + path1.size() + " - " + "size-path2: " + path2.size() + " index: " + index);
-        return path1.size() + path2.size() - 2 * index;
-
-    }
+    }   // end
 
 
     /* =======================================================================================
@@ -617,7 +612,7 @@ public class AlgosBinarySearchTree {
         Following is simple O(n) algorithm to find LCA of n1 and n2.
             1) Find path from root to n1 and store it in a vector or array.
             2) Find path from root to n2 and store it in another vector or array.
-            3) Traverse both paths till the values in arrays are same. Return the common element 
+            3) Traverse both paths till the values in arrays are same. Return the common element
             just before the mismatch.
      */
     static int findLowestCommonAncestor(TreeNode root, int p, int q) {
@@ -636,7 +631,7 @@ public class AlgosBinarySearchTree {
 
         return pathP.get(i-1).data;
 
-    }
+    }   // end
 
 
 

@@ -29,7 +29,7 @@ public class SortMergesort {
 		int[] left = new int[mid];	// length of left arr => 0-mid
 		int[] right;
 
-		// right arr lenght = mid, if len is even else mid+1 if len is odd
+		// right arr length = mid, if len is even else mid+1 if len is odd
 		if (arr.length % 2 == 0) {
 			right = new int[mid];
 		} else {
