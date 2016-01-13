@@ -1,6 +1,6 @@
-package com.muks.datastructures.tree.binarytree;
+package com.muks.DSC.BinaryTree.notes;
 
-public class TreeTraversal {
+public class Notes_TreeTraversal {
 
 	/**
 	 * 

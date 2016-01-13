@@ -41,7 +41,7 @@ public class ReflectionExample {
 
             // get all methods of the class including declared methods of
             // superclasses
-            // in that case, superclass of RentCar is the class java.lang.Object
+            // in that case, superclass of RentCar is the class javapack.lang.Object
             Method[] allmethods = rental.getMethods();
             System.out.println("Methods are: " + Arrays.toString(allmethods));
             for (Method method : allmethods) {

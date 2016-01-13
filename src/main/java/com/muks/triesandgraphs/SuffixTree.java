@@ -12,9 +12,9 @@
 //
 //
 //
-//28 import java.util.ArrayList;
-//29 import java.util.Collection;
-//30 import java.util.List;
+//28 import javapack.util.ArrayList;
+//29 import javapack.util.Collection;
+//30 import javapack.util.List;
 //31 import org.junit.Test;
 //32
 //33 public class SuffixTree {

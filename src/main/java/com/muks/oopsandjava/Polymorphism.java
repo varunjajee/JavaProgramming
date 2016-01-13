@@ -78,7 +78,7 @@
 //	}
 //
 //
-//	public String add(int x, int y){  //method 5	// this tends to be a valid case of over-riding. Ref: Cat.java
+//	public String add(int x, int y){  //method 5	// this tends to be a valid case of over-riding. Ref: Cat.javapack
 //		return  String.valueOf(x+y);
 //	}
 //

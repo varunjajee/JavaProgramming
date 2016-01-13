@@ -10,7 +10,7 @@ public class FindMaxOccurChar {
 
     }
 
-    // Using java DSC:
+    // Using javapack DSC:
     private static void findMaxOccurChar (String input) {
         System.out.println("+ Finding max occuring char by using java DSC.");
         char[] inChars = input.toCharArray();

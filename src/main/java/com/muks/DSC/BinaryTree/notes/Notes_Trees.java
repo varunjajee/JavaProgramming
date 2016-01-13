@@ -1,6 +1,6 @@
-package com.muks.datastructures.tree.binarytree;
+package com.muks.DSC.BinaryTree.notes;
 
-public class TreeNotes {
+public class Notes_Trees {
 
 	/**
 	 * NOTE:

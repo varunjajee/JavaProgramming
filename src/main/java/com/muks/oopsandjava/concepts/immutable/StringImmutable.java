@@ -37,23 +37,25 @@ public class StringImmutable {
 
 
         System.out.println("First Name: " + firstName
-                + "Refence Location: " + Integer.toHexString(System.identityHashCode(firstName)));
+                + ", Refence Location: " + Integer.toHexString(System.identityHashCode(firstName)));
 
         System.out.println("Second Name: " + secondName
-                + "Refence Location: " + Integer.toHexString(System.identityHashCode(secondName)));
+                + ", Refence Location: " + Integer.toHexString(System.identityHashCode
+                (secondName)));
 
         System.out.println("Third Name: " + thirdName
-                + "Refence Location: " + Integer.toHexString(System.identityHashCode(thirdName)));
+                + ", Refence Location: " + Integer.toHexString(System.identityHashCode(thirdName)));
 
 
         // Eg # 3: (Chars vary in their cases):
         String fourthName = "Mukthar"; // first char is in upper case
 
         System.out.println("First Name: " + firstName
-                + "Refence Location: " + Integer.toHexString(System.identityHashCode(firstName)));
+                + ", Refence Location: " + Integer.toHexString(System.identityHashCode(firstName)));
 
         System.out.println("Second Name: " + secondName
-                + "Refence Location: " + Integer.toHexString(System.identityHashCode(fourthName)));
+                + ", Refence Location: " + Integer.toHexString(System.identityHashCode
+                (fourthName)));
     }
 
 

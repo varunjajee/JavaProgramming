@@ -1,14 +1,14 @@
 package com.muks.datastructures;
 
-import com.muks.datastructures.tree.binarytree.TNode;
+import com.muks.DSC.Tries.TrieNode;
 
 public class Tries {
 
-	private static TNode root;
+	private static TrieNode root;
 
 
 	public Tries() {
-		root = new TNode(' ');
+		root = new TrieNode(' ');
 	}
 
 
@@ -16,19 +16,19 @@ public class Tries {
 	// insert method to insert a string into a trie
 
 	public static void insert (String s){
-		TNode current = root;
+		TrieNode current = root;
 
 		if(s.length()==0) { 	//For an empty character
 			current.marker=true;
 		}
 
 		for(int i = 0; i < s.length()-1; i++) {
-			TNode child = current.subNode(s.charAt(i));
+			TrieNode child = current.subNode(s.charAt(i));
 			if (child != null) {
 				current = child;
 
 			} else {
-				current.child.add(new TNode(s.charAt(i)));
+				current.child.add(new TrieNode(s.charAt(i)));
 				current = current.subNode(s.charAt(i));
 
 			}
@@ -45,7 +45,7 @@ public class Tries {
 	// ####################################################################################################
 	// Search in a trie
 	public static boolean search(String s){
-		TNode current = root;
+		TrieNode current = root;
 
 		while(current != null) {
 			for(int i=0;i<s.length();i++) {   

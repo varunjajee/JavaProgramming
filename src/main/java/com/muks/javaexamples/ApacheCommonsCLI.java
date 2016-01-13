@@ -7,7 +7,7 @@ import org.apache.commons.cli.*;
  * Created by mukthar.ahmed on 23/09/15.
  *
  * Usage:
- * java -cp mtap-lens-1.0-SNAPSHOT.jar com.inmobi.pso.mtap.lens.ApacheCommonsCLI -configFile /usr/bin
+ * javapack -cp mtap-lens-1.0-SNAPSHOT.jar com.inmobi.pso.mtap.lens.ApacheCommonsCLI -configFile /usr/bin
  */
 public class ApacheCommonsCLI {
 

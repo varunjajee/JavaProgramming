@@ -7,28 +7,39 @@ package com.muks.DSC.Queue;
 public class TestQueue {
 
     public static void main(String[] args) {
-        Queue queue = new Queue(3);
-        try {
-            queue.enqueue(1);
-            //Queue.dequeue();
-            queue.enqueue(2);
-            //Queue.dequeue();
-            queue.enqueue(3);
+//        Queue queue = new Queue(3);
+//        try {
+//            queue.enqueue(1);
+//            //Queue.dequeue();
+//            queue.enqueue(2);
+//            //Queue.dequeue();
+//            queue.enqueue(3);
+//
+//
+//            queue.display();
+//
+////            Queue.dequeue();
+////            Queue.dequeue();
+////            Queue.dequeue();
+//            //Queue.dequeue();  // this will trigger "Queue empty" exception
+//
+////            System.out.println("+ Peak() : " + Queue.peek());
+////            System.out.println("Is Queue empty = " + Queue.isEmpty() + ", size=" + Queue.getSize());
+//
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
 
-            queue.display();
+        QueueByStack Q = new QueueByStack();
+        Q.enqueue(1);
+        Q.enqueue(2);
+        Q.enqueue(3);
+        Q.enqueue(4);
 
-//            Queue.dequeue();
-//            Queue.dequeue();
-//            Queue.dequeue();
-            //Queue.dequeue();  // this will trigger "Queue empty" exception
-
-//            System.out.println("+ Peak() : " + Queue.peek());
-//            System.out.println("Is Queue empty = " + Queue.isEmpty() + ", size=" + Queue.getSize());
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        System.out.println("\n+ Dequeue = ["
+                + Q.dequeue() + ", " + Q.dequeue() + ", " + Q.dequeue() + ", " + Q.dequeue()
+        + "]");
 
     }
 }

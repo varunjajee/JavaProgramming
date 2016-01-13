@@ -1,4 +1,4 @@
-package com.muks.datastructures.tree.btree;
+package com.muks.DSC.BinaryTree.BTrees;
 
 public class BTrees {
 

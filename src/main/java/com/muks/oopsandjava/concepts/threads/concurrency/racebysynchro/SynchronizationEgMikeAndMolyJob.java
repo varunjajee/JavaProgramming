@@ -59,6 +59,7 @@ public class SynchronizationEgMikeAndMolyJob implements Runnable{
             Random random = new Random();
             int sleepTime = random.nextInt(500) + 510;
             System.out.println("+ Sleeping for - " + sleepTime);
+
             //Thread.sleep(sleepTime);
 
             System.out.println("+ Wake-up Call - "

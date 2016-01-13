@@ -3,7 +3,7 @@ package com.muks.algo.additionalalgos;
 public class MultiplyWithOnlyArethematicOps {
 	
 	public static void main(String[] args) {
-		System.out.println("+++ Product without arethematic operators: " + multiply(1, 4) );
+		System.out.println("+++ Product without arethematic operators: " + multiply(2, 4) );
 	}
 	
 	
@@ -19,3 +19,5 @@ public class MultiplyWithOnlyArethematicOps {
 		}
 	}
 }
+
+// 2 + 3 + 2 + 2

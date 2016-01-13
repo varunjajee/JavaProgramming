@@ -1,46 +1,51 @@
 package com.muks.oopsandjava.concepts.passbyvalue;
 
 /* Java is always - pass-by-value
- * http://javarevisited.blogspot.in/2012/12/does-java-pass-by-value-or-pass-by-reference.html
+
+    - http://www.javaranch.com/campfire/StoryPassBy.jsp    - Used in the below example
+
+    Points to remember:
+        -   int x = 3;
+        -   int y = x;
+            -> java is copying the value of 'x' to 'y'
+            -> instead of creating a new variable, java creates a copy of the reference.
+
+        Dog d = new Dog("funny");
+        Dog a = d;
+
+            -> The reference of 'd' is passed by even the reference is passed by value.
+            -> The value of the reference 'd' is passed and stored in 'a'
  */
 public class PassByRefConfusion {
 
     public static void main(String args[]) {
-        Car car = new Car("BMW");
-        System.out.println("Brand of Car Inside main() before: "+ car.brand);
-        printBrand(car);
-        System.out.println("Brand of Car Inside main()after: "+ car.brand);
+        // Eg-1
+        int x = 3;
+        int y = x;
+
+        System.out.println("+ x = " + x + ", y = " + y);
+
+
+        // Eg-2
+        Dog d1 = new Dog("funny");
+        Dog d2 = d1;
+        d2 = new Dog("boxer");
+
+        System.out.println("==== " +System.identityHashCode(d2));
+        System.out.println("==== " +System.identityHashCode(d1));
+
+        System.out.println("+ Dog-1 = " + d1.name + ", Dog-2 = " + d2.name);
     }
 
-    public static void printBrand(Car car){
-        car.brand = "Maruti";
-        System.out.println("Brand of Car Inside printBrand(): "+car.brand);
-    }
 
-    private static class Car {
-        private String brand;
+    // Dog class
+    static class Dog {
+        String name;
 
-        public Car(String brand){
-            this.brand = brand;
-        }
+        Dog(String name) {
+            this.name = name;
 
-    }
-
-
-    public static class PassByValueExample {
-
-        public static void receiving (int var) {
-            var = var + 2;
-            System.out.println("+ From \"receiving()\": " + var);
-        }
-
-
-        public static void main(String [] args) {
-            int passing = 3;
-
-            receiving(passing);
-
-            System.out.println("The value of passing is: " + passing);
         }
     }
+
 }

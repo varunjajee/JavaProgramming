@@ -1,4 +1,4 @@
-package com.muks.DSC.BinaryTree;
+package com.muks.DSC.BinaryTree.BST;
 
 /*
  * Created by mukthar.ahmed on 1/6/16.
@@ -6,6 +6,7 @@ package com.muks.DSC.BinaryTree;
 
 public class TreeNode {
     public int data;
+    public int hd;  // horizontal distance of a node from root node
     public TreeNode left, right;
 
     public TreeNode() {}

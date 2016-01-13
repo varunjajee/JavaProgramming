@@ -1,13 +1,13 @@
 //package datastructures;
 //
 //
-//import java.lang.String;
+//import javapack.lang.String;
 //
 ///**
 // * implements a trie for storing strings/string prefixes
 // *
 // * @author Owen Astrachan
-// * @version $Id: Trie.java,v 1.1 1996/12/01 00:07:21 ola Exp ola $
+// * @version $Id: Trie.javapack,v 1.1 1996/12/01 00:07:21 ola Exp ola $
 // *
 // */
 //

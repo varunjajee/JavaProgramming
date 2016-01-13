@@ -1,4 +1,4 @@
-package com.muks.DSC.BinaryTree;
+package com.muks.DSC.BinaryTree.BST;
 
 /*
  * Created by mukthar.ahmed on 1/6/16.
@@ -29,7 +29,7 @@ public class TestBinaryTree {
 
 
         int[] treeNodes = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        TreeNode myTree = BinarySearchTree.sortedArrayToBST(treeNodes, 0, treeNodes.length - 1);
+        TreeNode myTree = BinarySearchTree.createBalancedTree(treeNodes, 0, treeNodes.length - 1);
 //        System.out.println("+ Tree With Root =>\n\t\t\t\t" + myTree.toString());
 //        System.out.println("\t\t" + myTree.left + "\t\t\t\t" + myTree.right);
 //        System.out.println("\t" + myTree.left.left + "\t\t" + myTree.left.right);
@@ -63,10 +63,18 @@ public class TestBinaryTree {
 //        System.out.println(" Min = " + AlgosBinarySearchTree.getTreeMaxHeight(myTree));
 //        System.out.println("+ Is balanced = " + AlgosBinarySearchTree.isBalancedTree(myTree));
 
-        System.out.println("---");
-        System.out.println("+ 2nd largest element = ");
-                AlgosBinarySearchTree.findKthLargest(myTree, 7);
-        AlgosBinarySearchTree.findNthLargetst(myTree, 7);
+//        System.out.println("---");
+//        System.out.println("+ 2nd largest element = ");
+//                AlgosBinarySearchTree.findKthLargest(myTree, 7);
+//        AlgosBinarySearchTree.findNthLargetst(myTree, 7);
+
+
+        //AlgosBinarySearchTree.printTopView(myTree);
+
+        BinarySearchTree.inOrderTraversal(myTree);
+        AlgosBinarySearchTree.mirrorTree(myTree);
+        System.out.println("\n");
+        BinarySearchTree.inOrderTraversal(myTree);
 
         //System.out.println("===== " + AlgosBinarySearchTree.postOrder(myTree, 2));
 

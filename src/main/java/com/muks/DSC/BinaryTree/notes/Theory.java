@@ -1,4 +1,4 @@
-package com.muks.datastructures.tree;
+package com.muks.DSC.BinaryTree.notes;
 
 /*
  * Created by mukthar.ahmed on 17/06/15.

@@ -1,7 +1,7 @@
 //package oops;
 //
-//import java.util.HashMap;
-//import java.util.concurrent.Callable;
+//import javapack.util.HashMap;
+//import javapack.util.concurrent.Callable;
 //
 ///*
 // * Author: mukthar.ahmed

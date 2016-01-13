@@ -58,4 +58,4 @@ public class SegregateEvenAndOdd {
 	} // end swap()
 
 	
-} // end class SegregateEvenAndOdd.java
+} // end class SegregateEvenAndOdd.javapack

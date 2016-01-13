@@ -1,6 +1,6 @@
 package com.muks.algo;
 
-// this class will be extended @ Apple.java class
+// this class will be extended @ Apple.javapack class
 /*
  * One of the primary benefits of OOP is that you can create subclasses of (or extend) a class; 
  * the subclass then inherits all the properties and methods of the class. 

@@ -20,15 +20,15 @@ public class DictionaryBinarySearch {
 	 * 
 	 * 6. How can dictionay ADT can be implemented.
 	 * 		Arrays, linkedlist (inefficient)
-	 * 		Hash table (used in java)
+	 * 		Hash table (used in javapack)
 	 *  	Binary trees
 	 *  	Red/Black trees
 	 *  	AVL trees
 	 *  	B-trees
 	 *  
 	 *  In Java
-	 *  	java.adgenutils.Dictionary - Abstract class
-	 *  	java.util.Map - interface
+	 *  	javapack.adgenutils.Dictionary - Abstract class
+	 *  	javapack.util.Map - interface
 	 *  
 	 *  
 	 */

@@ -1,18 +1,18 @@
 //package datastructures;
 //
-//import java.io.FileReader;
-//import java.io.InputStreamReader;
-//import java.io.BufferedReader;
-//import java.io.IOException;
-//import java.util.StringTokenizer;
+//import javapack.io.FileReader;
+//import javapack.io.InputStreamReader;
+//import javapack.io.BufferedReader;
+//import javapack.io.IOException;
+//import javapack.util.StringTokenizer;
 //
-//import java.util.Collection;
-//import java.util.List;
-//import java.util.Map;
-//import java.util.LinkedListBasics;
-//import java.util.HashMap;
-//import java.util.Iterator;
-//import java.util.NoSuchElementException;
+//import javapack.util.Collection;
+//import javapack.util.List;
+//import javapack.util.Map;
+//import javapack.util.LinkedListBasics;
+//import javapack.util.HashMap;
+//import javapack.util.Iterator;
+//import javapack.util.NoSuchElementException;
 //
 //import weiss.nonstandard.PriorityQueue;
 //import weiss.nonstandard.PairingHeap;

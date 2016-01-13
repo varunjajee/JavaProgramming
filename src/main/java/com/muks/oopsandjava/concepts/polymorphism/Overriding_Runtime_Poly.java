@@ -2,7 +2,7 @@ package com.muks.oopsandjava.concepts.polymorphism;
 
 /*
  * Polymorphism:
- *      Overriding / Dynamic binding in java
+ *      Overriding / Dynamic binding in javapack
   *                 - is a example of run-time polymorphism
  *                  - It is the change in implementation of the methods
  *

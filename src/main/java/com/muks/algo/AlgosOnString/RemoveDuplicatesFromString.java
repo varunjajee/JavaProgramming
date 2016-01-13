@@ -1,6 +1,4 @@
-package AlgosOnString;
-
-import java.util.HashSet;
+package com.muks.algo.AlgosOnString;
 
 public class RemoveDuplicatesFromString {
 
@@ -24,15 +22,16 @@ public class RemoveDuplicatesFromString {
 
 	
 	
-	// #########################################################################################################
+	// ==========================================================================================
 	// Just using StringBuilder, substring check using indexOf == -1
 	public static String removeDuplicatesBySubstring(String s) {
 		StringBuilder resString = new StringBuilder();
 
 		for (int i = 0; i < s.length(); i++) {
 			String si = s.substring(i, i + 1);
+            System.out.println(si + " = " + resString.indexOf(si));
 
-			if (resString.indexOf(si) == -1) {
+            if (resString.indexOf(si) == -1) {
 				resString.append(si);
 			}
 
@@ -41,6 +40,7 @@ public class RemoveDuplicatesFromString {
 		return resString.toString();
 
 	}	// removeDuplicatesBySubstring
+
 
 	public static void printArray (char[] s) {
 		String a = "";

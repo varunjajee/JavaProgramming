@@ -70,36 +70,38 @@ public class QuickSort_DivideAndConquer {
     
     
     // Quick Sort Method
-    public static void quickSort(int[] a, int p, int r) {
-    	if (p < r) {
-    		int mid = partition(a, p, r);
-    		quickSort(a, p, mid);
-    		quickSort(a, mid+1, r);
+    public static void quickSort(int[] arr, int start, int end) {
+    	if (start < end) {
+    		int mid = partition(arr, start, end);
+    		quickSort(arr, start, mid);
+    		quickSort(arr, mid+1, end);
     	}
     }
-    
+
+    // 23,44,1,2009,2,88,123,7,999,1040,88
 
     // Partition method
-    public static int partition(int[] a, int p, int r) {
-    	int xPivotElem = a[p];
-    	int i = p-1;
-    	int j = r+1;
+    public static int partition(int[] arr, int start, int end) {
+    	int xPivotElem = arr[start];
+    	int i = start - 1;
+    	int j = end + 1;
 
     	while (true) {
     		i++;
-    		while (a[i] < xPivotElem) {
+    		while (arr[i] < xPivotElem) {
     			i++;
     		}
     		
     		
     		j--;
-    		while (a[j] > xPivotElem) {
+    		while (arr[j] > xPivotElem) {
     			j--;
     		}
     		
     		
     		if (i < j) {
-    			swap(a, i, j);
+				System.out.println("+ " + arr[i] + " - " + arr[j]);
+				swap(arr, i, j);
     		} else {
     			return j;
     		}

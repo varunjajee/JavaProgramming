@@ -15,7 +15,7 @@ public class StringPool {
 	 * 
 	 * 	Note: 
 	 * 	-----
-	 * 	.equals in java.lang.Object class is overridden at String class. .equals compares object contents, char by char
+	 * 	.equals in javapack.lang.Object class is overridden at String class. .equals compares object contents, char by char
 	 * 
 	 */
 	

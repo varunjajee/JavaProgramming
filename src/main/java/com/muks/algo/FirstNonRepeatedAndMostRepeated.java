@@ -32,7 +32,7 @@ public class FirstNonRepeatedAndMostRepeated {
 	// NOTE (Important) : Return type is "Character" object rather than char, is to allow us to return null if nothing is found. 
 	public static Character CharCountArray (String str, int place) {
 
-		int[] arrayStore = new int[128]; // limit = 128, this is a java dsc and its limited to ASCII character set which is of 128 characters
+		int[] arrayStore = new int[128]; // limit = 128, this is a javapack dsc and its limited to ASCII character set which is of 128 characters
 
 		// Initialize the array with 0 - char count
 		for (int i = 0; i < str.length(); i++) {

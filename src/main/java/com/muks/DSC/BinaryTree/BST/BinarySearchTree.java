@@ -1,4 +1,4 @@
-package com.muks.DSC.BinaryTree;
+package com.muks.DSC.BinaryTree.BST;
 
 /*
  * Created by mukthar.ahmed on 1/6/16.
@@ -56,50 +56,24 @@ public class BinarySearchTree {
                 - Root
                 - Right sub tree
      */
-    public static TreeNode sortedArrayToBST(int[] num) {
+    public static TreeNode createBalancedTree(int[] num) {
         if (num.length == 0)
             return null;
 
-        return sortedArrayToBST(num, 0, num.length - 1);
+        return createBalancedTree(num, 0, num.length - 1);
     }
 
-    public static TreeNode sortedArrayToBST(int[] num, int start, int end) {
+    public static TreeNode createBalancedTree(int[] num, int start, int end) {
         if (start > end)
             return null;
 
-        int mid = start + (end - start) / 2;
+        int mid = end + (start - end) / 2;
         TreeNode root = new TreeNode(num[mid]);
-        root.left = sortedArrayToBST(num, start, mid - 1);
-        root.right = sortedArrayToBST(num, mid + 1, end);
+        root.left = createBalancedTree(num, start, mid - 1);
+        root.right = createBalancedTree(num, mid + 1, end);
 
         return root;
     }
-
-
-    /*
-    // Binary tree from a sorted LinkedList
-    public TreeNode sortedListToBST(int start, int end) {
-        if (start > end)
-            return null;
-
-        // mid
-        int mid = (start + end) / 2;
-
-        TreeNode left = sortedListToBST(start, mid - 1);
-        TreeNode root = new TreeNode(h.val);
-        h = h.next;
-        TreeNode right = sortedListToBST(mid + 1, end);
-
-        root.left = left;
-        root.right = right;
-
-        return root;
-    }
-    */
-
-
-    /* Get total nodes of the BST */
-    public int getBstSize() { return size; }
 
 
     /*  =======================================================================================
@@ -255,7 +229,8 @@ public class BinarySearchTree {
 
 
 
-    // ============
+    /* =======================================================================================
+    */
     public static TreeNode getPredecessor(TreeNode rootNode, TreeNode node) {
         if (node == null) {
             return null;
@@ -274,9 +249,9 @@ public class BinarySearchTree {
         return parent;
     }
 
+
     /*  ===========================================================================================
         Delete a node from BST keeping the search property
-
 
         Case - 1 : Leaf node - no child
                 - Parent.left || parent.right = null

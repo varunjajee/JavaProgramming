@@ -4,7 +4,7 @@ public class LCSAlgorithm {
 
 
 	/*
-	 * LCSAlgorithm.java
+	 * LCSAlgorithm.javapack
 	 */
 
 	/**

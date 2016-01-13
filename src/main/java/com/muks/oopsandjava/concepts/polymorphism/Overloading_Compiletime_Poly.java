@@ -1,7 +1,7 @@
 package com.muks.oopsandjava.concepts.polymorphism;
 
 /*
- * Overloading - Static binding in java
+ * Overloading - Static binding in javapack
  *          - Is a example of compile time polymorphism
  *          - Change in the number of variables/arguments or its data-type or its return type.
  *

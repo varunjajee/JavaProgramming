@@ -1,8 +1,4 @@
 package com.muks.algo;
-import java.util.ArrayList;
-import java.util.List;
-
-
 public class FibonacciByRecursion {
 
 	/**
@@ -23,9 +19,17 @@ public class FibonacciByRecursion {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int i = 6;
-		System.out.println("\nResult from recursion: " + fibonacci(i));
+		int[] arr = new int[i];
+		for (int j=0; j < i; j++) {
+			arr[j] = fibonacci(j);
+		}
+
+		//System.out.println("\nResult from recursion: " + fibonacci(i));
+		for(int x : arr) {
+			System.out.println(x);
+		}
 		
-		System.out.println("\nResults from a formula type calculation: " + fib2(i) );
+		//System.out.println("\nResults from a formula type calculation: " + fib2(i) );
 		
 		//System.out.println( MyUtils.arrayToString(genSeriesByIteration(i)) );
 		
