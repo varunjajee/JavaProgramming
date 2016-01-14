@@ -32,7 +32,7 @@ public class KthSmallestElement {
 	public static void kthLargest(int[] arr, int k) {
 		int c=1;
 
-		for(int i=arr.length-1; i > 0; i--) {
+		for(int i = arr.length-1; i > 0; i--) {
 			if(c == k) {
 				System.out.println("kth Smallest with k=" + k + " is " + arr[i]);
 				break;

@@ -6,19 +6,19 @@ import java.util.HashMap;
  * Created by mukthar.ahmed on 1/10/16.
  */
 public class TrieNode {
-    char c;
+    char data;
     HashMap<Character, TrieNode> children = new HashMap<>();
     boolean isLeaf;
 
     public TrieNode() {
     }
 
-    public TrieNode(char c) {
-        this.c = c;
+    public TrieNode(char data) {
+        this.data = data;
     }
 
     public String toString() {
-        return "{" + c + "}";
+        return "{" + data + "}";
     }
 
 }

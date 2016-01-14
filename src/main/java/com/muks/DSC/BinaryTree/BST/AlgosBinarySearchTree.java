@@ -44,7 +44,7 @@ public class AlgosBinarySearchTree {
                 queue.add(current.left);
             }
 
-            if (current.right != null) {
+            else if (current.right != null) {
                 current.right.hd = hd+1;
                 queue.add(current.right);
             }
@@ -76,6 +76,8 @@ public class AlgosBinarySearchTree {
 
             hd = current.hd;
             System.out.println("+ Node = "  +current + ", hd = " + hd);
+
+            // adding to the traverse       map
             if (map.containsKey(hd)) {
                 map.get(hd).add(current.data);
             } else {
@@ -95,88 +97,54 @@ public class AlgosBinarySearchTree {
 
         System.out.println(map.toString());
     }
-    /* ==================================================================================
-     Print tree nodes in verticle order
-     DFS - Depth First Search
-    */
-    public static void printVerticleOrder(TreeNode root) {
-        System.out.println("\nPrint Verticle Order Traversal");
-        HashMap<Integer, ArrayList<Integer>> hMap = new HashMap<>();
-
-        int horizDepth = 0;
-        verticleOrderTraversal(root, horizDepth, hMap);
-
-        System.out.println("+ Verticle Order: " + hMap.toString() + "\n");
-    }
-
-
-    public static void verticleOrderTraversal(TreeNode node, int horizDepth,
-                                              HashMap<Integer, ArrayList<Integer>> hMap) {
-
-        // base case
-        if (node == null) {
-            return;
-        }
-
-        // keep populating hashmap based on the horizDepth distance travelled
-        if (hMap.get(horizDepth) == null) {
-            hMap.put(horizDepth, new ArrayList(Collections.singleton( node.data )));
-        } else {
-            hMap.get(horizDepth).add(node.data);
-        }
-
-        verticleOrderTraversal(node.left, horizDepth-1, hMap);
-        verticleOrderTraversal(node.right, horizDepth+1, hMap);
-
-    }
 
     /*  ==================================================================================
-        Level order traversal : Printing nodes at each leve of BST
+      Level order traversal : Printing nodes at each leve of BST
 
-        // BFS - Breadth First Search
-    */
+      // BFS - Breadth First Search
+  */
     public static void printLevelOrder(TreeNode root) {
         System.out.println("\n+ Print - Level order traversal.");
-
-        // store levels and their node datas
-        HashMap<Integer, ArrayList<Integer>> levelOrderTree = new HashMap<>();
-        ArrayList<Integer> nodedatas = new ArrayList<>();
-
-        int verticalDepth = 0;  // init tree root level = 0
 
         // base case
         if(root == null)
             return;
 
+
+        // store levels and their node datas
+        HashMap<Integer, ArrayList<Integer>> levelOrderTree = new HashMap<>();
+        ArrayList<Integer> allNodes = new ArrayList<>();
+
+
         // nodes at current level
-        Queue<TreeNode> currLevelNodesQ = new LinkedList<>();
-        currLevelNodesQ.add(root);
+        Queue<TreeNode> currQ = new LinkedList<>();
+        currQ.add(root);
 
         // nodes at next level
-        Queue<TreeNode> nextLevelNodesQ = new LinkedList<>();
+        Queue<TreeNode> nextQ = new LinkedList<>();
 
-
+        int verticalDepth = 0;  // init tree root level = 0
         levelOrderTree.put(verticalDepth, new ArrayList<Integer>(root.data));
 
-        while(!currLevelNodesQ.isEmpty()) {
-            TreeNode node = currLevelNodesQ.remove();
+        while(!currQ.isEmpty()) {
+            TreeNode node = currQ.remove();
 
             if(node.left != null)
-                nextLevelNodesQ.add(node.left);
+                nextQ.add(node.left);
 
             if(node.right != null)
-                nextLevelNodesQ.add(node.right);
+                nextQ.add(node.right);
 
-            nodedatas.add(node.data);
+            allNodes.add(node.data);
 
-            if(currLevelNodesQ.isEmpty()) {
-                currLevelNodesQ = nextLevelNodesQ;
-                nextLevelNodesQ = new LinkedList<>();
+            if(currQ.isEmpty()) {
+                currQ = nextQ;
+                nextQ = new LinkedList<>();
 
-                levelOrderTree.put(verticalDepth, new ArrayList(Collections.singleton(nodedatas)));
+                levelOrderTree.put(verticalDepth, new ArrayList(Collections.singleton(allNodes)));
                 verticalDepth++;
 
-                nodedatas = new ArrayList();
+                allNodes = new ArrayList();
             }
 
         }
@@ -184,6 +152,43 @@ public class AlgosBinarySearchTree {
         System.out.println("+ Level Order: " + levelOrderTree.toString());
 
     }   // end printLevelOrder()
+
+
+    /* ==================================================================================
+     Print tree nodes in verticle order
+     DFS - Depth First Search
+    */
+//    public static void printVerticleOrder(TreeNode root) {
+//        System.out.println("\nPrint Verticle Order Traversal");
+//        HashMap<Integer, ArrayList<Integer>> hMap = new HashMap<>();
+//
+//        int horizDepth = 0;
+//        verticleOrderTraversal(root, horizDepth, hMap);
+//
+//        System.out.println("+ Verticle Order: " + hMap.toString() + "\n");
+//    }
+//
+
+//    public static void verticleOrderTraversal(TreeNode node, int horizDepth,
+//                                              HashMap<Integer, ArrayList<Integer>> hMap) {
+//
+//        // base case
+//        if (node == null) {
+//            return;
+//        }
+//
+//        // keep populating hashmap based on the horizDepth distance travelled
+//        if (hMap.get(horizDepth) == null) {
+//            hMap.put(horizDepth, new ArrayList(Collections.singleton( node.data )));
+//        } else {
+//            hMap.get(horizDepth).add(node.data);
+//        }
+//
+//        verticleOrderTraversal(node.left, horizDepth-1, hMap);
+//        verticleOrderTraversal(node.right, horizDepth+1, hMap);
+//
+//    }
+
 
 
 
@@ -625,9 +630,12 @@ public class AlgosBinarySearchTree {
 
         /* Compare the paths to get the first different value */
         int i;
-        for (i = 0; i < pathP.size() && i < pathQ.size() ; i++)
-            if (pathP.get(i) != pathQ.get(i))
+        for (i = 0; i < pathP.size() && i < pathQ.size() ; i++) {
+            System.out.println(" - " +pathP.get(i) + " = " + pathQ.get(i));
+            if (pathP.get(i) != pathQ.get(i)) {
                 break;
+            }
+        }
 
         return pathP.get(i-1).data;
 

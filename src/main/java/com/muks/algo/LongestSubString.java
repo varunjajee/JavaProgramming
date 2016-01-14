@@ -2,8 +2,6 @@ package com.muks.algo;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import sun.security.action.GetLongAction;
-
 // http://www.ritambhara.in/longest-substring-of-unique-characters/
 
 /*
@@ -64,7 +62,9 @@ public class LongestSubString {
 		System.out.println("+ Longest: " + longestSubStr);
 		
 	} // findLongestSubStr()
-	
+
+
+
 	public static String findMax (String str1, String str2) {
 		
 		if ( str1.length() > str2.length() ) {
