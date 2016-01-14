@@ -56,7 +56,6 @@ public class Trie {
     public boolean search(String word) {
         TrieNode t = searchNode(word);
 
-        System.out.println("+ Search returned trie node = " + t.children);
         if (t != null && t.isLeaf)
             return true;
         else
@@ -113,9 +112,12 @@ public class Trie {
         else {
             for (char ch : node.children.keySet()) {
                 prefix += ch;
-                System.out.println("+ Before = " + prefix);
+
                 result.addAll(getAllWords(node.children.get(ch), prefix));
-                prefix = "";
+
+                // This step is required to go back to the pointer from where we diverged
+                prefix = prefix.substring(0, prefix.length()-1);
+
             }
         }
 
@@ -142,13 +144,16 @@ public class Trie {
                 }
             }
 
+            System.out.println("\n+ out now, node = " + node.toString());
+            System.out.println("children = " + node.children.toString());
+
             // till here, we would have reached last char of input prefix
             return wordsFromPrefix(node, prefix);
+
         }
 
         return result;
     }   // end ()
-
 
     /*  ========================================================================================
 
@@ -157,13 +162,18 @@ public class Trie {
         Set<String> result=new HashSet<>();
 
         if (node.isLeaf) {
+            System.out.println(" Base case = " + node.toString() + " ==== " + prefix);
             result.add(prefix);
+            System.out.println("+ Results = " + result.toString() + " \n");
             return result;
         }
-        else {
-            for (char ch : node.children.keySet()) {
-                prefix += ch;
 
+        else {
+            System.out.println(" = " + node.toString());
+            for (char ch : node.children.keySet()) {
+                System.out.println("+ prefix = " + prefix);
+                prefix += ch;
+                //System.out.println("+ Before = " + prefix);
                 result.addAll(wordsFromPrefix(node.children.get(ch), prefix));
                 prefix = prefix.substring(0, prefix.length()-1);
             }
