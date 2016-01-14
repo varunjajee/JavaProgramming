@@ -3,6 +3,7 @@ package com.muks.DSC.Tries;
 /*  Created by mukthar.ahmed on 1/13/16. */
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -14,7 +15,14 @@ public class Trie {
     }
 
 
-    // Inserts a word into the trie.
+    /* ===========================================================================================
+        Insert a char in to trie creating a node.
+
+        Logic:
+            - Iterate over each char of a given input string.
+            - for each char found, check if a node is already created from root, if not create one
+            - If already char node found, create next char as a child node of curr node
+     */
     public void insert(String word) {
         HashMap<Character, TrieNode> children = root.children;
 
@@ -38,7 +46,13 @@ public class Trie {
     }
 
 
-    // Returns if the word is in the trie.
+    /* ===========================================================================================
+       Search for a word and return true if found.
+
+       Logic:
+        - Iterate through the entire string, char-by-char
+        - If char found and isLeaf = true then its a word found else not.
+    */
     public boolean search(String word) {
         TrieNode t = searchNode(word);
 
@@ -49,15 +63,23 @@ public class Trie {
             return false;
     }
 
-    // Returns if there is any word in the trie
-    // that starts with the given prefix.
+
+    /* ===========================================================================================
+        Returns if there is any word in the trie that starts with the given prefix.
+     */
     public boolean startsWith(String prefix) {
-        if (searchNode(prefix) == null)
+        TrieNode foundNode = searchNode(prefix);
+        if ( foundNode == null)
             return false;
         else
-            return true;
+            System.out.println(foundNode.toString());
+        return true;
     }
 
+
+    /* ===========================================================================================
+       Search for word, traverse till the last char and return (for others to check if leaf)
+     */
     public TrieNode searchNode(String str) {
         Map<Character, TrieNode> children = root.children;
         TrieNode t = null;
@@ -77,139 +99,79 @@ public class Trie {
     }
 
 
+    /* =======================================================================================
+       Find all words in a trie
+     */
+    public Set<String> getAllWords(TrieNode node, String prefix) {
+        Set<String> result=new HashSet<>();
 
+        if (node.children.keySet().isEmpty()) {
+            System.out.println(" - " + prefix);
+            result.add(prefix);
 
-
-
-
-
-    public TrieNode Words(String str) {
-        Map<Character, TrieNode> children = root.children;
-        TrieNode t = null;
-
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-
-            if (children.containsKey(c)) {
-                t = children.get(c);
-                children = t.children;
-            } else {
-                break;
+        }
+        else {
+            for (char ch : node.children.keySet()) {
+                prefix += ch;
+                System.out.println("+ Before = " + prefix);
+                result.addAll(getAllWords(node.children.get(ch), prefix));
+                prefix = "";
             }
         }
 
-        while (!t.isLeaf) {
-            //t = children.get(c);
-            children = t.children;
-        }
-
-        System.out.println(t.toString());
-        return t;
+        return result;
     }
 
 
+    /* =======================================================================================
+       Return all words matching a prefix string.
+    */
+    public Set<String> prefixMatch(TrieNode node, String prefix) {
+        Set<String> result=new HashSet<>();
 
+        if (node.children.keySet().isEmpty()) {
+            result.add(prefix);
+        }
+        else {
+            for (int i = 0; i < prefix.length(); i++) {
+                HashMap<Character, TrieNode> children = node.children;
 
-
-    // The main method that finds out the longest string 'input'
-    public String getMatchingPrefix(String input)  {
-        String result = ""; // Initialize resultant string
-        int length = input.length();  // Find length of the input string
-
-        // Initialize reference to traverse through Trie
-        TrieNode crawl = root;
-
-        // Iterate through all characters of input string 'str' and traverse
-        // down the Trie
-        int level, prevMatch = 0;
-        for( level = 0 ; level < length; level++ ) {
-
-            // Find current character of str
-            char ch = input.charAt(level);
-
-            // HashMap of current Trie node to traverse down
-            HashMap<Character, TrieNode> child = crawl.children;
-            System.out.println(
-                    "+ children of - " + crawl.toString()+ " = " + child.toString() + ",ch = " +
-                            ch);
-
-            // See if there is a Trie edge for the current character
-            if ( child.containsKey(ch) ) {
-                System.out.println("+ am in..");
-                result += ch;          //Update result
-                crawl = child.get(ch); //Update crawl to move down in Trie
-
-                System.out.println(" - crawl now() = " + crawl.toString());
-
-
-                // If this is end of a word, then update prevMatch
-                if ( crawl.isLeaf ) {
-                    prevMatch = level + 1;
-                    System.out.println("+ found word = " + result);
+                char ch = prefix.charAt(i);
+                if (children.containsKey(ch)) {
+                    node = children.get(ch);
                 }
             }
-            else {
-                break;
-            }
+
+            // till here, we would have reached last char of input prefix
+            return wordsFromPrefix(node, prefix);
         }
 
-
-        // If the last processed character did not match end of a word,
-        // return the previously matching prefix
-        if( !crawl.isLeaf ) {
-            System.out.println("+ Node = " + crawl.toString());
-            System.out.println("+ Childs = " + crawl.children);
-
-            HashMap<Character, TrieNode> childs = null;
-            Set<Character> key = childs.keySet();
-
-//            for (char k : key) {
-//                while (!childs.get(k).isLeaf) {
-//                    crawl = childs.get(k);
-//                    childs = crawl.children;
-//                }
-//            }
-
-            return result.substring(0, prevMatch);
-        }
-        else {
-            return result;
-        }
-    }
+        return result;
+    }   // end ()
 
 
-    String getChilds(TrieNode node, String word) {
-        if (node == null) {
-            return "";
-        }
+    /*  ========================================================================================
+
+     */
+    public Set<String> wordsFromPrefix(TrieNode node, String prefix) {
+        Set<String> result=new HashSet<>();
 
         if (node.isLeaf) {
-            System.out.println("= f---");
-            System.out.println(word);
-            return (String.valueOf(node.data));
-
+            result.add(prefix);
+            return result;
         }
         else {
-            System.out.println("+ Node = " + node.toString());
-            System.out.println("+ building = " + word);
+            for (char ch : node.children.keySet()) {
+                prefix += ch;
 
-
-            HashMap<Character, TrieNode> keys = node.children;
-            System.out.println("keyset = " + keys);
-            for (Character c : keys.keySet()) {
-                System.out.println("======= node = " + keys.get(c));
-
-                word += getChilds(keys.get(c), word);
-
+                result.addAll(wordsFromPrefix(node.children.get(ch), prefix));
+                prefix = prefix.substring(0, prefix.length()-1);
             }
-            System.out.println("+ word = " + word);
         }
 
-        System.out.println("=- " + word);
-        return word;
+        return result;
 
-    }
-
+    }   // ()
 
 
-}
+}   // end class

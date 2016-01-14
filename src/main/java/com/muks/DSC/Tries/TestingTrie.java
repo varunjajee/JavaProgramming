@@ -6,11 +6,14 @@ package com.muks.DSC.Tries;
 
 public class TestingTrie {
     public static void main(String[] args) {
+
+        String[] inputWords = {"muktharahmed", "mukthar", "muks", "tea", "ted", "to"};
         Trie myTrie = new Trie();
-//        myTrie.insert("tea");
-//        myTrie.insert("to");
-//        myTrie.insert("ted");
-        myTrie.insert("mukthar");
+        for (String str : inputWords) {
+            myTrie.insert(str);
+        }
+
+        System.out.println("+ Found = " + myTrie.search("muktharahmed"));
 
 //        System.out.println("+ Found = " + myTrie.search("mukthar"));
 //        System.out.println("+ Starts with = " + myTrie.startsWith("t"));
@@ -24,12 +27,12 @@ public class TestingTrie {
 //            System.out.println("---- " + child.get(k).toString());
 //            myTrie.getChilds(child.get(k), word);
 //        }
-        String word = "";
-        myTrie.getChilds(myTrie.root, word);
 
+        //myTrie.startsWith("mu");
 
+        //System.out.println("+ All getAllWords = " + myTrie.getAllWords(myTrie.root, "mu"));
+        System.out.println(myTrie.prefixMatch(myTrie.root, "mu"));
 
-        System.out.println("+ Words = " + word);
 
 
     }
