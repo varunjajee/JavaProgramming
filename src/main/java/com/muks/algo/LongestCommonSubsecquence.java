@@ -66,7 +66,24 @@ public class LongestCommonSubsecquence {
 	 *  If a problem can be solved by combining optimal solutions to non-overlapping subproblems, the strategy is called "divide and conquer" instead. 
 	 *  This is why mergesort and quicksort are not classified as dynamic programming problems.
 	 *  
+
 	 *  O(m * n)
+	 *
+	 *  How to calculate the table for LCS using a theorem
+	 *
+	   C[i, j] = {
+					- C[i-1, j-1] + 1 	if x[i] == y[j]
+					OR
+					Max { C[i, j-1], C[i-1, j] }
+
+	   			}
+
+	   which means;
+	   C[i] = if i-th element == j-th element, then C[i]
+	   else
+	   C[j] = x[i] == y[j]
+	   else it is C[i-1, j-1]
+	   Or max of ( C[i, j-1], C[i-1, j] )
 	*/
 	
     public static void LcsByDynProg (String x, String y) {
@@ -119,6 +136,7 @@ public class LongestCommonSubsecquence {
 	// ################################################################################################################
 	// Returns the greater of x and y.
 	public static int max(int x, int y) {
+		System.out.println(" x = " + x + ", y = " + y);
 		if (x > y)
 			return x;
 		else

@@ -12,17 +12,19 @@ public class TestingTrie {
         Trie myTrie = new Trie();
         myTrie.insert("tea");
         myTrie.insert("to");
+
         myTrie.insert("ted");
+        myTrie.insert("muktharahmed");
         myTrie.insert("mukthar");
         myTrie.insert("muksie");
-        myTrie.insert("muktharahmed");
+
 
 
 //        System.out.println("+ search with prefix = " + myTrie.startsWith("mu"));
 //        System.out.println("+ search with prefix = " + myTrie.search("muks"));
 
         //System.out.println("+ All getAllWords = " + myTrie.getAllWords(myTrie.root, ""));
-        System.out.println(myTrie.prefixMatch(myTrie.root, "mukt"));
+        System.out.println(myTrie.prefixMatch(myTrie.root, "mu"));
 
 
 

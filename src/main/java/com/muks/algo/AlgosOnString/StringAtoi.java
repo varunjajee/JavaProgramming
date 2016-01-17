@@ -1,4 +1,4 @@
-package AlgosOnString;
+package com.muks.algo.AlgosOnString;
 
 public class StringAtoi {
 

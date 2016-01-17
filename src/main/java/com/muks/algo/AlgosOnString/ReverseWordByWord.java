@@ -12,8 +12,8 @@ public class ReverseWordByWord {
 		String reversed1 = reverseWordByWord(s);
 		System.out.println("+++ Reversed: " + reversed1);
 
-		String reversed2 = reverseStringWordByWord(s);
-		System.out.println("+++ Reversed-2: " + reversed2);
+//		String reversed2 = reverseStringWordByWord(s);
+//		System.out.println("+++ Reversed-2: " + reversed2);
 		
 		//+++ Reversed: tsrif dnoces driht
 	}
@@ -29,7 +29,7 @@ public class ReverseWordByWord {
         StringBuilder returnValue = new StringBuilder();
         int insertIndex = 0;
         
-        for(int i = 0;i < str.length();i++ ) {
+        for(int i = 0; i < str.length(); i++ ) {
         	 
             if(str.charAt(i) != ' ') {
                 returnValue.insert(insertIndex, str.charAt(i));
@@ -56,7 +56,7 @@ public class ReverseWordByWord {
         StringBuilder returnValue = new StringBuilder();
         int insertIndex = 0;
         
-        for(int i = 0;i < str.length();i++ ) {
+        for(int i = 0; i < str.length(); i++ ) {
         	
             if(str.charAt(i) != ' ') {
             	returnValue.insert(insertIndex, str.charAt(i));
