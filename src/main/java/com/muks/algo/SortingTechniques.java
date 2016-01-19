@@ -15,29 +15,19 @@ public class SortingTechniques {
 		int[] arrayToSort = new int[] {9,2,8,5,1,10,0};
 
 		//		System.out.println("Initial Array: " + arrayToString(arrayToSort));
-		System.out.println("Sorted array: " + arrayToString(selectionSort(arrayToSort)));
-		insertionSort();
+		System.out.println("Sorted array: " + arrayToString(SelectionSort(arrayToSort)));
+		//InsertionSort();
 
 
-		//insertionSort();
+		//InsertionSort();
 
 
 	} // end main
 
-	//#########################################################################################################
 
-	// collect the array ref to a string object
-	public static String arrayToString(int[] array) {
-		String res = "";
-		for (int a: array) {
-			res += a + " ";
-		}
-		return res;
 
-	} // end arrayToString()
 
-	//#########################################################################################################	
-
+	// ===========================================================================================
 	/*
 	 * "selection sort" is a sorting algorithm, specifically an in-place comparison sort. 
 	 * It has O(n2) time complexity, making it inefficient on large lists, 
@@ -48,16 +38,16 @@ public class SortingTechniques {
 	 * 
 	 */
 
-	public static int[] selectionSort(int array[]) {
+	public static int[] SelectionSort(int array[]) {
 		System.out.println("+++ Selection/comparision sorting technique... +++");
-		//System.out.println("Len: " + array.length);
+
 
 		for (int i = 0; i < array.length; i++) {
 			int key = array[i];
 			int sIndex = i;
 
+            // {9, 2, 8, 5, 1, 10, 0};
 			for (int j = i + 1; j < array.length; j++ ) {
-				System.out.println(" j=" + j + " i=" + i + " key=" + key);
 				if ( key > array[j]) {
 					key = array[j];
 					sIndex = j;
@@ -73,10 +63,10 @@ public class SortingTechniques {
 		} // end of for(i)
 		return array;
 
-	} // end selectionSort()
+	} // end SelectionSort()
 
 
-	//#########################################################################################################
+	//===========================================================================================
 	/*
 	 * "Insertion sort" is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. 
 	 * It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort. 
@@ -97,7 +87,7 @@ public class SortingTechniques {
 	 * 
 	 */	
 
-	public static void insertionSort () {
+	public static void InsertionSort() {
 
 		System.out.println("+++ Insertion sorting technique... +++");
 		int[] array = {3, 4, 6, 8, 9, 7, 2, 5, 1};
@@ -108,7 +98,7 @@ public class SortingTechniques {
 			int j = i;
 			int key = array[i];
 
-			while ( ( j > 0 ) && ( array[j-1] > key) ) {
+			while ( j > 0 && array[j-1] > key ) {
 				System.out.println("i=" + i + " j=" + j + " j-1=" + (j-1) + " key=" + key + " ARRAY: " + MyUtils.arrayToString(array));
 				array[j] = array[j-1];				
 				j--;
@@ -121,16 +111,40 @@ public class SortingTechniques {
 
 		System.out.println("After sorting: " + arrayToString(array));
 
-	} // end insertionSort()
+	} // end InsertionSort()
 
 
-	/* ################################################################################################################
-	 * In merge sort split the array values in halves recursively until each half has only single  element. 
-	 * Merge the two 1/2 values together and sort the values. 
-	 * Do same steps iteratively until the values are not sorted. 
+	public static void InsertionSort2(int[] array) {
+		// algo
+		for (int i=1; i < array.length; i++) {
+			int j = i;
+			int key = array[i];
+
+			while ( ( j > 0 ) && ( array[j-1] > key) ) {
+				//System.out.println("arr[j]: " + array[j] + " + arr[j-1]: " + array[j-1] + " key: " + key);
+				array[j] = array[j-1];
+				j--;
+				printArray(array);
+			} // end while()
+
+			array[j] = key;
+
+		} // end for()
+
+		System.out.println("+++ After sorting...");
+		for (int e : array) {
+			System.out.println(e);
+		}
+	}
+
+
+	/* 	=========================================================================================
+	 *  In merge sort split the array values in halves recursively until each half has only
+	 *  single  element.
+	 *  Merge the two 1/2 values together and sort the values.
+	 *  Do same steps iteratively until the values are not sorted.
 	 */
-	
-	public static void mergeSort_srt(int[] arr, int lo, int n){
+	public static void MergeSort(int[] arr, int lo, int n){
 		int low = lo;
 		int high = n;
 		
@@ -139,8 +153,8 @@ public class SortingTechniques {
 		}
 
 		int middle = (low + high) / 2;
-		mergeSort_srt(arr, low, middle);
-		mergeSort_srt(arr, middle + 1, high);
+		MergeSort(arr, low, middle);
+		MergeSort(arr, middle + 1, high);
 
 		int end_low = middle;
 		int start_high = middle + 1;
@@ -163,8 +177,88 @@ public class SortingTechniques {
 
 			}
 		}
-	}  
+	}
+
+
+	/* 	=========================================================================================
+		Quick Sort - Divide & Conquer
+	 */
+	public static int[] sortedIntArray(int[] arr) {
+		quickSort(arr, 0, arr.length-1);
+		return arr;
+	}
+
+
+	// Quick Sort Method
+	public static void quickSort(int[] arr, int start, int end) {
+		if (start < end) {
+			int mid = partition(arr, start, end);
+			quickSort(arr, start, mid);
+			quickSort(arr, mid+1, end);
+		}
+	}
+
+	// 23,44,1,2009,2,88,123,7,999,1040,88
+
+	// Partition method
+	public static int partition(int[] arr, int start, int end) {
+		int xPivotElem = arr[start];
+		int i = start - 1;
+		int j = end + 1;
+
+		while (true) {
+			i++;
+			while (arr[i] < xPivotElem) {
+				i++;
+			}
+
+
+			j--;
+			while (arr[j] > xPivotElem) {
+				j--;
+			}
+
+
+			if (i < j) {
+				System.out.println("+ " + arr[i] + " - " + arr[j]);
+				swap(arr, i, j);
+			} else {
+				return j;
+			}
+		}
+	}
+
+
+	// swap 2 elements
+	public static void swap(int[] a, int i, int j) {
+		int tmp = a[i];
+		a[i] = a[j];
+		a[j] = tmp;
+	}
+
+
+	// print the original array:
+	public static void printArray(int[] arr) {
+		String s = "";
+		for (int a: arr) {
+			s += a + " ";
+		}
+		System.out.println(s );
+	}
+
+
+	// ===========================================================================================
+	// collect the array ref to a string object
+	public static String arrayToString(int[] array) {
+		String res = "";
+		for (int a: array) {
+			res += a + " ";
+		}
+		return res;
+
+	} // end arrayToString()
+
+
 
 } // end of class
 
-//###################################################################################################################################

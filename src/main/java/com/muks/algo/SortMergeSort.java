@@ -71,6 +71,7 @@ public class SortMergeSort {
             }
             j++;
         }
+
         // copy what's left
         System.arraycopy(first, iFirst, result, j, first.length - iFirst);
         System.arraycopy(second, iSecond, result, j, second.length - iSecond);

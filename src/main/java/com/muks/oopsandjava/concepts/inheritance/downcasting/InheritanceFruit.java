@@ -1,4 +1,4 @@
-package com.muks.algo;
+package com.muks.oopsandjava.concepts.inheritance.downcasting;
 
 // this class will be extended @ Apple.javapack class
 /*

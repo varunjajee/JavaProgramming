@@ -1,11 +1,11 @@
-package com.muks.algo;
+package com.muks.oopsandjava.concepts.inheritance.downcasting;
 
 
 
 public class Apple extends InheritanceFruit {
 	public String variety;
 	
-	void test() {
+	static void test() {
 		Apple a = new Apple();
 		InheritanceFruit f = a;
 		
@@ -18,9 +18,8 @@ public class Apple extends InheritanceFruit {
 	}
 	
 	
-	public static void main (){ 
-	
-		
+	public static void main (String[] args){
+		test();
 	}
 
 }

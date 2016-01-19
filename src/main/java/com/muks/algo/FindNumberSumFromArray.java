@@ -18,19 +18,14 @@ public class FindNumberSumFromArray {
 	 * Adv - better than the hash method which extra space is utilized.
 	 *  
 	 */
-	
 	public static void byLinearMethod (int[]arr, int sum) {
-		QuickSort_DivideAndConquer quickSort = new QuickSort_DivideAndConquer();
-		quickSort.quickSort(arr, 0, arr.length-1);
-
+		SortingTechniques.quickSort(arr, 0, arr.length-1);
 		printMatching(arr, arr.length, 10);
-
 	}
 
 	
 	// Get 2 candidate ints summing up to the given value of sum
-	public static void printMatching(int array[], int size, int sum)
-	{
+	public static void printMatching(int array[], int size, int sum) {
 		int i = 0, j = size - 1;
 		int curSum;
 		while(i < j) {

@@ -1,4 +1,4 @@
-package com.muks.algo;
+package com.muks.algo.LongestCommonSubseqDynProg;
 
 public class LCSAlgorithm {
 

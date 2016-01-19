@@ -1,4 +1,4 @@
-package com.muks.algo;
+package com.muks.algo.LongestCommonSubseqDynProg;
 //Arup Guha
 //9/26/03
 //The methods below solve the longest common subsequence problem
