@@ -48,7 +48,7 @@ public class Queue {
 
     // Put an item to the "END OF THE" Queue
     public void enqueue(Object queueItem) throws Exception {
-        if (rearIndex+1 >= capacity) {
+        if (rearIndex + 1 >= capacity) {
             throw new IndexOutOfBoundsException("Overflow Exception");
         }
         else if (rearIndex == -1) {

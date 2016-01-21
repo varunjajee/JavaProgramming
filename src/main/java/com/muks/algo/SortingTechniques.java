@@ -12,11 +12,13 @@ public class SortingTechniques {
 
 
 	public static void main(String[] args) { // arrays are always call-by reference, so it retains its reference
-		int[] arrayToSort = new int[] {9,2,8,5,1,10,0};
+		//int[] arrayToSort = new int[] {9, 2, 8, 5, 1, 10, 0};
+        int[] arrayToSort = new int[] {3, 2, 1, 0};
 
-		//		System.out.println("Initial Array: " + arrayToString(arrayToSort));
-		System.out.println("Sorted array: " + arrayToString(SelectionSort(arrayToSort)));
+
+		//System.out.println("Sorted array: " + arrayToString(SelectionSort(arrayToSort)));
 		//InsertionSort();
+        System.out.println(printArray(sortedIntArray(arrayToSort)));
 
 
 		//InsertionSort();
@@ -43,24 +45,23 @@ public class SortingTechniques {
 
 
 		for (int i = 0; i < array.length; i++) {
-			int key = array[i];
 			int sIndex = i;
 
             // {9, 2, 8, 5, 1, 10, 0};
 			for (int j = i + 1; j < array.length; j++ ) {
-				if ( key > array[j]) {
-					key = array[j];
+				if ( array[i] > array[j]) {
 					sIndex = j;
-
 				}
 
-			} // end of for(j)
+			} // for(j)
 
-			// smallest value now is the smallest in j... end()
-			array[sIndex] 	= array[i];
-			array[i]		= key;
+            // Swap lowest element with the max element
+            int tmp = array[sIndex];
+			array[sIndex] = array[i];
+			array[i] = tmp;
 
-		} // end of for(i)
+		} // for(i)
+
 		return array;
 
 	} // end SelectionSort()
@@ -90,8 +91,8 @@ public class SortingTechniques {
 	public static void InsertionSort() {
 
 		System.out.println("+++ Insertion sorting technique... +++");
-		int[] array = {3, 4, 6, 8, 9, 7, 2, 5, 1};
-		System.out.println("Initial array: " + arrayToString(array));
+		int[] array = {9, 4, 6, 8, 3, 7, 2, 5, 1};
+		System.out.println("Initial array: " + printArray(array));
 
 		// algo
 		for (int i=1; i < array.length; i++) {
@@ -99,8 +100,10 @@ public class SortingTechniques {
 			int key = array[i];
 
 			while ( j > 0 && array[j-1] > key ) {
-				System.out.println("i=" + i + " j=" + j + " j-1=" + (j-1) + " key=" + key + " ARRAY: " + MyUtils.arrayToString(array));
-				array[j] = array[j-1];				
+				System.out.println("i=" + i + " j=" + j + " j-1=" + (j-1)
+                        + " key=" + key + " ARRAY: " + MyUtils.arrayToString(array));
+
+                array[j] = array[j-1];
 				j--;
 
 			} // end while()
@@ -109,33 +112,9 @@ public class SortingTechniques {
 
 		} // end for()
 
-		System.out.println("After sorting: " + arrayToString(array));
+		System.out.println("After sorting: " + printArray(array));
 
 	} // end InsertionSort()
-
-
-	public static void InsertionSort2(int[] array) {
-		// algo
-		for (int i=1; i < array.length; i++) {
-			int j = i;
-			int key = array[i];
-
-			while ( ( j > 0 ) && ( array[j-1] > key) ) {
-				//System.out.println("arr[j]: " + array[j] + " + arr[j-1]: " + array[j-1] + " key: " + key);
-				array[j] = array[j-1];
-				j--;
-				printArray(array);
-			} // end while()
-
-			array[j] = key;
-
-		} // end for()
-
-		System.out.println("+++ After sorting...");
-		for (int e : array) {
-			System.out.println(e);
-		}
-	}
 
 
 	/* 	=========================================================================================
@@ -223,7 +202,8 @@ public class SortingTechniques {
 				System.out.println("+ " + arr[i] + " - " + arr[j]);
 				swap(arr, i, j);
 			} else {
-				return j;
+                System.out.println("+ Returning - " + j);
+                return j;
 			}
 		}
 	}
@@ -234,31 +214,19 @@ public class SortingTechniques {
 		int tmp = a[i];
 		a[i] = a[j];
 		a[j] = tmp;
+
 	}
 
 
 	// print the original array:
-	public static void printArray(int[] arr) {
+	public static String printArray(int[] arr) {
 		String s = "";
 		for (int a: arr) {
 			s += a + " ";
 		}
-		System.out.println(s );
+
+        return s;
 	}
-
-
-	// ===========================================================================================
-	// collect the array ref to a string object
-	public static String arrayToString(int[] array) {
-		String res = "";
-		for (int a: array) {
-			res += a + " ";
-		}
-		return res;
-
-	} // end arrayToString()
-
-
 
 } // end of class
 

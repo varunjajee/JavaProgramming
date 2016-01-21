@@ -9,19 +9,17 @@ public class RemoveDuplicatesFromString {
 		String s = "abcbbaad";
 		char[] arr = s.toCharArray();
 
-		
-//		removeDuplicates(arr);
+		removeDuplicates(arr);
 
-		System.out.println("\n+ SubString: " + s.substring(0, 1));
-		
-		String res = removeDuplicatesBySubstring(s);
-		System.out.println(res);
-
+//		System.out.println("\n+ SubString: " + s.substring(0, 1));
+//		String res = removeDuplicatesBySubstring(s);
+//		System.out.println(res);
 
 	}	// end main()
 
-	
-	
+
+
+
 	// ==========================================================================================
 	// Just using StringBuilder, substring check using indexOf == -1
 	public static String removeDuplicatesBySubstring(String s) {
@@ -31,6 +29,8 @@ public class RemoveDuplicatesFromString {
 			String si = s.substring(i, i + 1);
             System.out.println(si + " = " + resString.indexOf(si));
 
+
+            // indexOf in a StringBuilder returns index of a str in StringBuilder & -1 if not found
             if (resString.indexOf(si) == -1) {
 				resString.append(si);
 			}
@@ -39,7 +39,7 @@ public class RemoveDuplicatesFromString {
 
 		return resString.toString();
 
-	}	// removeDuplicatesBySubstring
+	}	// end ()
 
 
 	public static void printArray (char[] s) {
@@ -73,8 +73,9 @@ public class RemoveDuplicatesFromString {
 			// if j reachs tail..we did not break, which implies this char at pos i, is not a duplicate.
 			// we add it to the end, that is at pos tail.
 			System.out.println(j + " == " + tail);
+
 			if (j == tail) {
-				//System.out.println(str[tail] + " = " + str[i]);
+				System.out.println("=== " + str[tail] + " = " + str[i]);
 				str[tail] = str[i]; // add
 				tail++;
 			}

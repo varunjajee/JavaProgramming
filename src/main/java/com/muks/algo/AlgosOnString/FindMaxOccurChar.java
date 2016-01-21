@@ -1,4 +1,4 @@
-package AlgosOnString;
+package com.muks.algo.AlgosOnString;
 
 /**
  * Created by mukthar.ahmed on 25/11/14.
@@ -13,21 +13,25 @@ public class FindMaxOccurChar {
     // Using javapack DSC:
     private static void findMaxOccurChar (String input) {
         System.out.println("+ Finding max occuring char by using java DSC.");
+
         char[] inChars = input.toCharArray();
-        //int[] charCounter = new int[256];
-        //int counter[256];
-        int charCounter[] = new int [256];
-
-
+        int charCounter[] = new int[256];
 
         for (char c : inChars) {
-            charCounter[c]++;
+            if (c != ' ') {
+                charCounter[c]++;
+            }
         }
 
-
-        for (int i = 0; i < charCounter.length; i++ ) {
-            System.out.println(charCounter[i] + " ");
+        char maxC = inChars[0];
+        for (char c : inChars) {
+            System.out.println(" C = " + c + " - " + charCounter[c]
+                    + ", maxC = " + maxC + " - " + charCounter[maxC]);
+            if (charCounter[c] > charCounter[maxC]) {
+                maxC = c;
+            }
         }
+        System.out.println("+ Char = " + maxC);
 
     }
 }

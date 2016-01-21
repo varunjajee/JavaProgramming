@@ -1,12 +1,15 @@
 package com.muks.oopsandjava.concepts.initializers_static_instance;
 
-/**
+/*
  * Created by mukthar.ahmed on 1/11/16.
  */
 public class Initializations {
-
+    public static int counter;
+    public int nonStaticCounter;
     Initializations() {
         System.out.println("(3)+ Initializations() class constructor being called.\n");
+        counter++;
+        nonStaticCounter++;
     }
 
 
@@ -26,5 +29,7 @@ public class Initializations {
         Initializations myinit3 = new Initializations();
         Initializations myinit4 = new Initializations();
 
+        System.out.println("+ Static variable (Counter) = " + Initializations.counter
+                + ", Non-Static variable = " + myinit4.nonStaticCounter);
     }
 }

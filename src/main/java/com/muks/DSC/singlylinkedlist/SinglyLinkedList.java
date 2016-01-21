@@ -471,8 +471,7 @@ public class SinglyLinkedList extends LinkedList {
         /* We have to set prev before executing rest of this code */
         else prev = curr;
 
-        if (new_end != end && (Integer) end.data %2 != 0)
-        {
+        if (new_end != end && (Integer) end.data %2 != 0) {
             prev.next = end.next;
             end.next = null;
             new_end.next = end;
@@ -705,7 +704,7 @@ public class SinglyLinkedList extends LinkedList {
             if((Integer) p1.data <= (Integer)  p2.data){
                 p.next = p1;
                 p1 = p1.next;
-            }else{
+            } else {
                 p.next = p2;
                 p2 = p2.next;
             }
@@ -713,9 +712,10 @@ public class SinglyLinkedList extends LinkedList {
             p = p.next;
         }
 
-        if(p1 != null)
+        if (p1 != null)
             p.next = p1;
-        if(p2 != null)
+
+        if (p2 != null)
             p.next = p2;
 
         fakeHead = fakeHead.next;
