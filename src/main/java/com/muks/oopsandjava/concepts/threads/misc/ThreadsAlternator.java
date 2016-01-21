@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.examples;
+package com.muks.oopsandjava.concepts.threads.misc;
 
 /*
  * Example showing how the Thread scheduler alternatively allocates threads execution.

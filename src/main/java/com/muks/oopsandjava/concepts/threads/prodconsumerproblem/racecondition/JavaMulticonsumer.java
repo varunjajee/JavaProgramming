@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.semaphore.racecondition;
+package com.muks.oopsandjava.concepts.threads.prodconsumerproblem.racecondition;
 
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadLocalRandom;

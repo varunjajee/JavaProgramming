@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.semaphore.singleconsumer;
+package com.muks.oopsandjava.concepts.threads.prodconsumerproblem.ByCustomeQueue;
 
 import java.util.concurrent.Semaphore;
 
@@ -6,10 +6,10 @@ import java.util.concurrent.Semaphore;
  * Created by mukthar.ahmed on 07/07/15.
  */
 public class ProductQueue {
-    // We must start with Producer semaphore
+    // We must start with Producer prodconsumer problem
     static Semaphore semProd = new Semaphore(1);
 
-    // Start with consumer semaphore unavailable
+    // Start with consumer prodconsumerproblem unavailable
     static Semaphore semCon = new Semaphore(0);
 
     int productId;

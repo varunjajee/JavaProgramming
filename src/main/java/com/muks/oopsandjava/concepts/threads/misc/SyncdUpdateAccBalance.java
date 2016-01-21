@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.concurrency.examples;
+package com.muks.oopsandjava.concepts.threads.misc;
 
 /**
  * Created by mukthar.ahmed on 11/1/15.

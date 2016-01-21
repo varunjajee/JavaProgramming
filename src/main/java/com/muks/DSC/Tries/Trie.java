@@ -4,6 +4,7 @@ package com.muks.DSC.Tries;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -45,6 +46,31 @@ public class Trie {
         }
     }
 
+    public void insert(String word, int indexOfWord) {
+        HashMap<Character, TrieNode> children = root.children;
+
+        for (int i = 0; i < word.length(); i++) {
+            char c = word.charAt(i);
+
+            TrieNode node;
+            if (children.containsKey(c)) {
+                node = children.get(c);
+            } else {
+                node = new TrieNode(c);
+                children.put(c, node);
+            }
+
+            children = node.children;
+
+            //set leaf node
+            if (i == word.length() - 1) {
+                System.out.println("+ Char = " + node + ", Index of the word = " + indexOfWord);
+                node.isLeaf = true;
+                node.wordIndexes.add(indexOfWord);
+                System.out.println("+ index = " + node.wordIndexes.toString());
+            }
+        }
+    }
 
     /* ===========================================================================================
        Search for a word and return true if found.
@@ -56,12 +82,29 @@ public class Trie {
     public boolean search(String word) {
         TrieNode t = searchNode(word);
 
-        if (t != null && t.isLeaf)
+        if (t != null && t.isLeaf) {
+            System.out.println("+ This word has indeces = " + t.wordIndexes.toString());
             return true;
-        else
+        }
+        else {
             return false;
+        }
     }
 
+
+    /* Search for a word and return Index List<Integer> */
+    public List<Integer> searchIndexes(String word) {
+
+        TrieNode t = searchNode(word);
+
+        if (t != null && t.isLeaf) {
+            System.out.println("+ = " + t.wordIndexes.toString());
+            return t.wordIndexes;
+        }
+        else {
+            return null;
+        }
+    }
 
     /* ===========================================================================================
         Returns if there is any word in the trie that starts with the given prefix.

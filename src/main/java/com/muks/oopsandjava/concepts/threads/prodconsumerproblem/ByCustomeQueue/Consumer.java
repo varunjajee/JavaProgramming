@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.semaphore.singleconsumer;
+package com.muks.oopsandjava.concepts.threads.prodconsumerproblem.ByCustomeQueue;
 
 /*
  * Created by mukthar.ahmed on 22/06/15.
@@ -9,7 +9,7 @@ public class Consumer extends Thread {
 
     public Consumer (ProductQueue q) {
         this.prodQ = q;
-        new Thread(this, "Consumer Thread/semaphore").start();
+        new Thread(this, "Consumer Thread/prodconsumerproblem").start();
     }
 
     public void run() {

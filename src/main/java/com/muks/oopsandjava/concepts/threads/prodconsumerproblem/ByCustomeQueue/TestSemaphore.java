@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.semaphore.singleconsumer;
+package com.muks.oopsandjava.concepts.threads.prodconsumerproblem.ByCustomeQueue;
 
 /**
  * Created by mukthar.ahmed on 11/9/15.

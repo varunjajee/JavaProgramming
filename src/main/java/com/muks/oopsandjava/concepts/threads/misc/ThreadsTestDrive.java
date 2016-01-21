@@ -1,6 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.examples;
-
-import com.muks.oopsandjava.concepts.threads.concurrency.examples.MyRunnable;
+package com.muks.oopsandjava.concepts.threads.misc;
 
 /*
  * Created by mukthar.ahmed on 10/31/15.

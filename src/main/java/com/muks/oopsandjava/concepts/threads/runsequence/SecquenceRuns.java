@@ -6,7 +6,7 @@ package com.muks.oopsandjava.concepts.threads.runsequence;
  *  Sequencing of thread execution is depending on t.join() which also throws "InterruptedException"
  *
  */
-public class SecquenceRuns implements Runnable {
+public class SecquenceRuns extends Thread {
 
     public static void main(String[] args) {
         SecquenceRuns sequenceRuns = new SecquenceRuns();
@@ -20,20 +20,20 @@ public class SecquenceRuns implements Runnable {
         final Thread t3 = new Thread(sequenceRuns);
         t3.setName("3rd Thread");
 
-        try {
+        //try {
             t1.start();
-            t1.join();
+            //t1.join();
 
             t2.start();
-            t2.join();
+         //   t2.join();
 
             t3.start();
-            t3.join();
+           // t3.join();
 
 
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
 
     }
 
