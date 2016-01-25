@@ -4,11 +4,11 @@ public class FirstNonRepeatedAndMostRepeated {
 
 	/**
 	 * Algorithm:
-	 * 	1. Build the data structure of character count
+	 * 	1. Build the name structure of character count
 	 * 		=> foreach character in the string, 
 	 * 				increment its corresponding char count in the array
 	 * 
-	 * 	2. Search data structure for character count
+	 * 	2. Search name structure for character count
 	 * 		=> Array implementation: 
 	 * 			for each character in the string, return the char object which has the character count which is looked for.
 	 * 				return char object

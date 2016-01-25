@@ -17,7 +17,7 @@ public class SinglyLinkedList extends LinkedList {
         head = tail = null;
     }
 
-    /*  Constructor creating linked list out of data values */
+    /*  Constructor creating linked list out of name values */
     public SinglyLinkedList(List<Object> linkedListData) {
         for ( Object val : linkedListData ) {
             this.insertDefault(val);
@@ -33,7 +33,7 @@ public class SinglyLinkedList extends LinkedList {
 
     /* print entire linked list */
     public String toString() {
-        Node current = head;       // try to get head by using instance object 'this.head'
+        Node current = head;       // Testing to get head by using instance object 'this.head'
 
         if (current == null) {
             return "List is empty!";
@@ -65,7 +65,7 @@ public class SinglyLinkedList extends LinkedList {
             tail.next = node;
             tail = node;
             tail.next = null;
-            System.out.println("Node inserted successfully!");
+            System.out.println("GraphNode inserted successfully!");
         }
     }
 
@@ -191,7 +191,7 @@ public class SinglyLinkedList extends LinkedList {
                 previous = current;
                 current = current.next;
                 if (current.next == null) {
-                    throw new NoSuchElementException("+ Node Not Found Exception.");
+                    throw new NoSuchElementException("+ GraphNode Not Found Exception.");
                 }
                 nextToNext = current.next;
             }
@@ -425,7 +425,7 @@ public class SinglyLinkedList extends LinkedList {
         Node end = linkedList.head;
         Node prev = null;
 
-        /* Get pointer to last Node */
+        /* Get pointer to last GraphNode */
         while (end.next != null)
             end = end.next;
 
@@ -607,9 +607,9 @@ public class SinglyLinkedList extends LinkedList {
 
         Steps / Logic:
         (1) traversing from head to tail,
-        (2) if curr.data == next.data then,
+        (2) if curr.name == next.name then,
         (3) de-link, curr.next = curr.next.next and re-arrange links accordingly
-        (4) if curr.data != next.data then, just advance the pointers.
+        (4) if curr.name != next.name then, just advance the pointers.
      */
     public static void deleteDuplicatesOnSorted(SinglyLinkedList linkedList) {
         System.out.println("+ Deleting duplicate nodes from sorted linked list +");
@@ -649,8 +649,8 @@ public class SinglyLinkedList extends LinkedList {
         (2) while -> curr != null
         (3) runner starting from head
         (4) while
-                -> runner.data != curr.data, keep moving runner pointer till it co-insides with curr
-                -> if not, runner.data == curr.data, de-link current using prev.next = curr.next
+                -> runner.name != curr.name, keep moving runner pointer till it co-insides with curr
+                -> if not, runner.name == curr.name, de-link current using prev.next = curr.next
 
         (5) later out of 2nd while, move curr = curr.next
      */
@@ -797,7 +797,7 @@ public class SinglyLinkedList extends LinkedList {
 
 
         // Print the linked list using head
-        Node current = first;       // try to get head by using instance object 'this.head'
+        Node current = first;       // Testing to get head by using instance object 'this.head'
         StringBuilder sb = new StringBuilder("\nDisplay LinkedList: [ -HEAD -> ");
         while ( current != null ) {
             sb.append(current.data + " -> ");

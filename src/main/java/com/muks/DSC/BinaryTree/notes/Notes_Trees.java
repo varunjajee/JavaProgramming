@@ -6,7 +6,7 @@ public class Notes_Trees {
 	 * NOTE:
 	 * -----
 	 * 
-	 * Node at th end/tip is called leaf node. Node having NO children are leaf nodes.
+	 * GraphNode at th end/tip is called leaf node. GraphNode having NO children are leaf nodes.
 	 * Start node is the root node
 	 * A node which is NOT a leaf nor a parent node is a "internal node"
 	 * Usage of depth/level are synonyms

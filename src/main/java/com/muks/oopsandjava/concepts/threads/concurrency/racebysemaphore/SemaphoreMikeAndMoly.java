@@ -8,7 +8,7 @@ import java.util.concurrent.Semaphore;
  * Created by mukthar.ahmed on 11/9/15.
  *
  *  A race condition is a situation in which two or more threads or processes are reading or
- *  writing some shared data, and the final result depends on the timing of how the threads are
+ *  writing some shared name, and the final result depends on the timing of how the threads are
  *  scheduled. Race conditions can lead to unpredictable results and subtle program bugs
  *
  */

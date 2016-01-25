@@ -62,7 +62,7 @@ public class queues {
 	 * 		(iii) we also have 2 sentinal pointer as well. 		
 	 * 
 	 * 		When implementing doubly linked list, we add 2 special nodes to the ends of the list; header and trailer nodes.
-	 * 		these nodes are called sentinal or dummy nodes as they do not contain any data. 
+	 * 		these nodes are called sentinal or dummy nodes as they do not contain any name.
 	 * 		They are used to mark the start and the end, called header and trailer.
 	 * 		
 	 * 		
@@ -81,7 +81,7 @@ public class queues {
 	 * 
 	 * 		Adding/inserting a new nodes: Element we are inserting should go into the header nodes and create a new node next to it,
 	 * 		then copy the ref of the old node to the new node and make the head pointing to the new node.
-	 * 		Its still not a expensive process as we are copying just the ref but not the node data.
+	 * 		Its still not a expensive process as we are copying just the ref but not the node name.
 	 * 
 	 * 		Removing an element:
 	 * 		Copy ref of second node to the first node, the second node will be clearly droped.

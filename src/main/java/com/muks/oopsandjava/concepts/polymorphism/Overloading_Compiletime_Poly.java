@@ -3,7 +3,7 @@ package com.muks.oopsandjava.concepts.polymorphism;
 /*
  * Overloading - Static binding in javapack
  *          - Is a example of compile time polymorphism
- *          - Change in the number of variables/arguments or its data-type or its return type.
+ *          - Change in the number of variables/arguments or its name-type or its return type.
  *
  *     WHY  - Because, in case of overloading, at compile time the compiler knows which method to
   *          link to the call.

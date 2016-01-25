@@ -73,9 +73,9 @@ public class SortingTechniques {
 	 * It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort. 
 	 * However, insertion sort provides several advantages:
 	 * Simple implementation
-	 *    Efficient for (quite) small data sets
+	 *    Efficient for (quite) small name sets
 	 *    
-	 *    Adaptive (i.e., efficient) for data sets that are already substantially sorted: 
+	 *    Adaptive (i.e., efficient) for name sets that are already substantially sorted:
 	 *    the time complexity is O(n + d), where d is the number of inversions
 	 *    More efficient in practice than most other simple quadratic (i.e., O(n2)) algorithms such as selection sort or bubble sort; 
 	 *    the best case (nearly sorted input) is O(n)

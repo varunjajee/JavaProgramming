@@ -75,7 +75,7 @@ public class SubArrayWithSum {
 		for (i = 0; i < n; i++) {
 			curr_sum = arr[i];
 
-			// try all subarrays starting with 'i'
+			// Testing all subarrays starting with 'i'
 			for (j = i+1; j <= n; j++) {
 				System.out.println(curr_sum + " == " + sum + " arr[j]: " + arr[j]);
 

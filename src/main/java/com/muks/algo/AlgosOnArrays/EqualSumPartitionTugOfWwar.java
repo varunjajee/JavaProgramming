@@ -17,7 +17,7 @@ import java.util.List;
  * The sum of two parts should be equal. 
  * That means sum should be equal to half of total sum. 
  * As they are all integers so if the sum is odd number then it is not possible to partition. 
- * If they are even we will try to find whether that half of sum is possible by adding numbers from the array. 
+ * If they are even we will Testing to find whether that half of sum is possible by adding numbers from the array.
  * 
  * We solve this by dynamic programming. 
  * We take a two dimensional array L of size count+1, sum/2+1. 
@@ -154,7 +154,7 @@ public class EqualSumPartitionTugOfWwar {
 	 * Requirement: The sum of two parts should be equal. That means sum should be equal to half of total sum.
 	 *  
 	 * As they are all integers so if the sum is odd number then it is not possible to partition. 
-	 * If they are even we will try to find whether that half of sum is possible by adding numbers from the array. 
+	 * If they are even we will Testing to find whether that half of sum is possible by adding numbers from the array.
 	 * 
 	 * We solve this by dynamic programming. 
 	 * We take a two dimensional array L of size count+1, sum/2+1. Where L[i,j]=maximum sum possible with elements of array 0 to i and sum not exceeding j. 

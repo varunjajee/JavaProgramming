@@ -22,9 +22,9 @@ public class TestBinaryTree {
         bst.insert(bst.root, 9);
 
 //        System.out.println("\n\n");
-//        System.out.println(bst.root.data);
-//        System.out.println(bst.root.left.data + ", " + bst.root.right.data);
-//        System.out.println(bst.root.left.left.data);
+//        System.out.println(bst.root.name);
+//        System.out.println(bst.root.left.name + ", " + bst.root.right.name);
+//        System.out.println(bst.root.left.left.name);
 //        BinarySearchTree.inOrderTraversal(bst.root);
 
 

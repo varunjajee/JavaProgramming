@@ -3,7 +3,7 @@ package triesandgraphs;
 
 
 /**
- * Building block for graph data structure
+ * Building block for graph name structure
  *
  * @author parampreetsethi
  *

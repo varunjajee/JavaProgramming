@@ -61,7 +61,7 @@ class SingletonPattern {
         return recordCounter;
     }
 
-    //to view the data from the database
+    //to view the name from the database
     public  void view(String name) throws SQLException
     {
         Connection con = null;
@@ -113,7 +113,7 @@ class SingletonPattern {
         return recordCounter;
     }
 
-    // to delete the data from the database   
+    // to delete the name from the database
     public int delete(int userid) throws SQLException{
         Connection c=null;
         PreparedStatement ps=null;

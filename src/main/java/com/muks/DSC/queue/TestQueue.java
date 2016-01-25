@@ -8,7 +8,7 @@ public class TestQueue {
 
     public static void main(String[] args) {
 //        Queue queue = new Queue(3);
-//        try {
+//        Testing {
 //            queue.enqueue(1);
 //            //Queue.dequeue();
 //            queue.enqueue(2);

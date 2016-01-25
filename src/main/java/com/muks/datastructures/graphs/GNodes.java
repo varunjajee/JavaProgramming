@@ -9,9 +9,9 @@
 // */
 //class GNode {
 //    private String cityname;
-//    private IList<Node> connects;
+//    private IList<GraphNode> connects;
 //
-//    GNode(String cityname, IList<Node> connects) {
+//    GNode(String cityname, IList<GraphNode> connects) {
 //        this.cityname = cityname ;
 //        this.connects = connects;
 //    }

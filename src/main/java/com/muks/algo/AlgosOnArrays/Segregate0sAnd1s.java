@@ -20,7 +20,7 @@ public class Segregate0sAnd1s {
 
 	// ############################################################################################################
 	// in place segration of 0s and 1s: 
-	// segregate using modification of data
+	// segregate using modification of name
 	
 	public static void sortZeroOne(int[] a) {
 		if (a == null || a.length==1) {

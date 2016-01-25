@@ -20,7 +20,7 @@ public class SecquenceRuns extends Thread {
         final Thread t3 = new Thread(sequenceRuns);
         t3.setName("3rd Thread");
 
-        //try {
+        //Testing {
             t1.start();
             //t1.join();
 

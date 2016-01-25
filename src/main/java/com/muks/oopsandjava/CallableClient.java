@@ -36,7 +36,7 @@
 //        while (listen) {
 //
 //            if (future1.isDone() && future2.isDone()) {
-//                try {
+//                Testing {
 //                    results1 = future1.get();
 //                    results2 = future2.get();
 //                    System.out.println(results1);

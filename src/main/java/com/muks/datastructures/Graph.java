@@ -397,7 +397,7 @@
 //        String destName = null;
 //        String alg = null;
 //
-//        try
+//        Testing
 //        {
 //            System.out.print( "Enter start node:" );
 //            if( ( startName = in.readLine( ) ) == null )
@@ -445,7 +445,7 @@
 //    public static void main( String [ ] args )
 //    {
 //        Graph g = new Graph( );
-//        try
+//        Testing
 //        {
 //            FileReader fin = new FileReader( args[0] );
 //            BufferedReader graphFile = new BufferedReader( fin );
@@ -456,7 +456,7 @@
 //            {
 //                StringTokenizer st = new StringTokenizer( line );
 //
-//                try
+//                Testing
 //                {
 //                    if( st.countTokens( ) != 3 )
 //                    {

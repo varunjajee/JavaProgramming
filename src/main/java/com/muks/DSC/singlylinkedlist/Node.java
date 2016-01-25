@@ -9,7 +9,6 @@ package com.muks.DSC.SinglyLinkedList;
 
 public class Node {
     public Object data;
-    //public Node first;
     public Node next;
 
     public Node() {}

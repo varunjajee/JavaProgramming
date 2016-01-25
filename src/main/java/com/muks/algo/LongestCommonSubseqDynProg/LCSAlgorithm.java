@@ -57,7 +57,7 @@ public class LCSAlgorithm {
 	 *
 	 * @param builder - StringBuilder
 	 * @param matrix - Weights between 2 strings
-	 * @param source - Input data
+	 * @param source - Input name
 	 * @param target - Entity to be matched
 	 * @param i - Source counter
 	 * @param j - Target counter

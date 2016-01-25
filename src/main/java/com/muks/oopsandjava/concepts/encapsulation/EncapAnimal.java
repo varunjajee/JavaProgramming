@@ -8,7 +8,7 @@ package com.muks.oopsandjava.concepts.encapsulation;
  * Benefits of Encapsulation:
      The fields of a class can be made read-only or write-only.
      A class can have total control over what is stored in its fields.
-     The users of a class do not know how the class stores its data. A class can change the data
+     The users of a class do not know how the class stores its name. A class can change the name
     type of a field and users of the class do not need to change any of their code.
 
  */

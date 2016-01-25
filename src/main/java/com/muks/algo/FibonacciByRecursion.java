@@ -35,6 +35,12 @@ public class FibonacciByRecursion {
 		
 	}
 
+
+	/* ==========================================================================================
+		Memoization algorithm *
+
+	 */
+
 	// By simple variable swapping
 	public static int fib2(int n) {
 		int a = 0;

@@ -75,7 +75,7 @@ public class AlgosBinarySearchTree {
             TreeNode current = queue.remove();
 
             hd = current.hd;
-            System.out.println("+ Node = "  +current + ", hd = " + hd);
+            System.out.println("+ GraphNode = "  +current + ", hd = " + hd);
 
             // adding to the traverse       map
             if (map.containsKey(hd)) {
@@ -154,44 +154,6 @@ public class AlgosBinarySearchTree {
     }   // end printLevelOrder()
 
 
-    /* ==================================================================================
-     Print tree nodes in verticle order
-     DFS - Depth First Search
-    */
-//    public static void printVerticleOrder(TreeNode root) {
-//        System.out.println("\nPrint Verticle Order Traversal");
-//        HashMap<Integer, ArrayList<Integer>> hMap = new HashMap<>();
-//
-//        int horizDepth = 0;
-//        verticleOrderTraversal(root, horizDepth, hMap);
-//
-//        System.out.println("+ Verticle Order: " + hMap.toString() + "\n");
-//    }
-//
-
-//    public static void verticleOrderTraversal(TreeNode node, int horizDepth,
-//                                              HashMap<Integer, ArrayList<Integer>> hMap) {
-//
-//        // base case
-//        if (node == null) {
-//            return;
-//        }
-//
-//        // keep populating hashmap based on the horizDepth distance travelled
-//        if (hMap.get(horizDepth) == null) {
-//            hMap.put(horizDepth, new ArrayList(Collections.singleton( node.data )));
-//        } else {
-//            hMap.get(horizDepth).add(node.data);
-//        }
-//
-//        verticleOrderTraversal(node.left, horizDepth-1, hMap);
-//        verticleOrderTraversal(node.right, horizDepth+1, hMap);
-//
-//    }
-
-
-
-
     /*  =====================================================================================
         Find the sum of all nodes other excluding leaf nodes
 
@@ -212,7 +174,7 @@ public class AlgosBinarySearchTree {
      Sum of leaf nodes only
 
      Logic:
-        - return data only if its a leaf node.
+        - return name only if its a leaf node.
      */
     public static int getLeavesSum(TreeNode node) {
         if (node == null) {
@@ -276,7 +238,7 @@ public class AlgosBinarySearchTree {
 
         k--;
         if (k == 0) {
-            System.out.println("+ Node = " + node.data);
+            System.out.println("+ GraphNode = " + node.data);
             return 0;
         }
 
@@ -296,14 +258,14 @@ public class AlgosBinarySearchTree {
 
         while (resStack.size() > 0 || current != null) {
             if (current != null) {
-                //System.out.println("+++ current: " + current.data);
+                //System.out.println("+++ current: " + current.name);
                 resStack.add(current);
                 current = current.right;
 
             } else {
                 current = resStack.pop();
 
-                //System.out.println("+ k = " + k + ", current = "  + current.data);
+                //System.out.println("+ k = " + k + ", current = "  + current.name);
                 k--;
 
                 if(k == 0) {
@@ -376,7 +338,7 @@ public class AlgosBinarySearchTree {
     }
 
     // ================================================================================#######
-    // print all the node data at a given level/depth of a BST
+    // print all the node name at a given level/depth of a BST
     public void nodesByDepth(TreeNode node, int depth) {
 
         if (node == null)
@@ -398,7 +360,7 @@ public class AlgosBinarySearchTree {
 
         if (depth == 1) {
             if (node.left == null && node.right == null) {
-                //System.out.println(node.data);
+                //System.out.println(node.name);
                 nodeList.add(node.data);
             }
         }

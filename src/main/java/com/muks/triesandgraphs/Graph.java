@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 /**
- * Implementation of Graph data structure
+ * Implementation of Graph name structure
  *
  */
 
@@ -84,7 +84,7 @@ public class Graph {
 		int g2Idx = nodes.indexOf(g2);
 
 		if(g1Idx<0 || g2Idx <0){
-			throw new NullPointerException("Node not found");
+			throw new NullPointerException("GraphNode not found");
 		}
 
 		adjMatrix[g1Idx][g2Idx] = 0;
