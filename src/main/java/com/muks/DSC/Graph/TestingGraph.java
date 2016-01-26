@@ -1,5 +1,7 @@
 package com.muks.DSC.Graph;
 
+import java.util.List;
+
 /*
     Created by mukthar.ahmed on 1/25/16.
 
@@ -14,7 +16,7 @@ public class TestingGraph {
 
     public static void main(String[] args) {
 
-
+    // Question: Design DFS and BFS using a undirected graph.
         Graph graph = new Graph(5);
 
         graph.addVertex('a');
@@ -28,7 +30,7 @@ public class TestingGraph {
         graph.addVertex('f');
         graph.addVertex('g');
         graph.addVertex('h');
-        //graph.addVertex('z');
+        graph.addVertex('z');
 
         //graph.print();
 
@@ -40,7 +42,7 @@ public class TestingGraph {
         graph.addEdge('b', 'f', isDirectedGraph);
         graph.addEdge('e', 'g', isDirectedGraph);
         graph.addEdge('g', 'a', isDirectedGraph);
-        //graph.addEdge('g', 'z', isDirectedGraph);
+        graph.addEdge('g', 'z', isDirectedGraph);
         graph.addEdge('d', 'f', isDirectedGraph);
         graph.addEdge('f', 'c', isDirectedGraph);
         graph.addEdge('c', 'h', isDirectedGraph);
@@ -60,48 +62,52 @@ public class TestingGraph {
 
         graph.runDepthFirst('a');
 
-//        List<Vertex> path = graph.shortestPath('a', 'z');
-//        System.out.println("\n+ Shortest path from a -> z " + path.toString());
-
-
-//        Graph graph = new Graph(256);
-//        String[] wordsArray = {"caa", "aaa", "aab"};
-//        DAG(graph, wordsArray[0], wordsArray[1]);
-//        DAG(graph, wordsArray[1], wordsArray[2]);
-//
-//        System.out.println("+ Breadth First Search = ");
-//        graph.runBFS('c');
-//
-//        System.out.println("\n\n+ Topological sorting = ");
-//        graph.topologicalSort();
+        List<Vertex> path = graph.shortestPath('a', 'z');
+        System.out.println("\n+ Shortest path from a -> z " + path.toString());
 
 
 
-//        // Fixed graph and its topological sorting
-//        Graph graph1 = new Graph(6);
-//        graph1.addVertex('a');
-//        graph1.addVertex('b');
-//        graph1.addVertex('c');
-//        graph1.addVertex('d');
-//        graph1.addVertex('e');
-//        graph1.addVertex('f');
-//
-//
-//        //graph1.print();
-//
-//        boolean isDirectedGraph = true;
-//        graph1.addEdge('f', 'a', isDirectedGraph);
-//        graph1.addEdge('f', 'c', isDirectedGraph);
-//        graph1.addEdge('c', 'd', isDirectedGraph);
-//        graph1.addEdge('d', 'b', isDirectedGraph);
-//        graph1.addEdge('e', 'a', isDirectedGraph);
-//        graph1.addEdge('e', 'b', isDirectedGraph);
-//
-//        //graph1.runBFS('f');
-//        graph1.topologicalSort();
+/*
+        // Question: Get character precedence of a given sorted dictionary using graph
+
+        Graph graph = new Graph(256);
+        String[] wordsArray = {"caa", "aaa", "aab"};
+        DAG(graph, wordsArray[0], wordsArray[1]);
+        DAG(graph, wordsArray[1], wordsArray[2]);
+
+        System.out.println("+ Breadth First Search = ");
+        graph.runBFS('c');
+
+        System.out.println("\n\n+ Topological sorting = ");
+        graph.topologicalSort();
+*/
 
 
+/*
+        // Fixed graph and its topological sorting
+        Graph graph1 = new Graph(6);
+        graph1.addVertex('a');
+        graph1.addVertex('b');
+        graph1.addVertex('c');
+        graph1.addVertex('d');
+        graph1.addVertex('e');
+        graph1.addVertex('f');
 
+
+        //graph1.print();
+
+        boolean isDirectedGraph = true;
+        graph1.addEdge('f', 'a', isDirectedGraph);
+        graph1.addEdge('f', 'c', isDirectedGraph);
+        graph1.addEdge('c', 'd', isDirectedGraph);
+        graph1.addEdge('d', 'b', isDirectedGraph);
+        graph1.addEdge('e', 'a', isDirectedGraph);
+        graph1.addEdge('e', 'b', isDirectedGraph);
+
+        graph1.runDepthFirst('f');
+        //graph1.topologicalSort();
+
+*/
     }
 
     public static void DAG(Graph graph, String word1, String word2) {

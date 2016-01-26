@@ -104,6 +104,7 @@ public class Graph {
 
 
     public void runBFS(char startVertex) {
+        System.out.println("+ Running Breadth First: ");
         if (!containsVertex(startVertex)) {
             throw new RuntimeException("Vertex does not exist.");
         }
@@ -143,7 +144,6 @@ public class Graph {
     }
 
 
-
     // Use a stack for the iterative DFS version
     public void runDepthFirst(char s) {
         boolean[] visited = new boolean[vertices.size()];
@@ -174,7 +174,7 @@ public class Graph {
                     }
                 }
                 while (!auxStack.isEmpty()) {
-                    System.out.println("+ peek - " + auxStack.peek());
+                    //System.out.println("+ peek - " + auxStack.peek());
                     st.push(auxStack.pop());
                 }
             }
