@@ -1,11 +1,11 @@
-package com.muks.DSC.Graph.Testing;
+package com.muks.DSC.Graph;
 
 import java.util.List;
 
-/**
+/*
  * Created by mukthar.ahmed on 1/25/16.
  */
-public class Test {
+public class TestingGraph {
 
 
     public static void main(String[] args) {
