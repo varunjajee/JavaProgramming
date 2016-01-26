@@ -177,7 +177,7 @@
 //            Node<T> first = queue.remove();
 //            first.setVisited(true);
 //            first.edges().forEach(edge -> {
-//                Node<T> neighbour = edge.toNode();
+//                Node<T> neighbour = edge.toVertex();
 //                if (!neighbour.isVisited()) {
 //                    neighbour.setParent(first);
 //                    queue.add(neighbour);

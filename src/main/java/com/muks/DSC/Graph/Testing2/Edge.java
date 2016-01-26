@@ -18,11 +18,11 @@
 //        this.weight = weight;
 //    }
 //
-//    public Node<T> fromNode() {
+//    public Node<T> fromVertex() {
 //        return node1;
 //    }
 //
-//    public Node<T> toNode() {
+//    public Node<T> toVertex() {
 //        return node2;
 //    }
 //

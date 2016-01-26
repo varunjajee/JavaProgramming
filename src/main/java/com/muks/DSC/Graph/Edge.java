@@ -22,11 +22,11 @@ public class Edge {
         edgeCount++;
     }
 
-    public Vertex fromNode() {
+    public Vertex fromVertex() {
         return vertex1;
     }
 
-    public Vertex toNode() {
+    public Vertex toVertex() {
         return vertex2;
     }
 
