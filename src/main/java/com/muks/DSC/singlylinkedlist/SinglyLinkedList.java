@@ -65,7 +65,7 @@ public class SinglyLinkedList extends LinkedList {
             tail.next = node;
             tail = node;
             tail.next = null;
-            System.out.println("GraphNode inserted successfully!");
+            System.out.println("Node inserted successfully!");
         }
     }
 
@@ -425,7 +425,7 @@ public class SinglyLinkedList extends LinkedList {
         Node end = linkedList.head;
         Node prev = null;
 
-        /* Get pointer to last GraphNode */
+        /* Get pointer to last node of linked list */
         while (end.next != null)
             end = end.next;
 
@@ -730,7 +730,8 @@ public class SinglyLinkedList extends LinkedList {
         Merging 2 sorted linked list in such a way that is in ascending order, small -> big number
 
         Note:
-        Solve without reverse, O(1) auxiliary space (in-place) and only one traversal of both lists
+        Solve without recursion, O(1) auxiliary space (in-place) and only one traversal of both
+        lists
 
         Steps:
         (1) init a new linked list with head = 0
@@ -742,7 +743,9 @@ public class SinglyLinkedList extends LinkedList {
         (7) at last which ever is still left as NOT null, attach entire remaining list to pivot
         (8) Update the head from 0 (initialized to) to head = head.next
      */
-    public static SinglyLinkedList mergeSortedList(SinglyLinkedList list1, SinglyLinkedList list2) {
+    public static void mergeNonSortedList(SinglyLinkedList list1, SinglyLinkedList list2) {
+        System.out.println("+ Merging non sorted linked lists");
+
         SinglyLinkedList mergedLinkedList = new SinglyLinkedList();
         mergedLinkedList.insertDefault(0);
 
@@ -776,56 +779,109 @@ public class SinglyLinkedList extends LinkedList {
 
         mergedLinkedList.head = mergedLinkedList.head.next; // Step - 8
 
-        return mergedLinkedList;
+        System.out.println(mergedLinkedList.toString());
 
     }   // end mergedSortedList()
 
 
+
+    // This is to be done as mrege first and then sort it using O(n)
+    public static void merge1(Node n1, Node n2) {
+        System.out.println("===");
+        SinglyLinkedList mergedLinkedList = new SinglyLinkedList();
+
+
+
+        if ((Integer) n1.data < (Integer) n2.data) {
+            mergedLinkedList.head = n1;
+            n1 = n1.next;
+        }
+        else {
+            mergedLinkedList.head = n2;
+            n2 = n2.next;
+        }
+
+        Node p1 = mergedLinkedList.head;
+        while (n1 != null && n2 != null) {
+
+            if ((Integer) n1.data < (Integer) n2.data) {
+                p1.next = n1;
+                n1 = n1.next;
+            }
+            else {
+                p1.next = n2;
+                n2 = n2.next;
+            }
+
+            p1 = p1.next;
+        }
+
+        System.out.println(mergedLinkedList.toString());
+
+        if (n1 != null) {
+            System.out.println("-=-=-");
+            while (n1.next != null) {
+                p1.next = n1;
+                n1 = n1.next;
+            }
+        }
+        else {
+            while (n2.next != null) {
+                p1.next = n2;
+                n2 = n2.next;
+            }
+        }
+
+        System.out.println(mergedLinkedList.toString());
+    }
+
+    static Node MergeSortedLists(Node node1, Node node2) {
+        if (node1 == null) return node2;
+        if (node2 == null) return node1;
+
+        // pick the list which has the smaller sorted number and point head to it
+        Node head;
+        if ((Integer) node1.data < (Integer) node2.data) {
+            head = node1;
+
+        } else {    // if list 2 has all the smaller numbers then swap and have node1 as smaller
+            head = node2;
+            node2 = node1;
+            node1 = head;
+        }
+
+        while(node1.next != null) {
+            if ((Integer) node1.next.data <= (Integer) node2.data) {
+                node1 = node1.next;
+                System.out.println("node1 = " + node1.data);
+            }
+        }
+
+        if (node1.next == null) {
+            node1.next = node2;
+        }
+
+        return head;
+    }
+
     /*  =========================================================================================
         Recursively merge 2 sorted linked list
-
         Steps:
             - Are as same as iterative but in a recursive way.
      */
-    public static void mergeLinkedListRecursion(SinglyLinkedList list1, SinglyLinkedList list2) {
-        System.out.println("\n+ Merging by recursion +");
+    public static Node MergeSortedListsRecursive(Node n1, Node n2)  {
+        if (n1 == null) return n2;
+        if (n2 == null) return n1;
 
-        if (list2 == null) {
-            return;
+        if ((Integer) n1.data < (Integer) n2.data) {
+            n1.next = MergeSortedListsRecursive(n1.next, n2);
+            return n1;
         }
-        Node first = mergeLinkedListRecursive(list1.head, list2.head);
-
-
-        // Print the linked list using head
-        Node current = first;       // Testing to get head by using instance object 'this.head'
-        StringBuilder sb = new StringBuilder("\nDisplay LinkedList: [ -HEAD -> ");
-        while ( current != null ) {
-            sb.append(current.data + " -> ");
-            current = current.next;
-        }
-        sb.append("NULL");
-        System.out.println(sb.toString());
-
-    }
-
-    private static Node mergeLinkedListRecursive(Node node1, Node node2) {
-        if (node1 == null) {
-            return node2;
-        }
-
-        if (node2 == null) {
-            return node1;
-        }
-
-        if ((Integer) node1.data < (Integer) node2.data) {
-            node1.next = mergeLinkedListRecursive(node1.next, node2);
-            return node1;
-        } else {
-            node2.next = mergeLinkedListRecursive(node1, node2.next);
-            return node2;
+        else {
+            n2.next = MergeSortedListsRecursive(n1, n2.next);
+            return n2;
         }
     }
-
 
     /*  =====================================================================================
         Rotate a linked list around an element

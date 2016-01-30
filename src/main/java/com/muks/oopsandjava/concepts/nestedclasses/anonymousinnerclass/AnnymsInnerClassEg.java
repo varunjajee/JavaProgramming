@@ -13,7 +13,7 @@ public class AnnymsInnerClassEg {
         public static void main(String args[]) {
 
             // Eg of anonymous inner class
-            Eatable e = new Eatable(){
+            Eatable e = new Eatable() {
                 public void eat() {
                     System.out.println("nice fruits");
                 }

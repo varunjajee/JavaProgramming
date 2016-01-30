@@ -294,9 +294,7 @@ public class AlgosBinarySearchTree {
             }
             else {
                 current = stack.pop();
-
                 System.out.println( current.data );
-
                 current = current.left;
             }
         }

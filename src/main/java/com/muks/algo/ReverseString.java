@@ -15,13 +15,12 @@ public class ReverseString {
 	// Reverse by using mid elements o(n log n)
 	public static String reverseByMid(String orig) {
 		char[] s = orig.toCharArray();
-		//System.out.println("+ S: " + s.toString());
 
 		int n = s.length; 	// array length always returns 1-n rather 0-n
 		System.out.println("Lenght - n : " + n);
 		int halfLength = n / 2;
 		
-		for (int i=0; i<halfLength; i++) {
+		for (int i=0; i < halfLength; i++) {
 			char temp = s[i];
 			s[i] = s[n-1-i];
 			s[n-1-i] = temp;

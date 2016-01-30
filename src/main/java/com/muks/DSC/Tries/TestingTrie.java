@@ -4,9 +4,7 @@ package com.muks.DSC.Tries;
  * Created by mukthar.ahmed on 1/13/16.
  */
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 
 /*  =====   Tricky FAQ  =====
@@ -34,10 +32,10 @@ import java.util.List;
 public class TestingTrie {
     public static void main(String[] args) {
 
-        String[] inputWords = {"mukthar", "muks", "tea", "ted"};
-        String[] anagramic = {"cat", "tac", "act", "dog", "god"};
-
-        Trie myTrie = new Trie();
+//        String[] inputWords = {"mukthar", "muks", "tea", "ted"};
+//        String[] anagramic = {"cat", "tac", "act", "dog", "god"};
+//
+//        Trie myTrie = new Trie();
 
         /*
         myTrie.insert("tea");
@@ -57,6 +55,9 @@ public class TestingTrie {
         System.out.println(myTrie.prefixMatch(myTrie.root, "mu"));
         */
 
+
+
+        /* //Eg: (2)
         List<Integer> index = new ArrayList<>();
         index.add(1);
         index.add(2);
@@ -77,8 +78,33 @@ public class TestingTrie {
         for (int i = 0; i < anagrams.size(); i++) {
             System.out.println(anagramic[anagrams.get(i)]);
         }
+        */
 
 
+
+        /*
+            Consider the following dictionary
+            { i, like, sam, sung, samsung, mobile, ice, cream, icecream, man, go, mango}
+
+            Input:  ilike
+            Output: Yes
+            The string can be segmented as "i like".
+
+            Input:  ilikesamsung
+            Output: Yes
+            The string can be segmented as "i like samsung" or "i like sam sung".
+
+         */
+        String[] inputWords = {"i", "like", "sam", "sung"};
+        Trie myTrie = new Trie();
+        String contineousWord = "";
+
+        for (int i = 0; i < inputWords.length; i++) {
+            contineousWord = contineousWord + inputWords[i];
+            myTrie.insert(contineousWord);
+        }
+
+        System.out.println("+ search with prefix = " + myTrie.search("ilike"));
 
     }
 

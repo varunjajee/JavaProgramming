@@ -1,7 +1,5 @@
 package com.muks.DSC.Graph;
 
-import java.util.List;
-
 /*
     Created by mukthar.ahmed on 1/25/16.
 
@@ -16,6 +14,7 @@ public class TestingGraph {
 
     public static void main(String[] args) {
 
+        /*
     // Question: Design DFS and BFS using a undirected graph.
         Graph graph = new Graph(5);
 
@@ -65,52 +64,27 @@ public class TestingGraph {
         List<Vertex> path = graph.shortestPath('a', 'z');
         System.out.println("\n+ Shortest path from a -> z " + path.toString());
 
+*/
 
 
-/*
         // Question: Get character precedence of a given sorted dictionary using graph
 
         Graph graph = new Graph(256);
         String[] wordsArray = {"caa", "aaa", "aab"};
-        DAG(graph, wordsArray[0], wordsArray[1]);
-        DAG(graph, wordsArray[1], wordsArray[2]);
+        DagFromWords(graph, wordsArray[0], wordsArray[1]);
+        DagFromWords(graph, wordsArray[1], wordsArray[2]);
 
         System.out.println("+ Breadth First Search = ");
         graph.runBFS('c');
 
         System.out.println("\n\n+ Topological sorting = ");
         graph.topologicalSort();
-*/
 
 
-/*
-        // Fixed graph and its topological sorting
-        Graph graph1 = new Graph(6);
-        graph1.addVertex('a');
-        graph1.addVertex('b');
-        graph1.addVertex('c');
-        graph1.addVertex('d');
-        graph1.addVertex('e');
-        graph1.addVertex('f');
 
-
-        //graph1.print();
-
-        boolean isDirectedGraph = true;
-        graph1.addEdge('f', 'a', isDirectedGraph);
-        graph1.addEdge('f', 'c', isDirectedGraph);
-        graph1.addEdge('c', 'd', isDirectedGraph);
-        graph1.addEdge('d', 'b', isDirectedGraph);
-        graph1.addEdge('e', 'a', isDirectedGraph);
-        graph1.addEdge('e', 'b', isDirectedGraph);
-
-        graph1.runDepthFirst('f');
-        //graph1.topologicalSort();
-
-*/
     }
 
-    public static void DAG(Graph graph, String word1, String word2) {
+    public static void DagFromWords(Graph graph, String word1, String word2) {
         for (int i = 0; i < word1.length(); i++) {
             if (word1.charAt(i) != word2.charAt(i)) {
                 graph.addVertex(word1.charAt(i));

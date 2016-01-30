@@ -62,23 +62,53 @@ public class TestLinkedList {
         //SinglyLinkedList.segregateEvenAndOdd(mainList);
         //SinglyLinkedList.evenAndOdd(mainList);
 
-         /* Create linked list out of a array list */
-        ArrayList<Object> values1 = new ArrayList<Object>(Arrays.asList(5, 4, 3, 2, 1, 6));
-        SinglyLinkedList mainList = new SinglyLinkedList(values1);
+//         /* Create linked list out of a array list */
+//        ArrayList<Object> values1 = new ArrayList<Object>(Arrays.asList(1, 2, 3, 4));
+//        SinglyLinkedList mainList = new SinglyLinkedList(values1);
+//
+//        ArrayList<Object> values2 = new ArrayList<Object>(Arrays.asList(5, 6, 7, 8));
+//        SinglyLinkedList subList = new SinglyLinkedList(values2);
 
-        ArrayList<Object> values2 = new ArrayList<Object>(Arrays.asList(2, 3, 20));
-        SinglyLinkedList subList = new SinglyLinkedList(values2);
 
-
-        //System.out.println(SinglyLinkedList.mergeSortedList(mainList, subList));
+//        System.out.println(SinglyLinkedList.mergeSortedList(mainList, subList));
 //        System.out.println(
 //                "+ Merged: "
 //                        + SinglyLinkedList.recursiveMergeSortedList(mainList.head,
 //                subList.head).toString());
+//
+//        SinglyLinkedList.mergeLinkedListRecursion(mainList, subList);
+//        SinglyLinkedList.rotateList(mainList, 4);
+//
+//        SinglyLinkedList.sortLinkedlist(mainList);
 
-        //SinglyLinkedList.mergeLinkedListRecursion(mainList, subList);
-        //SinglyLinkedList.rotateList(mainList, 4);
-        SinglyLinkedList.sortLinkedlist(mainList);
+
+
+
+//        //Node res = SinglyLinkedList.MergeSortedLists(mainList.head, subList.head);
+//        Node res = SinglyLinkedList.MergeSortedListsRecursive(mainList.head, subList.head);
+//
+//        StringBuilder sb = new StringBuilder("\nDisplay LinkedList: [ -HEAD -> ");
+//        while ( res != null ) {
+//            sb.append(res.data + " -> ");
+//            res = res.next;
+//        }
+//
+//        sb.append("NULL");
+//
+//        System.out.println(sb.toString() + "- ]");
+//
+//
+
+
+
+
+        ArrayList<Object> values11 = new ArrayList<Object>(Arrays.asList(9, 2, 1, 4));
+        SinglyLinkedList mainList1 = new SinglyLinkedList(values11);
+
+        ArrayList<Object> values22 = new ArrayList<Object>(Arrays.asList(5, 8, 7, 6));
+        SinglyLinkedList subList2 = new SinglyLinkedList(values22);
+
+         SinglyLinkedList.merge1(mainList1.head, subList2.head);
 
 
     }

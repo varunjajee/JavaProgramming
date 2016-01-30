@@ -1,4 +1,4 @@
-package AlgosOnString;
+package com.muks.algo.AlgosOnString;
 
 public class ReverseWordByWord {
 
@@ -26,24 +26,24 @@ public class ReverseWordByWord {
 	
 	public static String reverseStringWordByWord(String str) {
 		
-        StringBuilder returnValue = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
         int insertIndex = 0;
         
         for(int i = 0; i < str.length(); i++ ) {
         	 
             if(str.charAt(i) != ' ') {
-                returnValue.insert(insertIndex, str.charAt(i));
+                sb.insert(insertIndex, str.charAt(i));
                 
             }  else {
                 insertIndex = i+1;
-                returnValue.append(str.charAt(i));
+                sb.append(str.charAt(i));
 
             }
-            System.out.println(returnValue.toString());
+            System.out.println(sb.toString());
 
         }
 
-        return returnValue.toString();
+        return sb.toString();
     }
 	
 	

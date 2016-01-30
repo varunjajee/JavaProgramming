@@ -81,7 +81,7 @@ public class Trie {
     */
     public boolean search(String word) {
         TrieNode t = searchNode(word);
-
+        System.out.println("===" + t.toString());
         if (t != null && t.isLeaf) {
             System.out.println("+ This word has indeces = " + t.wordIndexes.toString());
             return true;
@@ -96,6 +96,7 @@ public class Trie {
     public List<Integer> searchIndexes(String word) {
 
         TrieNode t = searchNode(word);
+
 
         if (t != null && t.isLeaf) {
             System.out.println("+ = " + t.wordIndexes.toString());

@@ -7,17 +7,22 @@ package com.muks.trail_here;
 
 public class Test {
 
-    public static void main(String[] args) {
-        String str = "mukthar ahmed";
-        int pivot = 4;
 
-        for (int i = 0; i < pivot; i++) {
-            char popd = str.charAt(0);
-
-            str = str + popd;
-            str = str.substring(1, str.length());
-            System.out.println("= alast = " + str);
+    public static void factorial(int[] arr, int n) {
+        if (n < 0) {
+            return;
         }
+
+        factorial (arr, n-1);
+        System.out.println(arr[n]);
+    }
+
+
+    public static void main(String[] args) {
+
+        int[] arr = {1, 2, 3, 4};
+        // Try routine
+        factorial(arr, arr.length-1);
     }
 
 }

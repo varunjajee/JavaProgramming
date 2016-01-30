@@ -211,6 +211,7 @@ public class Graph {
             path.add(end);
             end = end.parent();
         }
+
         // if end is null, node not found
         if (end == null) {
             return null;
