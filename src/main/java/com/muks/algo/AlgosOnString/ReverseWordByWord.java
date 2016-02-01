@@ -40,7 +40,6 @@ public class ReverseWordByWord {
 
             }
             System.out.println(sb.toString());
-
         }
 
         return sb.toString();
