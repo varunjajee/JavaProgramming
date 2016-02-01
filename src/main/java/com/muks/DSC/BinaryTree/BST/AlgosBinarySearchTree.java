@@ -602,5 +602,73 @@ public class AlgosBinarySearchTree {
     }   // end
 
 
+    /*
+        Non-Optimised Solution:
+          - Simple solution O(h1 + h2) - where h1 = height of BST-1 and h2 = height of BST-2, is to
+          traverse the tree from left to right and store the leaves into a stack and compare them later
+
+        Optimized Solution:
+          - Traverse both the trees at the same time and compare the child nodes when found.
+
+     */
+    public static boolean compareLeavesOfTwoTrees(TreeNode root1, TreeNode root2) {
+        Stack<TreeNode> stack1 = new Stack<>();
+        Stack<TreeNode> stack2 = new Stack<>();
+
+        stack1.push(root1);
+        stack2.push(root2);
+
+        // get started using either of the stack not being empty
+        while (!stack1.isEmpty() || !stack2.isEmpty()) {
+
+            // return false if either of the stack is found to be empty
+            if (stack1.isEmpty() || stack2.isEmpty()) {
+                return false;
+            }
+
+            TreeNode curr1 = stack1.pop();
+            curr1 = findLeafHelper(curr1, stack1);
+
+            TreeNode curr2 = stack2.pop();  //
+            curr2 = findLeafHelper(curr2, stack2);
+
+            // If one is null and other is not, then
+            // return false
+            if (curr1 == null && curr2 != null)
+                return false;
+
+            if (curr1 != null && curr2 == null)
+                return false;
+
+            // If both are not null and data is not
+            // same return false
+            if (curr1 != null && curr2 != null) {
+                if (curr1.data != curr2.data)
+                    return false;
+            }
+        }
+
+        // If control reaches this point, all leaves
+        // are matched
+        return true;
+
+    }
+
+    public static TreeNode findLeafHelper(TreeNode node, Stack<TreeNode> traceStack) {
+        while (node != null && (node.left != null && node.right != null)) {
+            if (node.left != null) {
+                traceStack.push(node.left);
+            }
+
+            if (node.right != null) {
+                traceStack.push(node.right);
+            }
+
+            node = traceStack.pop();
+        }
+
+        return node;
+    }
+
 
 }   // end class

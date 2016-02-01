@@ -13,23 +13,17 @@ public class TestBinaryTree {
 
         BinarySearchTree bst = new BinarySearchTree(5);
         bst.insert(bst.root, 1);
-        bst.insert(bst.root, 2);
-        bst.insert(bst.root, 3);
-        bst.insert(bst.root, 4);
-        bst.insert(bst.root, 6);
-        bst.insert(bst.root, 7);
-        bst.insert(bst.root, 8);
         bst.insert(bst.root, 9);
 
-//        System.out.println("\n\n");
-//        System.out.println(bst.root.name);
-//        System.out.println(bst.root.left.name + ", " + bst.root.right.name);
-//        System.out.println(bst.root.left.left.name);
-//        BinarySearchTree.inOrderTraversal(bst.root);
+        BinarySearchTree bst2 = new BinarySearchTree(5);
+        bst2.insert(bst2.root, 1);
+        bst2.insert(bst2.root, 9);
 
 
-        int[] treeNodes = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        TreeNode myTree = BinarySearchTree.createBalancedTree(treeNodes, 0, treeNodes.length - 1);
+
+        System.out.println("+ Has same leaves: " +
+        AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
+
 //        System.out.println("+ Tree With Root =>\n\t\t\t\t" + myTree.toString());
 //        System.out.println("\t\t" + myTree.left + "\t\t\t\t" + myTree.right);
 //        System.out.println("\t" + myTree.left.left + "\t\t" + myTree.left.right);
@@ -79,8 +73,8 @@ public class TestBinaryTree {
 //        AlgosBinarySearchTree.findPath(myTree, 6, mylist);
 //        System.out.println(mylist.toString());
 
-        System.out.println("+ LCA = "
-                + AlgosBinarySearchTree.findLowestCommonAncestor(myTree, 1, 4) );
+//        System.out.println("+ LCA = "
+//                + AlgosBinarySearchTree.findLowestCommonAncestor(myTree, 1, 4) );
 
 //        System.out.println("+ Distance between 2 nodes, 1 & 9 = "
 //                + AlgosBinarySearchTree.findDistanceBtwn2Nodes(myTree, 1, 9) );
