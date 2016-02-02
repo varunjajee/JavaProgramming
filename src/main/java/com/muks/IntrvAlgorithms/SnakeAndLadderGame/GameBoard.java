@@ -1,4 +1,4 @@
-package com.muks.IntrvAlgorithms.SnakeAndLadderGame;
+package com.muks.ola.SnakeAndLadderGame;
 
 /*
  * Created by mukthar.ahmed on 1/30/16.
@@ -61,7 +61,6 @@ public class GameBoard {
 
     public static void main(String[] args) {
         GameBoard gameBoard = new GameBoard();
-
 
         int i = 17;
         System.out.println("Board Node = " + gameBoard.getBoardNode(i).toString());

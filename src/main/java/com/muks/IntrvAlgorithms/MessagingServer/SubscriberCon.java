@@ -1,4 +1,4 @@
-package com.muks.IntrvAlgorithms.MessagingServer;
+package com.muks.ola.MessagingServer;
 
 
 
@@ -15,7 +15,14 @@ public class SubscriberCon implements Runnable {
     @Override
     public void run() {
         for (int i = 0; i < 100; i++) {
-            System.out.println("+ Msg Consumed = " + mq.take());
+
+            try {
+                System.out.println("+ Msg Consumed = " + mq.take());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
+
+
 }

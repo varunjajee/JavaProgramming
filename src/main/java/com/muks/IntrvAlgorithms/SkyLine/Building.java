@@ -13,6 +13,6 @@ public class Building {
     }
 
     public String toString() {
-        return "(Left: " + this.left + ", Right: " + this.right + ") - Height: "  + this.height;
+        return "(" + this.left + ", " + this.right + ", "  + this.height + ")";
     }
 }

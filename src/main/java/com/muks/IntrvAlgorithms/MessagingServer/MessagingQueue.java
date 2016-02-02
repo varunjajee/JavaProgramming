@@ -1,4 +1,4 @@
-package com.muks.IntrvAlgorithms.MessagingServer;
+package com.muks.ola.MessagingServer;
 
 import java.util.concurrent.Semaphore;
 
@@ -16,7 +16,10 @@ public class MessagingQueue {
     static Semaphore semCon = new Semaphore(0);
 
 
-    public void put(String msg) {
+    public void put(String msg) throws Exception {
+        if (index == 5) {
+            throw new Exception("+ Messaging Queue Full Exception.");
+        }
         try {
             semProd.acquire();      // quite a write lock
 
@@ -33,13 +36,16 @@ public class MessagingQueue {
 
     }
 
-    public String take() {
+    public String take() throws Exception {
+        if (index < 0) {
+            throw new Exception("Queue Empty Exception.");
+        }
         String msgToReturn = null;
 
         try {
             semCon.acquire();       // acquire a read lock
-            msgToReturn = msgQueue[index--];
-
+            msgToReturn = msgQueue[index];
+            index--;
             semProd.release();
         } catch (InterruptedException e) {
             e.printStackTrace();
