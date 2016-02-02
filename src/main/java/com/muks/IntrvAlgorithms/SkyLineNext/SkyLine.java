@@ -1,7 +1,10 @@
 package com.muks.IntrvAlgorithms.SkyLineNext;
 
 /*
- * Created by mukthar.ahmed on 2/2/16.
+  Created by mukthar.ahmed on 2/2/16.
+
+    https://github.com/mouhyi/Algorithms/blob/master/SkyLine.java
+
  */
 import java.util.ArrayList;
 import java.util.Arrays;
