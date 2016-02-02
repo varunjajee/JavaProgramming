@@ -22,36 +22,96 @@ public class SkyLine {
     }
 
     public void append(Strip currStrip) {
+        System.out.println("");
+        System.out.println("+ Appending @ index = " + index);
+        System.out.print("+ Adding strip = ");
+        currStrip.print();
 
-        // Check for redundant currStrip, a currStrip is
-        // redundant if it has same height or left as previous
-//        System.out.println(index);
-//        index++;
-        System.out.println("+ index = " + index);
-        int updatedHeight;
         if (index == -1) {
+            System.out.println("newly added");
+
             strips[++index] = currStrip;
+            System.out.println("+ fresh");
 
         }
         else if (strips[index].height == currStrip.height) {
-
-//            System.out.println("+ strip len = " + this.strips.length);
-//            System.out.println("Current index = "+ index);
-//            System.out.println(index-1);
-//            System.out.println(this.strips[index].height + " == " + currStrip.height);
-
             System.out.println("+ Skip adding, \"same height\"");
-            return;
+
         }
         else if (strips[index].left == currStrip.left) {
-            //updatedHeight = Math.max(strips[index -1].height, currStrip.height);
             System.out.println("+ Skip adding, \"same left\"");
 
+        } else {
+            strips[++index] = currStrip;
+            System.out.println("+ Added SUCCESSFULLY.");
+        }
+    }
+
+
+    static SkyLine findSkyline(Building arr[], int l, int h) {
+        if (l == h) {
+            System.out.println("+ Low = " + l);
+            SkyLine res = new SkyLine(2);
+            res.append(new Strip(arr[l].left, arr[l].height));
+            res.append(new Strip(arr[l].right, 0));
+            return res;
         }
 
-//        System.out.println("+ Strip len = " + strips.length);
-//        System.out.println("+ Index = " + index);
+        int mid = (l + h)/2;
 
-        strips[index] = currStrip;
+        // Recur for left and right halves and merge the two results
+        SkyLine sl = findSkyline(arr, l, mid);
+        SkyLine sr = findSkyline(arr, mid+1, h);
+
+        SkyLine res = sl.Merge(sr);
+
+        // Return merged skyline
+        return res;
+    }
+
+
+    SkyLine Merge(SkyLine other) {
+        // Create a resultant skyline with capacity as sum of two
+        // skylines
+        SkyLine res = new SkyLine(this.strips.length + other.strips.length);
+
+        // To store current heights of two skylines
+        int h1 = 0, h2 = 0;
+
+        // Indexes of strips in two skylines
+        int i = 1, j = 1;
+        while (i < this.strips.length && j < other.strips.length) {
+
+            // Compare x coordinates of left sides of two skylines and put the smaller one in result
+            if (this.strips[i].left < other.strips[j].left) {
+                int x1 = this.strips[i].left;
+                h1 = this.strips[i].height;
+
+                // Choose height as max of two heights
+                int maxh = Math.max(h1, h2);
+
+                res.append(new Strip(x1, maxh));
+                i++;
+            }
+            else {
+                int x2 = other.strips[j].left;
+                h2 = other.strips[j].height;
+                int maxh = Math.max(h1, h2);
+                res.append(new Strip(x2, maxh));
+                j++;
+            }
+        }
+
+        // If there are strips left in this skyline or other
+        // skyline
+        while (i < this.strips.length) {
+            res.append(this.strips[i]);
+            i++;
+        }
+        while (j < other.strips.length) {
+            res.append(other.strips[j]);
+            j++;
+        }
+        return res;
     }
 }

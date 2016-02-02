@@ -12,8 +12,8 @@ public class Strip {
         height = h;
     }
 
-    public String toString() {
-        return "(" + this.left + ", " + this.height + ")";
+    public void print() {
+        System.out.println("(" + this.left + ", " + this.height + ")");
     }
 
 }

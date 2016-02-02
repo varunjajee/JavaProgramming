@@ -1,4 +1,4 @@
-package com.muks.IntrvAlgorithms.SkyLineNext;
+package com.muks.IntrvAlgorithms.GoMapper;
 
 /*
  * Created by mukthar.ahmed on 1/29/16.

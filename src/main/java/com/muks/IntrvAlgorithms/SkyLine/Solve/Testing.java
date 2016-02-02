@@ -28,10 +28,7 @@ public class Testing {
 
         System.out.println("+ Traversing through all the buildings");
         SkyLine res = new SkyLine(buildings.length * 4);
-        SkyLinehelper.traverse(buildings, 0, buildings.length-1);
-        //SkyLinehelper.traverseBuildings(buildings, 0, buildings.length);
-
-
 
     }
+
 }

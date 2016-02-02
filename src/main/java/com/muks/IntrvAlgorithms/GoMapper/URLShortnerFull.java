@@ -1,12 +1,12 @@
-package com.muks.IntrvAlgorithms.SkyLineNext;
+package com.muks.IntrvAlgorithms.GoMapper;
 
 import java.util.HashMap;
 import java.util.Random;
 
-/**
+/*
  * Created by mukthar.ahmed on 1/29/16.
  */
-public class URLShortner2 {
+public class URLShortnerFull {
         // storage for generated keys
         private HashMap<String, String> KEY_MAP; // key-url map
         private HashMap<String, String> VALUE_MAP;// url-key map to quickly check
@@ -22,7 +22,7 @@ public class URLShortner2 {
         private int KEY_LENGTH; // the key length in URL defaults to 8
 
         // Default Constructor
-        URLShortner2() {
+        URLShortnerFull() {
             KEY_MAP = new HashMap<>();
             VALUE_MAP = new HashMap<>();
             MY_RAND = new Random();
@@ -54,7 +54,7 @@ public class URLShortner2 {
         }
 
         // Constructor which enables you to define tiny URL key length and base URL name
-        URLShortner2(int length, String newDomain) {
+        URLShortnerFull(int length, String newDomain) {
             this();
             this.KEY_LENGTH = length;
             if (!newDomain.isEmpty()) {
@@ -152,7 +152,7 @@ public class URLShortner2 {
 
         // test the code
         public static void main(String args[]) {
-            URLShortner2 u = new URLShortner2(5, "www.tinyurl.com/");
+            URLShortnerFull u = new URLShortnerFull(5, "www.tinyurl.com/");
             String urls[] = { "www.google.com/", "http://bob-pso.app.uj1.inmobi.com:8081/bob/"};
 
 
