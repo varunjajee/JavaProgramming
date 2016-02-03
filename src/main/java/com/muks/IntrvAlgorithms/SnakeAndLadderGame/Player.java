@@ -1,4 +1,4 @@
-package com.muks.ola.SnakeAndLadderGame;
+package com.muks.IntrvAlgorithms.SnakeAndLadderGame;
 
 /*
  * Created by mukthar.ahmed on 1/30/16.

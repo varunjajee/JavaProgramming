@@ -3,6 +3,8 @@ package com.muks.algo.additionalalgos;
 /*
     Created by mukthar.ahmed on 2/3/16.
 
+    Link: http://romanenco.com/coin-change-problem/
+
     Q: Find minimum number of coins to form a sub/total of a number
         - Solved by dynamic programming and memoization
  */
@@ -79,5 +81,48 @@ public class CoinsMinNum {
         int[] coins = {3, 2, 4};
 
         minCoinsBottomUp(total, coins);     // get answer
+    }
+
+
+    // class showing the usage of memoization for obtaining min no. of coins for a total
+    public class CoinChangeTD {
+        private final int[] coins;
+        private final int sum;
+        private final int[] memo;
+
+        public CoinChangeTD(int[] coins, int sum) {
+            this.coins = coins;
+            this.sum = sum;
+            memo = new int[sum + 1];
+            for (int i = 0; i < sum + 1; i++) {
+                memo[i] = -1;
+            }
+            memo[0] = 0;
+        }
+
+        public int getMinNumberOfCoins() {
+            return getMinNumberOfCoins(sum);
+        }
+
+        private int getMinNumberOfCoins(int sum) {
+            if (memo[sum] != -1) {  // eliminate duplicated calculations
+                return memo[sum];
+            }
+            if (sum == 0) {
+                return 0;  // base case
+            }
+            int result = Integer.MAX_VALUE;
+            for (int coin: coins) {
+                if (coin <= sum) {
+                    result = Math.min(
+                            result,
+                            getMinNumberOfCoins(sum - coin) + 1
+                    );
+                }
+            }
+            memo[sum] = result;  // save for reuse
+            return result;
+        }
+
     }
 }
