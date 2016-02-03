@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.concurrency.bankingeg;
+package com.muks.oopsandjava.concepts.threads.concurrency.banking;
 
 /*
  * Created by mukthar.ahmed on 11/1/15.

@@ -1,7 +1,9 @@
 package com.muks.oopsandjava.concepts.threads.concurrency.racebysemaphore;
 
-import com.muks.oopsandjava.concepts.threads.concurrency.bankingeg.BankAccount;
+import com.muks.oopsandjava.concepts.threads.concurrency.banking.BankAccount;
 import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
 /*
@@ -68,7 +70,8 @@ public class SemaphoreMikeAndMoly {
             }
         }
     }
-    private static float[] f = new float[2];
+
+
 
     public static void main(String[] args) {
 
@@ -81,6 +84,8 @@ public class SemaphoreMikeAndMoly {
 
         mike.start();
         molly.start();
+
+        ExecutorService executorService = Executors.newFixedThreadPool(1);
 
     }
 

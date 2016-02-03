@@ -98,13 +98,70 @@ public class AlgosBinarySearchTree {
         System.out.println(map.toString());
     }
 
+
+    /*  ==================================================================================
+
+     */
+    public static void DepthFirstSearch(TreeNode root) {
+        System.out.println("\n+ Print - Depth First Search");
+
+        if (root == null)
+            return;
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+
+            System.out.println(node.data + " ");
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+        }
+
+
+    }
+
+
+    /*  ================================================================================== */
+    public static void dfs(TreeNode root){
+        if (root == null) return;
+
+        System.out.print(root.data + " ");
+
+        dfs(root.left);
+        dfs(root.right);
+
+    }
+
+    public static void BreadthFirst(TreeNode root) {
+        System.out.println("\n\n+ Breadth First Search + ");
+        if (root == null) return;
+
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            TreeNode curr = queue.remove();
+
+            System.out.print(curr.data + " ");
+            if (curr.left != null) queue.add(curr.left);
+            if (curr.right != null) queue.add(curr.right);
+        }
+
+    }
+
     /*  ==================================================================================
       Level order traversal : Printing nodes at each leve of BST
 
-      // BFS - Breadth First Search
-  */
+      // BFS - Breadth First Search OR Level order traversal
+    */
     public static void printLevelOrder(TreeNode root) {
-        System.out.println("\n+ Print - Level order traversal.");
+        System.out.println("\n+ Print - Level order traversal OR BFS");
 
         // base case
         if(root == null)
@@ -408,7 +465,7 @@ public class AlgosBinarySearchTree {
           left-subtree = right-subtree
           right-subtree = temp
      */
-    
+
     // mirror or rotate a binary tree at its root
     public static void mirrorTree(TreeNode node) {
         if(node == null) {

@@ -1,6 +1,6 @@
 package com.muks.oopsandjava.concepts.threads.concurrency.racebysynchro;
 
-import com.muks.oopsandjava.concepts.threads.concurrency.bankingeg.BankAccount;
+import com.muks.oopsandjava.concepts.threads.concurrency.banking.BankAccount;
 
 import java.util.Random;
 
@@ -11,18 +11,6 @@ public class SynchronizationEgMikeAndMolyJob implements Runnable{
     private BankAccount account = new BankAccount(200);
     private ThreadLocal<Integer> TOTAL_WITHDRAWN = new ThreadLocal<>();
 
-
-    public static void main(String[] args) {
-        SynchronizationEgMikeAndMolyJob synchroMikeAndMolyJob = new SynchronizationEgMikeAndMolyJob();
-        Thread one = new Thread(synchroMikeAndMolyJob);
-        Thread two = new Thread(synchroMikeAndMolyJob);
-
-        one.setName("Mike");
-        two.setName("Molly");
-
-        one.start();
-        two.start();
-    }
 
     @Override
     public void run() {
@@ -76,5 +64,19 @@ public class SynchronizationEgMikeAndMolyJob implements Runnable{
                     + ", insufficient account balance!!!");
         }
     }
+
+
+    public static void main(String[] args) {
+        SynchronizationEgMikeAndMolyJob synchroMikeAndMolyJob = new SynchronizationEgMikeAndMolyJob();
+        Thread one = new Thread(synchroMikeAndMolyJob);
+        Thread two = new Thread(synchroMikeAndMolyJob);
+
+        one.setName("Mike");
+        two.setName("Molly");
+
+        one.start();
+        two.start();
+    }
+
 
 }

@@ -11,18 +11,33 @@ public class TestBinaryTree {
     public static void main(String[] args) {
 
 
-        BinarySearchTree bst = new BinarySearchTree(5);
-        bst.insert(bst.root, 1);
-        bst.insert(bst.root, 9);
+//        BinarySearchTree bst = new BinarySearchTree(5);
+//        bst.insert(bst.root, 1);
+//        bst.insert(bst.root, 9);
+//
+//        BinarySearchTree bst2 = new BinarySearchTree(5);
+//        bst2.insert(bst2.root, 1);
+//        bst2.insert(bst2.root, 9);
+//
+//
+//
+//        System.out.println("+ Has same leaves: " +
+//        AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
 
-        BinarySearchTree bst2 = new BinarySearchTree(5);
-        bst2.insert(bst2.root, 1);
-        bst2.insert(bst2.root, 9);
 
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        TreeNode btree = BinarySearchTree.createBalancedTree(arr);
+        System.out.println("+ Root = " + btree.data);
+        System.out.println(
+                btree.data + "\n"+
+                        btree.right + "\n" + btree.right.left + ", " + btree.right.right + "\n"
+                + btree.right.left.left
+        );
+        AlgosBinarySearchTree.DepthFirstSearch(btree);
+        AlgosBinarySearchTree.dfs(btree);
 
-
-        System.out.println("+ Has same leaves: " +
-        AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
+        AlgosBinarySearchTree.BreadthFirst(btree);
+        AlgosBinarySearchTree.printLevelOrder(btree);
 
 //        System.out.println("+ Tree With Root =>\n\t\t\t\t" + myTree.toString());
 //        System.out.println("\t\t" + myTree.left + "\t\t\t\t" + myTree.right);
