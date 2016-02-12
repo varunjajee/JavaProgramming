@@ -84,8 +84,8 @@ public class TestLinkedList {
 
 
 
-//        //Node res = SinglyLinkedList.MergeSortedLists(mainList.head, subList.head);
-//        Node res = SinglyLinkedList.MergeSortedListsRecursive(mainList.head, subList.head);
+//        //CNode res = SinglyLinkedList.MergeSortedLists(mainList.head, subList.head);
+//        CNode res = SinglyLinkedList.MergeSortedListsRecursive(mainList.head, subList.head);
 //
 //        StringBuilder sb = new StringBuilder("\nDisplay LinkedList: [ -HEAD -> ");
 //        while ( res != null ) {

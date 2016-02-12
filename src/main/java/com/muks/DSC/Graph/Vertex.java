@@ -17,7 +17,7 @@ public class Vertex {
 
     public boolean isVisited;
 
-    // Node constructor
+    // CNode constructor
     public Vertex(char vertexValue) {
         this.name = vertexValue;
         this.edges = new ArrayList<>();
