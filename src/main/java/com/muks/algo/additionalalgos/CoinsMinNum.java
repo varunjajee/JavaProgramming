@@ -22,14 +22,14 @@ public class CoinsMinNum {
 
 
     public static void minCoinsBottomUp(int total, int[] coins) {
-        int[] T = new int[total+1];
-        int[] R = new int[total+1];
+        int[] MIN_COINS = new int[total+1];
+        int[] DENOMINATIONS = new int[total+1];
 
         // initialize both the arrays
-        T[0] = 0;
+        MIN_COINS[0] = 0;
         for (int i = 1; i <= total; i++) {
-            T[i] = Integer.MAX_VALUE - 1;
-            R[i] = -1;
+            MIN_COINS[i] = Integer.MAX_VALUE - 1;
+            DENOMINATIONS[i] = -1;
         }
 
 
@@ -37,9 +37,11 @@ public class CoinsMinNum {
             for (int i = 1; i <= total; i++) {
 
                 if (i >= coins[j]) {    // entry criteria
-                    if ( T[i - coins[j]] + 1 < T[i]) {
-                        T[i] = 1 + T[i - coins[j]];
-                        R[i] = j;
+
+                    if ( MIN_COINS[i - coins[j]] + 1 < MIN_COINS[i]) {
+
+                        MIN_COINS[i] = MIN_COINS[i - coins[j] + 1];
+                        DENOMINATIONS[i] = j;
                     }
                 }
             }
@@ -47,26 +49,30 @@ public class CoinsMinNum {
         }
 
         // Print combination
-        printCoinCombination(R, coins);
+        printCoinCombination(DENOMINATIONS, coins);
     }
 
-    private static void printCoinCombination(int[] R, int[] coins) {
+    private static void printCoinCombination(int[] DENOMINATIONS, int[] coins) {
         List<Integer> minCoins = new ArrayList<>();
 
-        if (R[R.length - 1] == -1) {
+        if ( DENOMINATIONS[ DENOMINATIONS.length - 1] == -1) {
             System.out.println("+ Warning: There's no possible solution.");
             return;
         }
 
-        int start = R.length - 1;
+        int start = DENOMINATIONS.length - 1;
         System.out.println("+ Coins used to form the total = ");
+
+
         while ( start != 0 ) {
-            int j = R[start];
+            int j = DENOMINATIONS[start];
             System.out.println(coins[j] + " ");
             minCoins.add(coins[j]);
 
             start = start - coins[j];
         }
+
+
 
         System.out.println("\n");
         System.out.println("+ Coins are:" );

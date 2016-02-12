@@ -3,11 +3,10 @@ package com.muks.algo.additionalalgos;
 public class IntegerToWords {
 
 	public static void main(String[] args) {
-//		System.out.println(
-//                "+ Number in words: " + numberInWords(21, new StringBuilder()));
-
+		//int num = 21;
+		int num = 2501;
         System.out.println(
-                "+ Number in words: " + numberInWords(2501, new StringBuilder()));
+                "+ Number in words: " + numberInWords(num, new StringBuilder()));
 	}
 
 

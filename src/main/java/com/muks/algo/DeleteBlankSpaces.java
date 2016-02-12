@@ -2,8 +2,10 @@ package com.muks.algo;
 
 public class DeleteBlankSpaces {
 
-	/**
-	 * @param args
+	/* ====================================================================================
+		Logic:
+			Where ever I find some space, I just increment 'j' and then arr[i] = arr[i+j]
+
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -26,13 +28,13 @@ public class DeleteBlankSpaces {
 		}
 		
 		arr[arr.length-j] = '\0';	 // add a 0 at the end to mark the end of the unique char
-		
+
+
+
 		String s = "";
 		for (char c : arr) {
 			s += c;
 		}
 		System.out.println("+++ Final output with deleted spaces: " + s);
-		
 	}
-	
 }

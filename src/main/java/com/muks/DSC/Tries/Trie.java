@@ -28,14 +28,14 @@ public class Trie {
         HashMap<Character, TrieNode> children = root.children;
 
         for (int i = 0; i < word.length(); i++) {
-            char c = word.charAt(i);
+            char ch = word.charAt(i);
 
             TrieNode t;
-            if (children.containsKey(c)) {
-                t = children.get(c);
+            if (children.containsKey(ch)) {
+                t = children.get(ch);
             } else {
-                t = new TrieNode(c);
-                children.put(c, t);
+                t = new TrieNode(ch);
+                children.put(ch, t);
             }
 
             children = t.children;
@@ -96,7 +96,6 @@ public class Trie {
     public List<Integer> searchIndexes(String word) {
 
         TrieNode t = searchNode(word);
-
 
         if (t != null && t.isLeaf) {
             System.out.println("+ = " + t.wordIndexes.toString());
@@ -216,8 +215,8 @@ public class Trie {
             System.out.println(" = " + node.toString());
             for (char ch : node.children.keySet()) {
                 System.out.println("+ prefix = " + prefix);
+
                 prefix += ch;
-                //System.out.println("+ Before = " + prefix);
                 result.addAll(wordsFromPrefix(node.children.get(ch), prefix));
                 prefix = prefix.substring(0, prefix.length()-1);
             }

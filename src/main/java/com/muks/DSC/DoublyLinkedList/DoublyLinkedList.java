@@ -181,6 +181,21 @@ public class DoublyLinkedList extends LinkedList {
         return size;
     }
 
-
+//    public void reverseDLL(DoublyLinkedList list) {
+//        DNode prev = null;
+//        DNode nextNode = null;
+//        DNode curr = list.head;
+//
+//        while ( curr.next != null ) {
+//            nextNode = curr.next;
+//            curr.next = prev;
+//            curr.previous = nextNode;
+//
+//            prev = curr;
+//            curr = nextNode;
+//
+//        }
+//
+//    }
 
 }   // end class

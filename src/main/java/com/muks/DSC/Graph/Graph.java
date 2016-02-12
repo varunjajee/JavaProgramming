@@ -146,6 +146,7 @@ public class Graph {
 
     // Use a stack for the iterative DFS version
     public void runDepthFirst(char s) {
+        System.out.println("+ Running Breadth First Search: ");
         boolean[] visited = new boolean[vertices.size()];
         Stack<Vertex> st = new Stack<>();
 

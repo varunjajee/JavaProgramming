@@ -34,10 +34,10 @@ public class TestingTrie {
 
 //        String[] inputWords = {"mukthar", "muks", "tea", "ted"};
 //        String[] anagramic = {"cat", "tac", "act", "dog", "god"};
-//
-//        Trie myTrie = new Trie();
 
-        /*
+
+        Trie myTrie = new Trie();
+
         myTrie.insert("tea");
         myTrie.insert("to");
 
@@ -53,7 +53,7 @@ public class TestingTrie {
 
         //System.out.println("+ All getAllWords = " + myTrie.getAllWords(myTrie.root, ""));
         System.out.println(myTrie.prefixMatch(myTrie.root, "mu"));
-        */
+
 
 
 
@@ -95,6 +95,8 @@ public class TestingTrie {
             The string can be segmented as "i like samsung" or "i like sam sung".
 
          */
+
+        /*
         String[] inputWords = {"i", "like", "sam", "sung"};
         Trie myTrie = new Trie();
         String contineousWord = "";
@@ -105,6 +107,7 @@ public class TestingTrie {
         }
 
         System.out.println("+ search with prefix = " + myTrie.search("ilike"));
+        */
 
     }
 

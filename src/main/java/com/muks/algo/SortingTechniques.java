@@ -89,13 +89,12 @@ public class SortingTechniques {
 	 */	
 
 	public static void InsertionSort() {
-
-		System.out.println("+++ Insertion sorting technique... +++");
+		System.out.println("+++ Insertion Sort Technique +++");
 		int[] array = {9, 4, 6, 8, 3, 7, 2, 5, 1};
 		System.out.println("Initial array: " + printArray(array));
 
 		// algo
-		for (int i=1; i < array.length; i++) {
+		for (int i = 1; i < array.length; i++) {
 			int j = i;
 			int key = array[i];
 

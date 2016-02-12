@@ -29,12 +29,12 @@ public class Segregate0sAnd1s {
 
 		int i=0;
 		int j=a.length-1;
-		while (i<j) {
+		while (i < j) {
 			while (a[i]==0) {
 				i++;
 			}
 			
-			while (a[j]==1) {
+			while (a[j] == 1) {
 				j--;
 			}
 			

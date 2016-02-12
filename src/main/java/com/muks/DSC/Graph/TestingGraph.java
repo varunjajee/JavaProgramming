@@ -76,6 +76,7 @@ public class TestingGraph {
 
         System.out.println("+ Breadth First Search = ");
         graph.runBFS('c');
+        graph.runDepthFirst('c');
 
         System.out.println("\n\n+ Topological sorting = ");
         graph.topologicalSort();

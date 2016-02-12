@@ -22,7 +22,7 @@ public class DutchNationalFlagProblem {
 	}
 
 	
-	public static void sort123s(int [] arr) {
+	public static void sort123s(int[] arr) {
 		int oneAt = 0;
 		int threeAt = arr.length-1;
 		
@@ -30,6 +30,7 @@ public class DutchNationalFlagProblem {
 		while(i <= threeAt) {
 			if(arr[i] == 1) {
 				swap(arr, i, oneAt);
+
 				if(i == oneAt) {
 					System.out.println("+++ i: " + i + " oneAt: " + oneAt);
 					i++;
@@ -51,7 +52,7 @@ public class DutchNationalFlagProblem {
 	
 	
 	private static void swap(int[] arr, int i, int j) {
-		System.out.println("+++ Swapping: i: " + arr[i] + "j: " + arr[j]);
+		System.out.println("+++ Swapping: i=" + arr[i] + ", j=" + arr[j]);
 		int temp = arr[i];
 		arr[i] = arr[j];
 		arr[j] = temp;

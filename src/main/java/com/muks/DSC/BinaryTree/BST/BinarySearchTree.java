@@ -110,6 +110,35 @@ public class BinarySearchTree {
 
     }   // end insert()
 
+    public void addNode(TreeNode node, int n) {
+        if (node == null) {
+            return;
+        }
+
+        if (node.data == n) {
+            throw new RuntimeException("TreeNode with (" + n + ") already exists!");
+        }
+
+        if (n < node.data) {
+            if (node.left != null) {
+                addNode(node.left, n);
+            }
+            else {
+                node.left = new TreeNode(n);
+                size++;
+            }
+        }
+        else if (n > node.data) {
+            if (node.right != null) {
+                addNode(node.right, n);
+            }
+            else {
+                node.right = new TreeNode(n);
+                size++;
+            }
+        }
+
+    }
 
     // ========================== getParent() by recursion ==========================
     public static TreeNode getParent(TreeNode parent, TreeNode node, int value) {
@@ -154,6 +183,22 @@ public class BinarySearchTree {
 
         return parent;
 
+    }
+
+    public TreeNode getParentByIteration2(TreeNode root, TreeNode node) {
+        TreeNode parent = null;
+
+        while (true) {
+            if (root == null || root.data == node.data) { return parent; }
+
+            parent = root;
+            if (node.data < root.data) {
+                root = root.left;
+            }
+            else {
+                root = root.right;
+            }
+        }
     }
 
     /*  ===========================================================================================

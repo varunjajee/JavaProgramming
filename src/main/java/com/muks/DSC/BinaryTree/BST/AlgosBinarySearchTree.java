@@ -123,11 +123,9 @@ public class AlgosBinarySearchTree {
             }
         }
 
-
     }
 
 
-    /*  ================================================================================== */
     public static void dfs(TreeNode root){
         if (root == null) return;
 
@@ -138,6 +136,8 @@ public class AlgosBinarySearchTree {
 
     }
 
+
+    /*  ================================================================================== */
     public static void BreadthFirst(TreeNode root) {
         System.out.println("\n\n+ Breadth First Search + ");
         if (root == null) return;
@@ -724,6 +724,7 @@ public class AlgosBinarySearchTree {
             node = traceStack.pop();
         }
 
+        System.out.println("+ Returning child node = " + node.data);
         return node;
     }
 

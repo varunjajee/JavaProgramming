@@ -273,7 +273,7 @@ public class SinglyLinkedList extends LinkedList {
             System.out.println("+ Found the intersection point => " + current1);
             isIntersecting = true;
         } else {
-            System.out.println("+ NO intersection of linked lists is found.");
+            System.out.println("+   NO intersection of linked lists is found.");
         }
 
         return isIntersecting;
