@@ -39,23 +39,7 @@ public class ReorderingQueue {
                  {2, 2}, {1, 4}, {5, 0}
         };
 
-        int[][] q = sortQueue(queue);
-
-
-        for (int i = 0; i < q.length; i++) {
-            System.out.print(" (" + q[i][0] + ", " + q[i][1] + ")");
-        }
-
-
-
-
-
-
-        // Raw Input # 1
-        int[] heights = {6, 5, 4, 3, 2, 1};
-        int[] frontCount = {0, 0, 0, 2, 2, 4};
-
-        initPeople(heights, frontCount);
+        initPeople(queue);
 
     }   // end main
 
@@ -63,7 +47,6 @@ public class ReorderingQueue {
 
     /* Sorting 2 dimentional array */
     public static int[][] sortQueue(int[][] queue) {
-
         Arrays.sort(queue, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
@@ -76,11 +59,15 @@ public class ReorderingQueue {
 
 
     // Root method to get the ordering
-    private static void initPeople(int[] heights, int[] frontCount) {
+    //private static void initPeople(int[] heights, int[] frontCount) {
+    private static void initPeople(int[][] queue) {
+
+        Sorting.reverseSort(queue);     // reverse sort the entire queue based on height
+
         // Create Person objects from their heights and front-count
-        Person[] people = new Person[heights.length];
-        for (int i = 0; i < heights.length; i++) {
-            people[i] = new Person(heights[i], frontCount[i]);
+        Person[] people = new Person[queue.length];
+        for (int i = 0; i < queue.length; i++) {
+            people[i] = new Person(queue[i][0], queue[i][1]);
         }
 
 
