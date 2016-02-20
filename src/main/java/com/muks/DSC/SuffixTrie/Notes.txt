@@ -1,0 +1,8 @@
+
+Suffix tree implementation with youtube video:
+Video : https://www.youtube.com/watch?v=aPRqocoBsFQ
+Code from video : https://github.com/mission-peace/interview/blob/master/src/com/interview
+/suffixprefix/SuffixTree.java
+
+Another suffix tree implementation:
+http://en.literateprograms.org/Suffix_tree_%28Java%29
