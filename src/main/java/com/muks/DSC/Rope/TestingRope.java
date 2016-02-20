@@ -68,7 +68,7 @@ public class TestingRope {
             System.out.print("\nRope : ");
             rope.print();
 
-            System.out.println("+ Height = " + Rope.isBalanced(rope.root) );
+            //System.out.println("+ Height = " + Rope.isBalanced(rope.root) );
 
         }
 
