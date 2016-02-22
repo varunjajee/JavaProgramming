@@ -12,9 +12,12 @@ public class DeleteDuplicates {
     public static void main(String[] args) {
         int[] arr = {1, 1, 2, 2, 2, 3, 4, 5};
 
-        System.out.println("+ Deleted Duplicates: " + deleteDuplicates(arr));
+        //System.out.println("+ Deleted Duplicates: " + deleteDuplicates(arr));
 
-        System.out.println("+ Deleted Spaces: " + DeleteSpaces("I am here"));
+        //System.out.println("+ Deleted Spaces: " + DeleteSpaces("I am here"));
+
+        String str = "I am here";
+        DeleteFromUnsorted(str);
 
     }
 
@@ -70,5 +73,31 @@ public class DeleteDuplicates {
         }
 
         return sb.toString();
+    }
+
+
+    /**
+     *  Deleting from un-sorted arrays
+     *      - Amongst all the solutions, sorting the array and deleting seems to be tempting
+     *      solutions but its NOT.
+     *
+     *      - Track the repeated elements using hashmap and then print each
+     *      non-repeated element
+     */
+    public static void DeleteFromUnsorted(String str) {
+        int[] marker = new int[256];
+
+        char[] myarr = str.toCharArray();
+        for (char ch : myarr) {
+            marker[ch]++;
+        }
+
+        for (char ch : myarr) {
+            if (marker[ch] == 1) {
+                System.out.print(" " + ch);
+            }
+        }
+
+
     }
 }

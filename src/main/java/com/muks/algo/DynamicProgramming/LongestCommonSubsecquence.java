@@ -1,4 +1,4 @@
-package com.muks.algo.LongestCommonSubseqDynProg;
+package com.muks.algo.DynamicProgramming;
 
 public class LongestCommonSubsecquence {
 	
@@ -146,8 +146,8 @@ public class LongestCommonSubsecquence {
 	
 	// ################################################################################################################
 	public static void main(String[] args) {
-		String a = "abdefgh";
-		String b = "abcefgh";
+		String a = "ABCDAF";
+		String b = "3BCDF";
 		String c = "nematode knowledge";
 		String d = "empty bottle";
 		
