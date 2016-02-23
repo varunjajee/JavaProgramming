@@ -2,27 +2,26 @@ package com.muks.algo.DynamicProgramming;
 
 /**
  * Created by mukthar.ahmed on 2/23/16.
- * <p>
- * 0/1 Knapsack problem:
- * Problem definition: Given a set of values, weights, and a max weight. Collect the values in
- * such a way that the
- * value is max and the weight is >= max-weight
- * <p>
- * Greedy Algorithm doesn't work in this case
- * <p>
- * Dyn programming - Since we have sub-optimal solutions and sub-problems
- * <p>
- * <p>
- * Forumula:
- * i = row, (holding values with their weights 2d array (val, wgt)
- * j = columns (weights spaning from 0 - max-weight)
- * <p>
- * if (j  < wt[i] ) {
- * T[i][j] = T[i-1][j] => what ever best we can do without 'i' is T[i-1][j]
- * }
- * else {
- * T[i][j] = Math.max( T[i-1][j - wt[i]) + val[i] ,  T[i-1][j] )
- * }
+ *
+ *    0/1 Knapsack problem:
+ *    Problem definition: Given a set of values, weights, and a max weight. Collect the values in
+ *    such a way that the value is max and the weight is >= max-weight
+ *
+ *    Greedy Algorithm doesn't work in this case
+ *
+ *    Dyn programming - Since we have sub-optimal solutions and sub-problems
+ *
+ *
+ *    Forumula:
+ *    i = row, (holding values with their weights 2d array (val, wgt)
+ *    j = columns (weights spaning from 0 - max-weight)
+ *
+ *    if (j  < wt[i] ) {
+ *      T[i][j] = T[i-1][j] => what ever best we can do without 'i' is T[i-1][j]
+ *    }
+ *    else {
+ *      T[i][j] = Math.max( T[i-1][j - wt[i]) + val[i] ,  T[i-1][j] )
+ *    }
  */
 
 public class KnapsackProblem {
@@ -49,7 +48,7 @@ public class KnapsackProblem {
     }
 
 
-    //Printing the matrix
+    // Printing the matrix
     System.out.println("\n+ Printing the matrix: \n");
     for (int w = 0; w <= maxWeight; w++) {
       System.out.format("%4d", w);
