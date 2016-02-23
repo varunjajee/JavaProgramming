@@ -8,25 +8,25 @@ package com.muks.DSC.BinaryTree.BST;
 public class TestBinaryTree {
 
 
-    public static void main(String[] args) {
+  public static void main(String[] args) {
 
 
-        BinarySearchTree bst = new BinarySearchTree(5);
-        bst.insert(bst.root, 1);
-        bst.insert(bst.root, 9);
-        bst.insert(bst.root, 6);
-        bst.insert(bst.root, 7);
-        bst.insert(bst.root, 8);
+    BinarySearchTree bst = new BinarySearchTree(5);
+    bst.insert(bst.root, 1);
+    bst.insert(bst.root, 9);
+    bst.insert(bst.root, 6);
+    bst.insert(bst.root, 7);
+    bst.insert(bst.root, 8);
 
-        BinarySearchTree bst2 = new BinarySearchTree(5);
-        bst2.insert(bst2.root, 1);
-        bst2.insert(bst2.root, 9);
-        bst2.insert(bst2.root, 8);
+    BinarySearchTree bst2 = new BinarySearchTree(5);
+    bst2.insert(bst2.root, 1);
+    bst2.insert(bst2.root, 9);
+    bst2.insert(bst2.root, 8);
 
 
-        System.out.println("=> " + bst2.root + " => " + bst2.root.right.right);
+    System.out.println("=> " + bst2.root + " => " + bst2.root.right.right);
 
-        System.out.println("+ Has same leaves: " +
+    System.out.println("+ Has same leaves: " +
         AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
 
 
@@ -50,7 +50,6 @@ public class TestBinaryTree {
 //
 //        AlgosBinarySearchTree.BreadthFirst(btree);
 //        AlgosBinarySearchTree.printLevelOrder(btree);
-
 
 
 //        System.out.println("+ Tree With Root =>\n\t\t\t\t" + myTree.toString());
@@ -92,7 +91,7 @@ public class TestBinaryTree {
 //        AlgosBinarySearchTree.findNthLargetst(myTree, 7);
 
 
-        //AlgosBinarySearchTree.printTopView(myTree);
+    //AlgosBinarySearchTree.printTopView(myTree);
 
 //        BinarySearchTree.inOrderTraversal(myTree);
 //        AlgosBinarySearchTree.mirrorTree(myTree);
@@ -109,10 +108,9 @@ public class TestBinaryTree {
 //                + AlgosBinarySearchTree.findDistanceBtwn2Nodes(myTree, 1, 9) );
 
 
-        //System.out.println("===== " + AlgosBinarySearchTree.postOrder(myTree, 2));
+    //System.out.println("===== " + AlgosBinarySearchTree.postOrder(myTree, 2));
 
-    }
-
+  }
 
 
 }   // end class
