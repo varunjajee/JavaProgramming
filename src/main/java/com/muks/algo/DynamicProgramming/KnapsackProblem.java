@@ -5,7 +5,8 @@ package com.muks.algo.DynamicProgramming;
  * <p>
  * 0/1 Knapsack problem:
  * Problem definition: Given a set of values, weights, and a max weight. Collect the values in
- * such a way that the value is max and the weight is >= max-weight
+ * such a way that the
+ * value is max and the weight is >= max-weight
  * <p>
  * Greedy Algorithm doesn't work in this case
  * <p>
@@ -26,78 +27,74 @@ package com.muks.algo.DynamicProgramming;
 
 public class KnapsackProblem {
 
-    public static int knapsackDP(int[] val, int[] wt, int maxWeight) {
-        int[][] Table = new int[val.length + 1][maxWeight+1];
+  public static int knapsackDP(int[] val, int[] wt, int maxWeight) {
+    int[][] Table = new int[val.length + 1][maxWeight + 1];
 
-        for (int i = 0; i <= val.length; i++) {
-            for (int j = 0; j <= maxWeight; j++) {
+    for (int i = 0; i <= val.length; i++) {
+      for (int j = 0; j <= maxWeight; j++) {
 
-                if (i == 0 || j == 0) {   // init table with 0s in the 1st row
-                    Table[i][j] = 0;
-                    continue;
-                }
-
-                if (j - wt[i - 1] >= 0) {
-                    Table[i][j] = Math.max(Table[i - 1][j - wt[i - 1]] + val[i-1], Table[i - 1][j]);
-
-
-
-                } else {
-                    Table[i][j] = Table[i - 1][j];
-
-                }
-            }
+        if (i == 0 || j == 0) {   // init table with 0s in the 1st row
+          Table[i][j] = 0;
+          continue;
         }
 
+        if (j - wt[i - 1] >= 0) {
+          Table[i][j] = Math.max(Table[i - 1][j - wt[i - 1]] + val[i - 1], Table[i - 1][j]);
 
-        //Printing the matrix
-        System.out.println("\n+ Printing the matrix: \n");
-        for (int w = 0;w <= maxWeight; w++) {
-            System.out.format("%4d", w);
-        }
-        System.out.println("\n  --------------------------------");
-
-        for (int[] rows : Table) {
-
-            for (int col : rows) {
-                System.out.format("%4d", col);
-            }
-
-            System.out.println("");
+        } else {
+          Table[i][j] = Table[i - 1][j];
 
         }
+      }
+    }
 
 
-        /** make list of what all items to finally select **/
-        int i = val.length;
-        int j = maxWeight;
+    //Printing the matrix
+    System.out.println("\n+ Printing the matrix: \n");
+    for (int w = 0; w <= maxWeight; w++) {
+      System.out.format("%4d", w);
+    }
+    System.out.println("\n  --------------------------------");
 
-        System.out.print("\nItems picked where [");
-        while (i > 0 && j > 0){
-            if (Table[i][j] - Table[i - 1][j - wt[i - 1]] == val[i-1]) {
-                i--;
-                System.out.print(" " + val[i]);
+    for (int[] rows : Table) {
+      for (int col : rows) {
+        System.out.format("%4d", col);
+      }
 
-                j -= wt[i];
-            }
-            else {
-                i--;
-            }
-        }
-
-        System.out.print(" ]\n");
-
-
-        return Table[val.length][maxWeight];
+      System.out.println("");
 
     }
 
-    public static void main(String[] args) {
-        int[] val = {1, 4, 5, 6};
-        int[] wt = {1, 3, 4, 5};
-        int maxWeight = 7;
 
-        System.out.println("+ The max value picked = " + knapsackDP(val, wt, maxWeight) );
+    /** make list of what all items to finally select **/
+    int i = val.length;
+    int j = maxWeight;
+
+    System.out.print("\nItems picked where [");
+    while (i > 0 && j > 0) {
+      if (Table[i][j] - Table[i - 1][j - wt[i - 1]] == val[i - 1]) {
+        i--;
+        System.out.print(" " + val[i]);
+
+        j -= wt[i];
+      } else {
+        i--;
+      }
     }
+
+    System.out.print(" ]\n");
+
+
+    return Table[val.length][maxWeight];
+
+  }
+
+  public static void main(String[] args) {
+    int[] val = {1, 4, 5, 6};
+    int[] wt = {1, 3, 4, 5};
+    int maxWeight = 7;
+
+    System.out.println("+ The max value picked = " + knapsackDP(val, wt, maxWeight));
+  }
 
 }
