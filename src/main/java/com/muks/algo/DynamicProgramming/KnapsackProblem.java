@@ -36,13 +36,12 @@ public class KnapsackProblem {
           Table[i][j] = 0;
           continue;
         }
-
-        if (j - wt[i - 1] >= 0) {
-          Table[i][j] = Math.max(Table[i - 1][j - wt[i - 1]] + val[i - 1], Table[i - 1][j]);
-
-        } else {
+        
+        if (j < wt[i - 1] ) {
           Table[i][j] = Table[i - 1][j];
-
+        }
+        else {
+          Table[i][j] = Math.max(Table[i - 1][j - wt[i - 1]] + val[i - 1], Table[i - 1][j]);
         }
       }
     }
