@@ -79,7 +79,7 @@ public class TestLinkedList {
 //        SinglyLinkedList.mergeLinkedListRecursion(mainList, subList);
 //        SinglyLinkedList.rotateList(mainList, 4);
 //
-//        SinglyLinkedList.sortLinkedlist(mainList);
+//        SinglyLinkedList.SortLinkedlist(mainList);
 
 
 

@@ -36,7 +36,7 @@ public class GenArrayStack implements Stack {
 	
 	
 	public void myStack() {
-		if (size() < 0) { new StackEmptyException ("The stack is empty!!!");	}
+		if (size() < 0) { new StackEmptyException ("The Stack is empty!!!");	}
 		
 		for (int i = 0; i < size(); i++) {
 			System.out.println( S[i] + " ");
@@ -87,14 +87,14 @@ public class GenArrayStack implements Stack {
 
 	public int top () throws StackEmptyException {
 		if (size() < 0) 
-			new StackEmptyException("The stack is empty...");
+			new StackEmptyException("The Stack is empty...");
 		return (Integer) S[t];
 	}
 		
 	
 	public Object pop () throws StackEmptyException {
 		if (size() < 0) 
-			new StackEmptyException("The stack is empty... ");
+			new StackEmptyException("The Stack is empty... ");
 		Object elem;
 		elem = S[t];
 		S[t--] = null;
@@ -102,7 +102,7 @@ public class GenArrayStack implements Stack {
 	}
 
 	public void push(Object obj) throws StackFullException {
-		if (size() > N) { new StackFullException("The stack is full... "); }
+		if (size() > N) { new StackFullException("The Stack is full... "); }
 		S[++t] = obj;
 	}
 	

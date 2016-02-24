@@ -1,6 +1,7 @@
 package com.muks.DSC.Stack;
 
-import com.muks.DSC.Queue.Queue;
+import com.muks.DSC.queue.Queue;
+
 
 /*
  * Created by mukthar.ahmed on 1/2/16.

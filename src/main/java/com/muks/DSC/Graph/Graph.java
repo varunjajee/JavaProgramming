@@ -144,7 +144,7 @@ public class Graph {
     }
 
 
-    // Use a stack for the iterative DFS version
+    // Use a Stack for the iterative DFS version
     public void runDepthFirst(char s) {
         System.out.println("+ Running Breadth First Search: ");
         boolean[] visited = new boolean[vertices.size()];
@@ -161,7 +161,7 @@ public class Graph {
                 v.isVisited = true;
 
                 System.out.print(v + " -> ");
-                // auxiliary stack to visit neighbors in the order they appear
+                // auxiliary Stack to visit neighbors in the order they appear
                 // in the adjacency list
                 // alternatively: iterate through ArrayList in reverse order
                 // but this is only to get the same output as the recursive dfs
@@ -240,7 +240,7 @@ public class Graph {
             }
         }
 
-        // Push current vertex to stack which stores result
+        // Push current vertex to Stack which stores result
         stack.push(curentVertex);
     }
 
@@ -258,7 +258,7 @@ public class Graph {
             if (!vertices.get(i).isVisited)
                 topologicalSortUtil(vertices.get(i).name, stack);
 
-        // Print contents of stack
+        // Print contents of Stack
         while (stack.empty() == false) {
             System.out.print(stack.pop() + " ");
         }

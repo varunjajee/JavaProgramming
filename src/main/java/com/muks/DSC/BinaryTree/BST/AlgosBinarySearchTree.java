@@ -305,7 +305,7 @@ public class AlgosBinarySearchTree {
 
 
     /*  ========================================================================================
-        Iteratively find the k-th largest element in the tree by keeping track using a stack
+        Iteratively find the k-th largest element in the tree by keeping track using a Stack
      */
     public static void findKthLargest(TreeNode node, int k) {
 
@@ -662,7 +662,7 @@ public class AlgosBinarySearchTree {
     /*
         Non-Optimised Solution:
           - Simple solution O(h1 + h2) - where h1 = height of BST-1 and h2 = height of BST-2, is to
-          traverse the tree from left to right and store the leaves into a stack and compare them later
+          traverse the tree from left to right and store the leaves into a Stack and compare them later
 
         Optimized Solution:
           - Traverse both the trees at the same time and compare the child nodes when found.
@@ -675,10 +675,10 @@ public class AlgosBinarySearchTree {
         stack1.push(root1);
         stack2.push(root2);
 
-        // get started using either of the stack not being empty
+        // get started using either of the Stack not being empty
         while (!stack1.isEmpty() || !stack2.isEmpty()) {
 
-            // return false if either of the stack is found to be empty
+            // return false if either of the Stack is found to be empty
             if (stack1.isEmpty() || stack2.isEmpty()) {
                 return false;
             }

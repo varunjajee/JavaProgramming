@@ -77,6 +77,7 @@ public class LongestSubString {
 
   /**
    *  A recursive way of finding
+   *  Finding longest substring from a string having unique chars
    *
    */
   public static void findLongestSubStr (String inputString) {
@@ -90,7 +91,6 @@ public class LongestSubString {
 
 
     for (char c : inputString.toCharArray()) {
-      //System.out.println("+ C=" + c + " Count=" );
 
       if ( map.containsKey(c) ) {
         System.out.println("+ Unique: " + unique + " : 2nd occurrence... +++ \n" );
@@ -102,10 +102,8 @@ public class LongestSubString {
         map.clear();
         map.put(c, 1);
 
-        //System.out.println("+ Unique - Post reset(): "  + unique);
-
-      } else {
-        //System.out.println("+ 1st occurrence \n Building string: \"" + unique + "\" with \"" + c + "\"\n");
+      }
+      else {
         unique += c;
         map.put(c, 1);
 

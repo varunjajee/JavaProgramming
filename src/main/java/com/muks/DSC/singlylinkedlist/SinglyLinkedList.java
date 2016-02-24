@@ -1,14 +1,12 @@
 package com.muks.DSC.SinglyLinkedList;
 
-import com.muks.DSC.LinkedList.LinkedList;
-
 import java.util.List;
 import java.util.NoSuchElementException;
 
 /*
  * Created by mukthar.ahmed on 1/3/16.
  */
-public class SinglyLinkedList extends LinkedList {
+public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
     public Node head;
     public Node tail;
 
@@ -929,7 +927,7 @@ public class SinglyLinkedList extends LinkedList {
                    else advance insertion pointer
                 7. advance curr to curr.next
      */
-    public static void sortLinkedlist(SinglyLinkedList list) {
+    public static void SortLinkedlist(SinglyLinkedList list) {
         System.out.println("+ Original list : " + list.toString());
 
         Node listHead = list.head;

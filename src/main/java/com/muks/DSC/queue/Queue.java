@@ -1,4 +1,4 @@
-package com.muks.DSC.Queue;
+package com.muks.DSC.queue;
 
 /*
  * Created by mukthar.ahmed on 1/1/16.
@@ -81,6 +81,7 @@ public class Queue {
             if ( frontIndex == rearIndex)  {
                 frontIndex = -1;
                 rearIndex = -1;
+
             }  else {
                 frontIndex++;
             }
