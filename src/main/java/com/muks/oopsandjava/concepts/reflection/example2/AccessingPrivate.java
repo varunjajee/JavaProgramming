@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 public class AccessingPrivate {
     public static void main(String[] args) {
         //no paramater
-        Class noparams[] = {};
+        Class[] noparams = {};
 
         //String parameter
         Class[] paramString = new Class[1];

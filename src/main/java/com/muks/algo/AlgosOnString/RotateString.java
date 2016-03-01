@@ -68,7 +68,6 @@ public class RotateString {
 			char popd = str.charAt(0);
 			str = str + popd;
 			str = str.substring(1, str.length());
-					
 		}
 		
 		return str;

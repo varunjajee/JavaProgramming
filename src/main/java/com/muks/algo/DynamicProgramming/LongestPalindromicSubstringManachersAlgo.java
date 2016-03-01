@@ -10,20 +10,18 @@ public class LongestPalindromicSubstringManachersAlgo {
     /**
       There are 4 cases to handle
 
-     DO NOT proceed if;
-      1) Right side palindrome is totally contained under current palindrome.
+      Linear time Manacher's algorithm to find longest palindromic substring.
+      There are 4 cases to handle
+      Case-1 : Right side palindrome is totally contained under current palindrome - Do not consider this as center
 
-      2) Current palindrome is proper suffix of input. Terminate the loop in this case. No better palindrome
+      Case-2 : Current palindrome is proper suffix of input. Terminate the loop in this case. No better palindrom
       will be found on right.
 
-      3) Palindrome expands till the right edge and its mirror expands beyond left edge of current palindrome. Do
-     not consider this as center because it will not extend at all.
+      Case 3 : Right side palindrome is proper suffix and its corresponding left side palindrome is proper prefix
+      of current palindrome. Make largest such point as next center.
 
-
-     PROCEED if;
-     1) Palindrome expands till the right edge and its mirro palindrome is a proper prefix. Make largest such
-     point as
-     next center.
+      Case 4 : Right side palindrome is proper suffix but its left corresponding palindrome is be beyond current
+      palindrome. Do not consider this as center because it will not extend at all.
 
 
      EVEN length input: To handle even  size palindromes replace input string with one containing $ between every input
@@ -74,7 +72,7 @@ public class LongestPalindromicSubstringManachersAlgo {
                 //i - (j - i) = left mirror. Its possible left mirror might go beyond current center palindrome. So
                 // take minimum of either left side palindrome or distance of j to end.
                 T[j] = Math.min(T[i - (j - i)], 2 * (end - j) + 1);
-                //Only proceed if we get case 3. This check is to make sure we do not pick j as new center for case 1
+                // Proceed only if we get case 3. This check is to make sure we do not pick j as new center for case 1
                 // or case 4. As soon as we find a center lets break out of this inner while loop.
                 if (j + T[i - (j - i)] / 2 == end) {
                     newCenter = j;
