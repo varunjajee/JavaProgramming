@@ -1,42 +1,71 @@
 package com.muks.trail_here;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
-class Testing {
-    public static int stackdepth = 0;
-    public static void main(String[] args) {
-        List<Integer> arr = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 5, 6, 7, 5,8));
+import java.util.Queue;
 
-        remove(arr);
+class TestingStack {
+    int[] stack;
+    int size, top, total;
 
-
+    public TestingStack(int capacity) {
+        size = capacity;
+        stack = new int[size];
+        top = -1;
     }
 
-
-    public static void remove(List<Integer> arr) {
-//        int runner;
-//        int current = 0;
-//
-//        while (current < arr.size()) {
-//            runner = current + 1;
-//
-//            while (runner < arr.size()) {
-//                if (arr.get(current) == arr.get(runner)) {
-//                    System.out.println("+ found duplicate...");
-//                    arr.remove(runner);
-//                }
-//
-//                runner++;
-//            }
-//
-//            current++;
-//        }
-
-        for (int i : arr) {
-            System.out.print(" " + i);
+    public void push(int elem) {
+        if (top + 1 == size) {
+            throw new IndexOutOfBoundsException("Can't push \"" + elem + "\", Stack full exception");
         }
+        total++;
+        stack[++top] = elem;
+    }
+
+    public int pop() {
+        if (top == -1) {
+            throw new IndexOutOfBoundsException("Stack empty exception");
+        }
+        total--;
+        return stack[top--];
+    }
+
+    public void print() {
+        for (int i = 0; i < total; i++) {
+            System.out.print(" "  + stack[i]);
+        }
+    }
+
+    Queue<Integer> q1;
+    Queue<Integer> q2;
+    public void pushByQueue(int elem) {
+        if (top+1 == size) {
+            throw new IndexOutOfBoundsException("Stack is out of its capacity");
+        }
+
+        if (q1.isEmpty()) {
+            q1.add(elem);
+        }
+        else {
+            while (!q1.isEmpty()) {
+                q2.add(q1.remove());
+            }
+
+            q1.add(elem);
+
+            while (!q2.isEmpty()) {
+                q1.add(q2.remove());
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        TestingStack stack = new TestingStack(3);
+
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        stack.print();
     }
 
 }

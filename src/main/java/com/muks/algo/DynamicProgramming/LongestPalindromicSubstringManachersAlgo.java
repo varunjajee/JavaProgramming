@@ -12,7 +12,7 @@ public class LongestPalindromicSubstringManachersAlgo {
 
      DO NOT proceed if;
       1) Right side palindrome is totally contained under current palindrome.
-     
+
       2) Current palindrome is proper suffix of input. Terminate the loop in this case. No better palindrome
       will be found on right.
 
@@ -62,7 +62,7 @@ public class LongestPalindromicSubstringManachersAlgo {
             // set the longest value of palindrome around center i at T[i]
             T[i] = end - start + 1;
 
-            // Case # 2, Current palindrome is proper suffix of input.
+            // Case # 2, Current palindrome expands till the end of the input.
             if (end == T.length - 1) {
                 break;
             }

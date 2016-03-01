@@ -40,12 +40,10 @@ public class AlgosBinarySearchTree {
             System.out.println("+ current = " + current.data + ", hd = " + hd);
 
             if (current.left != null) {
-                current.left.hd = hd-1;
+                current.left.hd = hd - 1;
                 queue.add(current.left);
-            }
-
-            else if (current.right != null) {
-                current.right.hd = hd+1;
+            } else if (current.right != null) {
+                current.right.hd = hd + 1;
                 queue.add(current.right);
             }
         }
@@ -61,8 +59,10 @@ public class AlgosBinarySearchTree {
     }
 
 
-    public static void verticalOrderIterative(TreeNode root) {
-        if (root == null) { return; }
+    public static void verticalOrderTraversal(TreeNode root) {
+        if (root == null) {
+            return;
+        }
         int hd = 0;
 
         HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
@@ -75,7 +75,7 @@ public class AlgosBinarySearchTree {
             TreeNode current = queue.remove();
 
             hd = current.hd;
-            System.out.println("+ GraphNode = "  +current + ", hd = " + hd);
+            System.out.println("+ GraphNode = " + current + ", hd = " + hd);
 
             // adding to the traverse       map
             if (map.containsKey(hd)) {
@@ -85,12 +85,12 @@ public class AlgosBinarySearchTree {
             }
 
             if (current.left != null) {
-                current.left.hd = hd-1;
+                current.left.hd = hd - 1;
                 queue.add(current.left);
             }
 
             if (current.right != null) {
-                current.right.hd = hd+1;
+                current.right.hd = hd + 1;
                 queue.add(current.right);
             }
         }
@@ -100,13 +100,69 @@ public class AlgosBinarySearchTree {
 
 
     /*  ==================================================================================
+        Level order traversal : Printing nodes at each leve of BST
 
-     */
+        BFS - Breadth First Search OR Level order traversal      */
+
+    public static void printLevelOrder(TreeNode root) {
+        System.out.println("\n+ Print - Level order traversal OR BFS");
+
+        // base case
+        if (root == null) {
+            return;
+        }
+
+        // store levels and their node datas
+        HashMap<Integer, ArrayList<Integer>> levelOrderTree = new HashMap<>();
+        ArrayList<Integer> allNodes = new ArrayList<>();
+
+
+        // nodes at current level
+        Queue<TreeNode> currQ = new LinkedList<>();
+        currQ.add(root);
+
+        // nodes at next level
+        Queue<TreeNode> nextQ = new LinkedList<>();
+
+        int vd = 0;  // init tree root level = 0
+        levelOrderTree.put(vd, new ArrayList<Integer>(root.data));
+
+        while (!currQ.isEmpty()) {
+            TreeNode node = currQ.remove();
+
+            if (node.left != null) {
+                nextQ.add(node.left);
+            }
+
+            if (node.right != null) {
+                nextQ.add(node.right);
+            }
+
+            allNodes.add(node.data);
+
+            if (currQ.isEmpty()) {
+                currQ = nextQ;
+                nextQ = new LinkedList<>();
+
+                levelOrderTree.put(vd, new ArrayList(Collections.singleton(allNodes)));
+                vd++;
+
+                allNodes = new ArrayList();
+            }
+
+        }
+
+        System.out.println("+ Level Order: " + levelOrderTree.toString());
+
+    }   // end printLevelOrder()
+
+    /*  ============================= Depth first traversal ================================ */
     public static void DepthFirstSearch(TreeNode root) {
         System.out.println("\n+ Print - Depth First Search");
 
-        if (root == null)
+        if (root == null) {
             return;
+        }
 
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
@@ -126,21 +182,24 @@ public class AlgosBinarySearchTree {
     }
 
 
-    public static void dfs(TreeNode root){
-        if (root == null) return;
+    public static void dfs(TreeNode root) {
+        if (root == null) {
+            return;
+        }
 
         System.out.print(root.data + " ");
 
         dfs(root.left);
         dfs(root.right);
-
     }
 
 
     /*  ================================================================================== */
     public static void BreadthFirst(TreeNode root) {
         System.out.println("\n\n+ Breadth First Search + ");
-        if (root == null) return;
+        if (root == null) {
+            return;
+        }
 
         Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
@@ -149,67 +208,15 @@ public class AlgosBinarySearchTree {
             TreeNode curr = queue.remove();
 
             System.out.print(curr.data + " ");
-            if (curr.left != null) queue.add(curr.left);
-            if (curr.right != null) queue.add(curr.right);
+            if (curr.left != null) {
+                queue.add(curr.left);
+            }
+            if (curr.right != null) {
+                queue.add(curr.right);
+            }
         }
 
     }
-
-    /*  ==================================================================================
-      Level order traversal : Printing nodes at each leve of BST
-
-      // BFS - Breadth First Search OR Level order traversal
-    */
-    public static void printLevelOrder(TreeNode root) {
-        System.out.println("\n+ Print - Level order traversal OR BFS");
-
-        // base case
-        if(root == null)
-            return;
-
-
-        // store levels and their node datas
-        HashMap<Integer, ArrayList<Integer>> levelOrderTree = new HashMap<>();
-        ArrayList<Integer> allNodes = new ArrayList<>();
-
-
-        // nodes at current level
-        Queue<TreeNode> currQ = new LinkedList<>();
-        currQ.add(root);
-
-        // nodes at next level
-        Queue<TreeNode> nextQ = new LinkedList<>();
-
-        int verticalDepth = 0;  // init tree root level = 0
-        levelOrderTree.put(verticalDepth, new ArrayList<Integer>(root.data));
-
-        while(!currQ.isEmpty()) {
-            TreeNode node = currQ.remove();
-
-            if(node.left != null)
-                nextQ.add(node.left);
-
-            if(node.right != null)
-                nextQ.add(node.right);
-
-            allNodes.add(node.data);
-
-            if(currQ.isEmpty()) {
-                currQ = nextQ;
-                nextQ = new LinkedList<>();
-
-                levelOrderTree.put(verticalDepth, new ArrayList(Collections.singleton(allNodes)));
-                verticalDepth++;
-
-                allNodes = new ArrayList();
-            }
-
-        }
-
-        System.out.println("+ Level Order: " + levelOrderTree.toString());
-
-    }   // end printLevelOrder()
-
 
     /*  =====================================================================================
         Find the sum of all nodes other excluding leaf nodes
@@ -218,13 +225,12 @@ public class AlgosBinarySearchTree {
             - traverse all the nodes of a tree and track the sum, skip sum when leaf node.
      */
     public static int getSumExcludingLeaves(TreeNode node) {
-        if ((node == null ) || (node.left == null & node.right == null) ) {
+        if ((node == null) || (node.left == null & node.right == null)) {
             return 0;
         }
 
         return node.data + (getSumExcludingLeaves(node.left) + getSumExcludingLeaves(node.right));
     }
-
 
 
     /*  ==========================================================================================
@@ -247,21 +253,24 @@ public class AlgosBinarySearchTree {
 
     /*  =========================================================================================
         Definition: A tree is said to be balanced if the
-            -> difference ( max height and min height ) <= 1
+            => Difference in ( max height and min height ) <= 1
      */
-    public static boolean isBalancedTree (TreeNode node) {
-        if (node == null) return true;
+    public static boolean isBalancedTree(TreeNode node) {
+        if (node == null) {
+            return true;
+        }
 
         int maxHeight = getTreeMaxHeight(node);
         int minHeight = getTreeMinHeight(node);
 
-        return ( maxHeight - minHeight <= 1 );
+        return (maxHeight - minHeight <= 1);
     }
 
     /* Get tree's Max height */
     public static int getTreeMaxHeight(TreeNode node) {
-        if (node == null)
+        if (node == null) {
             return 0;
+        }
 
         int leftDepth = getTreeMaxHeight(node.left);
         int rightDepth = getTreeMaxHeight(node.right);
@@ -271,15 +280,15 @@ public class AlgosBinarySearchTree {
 
     /* Get tree's Min height */
     public static int getTreeMinHeight(TreeNode node) {
-        if (node == null)
+        if (node == null) {
             return 0;
+        }
 
         int leftDepth = getTreeMaxHeight(node.left);
         int rightDepth = getTreeMaxHeight(node.right);
 
         return Math.min(leftDepth, rightDepth) + 1;
     }
-
 
 
     /*  ================================================================================
@@ -295,7 +304,7 @@ public class AlgosBinarySearchTree {
 
         k--;
         if (k == 0) {
-            System.out.println("+ GraphNode = " + node.data);
+            System.out.println(" => " + node.data);
             return 0;
         }
 
@@ -309,24 +318,22 @@ public class AlgosBinarySearchTree {
      */
     public static void findKthLargest(TreeNode node, int k) {
 
-        Stack<TreeNode> resStack = new Stack<>();
+        Stack<TreeNode> stack = new Stack<>();
 
         TreeNode current = node;
 
-        while (resStack.size() > 0 || current != null) {
+        while (stack.size() > 0 || current != null) {
             if (current != null) {
-                //System.out.println("+++ current: " + current.name);
-                resStack.add(current);
+                stack.add(current);
                 current = current.right;
 
             } else {
-                current = resStack.pop();
+                current = stack.pop();
 
-                //System.out.println("+ k = " + k + ", current = "  + current.name);
                 k--;
 
-                if(k == 0) {
-                    System.out.println("+ Kth: " + k + ", Smallest element is = "  + current.data);
+                if (k == 0) {
+                    System.out.println("+ Kth: " + k + ", Smallest element is = " + current.data);
                     return;
                 }
 
@@ -348,10 +355,9 @@ public class AlgosBinarySearchTree {
             if (current != null) {
                 stack.add(current);
                 current = current.right;
-            }
-            else {
+            } else {
                 current = stack.pop();
-                System.out.println( current.data );
+                System.out.println(current.data);
                 current = current.left;
             }
         }
@@ -394,10 +400,11 @@ public class AlgosBinarySearchTree {
 
     // ================================================================================#######
     // print all the node name at a given level/depth of a BST
-    public void nodesByDepth(TreeNode node, int depth) {
+    public static void nodesByDepth(TreeNode node, int depth) {
 
-        if (node == null)
+        if (node == null) {
             return;
+        }
 
         if (depth == 1) {
             System.out.println(node.data);
@@ -410,8 +417,9 @@ public class AlgosBinarySearchTree {
     }
 
     public static void leavesByDepth(TreeNode node, int depth, List<Integer> nodeList) {
-        if (node == null)
+        if (node == null) {
             return;
+        }
 
         if (depth == 1) {
             if (node.left == null && node.right == null) {
@@ -424,11 +432,11 @@ public class AlgosBinarySearchTree {
         leavesByDepth(node.left, depth - 1, nodeList);
         leavesByDepth(node.right, depth - 1, nodeList);
 
-    }	// leavesByDepth()
+    }    // leavesByDepth()
 
 
     /* Leave with depth */
-    public void leavesWithDepth(TreeNode node) {
+    public static void leavesWithDepth(TreeNode node) {
         System.out.println("\n+++ Leaves at tree level/depth: ");
 
         HashMap<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
@@ -438,11 +446,11 @@ public class AlgosBinarySearchTree {
 
         for (int depth = 1; depth <= ht; depth++) {
 
-            nodeList.clear();							// clear the list before iteration
-            leavesByDepth(node, depth, nodeList);		// process leaf nodes
+            nodeList.clear();                            // clear the list before iteration
+            leavesByDepth(node, depth, nodeList);        // process leaf nodes
 
             if (!map.containsKey(depth)) {
-                map.put(depth, new ArrayList<Integer>());
+                map.put(depth, new ArrayList<>());
             }
 
             if (nodeList.size() == 0) {
@@ -451,7 +459,7 @@ public class AlgosBinarySearchTree {
                 map.put(depth, nodeList);
             }
 
-        }	// for()
+        }    // for()
 
         System.out.println("+ Leaf nodes at various levels: \n" + map.toString());
     }
@@ -468,7 +476,7 @@ public class AlgosBinarySearchTree {
 
     // mirror or rotate a binary tree at its root
     public static void mirrorTree(TreeNode node) {
-        if(node == null) {
+        if (node == null) {
             return;
         }
 
@@ -482,27 +490,28 @@ public class AlgosBinarySearchTree {
     }
 
 
-
     // ================================================================================
-    public boolean isIdentical (TreeNode t1, TreeNode t2) {
-        if ( (t1 == null) && (t2 == null) )
+    public boolean isIdentical(TreeNode t1, TreeNode t2) {
+        if ((t1 == null) && (t2 == null)) {
             return true;
+        }
 
-        if ( (t1 != null) && (t2 == null)
-                || (t1 == null) && (t2 != null) )
+        if ((t1 != null) && (t2 == null)
+            || (t1 == null) && (t2 != null)) {
             return false;
+        }
 
         if (t1.data != t2.data) {
             return false;
         } else {
-            return ( isIdentical(t1.left, t2.left) && isIdentical(t1.right, t2.right) );
+            return (isIdentical(t1.left, t2.left) && isIdentical(t1.right, t2.right));
         }
 
     }
 
     // ================================================================================#######
     // find is t2 is a subtree of t1
-    public boolean containsTree (TreeNode t1, TreeNode t2) {
+    public boolean containsTree(TreeNode t1, TreeNode t2) {
         if (t2 == null) {
             return true;
         } else {
@@ -513,14 +522,15 @@ public class AlgosBinarySearchTree {
 
     // ================================================================================#######
     public boolean subTree(TreeNode t1, TreeNode t2) {
-        if (t1 == null)
+        if (t1 == null) {
             return false;
+        }
 
         if (t1.data == t2.data) {
             return isIdentical(t1, t2);
         }
 
-        return (subTree(t1.left, t2) || subTree(t1.right, t2) );
+        return (subTree(t1.left, t2) || subTree(t1.right, t2));
 
     } // subTree()
 
@@ -561,7 +571,7 @@ public class AlgosBinarySearchTree {
 
 
 	/* ============================================================================================
-	    - Distance(X, Y) = Distance(root, X) + Distance(root, Y) — 2 x (Distance(root to LCA(X,Y) )
+        - Distance(X, Y) = Distance(root, X) + Distance(root, Y) — 2 x (Distance(root to LCA(X,Y) )
 
 	    => Eg:
 	        Distance(root, 20) = 2
@@ -584,9 +594,9 @@ public class AlgosBinarySearchTree {
         findPath(root, lca, path3);
 
         System.out.println("\n"
-                + "+ size-path1: " + path1.size()
-                + " - " + "size-path2: " + path2.size()
-                + " - " + "size-path3: " + path3.size());
+            + "+ size-path1: " + path1.size()
+            + " - " + "size-path2: " + path2.size()
+            + " - " + "size-path3: " + path3.size());
 
         if (path1.size() == 0 || path2.size() == 0) {
             return -1;
@@ -619,14 +629,12 @@ public class AlgosBinarySearchTree {
             return true;
         }
 
-        /* Even till here, if node not found, remove root node as well and
-         return empty List<TreeNode> with size = 0
-        */
-
+        /** Even till here, if node not found, remove root node as well and return empty
+         * List<TreeNode> with size = 0
+         */
         path.remove(root);
         return false;
     }
-
 
 
     // =========================================================================================
@@ -647,26 +655,27 @@ public class AlgosBinarySearchTree {
 
         /* Compare the paths to get the first different value */
         int i;
-        for (i = 0; i < pathP.size() && i < pathQ.size() ; i++) {
-            System.out.println(" - " +pathP.get(i) + " = " + pathQ.get(i));
+        for (i = 0; i < pathP.size() && i < pathQ.size(); i++) {
+            System.out.println(" - " + pathP.get(i) + " = " + pathQ.get(i));
             if (pathP.get(i) != pathQ.get(i)) {
                 break;
+
             }
         }
 
-        return pathP.get(i-1).data;
+        return pathP.get(i - 1).data;
 
     }   // end
 
 
-    /*
-        Non-Optimised Solution:
-          - Simple solution O(h1 + h2) - where h1 = height of BST-1 and h2 = height of BST-2, is to
-          traverse the tree from left to right and store the leaves into a Stack and compare them later
-
-        Optimized Solution:
-          - Traverse both the trees at the same time and compare the child nodes when found.
-
+    /**
+     * =================================================================================================
+     * Non-Optimised Solution:
+     * - Simple solution O(h1 + h2) - where h1 = height of BST-1 and h2 = height of BST-2, is to
+     * traverse the tree from left to right and store the leaves into a Stack and compare them later
+     *
+     * Optimized Solution:
+     * - Traverse both the trees at the same time and compare the child nodes when found.
      */
     public static boolean compareLeavesOfTwoTrees(TreeNode root1, TreeNode root2) {
         Stack<TreeNode> stack1 = new Stack<>();
@@ -689,30 +698,58 @@ public class AlgosBinarySearchTree {
             TreeNode curr2 = stack2.pop();  //
             curr2 = findLeafHelper(curr2, stack2);
 
-            // If one is null and other is not, then
-            // return false
-            if (curr1 == null && curr2 != null)
-                return false;
+//            stack1.push(curr1);
+//            stack2.push(curr2);
 
-            if (curr1 != null && curr2 == null)
+            // If one is null and other is not, then return false
+            if (curr1 == null && curr2 != null) {
                 return false;
+            }
 
-            // If both are not null and data is not
-            // same return false
+            if (curr1 != null && curr2 == null) {
+                return false;
+            }
+
+            // If both are not null and data is not same return false
             if (curr1 != null && curr2 != null) {
-                if (curr1.data != curr2.data)
+                System.out.println("+ I am here... ");
+                if (curr1.data != curr2.data) {
+                    System.out.println("+ not equal....");
                     return false;
+                }
+//                else {
+//                    if (curr1.left != null) {
+//                        stack1.push(curr1.left);
+//                    }
+//                    if (curr1.right != null) {
+//                        stack1.push(curr1.right);
+//                    }
+//
+//                    if (curr2.left != null) {
+//                        stack2.push(curr2.left);
+//                    }
+//                    if (curr2.right != null) {
+//                        stack2.push(curr2.right);
+//                    }
+//                }
             }
         }
 
         // If control reaches this point, all leaves
         // are matched
+        System.out.println("outt");
         return true;
 
     }
 
+    public static boolean isLeaf(TreeNode node) {
+        return (node.left == null & node.right == null);
+    }
+
     public static TreeNode findLeafHelper(TreeNode node, Stack<TreeNode> traceStack) {
+        System.out.println("\n Node = " + node);
         while (node != null && (node.left != null && node.right != null)) {
+            System.out.println("==== " + node.data);
             if (node.left != null) {
                 traceStack.push(node.left);
             }
@@ -722,10 +759,58 @@ public class AlgosBinarySearchTree {
             }
 
             node = traceStack.pop();
+            System.out.println(" - " + node.data);
         }
 
-        System.out.println("+ Returning child node = " + node.data);
+        System.out.print("+ Returning child node = " + node.data + " ");
         return node;
+    }
+
+
+    /**
+     * =============================================================================================
+     * Logic:
+     * - first find level of the leftmost leaf and store it in a variable leafLevelTracker
+     * - Then compare level of all other leaves with leafLevelTracker, if same, return true, else return false.
+     * - We traverse the given Binary Tree in Preorder fashion. An argument leaflevel is passed to all calls.
+     */
+    // The main function to check if all leafs are at same level. It mainly uses checkUtil()
+    static boolean checkIfLeavesAreAtSameLevel(TreeNode node) {
+        int level = 0;
+        Leaf mylevel = new Leaf();
+        return checkUtil(node, level, mylevel);
+    }
+
+    static class Leaf {
+        int leaflevel = 0;
+    }
+
+    static boolean checkUtil(TreeNode node, int level, Leaf leafLevelTracker) {
+        // Base case
+        if (node == null) {
+            return true;
+        }
+
+        // If a leaf node is encountered
+        if (node.left == null && node.right == null) {
+            // When a leaf node is found first time
+            if (leafLevelTracker.leaflevel == 0) {
+                leafLevelTracker.leaflevel = level; // Set first found leaf's level
+                return true;
+            }
+
+            // If this is not first leaf node, compare its level with
+            // first leaf's level
+            return (level == leafLevelTracker.leaflevel);
+        }
+
+        // If the level is greator then previously found leaf level then break here itself
+        if (level > leafLevelTracker.leaflevel) {
+            return false;
+        } else {
+            return checkUtil(node.left, level + 1, leafLevelTracker)
+                && checkUtil(node.right, level + 1, leafLevelTracker);
+        }
     }
 
 

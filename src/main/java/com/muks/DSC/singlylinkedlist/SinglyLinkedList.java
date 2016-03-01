@@ -1,4 +1,4 @@
-package com.muks.DSC.SinglyLinkedList;
+package com.muks.DSC.singlylinkedlist;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -6,7 +6,7 @@ import java.util.NoSuchElementException;
 /*
  * Created by mukthar.ahmed on 1/3/16.
  */
-public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
+public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
     public Node head;
     public Node tail;
 

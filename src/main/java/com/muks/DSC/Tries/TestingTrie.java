@@ -51,7 +51,7 @@ public class TestingTrie {
 //        System.out.println("+ search with prefix = " + myTrie.startsWith("mu"));
 //        System.out.println("+ search with prefix = " + myTrie.search("muks"));
 
-        //System.out.println("+ All getAllWords = " + myTrie.getAllWords(myTrie.root, ""));
+        //System.out.println("+ All getWordsByPrefix = " + myTrie.getWordsByPrefix(myTrie.root, ""));
         System.out.println(myTrie.prefixMatch(myTrie.root, "mu"));
 
 

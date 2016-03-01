@@ -5,34 +5,39 @@ package com.muks.DSC.BinaryTree.BST;
  */
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestBinaryTree {
+    public static void main(String[] args) {
+        BinarySearchTree bst = new BinarySearchTree(5);
+        bst.insert(bst.root, 1);
+        bst.insert(bst.root, 9);
+        bst.insert(bst.root, 6);
+        bst.insert(bst.root, 7);
+        bst.insert(bst.root, 8);
+
+        BinarySearchTree bst2 = new BinarySearchTree(5);
+        bst2.insert(bst2.root, 1);
+        bst2.insert(bst2.root, 9);
+        bst2.insert(bst2.root, 8);
 
 
-  public static void main(String[] args) {
+        System.out.println("=> " + bst2.root + " => " + bst2.root.right.right);
+        //System.out.println(AlgosBinarySearchTree.checkIfLeavesAreAtSameLevel(bst.root));
+        System.out.println(AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
 
-
-    BinarySearchTree bst = new BinarySearchTree(5);
-    bst.insert(bst.root, 1);
-    bst.insert(bst.root, 9);
-    bst.insert(bst.root, 6);
-    bst.insert(bst.root, 7);
-    bst.insert(bst.root, 8);
-
-    BinarySearchTree bst2 = new BinarySearchTree(5);
-    bst2.insert(bst2.root, 1);
-    bst2.insert(bst2.root, 9);
-    bst2.insert(bst2.root, 8);
-
-
-    System.out.println("=> " + bst2.root + " => " + bst2.root.right.right);
-
-    System.out.println("+ Has same leaves: " +
-        AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
+//        System.out.println("+ Has same leaves: " +
+//            AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
 
 
 //        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 //        TreeNode btree = BinarySearchTree.createBalancedTree(arr);
-//        System.out.println("+ Root = " + btree.data);
+        //AlgosBinarySearchTree.nodesByDepth(btree, 2);
+//        AlgosBinarySearchTree.leavesWithDepth(bst.root);
+
+
+        //System.out.println("+ Root = " + btree.data);
 //        System.out.println(
 //                btree.data + "\n" +
 //                        btree.left + "\n" + btree.left.left + ", " + btree.left.right + "\n"
@@ -91,7 +96,7 @@ public class TestBinaryTree {
 //        AlgosBinarySearchTree.findNthLargetst(myTree, 7);
 
 
-    //AlgosBinarySearchTree.printTopView(myTree);
+        //AlgosBinarySearchTree.printTopView(myTree);
 
 //        BinarySearchTree.inOrderTraversal(myTree);
 //        AlgosBinarySearchTree.mirrorTree(myTree);
@@ -108,9 +113,9 @@ public class TestBinaryTree {
 //                + AlgosBinarySearchTree.findDistanceBtwn2Nodes(myTree, 1, 9) );
 
 
-    //System.out.println("===== " + AlgosBinarySearchTree.postOrder(myTree, 2));
+        //System.out.println("===== " + AlgosBinarySearchTree.postOrder(myTree, 2));
 
-  }
+    }
 
 
 }   // end class

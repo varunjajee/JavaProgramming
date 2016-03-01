@@ -1,6 +1,6 @@
 package com.muks.DSC.DoublyLinkedList;
 
-import com.muks.DSC.LinkedList.LinkedList;
+import com.muks.DSC.linkedlist.LinkedList;
 
 import java.util.NoSuchElementException;
 

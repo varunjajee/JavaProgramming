@@ -1,4 +1,4 @@
-package com.muks.DSC.SinglyLinkedList;
+package com.muks.DSC.singlylinkedlist;
 
 /*
     - Created by mukthar.ahmed on 1/3/16.

@@ -25,7 +25,7 @@ public class Trie {
             - If already char node found, create next char as a child node of curr node
      */
     public void insert(String word) {
-        HashMap<Character, TrieNode> children = root.children;
+        HashMap<Character, TrieNode> children = this.root.children;
 
         for (int i = 0; i < word.length(); i++) {
             char ch = word.charAt(i);
@@ -144,7 +144,7 @@ public class Trie {
     /* =======================================================================================
        Find all words in a trie
      */
-    public Set<String> getAllWords(TrieNode node, String prefix) {
+    public Set<String> getWordsByPrefix(TrieNode node, String prefix) {
         Set<String> result=new HashSet<>();
 
         if (node.children.keySet().isEmpty()) {
@@ -156,7 +156,7 @@ public class Trie {
             for (char ch : node.children.keySet()) {
                 prefix += ch;
 
-                result.addAll(getAllWords(node.children.get(ch), prefix));
+                result.addAll(getWordsByPrefix(node.children.get(ch), prefix));
 
                 // This step is required to go back to the pointer from where we diverged
                 prefix = prefix.substring(0, prefix.length()-1);

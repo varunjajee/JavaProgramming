@@ -1,4 +1,6 @@
-package com.muks.DSC.SinglyLinkedList;
+package com.muks.DSC.singlylinkedlist;
+
+import com.muks.DSC.singlylinkedlist.SinglyLinkedList;
 
 import java.util.ArrayList;
 import java.util.Arrays;
