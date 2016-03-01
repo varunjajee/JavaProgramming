@@ -2,6 +2,7 @@ package com.muks.oopsandjava.concepts.threads.workers;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * Created by mukthar.ahmed on 3/2/16.
@@ -19,8 +20,6 @@ public class TestWokerThreadPool {
             workerThread.setName("Thread-" + i);
             executorService.execute(workerThread);
         }
-
-        executorService.shutdown();
 
         if (executorService.isShutdown()) {
             System.out.println("+ Successfully, has shutdown all workers");

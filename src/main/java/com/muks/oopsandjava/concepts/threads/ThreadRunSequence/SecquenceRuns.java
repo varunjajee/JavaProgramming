@@ -1,4 +1,6 @@
-package com.muks.oopsandjava.concepts.threads.runsequence;
+package com.muks.oopsandjava.concepts.threads.ThreadRunSequence;
+
+import java.util.Random;
 
 /*
  * Created by mukthar.ahmed on 1/21/16.
@@ -21,13 +23,24 @@ public class SecquenceRuns extends Thread {
         t3.setName("3rd Thread");
 
         //Testing {
+            //t1.start();
+        try {
             t1.start();
-            //t1.join();
 
+            t1.join();
             t2.start();
+
+            t2.join();
+            t3.start();
+
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //t2.start();
          //   t2.join();
 
-            t3.start();
+          //  t3.start();
            // t3.join();
 
 
@@ -39,6 +52,15 @@ public class SecquenceRuns extends Thread {
 
     @Override
     public void run() {
+        RandomThreadSleep();
         System.out.println("+ Name = " + Thread.currentThread().getName() + " is on....");
+    }
+
+    public void RandomThreadSleep() {
+        try {
+            Thread.sleep(new Random().nextInt(1000) + 500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
