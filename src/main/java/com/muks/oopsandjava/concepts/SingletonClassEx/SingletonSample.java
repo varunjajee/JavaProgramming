@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.ClassSingleton;
+package com.muks.oopsandjava.concepts.SingletonClassEx;
 
 /**
  * Created by mukthar.ahmed on 3/1/16.
@@ -15,7 +15,10 @@ public class SingletonSample {
     }
 
     public String getName() {
+        String str = "abc";
+        str.length();
         return NAME;
+
     }
 
     public String showMessage() { return "+ Testing showMessage() "; }

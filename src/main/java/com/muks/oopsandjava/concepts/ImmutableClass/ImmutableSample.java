@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.ClassImmutable;
+package com.muks.oopsandjava.concepts.ImmutableClass;
 
 /**
  * Created by mukthar.ahmed on 3/1/16.

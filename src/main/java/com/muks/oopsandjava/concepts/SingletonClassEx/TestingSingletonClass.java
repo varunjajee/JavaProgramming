@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.ClassSingleton;
+package com.muks.oopsandjava.concepts.SingletonClassEx;
 
 /**
  * Created by mukthar.ahmed on 3/1/16.
