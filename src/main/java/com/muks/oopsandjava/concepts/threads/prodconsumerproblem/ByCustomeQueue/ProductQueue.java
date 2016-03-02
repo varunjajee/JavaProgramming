@@ -1,5 +1,7 @@
 package com.muks.oopsandjava.concepts.threads.prodconsumerproblem.ByCustomeQueue;
 
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.concurrent.Semaphore;
 
 /*
@@ -12,13 +14,14 @@ public class ProductQueue {
     // Start with consumer prodconsumerproblem unavailable
     static Semaphore semCon = new Semaphore(0);
 
-    int productId;
+    Queue<Integer> productQ = new LinkedList<>();
 
     void put(int n) {
         try {
             semProd.acquire();
 
-            this.productId = n;
+            productQ.add(n);        // adding elements into the product-Q
+
             System.out.println("Put: " + n);
             semCon.release();
 
@@ -33,7 +36,9 @@ public class ProductQueue {
         } catch (InterruptedException e) {
             System.out.println("InterruptedException caught");
         }
-        System.out.println("Got: " + productId);
+
+        System.out.println("Got: " + productQ.remove());
+
         semProd.release();
     }
 }
