@@ -1,5 +1,7 @@
 package com.muks.algo.DynamicProgramming;
 
+import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -24,10 +26,66 @@ public class LongestSubString {
         //findLongestSubStr("ABDEFGABEF");
 
 
-        LongestCommonSubString(a, b);
+        //LongestCommonSubString(a, b);
+        LongestCommonSubStr(a, b);
 
     } // main()
 
+
+    public static void LongestCommonSubStr(String x, String y) {
+        int M = x.length();
+        int N = y.length();
+
+        int[][] T = new int[M + 1][N + 1];
+
+        for (int i = M - 1; i >= 0; i--) {
+            for (int j = N - 1; j >= 0; j--) {
+                if (x.charAt(i) == y.charAt(j)) {
+                    T[i][j] = T[i + 1][j + 1] + 1;
+                } else {
+                    T[i][j] = 0;
+                }
+            }
+        }
+
+
+        MatrixUtils.printMatrix(T); /** Printing the matrix */
+
+        int result = -1;
+        for (int i = 0; i <= x.length(); i++) {
+            for (int j = 0; j <= y.length(); j++) {
+                if (result < T[i][j]) {
+                    result = T[i][j];
+                }
+            }
+        }
+
+
+
+        int i = 0, j = 0;
+        String longest = "";
+        while (i < M & j < N) {
+            /** break out when we have found a string of the max length */
+            if (x.charAt(i) == y.charAt(j) ) {
+                if (longest.length() == result) {
+                    break;
+                }
+
+                longest += x.charAt(i);
+
+                i++;
+                j++;
+            } else if (T[i + 1][j] > T[i][j]) {
+                i++;
+            } else {
+                j++;
+            }
+        }
+
+        System.out.println("\n+ Longest Common Sub String = " + longest);
+
+
+    }
 
     /**
      * Dynamic way of calculating Longest common sub-string
@@ -61,7 +119,7 @@ public class LongestSubString {
 
         /** Start from the right-most-bottom-most corner and one by one store characters in lcs[] */
         String res = "";
-        int i = x.length()-1, j = y.length()-1;
+        int i = x.length() - 1, j = y.length() - 1;
         while (i > 0 && j > 0) {
             // If current character in X[] and Y are same, then current character is part of LCS
             if (x.charAt(i) == y.charAt(j)) {
@@ -82,8 +140,6 @@ public class LongestSubString {
         System.out.println("+ Final String: " + res);
 
     }
-
-
 
 
     /**
