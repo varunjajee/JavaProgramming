@@ -6,7 +6,7 @@ package com.muks.algo.DynamicProgramming;
  *  Manacher's algorithm to find - longest palindromic substring
  *
  */
-public class LongestPalindromicSubstringManachersAlgo {
+public class LongestPalindromicSubStrManachers {
     /**
       There are 4 cases to handle
 
@@ -29,10 +29,9 @@ public class LongestPalindromicSubstringManachersAlgo {
      */
 
 
-    public int findLongestPalindrome(char input[]) {
-        int index = 0;
+    private static char[] processString(char[] input) {
         // Add sentinel char likely -> $a$b$c$ to handle even length case.
-
+        int index = 0;
         char newInput[] = new char[2 * input.length + 1];   // Total size will be 2*n + 1 of this new array.
         for (int i = 0; i < newInput.length; i++) {
             if (i % 2 != 0) {
@@ -42,15 +41,24 @@ public class LongestPalindromicSubstringManachersAlgo {
             }
         }
 
+        return newInput;
+    }
+
+    public static String FindLongstPalindromicSubStr(String inStr) {
+        char input[] = inStr.toCharArray();
+
+        char[] newInput = processString(input);
+
         System.out.println("+ NewInput = ");
         printArray(newInput);
 
         // create temporary array for holding largest palindrome at every point. There are 2*n + 1 such points.
         int T[] = new int[newInput.length];
+
         int start = 0;
         int end = 0;
 
-        for (int i = 0; i < newInput.length; ) {                    //here i is the center.
+        for (int i = 0; i < newInput.length; ) {                    // here i is the center.
             // expand around i. See how far we can go.
             while (start > 0 && end < newInput.length - 1 && newInput[start - 1] == newInput[end + 1]) {
                 start--;
@@ -65,15 +73,23 @@ public class LongestPalindromicSubstringManachersAlgo {
                 break;
             }
 
-            // Mark newCenter to be either end or end + 1 depending on if we dealing with even or old number input.
+            // Mark newCenter to be either end or end + 1 depending on if we dealing with even or odd index Id
             int newCenter = end + (i % 2 == 0 ? 1 : 0);
 
             for (int j = i + 1; j <= end; j++) {
-                //i - (j - i) = left mirror. Its possible left mirror might go beyond current center palindrome. So
-                // take minimum of either left side palindrome or distance of j to end.
-                T[j] = Math.min(T[i - (j - i)], 2 * (end - j) + 1);
-                // Proceed only if we get case 3. This check is to make sure we do not pick j as new center for case 1
-                // or case 4. As soon as we find a center lets break out of this inner while loop.
+                /**         i - (j - i) = left mirror.
+                 *          2 * (end - 1) + 1 = distance of j to end
+                 *
+                 *    Its possible left mirror might go beyond current center palindrome.
+                 *    So take minimum of either left side palindrome or distance of j to end.
+                 */
+
+                int mirrorLeft = T[i - (j - i)];
+                int distanceOf_J = 2 * (end - j) + 1;
+
+                T[j] = Math.min( mirrorLeft, distanceOf_J );
+
+                /** Choice of next center : If the palindrome expands at least till the right edge */
                 if (j + T[i - (j - i)] / 2 == end) {
                     newCenter = j;
                     break;
@@ -84,35 +100,67 @@ public class LongestPalindromicSubstringManachersAlgo {
             i = newCenter;
             end = i + T[i] / 2;
             start = i - T[i] / 2;
+
+            System.out.println(T[i]);
+
         }
 
-        //find the max palindrome in T and return it.
-        int max = Integer.MIN_VALUE;
-        for (int i = 0; i < T.length; i++) {
-            int val = T[i] / 2;
-            if (max < val) {
-                max = val;
+        printIntArray(T);
+
+        return getPalindromicString(inStr, T);
+    }
+
+
+    // longest palindromic substring
+    public static String getPalindromicString(String inStr, int[] p) {
+        int length = 0;   // length of longest palindromic substring
+        int center = 0;   // center of longest palindromic substring
+        for (int i = 1; i < p.length-1; i++) {
+            if (p[i] > length) {
+                length = p[i];
+                center = i;
             }
         }
-        return max;
+
+        center = center/2;
+        length = length/2;
+        System.out.println("+ Center : " + center + ", Length = " + length);
+
+        int mirrorIndex = 1;
+        String res = String.valueOf(inStr.charAt(center));
+
+        while (res.length() != length) {
+            res = inStr.charAt(center - mirrorIndex) + res;
+            res = res + inStr.charAt(center + mirrorIndex);
+        }
+
+        return res;
     }
 
 
 
-
-    private void printArray(char[] arr) {
+    private static void printIntArray(int[] arr) {
+        for (int i : arr) {
+            System.out.print(" " + i);
+        }
+        System.out.println("");
+    }
+    private static void printArray(char[] arr) {
         for (char i : arr) {
             System.out.print(" " + i);
         }
     }
 
     public static void main(String args[]) {
-        LongestPalindromicSubstringManachersAlgo lps = new LongestPalindromicSubstringManachersAlgo();
-        //System.out.println(lps.findLongestPalindrome("abba".toCharArray()));
-        //System.out.println(lps.findLongestPalindrome("abbababba".toCharArray()));
-        System.out.println("\nLongest palindrome size = " +
-            lps.findLongestPalindrome("babcbaabcbaccba".toCharArray()));
-//        System.out.println(lps.findLongestPalindrome("cdbabcbabdab".toCharArray()));
+        String str0 = "caba";
+        String str1 = "abaaba";
+        String str2 = "babcbaabcbaccba";
+
+        String palindromicSubStr = FindLongstPalindromicSubStr(str0);
+        System.out.println("\nLongest Palindrome = " + palindromicSubStr
+            + " of size = " + palindromicSubStr.length());
+
+//        System.out.println(manachersAlgo.FindLongstPalindromicSubStr(str1.toCharArray()));
     }
 
 }

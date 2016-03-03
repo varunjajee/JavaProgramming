@@ -24,6 +24,7 @@ public class Manacher {
             while (t[i + (1 + p[i])] == t[i - (1 + p[i])])
                 p[i]++;
 
+
             // if palindrome centered at i expands past right,
             // adjust center based on expanded palindrome.
             if (i + p[i] > right) {
@@ -73,9 +74,10 @@ public class Manacher {
 
     // test client
     public static void main(String[] args) {
-        String s = args[0];
+        String s = "babcbaabcbaccba";
         Manacher manacher = new Manacher(s);
         System.out.println(manacher.longestPalindromicSubstring());
+
         for (int i = 0; i < 2*s.length(); i++)
             System.out.println(i +  ": " + manacher.longestPalindromicSubstring(i));
 
