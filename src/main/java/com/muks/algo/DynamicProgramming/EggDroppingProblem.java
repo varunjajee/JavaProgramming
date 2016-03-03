@@ -13,37 +13,52 @@ package com.muks.algo.DynamicProgramming;
  */
 public class EggDroppingProblem {
     public static void main(String[] args) {
-        int totalEggs = 5;
-        int totalFloors = 10;
+        int totalEggs = 2;
+        int totalFloors = 6;
 
-        System.out.println("+ Breaks by floor = " + CalculateEggDropFloor(totalEggs, totalFloors));
+        //System.out.println("+ Breaks by floor = " + CalculateEggDropFloor(totalEggs, totalFloors));
+        EggDroppingDyncProgramming(totalEggs, totalFloors);
     }
 
-    public static int CalculateEggDropFloor(int totalEggs, int totalFloors) {
+    public static int EggDroppingDyncProgramming(int totalEggs, int totalFloors) {
         int[][] Table = new int[totalEggs + 1][totalFloors + 1];
-
-        for (int i = 0; i <= totalEggs; i++) {  // initialize the first row with min/worst case attempts
-            Table[1][i] = i;
+        // This is optional : We need one trial for one floor & 0 trials for 0 floors
+        for (int i = 1; i <= totalEggs; i++) {
+            Table[i][1] = 1;
+            Table[i][0] = 0;
         }
 
 
+        // We always need j trials for one egg and j floors.
+        for (int j = 1; j <= totalFloors; j++)
+            Table[1][j] = j;
+
+        MatrixUtils.printMatrix(Table);
+
         // start iterating from 2 eggs since the row is covered with 1 egg above
-        for (int e = 2; e <= totalEggs; e++) {
-            for (int f = 1; f <= totalFloors; f++) {
-                Table[e][f] = Integer.MAX_VALUE;
+        for (int i = 2; i <= totalEggs; i++) {
+            for (int j = 1; j <= totalFloors; j++) {
 
-                for (int k = 1; k <= f; k++) {
-                    int val = 1 + Math.max(Table[e - 1][k - 1], Table[e][f - k]);
+                /** This is important as we want the min of all the values*/
+                Table[i][j] = Integer.MAX_VALUE;
 
-                    if (val < Table[e][f]) {
-                        Table[e][f] = val;
+                for (int k = 1; k <= j; k++) {
+                    int val = 1 + Math.max(Table[i - 1][k - 1], Table[i][j - k]);
+
+                    if (val < Table[i][j]) {
+                        Table[i][j] = val;      /** This is setting min of all we got */
                     }
                 }
             }
         }
 
-        return Table[totalEggs][totalEggs];
+        System.out.println("======");
+        MatrixUtils.printMatrix(Table);
+        System.out.println("\n" +
+            "+ Answer = " + Table[totalEggs][totalFloors] +
+            ", Total Eggs = " + totalEggs +
+                " with Total Floors = " + totalFloors);
 
+        return Table[totalEggs][totalFloors];
     }
-
 }
