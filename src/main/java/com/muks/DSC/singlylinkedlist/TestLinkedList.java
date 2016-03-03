@@ -32,7 +32,6 @@ public class TestLinkedList {
         //System.out.println(singlyLinkedList.toString());
 
 
-
 //        /* Create linked list out of a array list */
 //        ArrayList<Object> values1 = new ArrayList<Object>(Arrays.asList(1, 3, 9, 4, 5, 3, 7, 7));
 //
@@ -52,7 +51,6 @@ public class TestLinkedList {
 //
 //        SinglyLinkedList.makeIntersectingList(mainList, subList, 3); // force intersect lists
 //        SinglyLinkedList.getIntersectionPoint(mainList, subList); // find intersection
-
 
 
         //SinglyLinkedList.circularLinkedListMeetingPoint(mainList);
@@ -84,8 +82,6 @@ public class TestLinkedList {
 //        SinglyLinkedList.SortLinkedlist(mainList);
 
 
-
-
 //        //CNode res = SinglyLinkedList.MergeSortedLists(mainList.head, subList.head);
 //        CNode res = SinglyLinkedList.MergeSortedListsRecursive(mainList.head, subList.head);
 //
@@ -102,17 +98,20 @@ public class TestLinkedList {
 //
 
 
-
-
-        ArrayList<Object> values11 = new ArrayList<Object>(Arrays.asList(9, 2, 1, 4));
+        ArrayList<Object> values11 = new ArrayList<Object>(Arrays.asList(9, 2, 1, 4, 5, 8));
         SinglyLinkedList mainList1 = new SinglyLinkedList(values11);
 
-        ArrayList<Object> values22 = new ArrayList<Object>(Arrays.asList(5, 8, 7, 6));
-        SinglyLinkedList subList2 = new SinglyLinkedList(values22);
+        SinglyLinkedList.GetNthNodeFromTail(mainList1.head, 4);
 
-         SinglyLinkedList.merge1(mainList1.head, subList2.head);
+
+//        ArrayList<Object> values22 = new ArrayList<Object>(Arrays.asList(5, 8, 7, 6));
+//        SinglyLinkedList subList2 = new SinglyLinkedList(values22);
+//
+//         SinglyLinkedList.merge1(mainList1.head, subList2.head);
 
 
     }
+
+
 
 }

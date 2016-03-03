@@ -17,7 +17,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
 
     /*  Constructor creating linked list out of name values */
     public SinglyLinkedList(List<Object> linkedListData) {
-        for ( Object val : linkedListData ) {
+        for (Object val : linkedListData) {
             this.insertDefault(val);
         }
     }
@@ -38,7 +38,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         }
 
         StringBuilder sb = new StringBuilder("\nDisplay LinkedList: [ -HEAD -> ");
-        while ( current != null ) {
+        while (current != null) {
             sb.append(current.data + " -> ");
             current = current.next;
         }
@@ -55,19 +55,16 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         Node node = new Node(value);
         node.next = null;
 
-        if(head == null) {
+        if (head == null) {
             head = tail = node;
             System.out.println("Linked list created/initiated successfully!");
-        }
-        else {
+        } else {
             tail.next = node;
             tail = node;
             tail.next = null;
             System.out.println("Node inserted successfully!");
         }
     }
-
-
 
 
     /* insert in between */
@@ -80,7 +77,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         Node current = linkedList.head;
 
         while (current.next != null) {
-            if ( (Integer) current.data == toInsertAfter ) {
+            if ((Integer) current.data == toInsertAfter) {
                 System.out.println("- found - Current: " + current.data.toString());
 
                 Node nodeToAdd = new Node(nodeValue);
@@ -89,8 +86,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
                 current.next = nodeToAdd;
                 current.next.next = nextNode;
 
-            }
-            else if (current.next == null) {    // reached end and still not found the value
+            } else if (current.next == null) {    // reached end and still not found the value
                 throw new NoSuchElementException("+ Search node not found.");
 
             }
@@ -106,8 +102,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
 
         if (head == null) {
             throw new NoSuchElementException("Linked List Empty Exception.");
-        }
-        else {
+        } else {
             while (current.next != null) {
                 previous = current;
                 current = current.next;
@@ -125,7 +120,9 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
     public static Node findTail(Node first) {
         Node currentLink = first;
 
-        if (currentLink.next == null) return currentLink;   // Logic: Tail is a point
+        if (currentLink.next == null) {
+            return currentLink;   // Logic: Tail is a point
+        }
         return findTail(currentLink.next); // recursive statement
 
     } // end findTail
@@ -133,7 +130,9 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
 
     /* return the size by recursive */
     public int size(Node currentNode) {
-        if (currentNode == null) return 0;
+        if (currentNode == null) {
+            return 0;
+        }
         return 1 + size(currentNode.next);
     }
 
@@ -168,14 +167,11 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
 
         if (head == null) {
             throw new NoSuchElementException("+ Linked List Empty Exception.");
-        }
-        else if (head.next == null && (Integer) head.data == nodeDataToDrop) {
+        } else if (head.next == null && (Integer) head.data == nodeDataToDrop) {
             head = null;
-        }
-        else if ((Integer) head.data == nodeDataToDrop) {
+        } else if ((Integer) head.data == nodeDataToDrop) {
             this.deleteHead();
-        }
-        else {
+        } else {
             previous = current;
             current = current.next;
             nextToNext = current.next;
@@ -196,10 +192,6 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         }
 
     }   // end deleteNode()
-
-
-
-
 
 
     // ############# ############# ############# ############# ############# ###############
@@ -226,7 +218,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
 
     // main logic of getting intersection point
     public static void getIntersectionPoint(SinglyLinkedList mainList, SinglyLinkedList subList) {
-		/* 	Time complexity: O(m+n)
+        /* 	Time complexity: O(m+n)
 		 * 	Implementation details:
 			1) Get count of the nodes in first list, let count be c1.
 			2) Get count of the nodes in second list, let count be c2.
@@ -255,12 +247,12 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
 
     /* Get the point of intersection */
     public static boolean intersectingPoint(int diff, SinglyLinkedList mainList, SinglyLinkedList
-            subList) {
+        subList) {
         boolean isIntersecting = false;
 
         System.out.println("\nFinding intersection point of to linked lists." +
-                "\n(1) " + mainList.toString() +
-                "\n(2) " + subList.toString());
+            "\n(1) " + mainList.toString() +
+            "\n(2) " + subList.toString());
 
         Node current1 = mainList.head;
         for (int i = 0; i <= diff; i++) {
@@ -284,7 +276,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         Reverse linked list in iterative manner - reversing links
      */
     public static void reverse(SinglyLinkedList linkedList) {
-        System.out.println("\n Reversing given linked list - "  + linkedList.toString());
+        System.out.println("\n Reversing given linked list - " + linkedList.toString());
 
         if (linkedList.head == null) {
             throw new NoSuchElementException("+ Linked List Empty Exception");
@@ -312,7 +304,6 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         linkedList.head = current;  // This line is important coz headless list will not be reversed
 
 
-
         System.out.println(linkedList.toString());
     }
 
@@ -323,7 +314,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
     public void recursiveReverse(Node curr) {
         /* base case to terminate recursion
            Step 1 : If current is null, then its reverse of itself */
-        if ( curr == null) {
+        if (curr == null) {
             return;
         }
 
@@ -349,8 +340,9 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
     /*  By recursion - Find tail node */
     public static Node findTailRecursively(Node current) {
         // base case, return the node if node.next == null (which is the tail)
-        if (current.next == null)
+        if (current.next == null) {
             return current;
+        }
 
         return findTailRecursively(current.next);
     }
@@ -407,7 +399,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
             p1 = p1.next;
             p2 = p2.next;
         }
-        System.out.println("+ p1 => start point: " + p1.next.data + ", p2 => end point: "+ p2.data);
+        System.out.println("+ p1 => start point: " + p1.next.data + ", p2 => end point: " + p2.data);
 
     }
 
@@ -424,13 +416,14 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         Node prev = null;
 
         /* Get pointer to last node of linked list */
-        while (end.next != null)
+        while (end.next != null) {
             end = end.next;
+        }
 
         Node new_end = end;
 
         // Consider all odd nodes before getting first eve node
-        while ((Integer) curr.data %2 !=0 && curr != end) {
+        while ((Integer) curr.data % 2 != 0 && curr != end) {
             new_end.next = curr;
             curr = curr.next;
             new_end.next.next = null;
@@ -438,7 +431,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         }
 
         // do following steps only if there is an even node
-        if ((Integer) curr.data %2 ==0) {
+        if ((Integer) curr.data % 2 == 0) {
             linkedList.head = curr;
 
             // now curr points to first even node
@@ -446,8 +439,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
                 if ((Integer) curr.data % 2 == 0) {
                     prev = curr;
                     curr = curr.next;
-                }
-                else {
+                } else {
                     /* Break the link between prev and curr*/
                     prev.next = curr.next;
 
@@ -467,9 +459,11 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         }
 
         /* We have to set prev before executing rest of this code */
-        else prev = curr;
+        else {
+            prev = curr;
+        }
 
-        if (new_end != end && (Integer) end.data %2 != 0) {
+        if (new_end != end && (Integer) end.data % 2 != 0) {
             prev.next = end.next;
             end.next = null;
             new_end.next = end;
@@ -496,9 +490,9 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
              end of new tail and set orig-tail.next to null
      */
 
-    public static void evenAndOdd (SinglyLinkedList linkedList ) {
+    public static void evenAndOdd(SinglyLinkedList linkedList) {
         System.out.println("\n+ Segregate even and odd +" +
-                "\nOriginal list: " + linkedList.toString());
+            "\nOriginal list: " + linkedList.toString());
 
         /* fix the tail node for reference to add other nodes to the end */
 
@@ -509,7 +503,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
 
         // STEP-1
         // move the first odd node to end of the linked list
-        while ( (Integer) current.data % 2 != 0 && current != origTail ) {
+        while ((Integer) current.data % 2 != 0 && current != origTail) {
             newTailNode.next = current;
             current = current.next;
             newTailNode.next.next = null;
@@ -525,12 +519,11 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
 
             // STEP - 2.2
             while (current != origTail) {
-                if ( (Integer) current.data % 2 == 0 ) {    // STEP - 2.2
+                if ((Integer) current.data % 2 == 0) {    // STEP - 2.2
                     prevNode = current;
                     current = current.next;     // STEP - 2.2.1
 
-                }
-                else {
+                } else {
                    /* Break the link between prev and curr*/
                     prevNode.next = current.next;       // STEP - 2.3.1
 
@@ -559,7 +552,6 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         }
 
         System.out.println("+ modified : " + linkedList.toString());
-
 
 
     }   // end segregateEvenAndOdd()
@@ -591,9 +583,10 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
 	/*
 	 * To delete node without using many other pointers possible only "when the node is at the center"
 	 */
-    public static void deleteWhenOnlyNodeProvide ( Node node ) {
-        if ( (node == null) || (node.next== null) )
+    public static void deleteWhenOnlyNodeProvide(Node node) {
+        if ((node == null) || (node.next == null)) {
             return;
+        }
 
         node.data = node.next.data;
         node.next = node.next.next;
@@ -613,7 +606,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         System.out.println("+ Deleting duplicate nodes from sorted linked list +");
 
         if (linkedList.head == null
-                || linkedList.head.next == null) {
+            || linkedList.head.next == null) {
             throw new NoSuchElementException("+ Single node list, NO duplicates found.");
         }
 
@@ -625,8 +618,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
             if ((Integer) curr.data != (Integer) nextNode.data) {
                 curr = curr.next;
                 nextNode = curr.next;
-            }
-            else {
+            } else {
                 curr.next = curr.next.next;
                 curr = curr.next;
 
@@ -654,7 +646,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
      */
     public static void deleteUnSortedDuplicates(SinglyLinkedList linkedList) {
         if (linkedList.head == null
-                || linkedList.head.next == null) {
+            || linkedList.head.next == null) {
             throw new NoSuchElementException("+ Not to be deleted.");
         }
 
@@ -668,8 +660,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
             while (runner != curr) {
                 if ((Integer) runner.data != (Integer) curr.data) {
                     runner = runner.next;
-                }
-                else {
+                } else {
                     prev.next = curr.next;
                     curr = curr.next;
                 }
@@ -679,7 +670,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
             curr = curr.next;
         }
 
-        System.out.println("+ After deletion : "  + linkedList.toString());
+        System.out.println("+ After deletion : " + linkedList.toString());
     }
 
 
@@ -698,8 +689,8 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         Node fakeHead = newList.head;
         Node p = fakeHead;
 
-        while(p1 != null && p2 != null){
-            if((Integer) p1.data <= (Integer)  p2.data){
+        while (p1 != null && p2 != null) {
+            if ((Integer) p1.data <= (Integer) p2.data) {
                 p.next = p1;
                 p1 = p1.next;
             } else {
@@ -710,11 +701,13 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
             p = p.next;
         }
 
-        if (p1 != null)
+        if (p1 != null) {
             p.next = p1;
+        }
 
-        if (p2 != null)
+        if (p2 != null) {
             p.next = p2;
+        }
 
         fakeHead = fakeHead.next;
         newList.head = newList.head.next;
@@ -752,13 +745,12 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         Node p2 = list2.head;                                   // Step - 2
 
         while (p1 != null && p2 != null) {                      // Step - 3
-            if ((Integer) p1.data < (Integer) p2.data ) {       // Step - 4
+            if ((Integer) p1.data < (Integer) p2.data) {       // Step - 4
                 p.next = p1;
                 p1 = p1.next;
 
                 p = p.next;     // Step -6, This is common and can be pulled out of if-else
-            }
-            else {      // Step - 5
+            } else {      // Step - 5
                 p.next = p2;
                 p2 = p2.next;
 
@@ -770,8 +762,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
 
         if (p1 != null) {   // Step - 7
             p.next = p1;
-        }
-        else {
+        } else {
             p.next = p2;
         }
 
@@ -782,19 +773,16 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
     }   // end mergedSortedList()
 
 
-
     // This is to be done as mrege first and then sort it using O(n)
     public static void merge1(Node n1, Node n2) {
         System.out.println("===");
         SinglyLinkedList mergedLinkedList = new SinglyLinkedList();
 
 
-
         if ((Integer) n1.data < (Integer) n2.data) {
             mergedLinkedList.head = n1;
             n1 = n1.next;
-        }
-        else {
+        } else {
             mergedLinkedList.head = n2;
             n2 = n2.next;
         }
@@ -805,8 +793,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
             if ((Integer) n1.data < (Integer) n2.data) {
                 p1.next = n1;
                 n1 = n1.next;
-            }
-            else {
+            } else {
                 p1.next = n2;
                 n2 = n2.next;
             }
@@ -822,8 +809,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
                 p1.next = n1;
                 n1 = n1.next;
             }
-        }
-        else {
+        } else {
             while (n2.next != null) {
                 p1.next = n2;
                 n2 = n2.next;
@@ -834,8 +820,12 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
     }
 
     static Node MergeSortedLists(Node node1, Node node2) {
-        if (node1 == null) return node2;
-        if (node2 == null) return node1;
+        if (node1 == null) {
+            return node2;
+        }
+        if (node2 == null) {
+            return node1;
+        }
 
         // pick the list which has the smaller sorted number and point head to it
         Node head;
@@ -848,7 +838,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
             node1 = head;
         }
 
-        while(node1.next != null) {
+        while (node1.next != null) {
             if ((Integer) node1.next.data <= (Integer) node2.data) {
                 node1 = node1.next;
                 System.out.println("node1 = " + node1.data);
@@ -867,15 +857,18 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         Steps:
             - Are as same as iterative but in a recursive way.
      */
-    public static Node MergeSortedListsRecursive(Node n1, Node n2)  {
-        if (n1 == null) return n2;
-        if (n2 == null) return n1;
+    public static Node MergeSortedListsRecursive(Node n1, Node n2) {
+        if (n1 == null) {
+            return n2;
+        }
+        if (n2 == null) {
+            return n1;
+        }
 
         if ((Integer) n1.data < (Integer) n2.data) {
             n1.next = MergeSortedListsRecursive(n1.next, n2);
             return n1;
-        }
-        else {
+        } else {
             n2.next = MergeSortedListsRecursive(n1, n2.next);
             return n2;
         }
@@ -942,8 +935,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
                     Object tmp = curr.data;
                     curr.data = insertion.data;
                     insertion.data = tmp;
-                }
-                else {
+                } else {
                     insertion = insertion.next;
                 }
 
@@ -956,5 +948,50 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
         System.out.println("+ Sorted : " + list.toString());
 
     }
+
+
+    /**
+     *  Q - Find the N-th node, counting from tail. Eg: 0-th node is the tail node and so on.
+     *
+     *  Logic:
+     *      - Use 2 pointers. 1 - ref pointer & main pointer.
+     *      - Move ref pointer using a (counter <= N), with every next move of ref pntr as counter++
+     *      - One exhuasted with counter == 0, re-iterate till (ref-pntr != null) - hitting end of the list
+     *     - the main pointer will be pointing towards N-th node of the list
+     *
+     *  Time complexity - O(n)
+     */
+    public static int GetNthNodeFromTail(Node head, int n) {
+        Node refpntr = head;
+        Node mainpntr = head;
+
+        int count = 0;
+
+        if (head != null) {
+            while (count <= n) {
+                if (refpntr == null) {
+                    return -1;
+                }
+
+                refpntr = refpntr.next;
+                count++;
+            }
+
+            while (refpntr != null) {
+                System.out.println("+ ref-pntr = " + refpntr + ", mainpntr = " + mainpntr);
+                refpntr = refpntr.next;
+                mainpntr = mainpntr.next;
+            }
+
+            System.out.println("+ " + n + "-th Node from tail = " + mainpntr.data);
+            return (int) mainpntr.data;
+        }
+
+        return -1;
+
+    }
+
+
+
 
 }   // end of class SinglyLinkedList()
