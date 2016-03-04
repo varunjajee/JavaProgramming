@@ -10,26 +10,66 @@ import java.util.List;
 
 public class TestBinaryTree {
     public static void main(String[] args) {
-        BinarySearchTree bst = new BinarySearchTree(5);
-        bst.insert(bst.root, 1);
-        bst.insert(bst.root, 9);
-        bst.insert(bst.root, 6);
-        bst.insert(bst.root, 7);
-        bst.insert(bst.root, 8);
 
-        BinarySearchTree bst2 = new BinarySearchTree(5);
-        bst2.insert(bst2.root, 1);
-        bst2.insert(bst2.root, 9);
-        bst2.insert(bst2.root, 8);
+        /** Tree for Top view */
+        BinarySearchTree bst = new BinarySearchTree(1);
+        bst.root.left = new TreeNode(2);
+        bst.root.right = new TreeNode(3);
+        bst.root.left.left = new TreeNode(4);
+        bst.root.left.right = new TreeNode(5);
+
+        bst.root.right.right = new TreeNode(7);
+        bst.root.right.left = new TreeNode(6);
+        // Answer : 2 1 3 6
+
+        AlgosBinarySearchTree.printBottomView(bst.root);
+        AlgosBinarySearchTree.printTopView(bst.root);
 
 
-        System.out.println("=> " + bst2.root + " => " + bst2.root.right.right);
-        //System.out.println(AlgosBinarySearchTree.checkIfLeavesAreAtSameLevel(bst.root));
-        System.out.println(AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
+//        BinarySearchTree bst = new BinarySearchTree(5);
+//        bst.insert(bst.root, 1);
+//        bst.insert(bst.root, 9);
+//        bst.insert(bst.root, 6);
+//        bst.insert(bst.root, 7);
+//        bst.insert(bst.root, 8);
+//
+//
+//
+//        BinarySearchTree bst2 = new BinarySearchTree(5);
+//        bst2.insert(bst2.root, 1);
+//        bst2.insert(bst2.root, 9);
+//        bst2.insert(bst2.root, 8);
+//
+//
+//        System.out.println("=> " + bst2.root + " => " + bst2.root.right.right);
+//        //System.out.println(AlgosBinarySearchTree.checkIfLeavesAreAtSameLevel(bst.root));
+//        System.out.println(AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
 
 //        System.out.println("+ Has same leaves: " +
 //            AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
 
+
+
+//        BinarySearchTree bst = new BinarySearchTree(12);
+//        bst.root.left = new TreeNode(10);
+//        bst.root.right = new TreeNode(30);
+//        bst.root.right.right = new TreeNode(40);
+//        bst.root.right.left = new TreeNode(25);
+//
+        //AlgosBinarySearchTree.printLeftView(bst.root);
+
+//        BinarySearchTree bst = new BinarySearchTree(1);
+//        bst.root.left = new TreeNode(2);
+//        bst.root.left.left = new TreeNode(4);
+//        bst.root.left.right = new TreeNode(5);
+//        bst.root.right = new TreeNode(3);
+//        bst.root.right = new TreeNode(3);
+//        bst.root.right.right = new TreeNode(7);
+//        bst.root.right.right.right = new TreeNode(8);
+//        bst.root.right.left = new TreeNode(6);
+//
+//        AlgosBinarySearchTree.printRgtView(bst.root);
+//        //AlgosBinarySearchTree.printLevelOrder(bst.root);
 
 //        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 //        TreeNode btree = BinarySearchTree.createBalancedTree(arr);

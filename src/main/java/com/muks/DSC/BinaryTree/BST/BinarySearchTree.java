@@ -309,7 +309,7 @@ public class BinarySearchTree {
                 - if node to delete is towards right of root, find minimum (successor) and set
                 current node to its successor and delete the current node.
                 OR
-                - if node to delete is towards left of root, find max (predecessor) and set
+                - if node to delete is towards left of root, find MAX (predecessor) and set
                 current node to its predecessor and delete the current node
 
      */

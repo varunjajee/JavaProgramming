@@ -37,7 +37,7 @@ public class LongestPalindromicSubStrManachers {
             if (i % 2 != 0) {
                 newInput[i] = input[index++];
             } else {
-                newInput[i] = '$';
+                newInput[i] = '#';
             }
         }
 
@@ -151,16 +151,17 @@ public class LongestPalindromicSubStrManachers {
         }
     }
 
+
+
     public static void main(String args[]) {
         String str0 = "caba";
         String str1 = "abaaba";
         String str2 = "babcbaabcbaccba";
 
         String palindromicSubStr = FindLongstPalindromicSubStr(str0);
+
         System.out.println("\nLongest Palindrome = " + palindromicSubStr
             + " of size = " + palindromicSubStr.length());
-
-//        System.out.println(manachersAlgo.FindLongstPalindromicSubStr(str1.toCharArray()));
     }
 
 }

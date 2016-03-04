@@ -42,7 +42,7 @@ public class TestingTrie {
         myTrie.insert("to");
 
         myTrie.insert("ted");
-        myTrie.insert("muktharahmed");
+        myTrie.insert("mukthar ahmed");
         myTrie.insert("mukthar");
         myTrie.insert("muksie");
 
@@ -52,7 +52,7 @@ public class TestingTrie {
 //        System.out.println("+ search with prefix = " + myTrie.search("muks"));
 
         //System.out.println("+ All getWordsByPrefix = " + myTrie.getWordsByPrefix(myTrie.root, ""));
-        System.out.println(myTrie.prefixMatch(myTrie.root, "mu"));
+        System.out.println(myTrie.prefixMatch(myTrie.root, "mukthar "));
 
 
 
