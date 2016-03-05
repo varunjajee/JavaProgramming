@@ -7,7 +7,7 @@ import java.util.HashMap;
  */
 public class TrieNode {
     char data;
-    TrieNode root;
+
     HashMap<Character, TrieNode> children = new HashMap<>();
 
     boolean isLeaf;

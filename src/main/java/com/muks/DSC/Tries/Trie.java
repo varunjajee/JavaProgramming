@@ -115,7 +115,7 @@ public class Trie {
     }
 
 
-    /* ===========================================================================================
+    /** ===========================================================================================
        Search for word, traverse till the last char and return (for others to check if leaf)
      */
     public TrieNode searchNode(String str) {
@@ -137,8 +137,7 @@ public class Trie {
     }
 
 
-    /**
-     * =========================================================================================
+    /** =========================================================================================
      * Get all words from a node, if start node is leaf then it will print all words in a trie
      */
     public List<String> getWords() {
@@ -162,7 +161,7 @@ public class Trie {
         return list;
     }
 
-    /**
+    /** ================================================================================
      * Get all words from a node
      */
     private void doWords(List<String> list, TrieNode node, String word) {
@@ -215,5 +214,5 @@ public class Trie {
     }   // end ()
 
 
-    
+
 }   // end class

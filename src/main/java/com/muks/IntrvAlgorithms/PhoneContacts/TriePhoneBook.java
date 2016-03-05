@@ -28,7 +28,8 @@ public class TriePhoneBook {
             children = t.getChildren();
         }
 
-        t.isLeaf = true;
+        t.isLeaf = true;    /** setting as leaf node */
+
         HashMap<String, String> details = t.contact;
 
         details.put("name", str);
@@ -44,14 +45,14 @@ public class TriePhoneBook {
     public void searchContact(String name) {
         if ( searchUtil(name) == null ) {
             System.out.println("+ Contact - \"" + name + "\", FOUND");
-
         }
         else {
             System.out.println("+ Contact - \"" + name + "\", NOT FOUND");
         }
     }
-    public HashMap<String, String> searchUtil(String name) {
 
+
+    public HashMap<String, String> searchUtil(String name) {
         HashMap<Character, TrieNode> children = root.getChildren();
 
         TrieNode t = null;
@@ -67,6 +68,5 @@ public class TriePhoneBook {
         }
 
         return t.getContact();
-
     }
 }

@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-/*
- * Created by mukthar.ahmed on 1/10/16.
+/**
+ * TrieNode - Created by mukthar.ahmed on 1/10/16.
  */
 public class TrieNode {
     char data;
@@ -14,6 +14,8 @@ public class TrieNode {
     boolean isLeaf;
 
     boolean isVisited = false;
+
+    List<Integer> endingIndices = new ArrayList<>();   /** user for pattern matching */
 
     public TrieNode() {
     }
