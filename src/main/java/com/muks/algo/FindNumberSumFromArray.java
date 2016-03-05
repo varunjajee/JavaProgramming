@@ -1,5 +1,7 @@
 package com.muks.algo;
 
+import com.muks.algo.SortingTechniques.SortingTechniques;
+
 import java.util.HashMap;
 
 public class FindNumberSumFromArray {

@@ -2,11 +2,7 @@ package com.muks.DSC.Tries;
 
 /*  Created by mukthar.ahmed on 1/13/16. */
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Trie {
     public TrieNode root;
@@ -41,8 +37,9 @@ public class Trie {
             children = t.children;
 
             //set leaf node
-            if (i == word.length() - 1)
+            if (i == word.length() - 1) {
                 t.isLeaf = true;
+            }
         }
     }
 
@@ -85,8 +82,7 @@ public class Trie {
         if (t != null && t.isLeaf) {
             System.out.println("+ This word has indeces = " + t.wordIndexes.toString());
             return true;
-        }
-        else {
+        } else {
             return false;
         }
     }
@@ -100,8 +96,7 @@ public class Trie {
         if (t != null && t.isLeaf) {
             System.out.println("+ = " + t.wordIndexes.toString());
             return t.wordIndexes;
-        }
-        else {
+        } else {
             return null;
         }
     }
@@ -111,10 +106,11 @@ public class Trie {
      */
     public boolean startsWith(String prefix) {
         TrieNode foundNode = searchNode(prefix);
-        if ( foundNode == null)
+        if (foundNode == null) {
             return false;
-        else
+        } else {
             System.out.println(foundNode.toString());
+        }
         return true;
     }
 
@@ -141,90 +137,83 @@ public class Trie {
     }
 
 
-    /* =======================================================================================
-       Find all words in a trie
+    /**
+     * =========================================================================================
+     * Get all words from a node, if start node is leaf then it will print all words in a trie
      */
-    public Set<String> getWordsByPrefix(TrieNode node, String prefix) {
-        Set<String> result=new HashSet<>();
-
-        if (node.children.keySet().isEmpty()) {
-            System.out.println(" - " + prefix);
-            result.add(prefix);
-
+    public List<String> getWords() {
+        List<String> list = new ArrayList<>();
+        for (Character key : root.children.keySet()) {
+            System.out.println("\n+ Sending word builder - [" + key + "]");
+            doWords(list, root.children.get(key), "");
         }
-        else {
-            for (char ch : node.children.keySet()) {
-                prefix += ch;
 
-                result.addAll(getWordsByPrefix(node.children.get(ch), prefix));
+        return list;
+    }
 
-                // This step is required to go back to the pointer from where we diverged
-                prefix = prefix.substring(0, prefix.length()-1);
+    public List<String> getWords(TrieNode node, String prefix) {
+        List<String> list = new ArrayList<>();
 
+        for (Character key : node.children.keySet()) {
+            System.out.println("\n+ Sending word builder - [" + key + "] with Prefix = " + prefix);
+            doWords(list, node.children.get(key), prefix);
+        }
+
+        return list;
+    }
+
+    /**
+     * Get all words from a node
+     */
+    private void doWords(List<String> list, TrieNode node, String word) {
+
+        if (node != null) {
+            word += node.data;
+            System.out.println(word);
+
+            if (node.isLeaf) {
+                list.add(word);
+            }
+
+            for (Character key : node.children.keySet()) {
+                System.out.println(" - Child = [" + key + "],  WORD = " + word);
+                doWords(list, node.children.get(key), word);
             }
         }
-
-        return result;
     }
 
 
-    /* =======================================================================================
+    /** =======================================================================================
        Return all words matching a prefix string.
     */
-    public Set<String> prefixMatch(TrieNode node, String prefix) {
-        Set<String> result=new HashSet<>();
+    public List<String> prefixMatch(TrieNode node, String prefix) {
+        List<String> result = new ArrayList<>();
 
         if (node.children.keySet().isEmpty()) {
             result.add(prefix);
-        }
-        else {
+
+        } else {
             for (int i = 0; i < prefix.length(); i++) {
                 HashMap<Character, TrieNode> children = node.children;
 
                 char ch = prefix.charAt(i);
+
                 if (children.containsKey(ch)) {
                     node = children.get(ch);
                 }
             }
 
-            System.out.println("\n+ out now, node = " + node.toString());
+            System.out.println("\n+ Full prefix match found, stepping out @ node = " + node);
             System.out.println("children = " + node.children.toString());
 
-            // till here, we would have reached last char of input prefix
-            return wordsFromPrefix(node, prefix);
-
+            /** Get all words from the last node we found */
+            return getWords(node, prefix);
         }
 
         return result;
+
     }   // end ()
 
-    /*  ========================================================================================
 
-     */
-    public Set<String> wordsFromPrefix(TrieNode node, String prefix) {
-        Set<String> result=new HashSet<>();
-
-        if (node.isLeaf) {
-            System.out.println(" Base case = " + node.toString() + " ==== " + prefix);
-            result.add(prefix);
-            System.out.println("+ Results = " + result.toString() + " \n");
-            return result;
-        }
-
-        else {
-            System.out.println(" = " + node.toString());
-            for (char ch : node.children.keySet()) {
-                System.out.println("+ prefix = " + prefix);
-
-                prefix += ch;
-                result.addAll(wordsFromPrefix(node.children.get(ch), prefix));
-                prefix = prefix.substring(0, prefix.length()-1);
-            }
-        }
-
-        return result;
-
-    }   // ()
-
-
+    
 }   // end class

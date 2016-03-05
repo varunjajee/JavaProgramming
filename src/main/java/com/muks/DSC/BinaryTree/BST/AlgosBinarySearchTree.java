@@ -1,20 +1,84 @@
 package com.muks.DSC.BinaryTree.BST;
 
 
+import com.muks.algo.BinarySearch;
+
 import java.util.*;
 
 /*
  * Created by mukthar.ahmed on 1/7/16.
  */
 public class AlgosBinarySearchTree {
+    /**
+     * =============================================================================================
+     * Given a binary tree, print the left view
+     * <p>
+     * global variable "MAX"
+     */
+    static int MAX = 0;             // IMPORTANT variable
 
-    /** Printing bottom view and top view of a binary tree
-     *
+    public static void printLeftView(TreeNode root) {
+        System.out.println("+ Printing left view: ");
+
+        int startLevel = 1;
+
+        leftViewUtil(root, startLevel);
+    }
+
+    private static void leftViewUtil(TreeNode node, int level) {
+        if (node == null) {
+            return;
+        }
+
+        //System.out.println("+ Max = " + MAX + ", Level = " + level);
+        if (MAX < level) {
+            System.out.print(" " + node);
+            MAX = level;
+        }
+
+        leftViewUtil(node.left, level + 1);
+        leftViewUtil(node.right, level + 1);
+    }
+
+    /**
+     * =============================================================================================
+     * Given a binary tree, print the RIGHT view
+     * <p>
+     * global variable "MAX"
+     */
+    static int MAX_LEVEL = 0;
+
+    public static void printRightView(TreeNode root) {
+        System.out.println("+ Printing left view: ");
+
+        int startLevel = 1;
+
+        rgtViewUtil(root, startLevel);
+    }
+
+    private static void rgtViewUtil(TreeNode node, int level) {
+        if (node == null) {
+            return;
+        }
+
+        if (MAX_LEVEL < level) {
+            System.out.print(" " + node);
+            MAX_LEVEL = level;
+        }
+
+        rgtViewUtil(node.right, level + 1);
+        rgtViewUtil(node.left, level + 1);
+    }
+
+
+    /**
+     * Printing bottom view and top view of a binary tree
+     * <p>
      * Logic is same for both top and bottom view.
-     *
+     * <p>
      * TOP view - add ONLY first visited node to the map
      * BOTTOM view - keep over writing the node to the map val so that only the last visited node is available
-     * */
+     */
     public static void printBottomView(TreeNode root) {
         if (root == null) {
             return;
@@ -37,8 +101,8 @@ public class AlgosBinarySearchTree {
 
             // check if this is the first node you are visiting at the level
             //if ( !mapTopView.containsKey(lvl) ) {
-                System.out.print(tnode.data + "   ");
-                mapTopView.put(lvl, tnode.data);
+            System.out.print(tnode.data + "   ");
+            mapTopView.put(lvl, tnode.data);
             //}
 
             // add the left and right children of visiting nodes to the queue
@@ -796,7 +860,7 @@ public class AlgosBinarySearchTree {
      * - Then compare level of all other leaves with leafLevelTracker, if same, return true, else return false.
      * - We traverse the given Binary Tree in Preorder fashion. An argument leaflevel is passed to all calls.
      */
-// The main function to check if all leafs are at same level. It mainly uses checkUtil()
+    // The main function to check if all leafs are at same level. It mainly uses checkUtil()
     static boolean checkIfLeavesAreAtSameLevel(TreeNode node) {
         int level = 0;
         Leaf mylevel = new Leaf();
@@ -837,59 +901,46 @@ public class AlgosBinarySearchTree {
 
 
     /**
-     * =============================================================================================
-     * Given a binary tree, print the left view
+     * =====================================================================================
+     * Find if tree is a binary search tree or not BST or not
      */
-
-    /**
-     * global variable "MAX"
-     */
-    static int MAX = 0;             // IMPORTANT variable
-
-    public static void printLeftView(TreeNode root) {
-        System.out.println("+ Printing left view: ");
-
-        int startLevel = 1;
-
-        leftViewUtil(root, startLevel);
+    public static void isBinarySearchTree(TreeNode root) {
+        if (isSearchTreeUtil(root, Integer.MIN_VALUE, Integer.MAX_VALUE)) {
+            System.out.println("+ IS a BST.");
+        }
+        else {
+            System.out.println("+ NOT a BST");
+        }
     }
 
-    private static void leftViewUtil(TreeNode node, int level) {
+    public static boolean isSearchTreeUtil(TreeNode node, int minVal, int maxVal) {
+        /** base case */
         if (node == null) {
-            return;
+            return true;
         }
 
-        //System.out.println("+ Max = " + MAX + ", Level = " + level);
-        if (MAX < level) {
-            System.out.print(" " + node);
-            MAX = level;
+        /** root.data is in a range between > min-val & < max-val */
+        if ( ( node.data > minVal && node.data < maxVal )
+            && ( isSearchTreeUtil(node.left, minVal, node.data) )
+            && ( isSearchTreeUtil(node.right, node.data, maxVal) ) ) {
+
+            return true;
         }
 
-        leftViewUtil(node.left, level + 1);
-        leftViewUtil(node.right, level + 1);
+        return false;
     }
 
-    public static void printRgtView(TreeNode root) {
-        System.out.println("+ Printing left view: ");
-
-        int startLevel = 1;
-
-        rgtViewUtil(root, startLevel);
-    }
-
-    private static void rgtViewUtil(TreeNode node, int level) {
+    public static TreeNode findMax(TreeNode node) {
         if (node == null) {
-            return;
+            return null;
         }
 
-        if (MAX < level) {
-            System.out.print(" " + node);
-            MAX = level;
+        if (node.right == null) {
+            System.out.println("+ Node = " + node);
+            return node;
         }
 
-        rgtViewUtil(node.right, level + 1);
-        rgtViewUtil(node.left, level + 1);
+        return findMax(node.right);
     }
-
 
 }   // end class

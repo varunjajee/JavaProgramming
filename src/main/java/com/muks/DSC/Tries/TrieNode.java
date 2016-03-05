@@ -13,6 +13,8 @@ public class TrieNode {
     List<Integer> wordIndexes = new ArrayList<>();
     boolean isLeaf;
 
+    boolean isVisited = false;
+
     public TrieNode() {
     }
 
@@ -21,7 +23,7 @@ public class TrieNode {
     }
 
     public String toString() {
-        return "{" + data + "}";
+        return "[" + data + "]";
     }
 
 }

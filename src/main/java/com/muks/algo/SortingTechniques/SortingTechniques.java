@@ -1,6 +1,7 @@
-package com.muks.algo;
+package com.muks.algo.SortingTechniques;
 
 
+import com.muks.algo.MyUtils;
 
 public class SortingTechniques {
 

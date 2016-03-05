@@ -16,7 +16,7 @@ public class TreeNode {
     }
 
     public String toString() {
-        return "{"+ data + "}";
+        return "["+ data + "]";
     }
 
 }   // end class

@@ -22,8 +22,10 @@ public class TestBinaryTree {
         bst.root.right.left = new TreeNode(6);
         // Answer : 2 1 3 6
 
-        AlgosBinarySearchTree.printBottomView(bst.root);
-        AlgosBinarySearchTree.printTopView(bst.root);
+        AlgosBinarySearchTree.isBinarySearchTree(bst.root);
+//
+//        AlgosBinarySearchTree.printBottomView(bst.root);
+//        AlgosBinarySearchTree.printTopView(bst.root);
 
 
 //        BinarySearchTree bst = new BinarySearchTree(5);
@@ -32,22 +34,24 @@ public class TestBinaryTree {
 //        bst.insert(bst.root, 6);
 //        bst.insert(bst.root, 7);
 //        bst.insert(bst.root, 8);
-//
-//
-//
+
+
+
+
 //        BinarySearchTree bst2 = new BinarySearchTree(5);
 //        bst2.insert(bst2.root, 1);
 //        bst2.insert(bst2.root, 9);
 //        bst2.insert(bst2.root, 8);
-//
-//
+
+
+
 //        System.out.println("=> " + bst2.root + " => " + bst2.root.right.right);
 //        //System.out.println(AlgosBinarySearchTree.checkIfLeavesAreAtSameLevel(bst.root));
 //        System.out.println(AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
-
+//
 //        System.out.println("+ Has same leaves: " +
 //            AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
-
+//
 
 
 //        BinarySearchTree bst = new BinarySearchTree(12);
@@ -68,13 +72,15 @@ public class TestBinaryTree {
 //        bst.root.right.right.right = new TreeNode(8);
 //        bst.root.right.left = new TreeNode(6);
 //
-//        AlgosBinarySearchTree.printRgtView(bst.root);
+//        AlgosBinarySearchTree.printRightView(bst.root);
 //        //AlgosBinarySearchTree.printLevelOrder(bst.root);
 
-//        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-//        TreeNode btree = BinarySearchTree.createBalancedTree(arr);
-        //AlgosBinarySearchTree.nodesByDepth(btree, 2);
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        TreeNode btree = BinarySearchTree.createBalancedTree(arr);
+//        AlgosBinarySearchTree.nodesByDepth(btree, 2);
 //        AlgosBinarySearchTree.leavesWithDepth(bst.root);
+
+        AlgosBinarySearchTree.isBinarySearchTree(btree);
 
 
         //System.out.println("+ Root = " + btree.data);

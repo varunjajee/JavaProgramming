@@ -1,4 +1,4 @@
-package com.muks.algo;
+package com.muks.algo.SortingTechniques;
 
 /*
  * Created by mukthar.ahmed on 1/13/16.
