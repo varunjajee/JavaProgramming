@@ -81,11 +81,16 @@ public class TriePatternMatch {
 
     public static void main(String[] args) {
         String mainString = "banana";
+        String mainString2 = "abcbcglx";
+
         String subString = "ana";
+        String subString2 = "bcgl";
 
         TriePatternMatch patternTrie = new TriePatternMatch();
         patternTrie.trieGenerator(mainString);
+        patternTrie.trieGenerator(mainString2);
 
-        patternTrie.patternMatcher(subString);
+        //patternTrie.patternMatcher(subString);
+        patternTrie.patternMatcher(subString2);
     }
 }

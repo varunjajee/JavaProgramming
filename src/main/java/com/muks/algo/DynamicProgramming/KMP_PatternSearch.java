@@ -3,26 +3,27 @@ package com.muks.algo.DynamicProgramming;
 /**
  * Created by mukthar.ahmed on 2/26/16.
  */
-public class SubstringSearchKnuthMorisPratt {
+public class KMP_PatternSearch {
 
     /**
      * Slow method of pattern matching
      */
-    public static boolean hasSubstring(char[] text, char[] pattern){
+    public static boolean hasSubstring(String text, String pattern){
         int i=0;
         int j=0;
         int k = 0;
-        while(i < text.length && j < pattern.length){
-            if(text[i] == pattern[j]){
+        while(i < text.length() && j < pattern.length()){
+            if(text.charAt(i) == pattern.charAt(j)) {
                 i++;
                 j++;
-            }else{
+            }
+            else {
                 j=0;
                 k++;
                 i = k;
             }
         }
-        if(j == pattern.length){
+        if(j == pattern.length()){
             return true;
         }
         return false;
@@ -32,19 +33,21 @@ public class SubstringSearchKnuthMorisPratt {
      * Compute temporary array to maintain size of suffix which is same as prefix
      * Time/space complexity is O(size of pattern)
      */
-    private static int[] computeTemporaryArray(char pattern[]){
-        int [] lps = new int[pattern.length];
-        int index =0;
-        for(int i=1; i < pattern.length;){
-            if(pattern[i] == pattern[index]){
+    private static int[] computeTemporaryArray(String pattern){
+        int [] lps = new int[pattern.length()];
+        int index = 0;
+
+        for(int i=1; i < pattern.length();) {
+            if(pattern.charAt(i) == pattern.charAt(index)) {
                 lps[i] = index + 1;
                 index++;
                 i++;
-            }else{
-                if(index != 0){
+            }
+            else {
+                if (index != 0) {
                     index = lps[index-1];
-                }else{
-                    lps[i] =0;
+                } else {
+                    lps[i] = 0;
                     i++;
                 }
             }
@@ -55,24 +58,25 @@ public class SubstringSearchKnuthMorisPratt {
     /**
      * KMP algorithm of pattern matching.
      */
-    public static boolean KMP(char []text, char []pattern){
+    public static boolean KMP(String text, String pattern){
 
         int lps[] = computeTemporaryArray(pattern);
         int i=0;
         int j=0;
-        while(i < text.length && j < pattern.length){
-            if(text[i] == pattern[j]){
+        while(i < text.length() && j < pattern.length()) {
+            if(text.charAt(i) == pattern.charAt(j)) {
                 i++;
                 j++;
-            }else{
-                if(j!=0){
+            }
+            else {
+                if(j != 0) {
                     j = lps[j-1];
-                }else{
+                } else {
                     i++;
                 }
             }
         }
-        if(j == pattern.length){
+        if(j == pattern.length()) {
             return true;
         }
         return false;
@@ -83,7 +87,7 @@ public class SubstringSearchKnuthMorisPratt {
         String str = "abcxabcdabcdabcy";
         String subString = "abcdabcy";
 
-        boolean result = KMP(str.toCharArray(), subString.toCharArray());
+        boolean result = KMP(str, subString);
         System.out.print(result);
 
     }
