@@ -5,6 +5,11 @@ package com.muks.algo.SortingTechniques;
  */
 public class RadixSort {
 
+    public static void main(String[] args) {
+        String str = "mukthar";
+
+    }
+
     /**
      * Radix Sort function
      **/

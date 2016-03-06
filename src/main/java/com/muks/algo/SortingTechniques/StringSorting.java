@@ -8,6 +8,7 @@ public class StringSorting {
         String inStr = "mukthar";
         alphabetical(inStr);
     }
+
     public static void alphabetical(String str) {
 
         char newArray[] = new char[str.length()];
