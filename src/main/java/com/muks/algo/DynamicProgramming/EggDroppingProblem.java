@@ -16,9 +16,10 @@ public class EggDroppingProblem {
         int totalEggs = 2;
         int totalFloors = 6;
 
-        //System.out.println("+ Breaks by floor = " + CalculateEggDropFloor(totalEggs, totalFloors));
+        System.out.println("+ Breaks by floor = ");
         EggDroppingDyncProgramming(totalEggs, totalFloors);
     }
+
 
     public static int EggDroppingDyncProgramming(int totalEggs, int totalFloors) {
         int[][] Table = new int[totalEggs + 1][totalFloors + 1];

@@ -219,7 +219,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
     // main logic of getting intersection point
     public static void getIntersectionPoint(SinglyLinkedList mainList, SinglyLinkedList subList) {
         /* 	Time complexity: O(m+n)
-		 * 	Implementation details:
+         * 	Implementation details:
 			1) Get count of the nodes in first list, let count be c1.
 			2) Get count of the nodes in second list, let count be c2.
 			3) Get the difference of counts d = abs(c1 � c2)
@@ -951,47 +951,46 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
 
 
     /**
-     *  Q - Find the N-th node, counting from tail. Eg: 0-th node is the tail node and so on.
-     *
-     *  Logic:
-     *      - Use 2 pointers. 1 - ref pointer & main pointer.
-     *      - Move ref pointer using a (counter <= N), with every next move of ref pntr as counter++
-     *      - One exhuasted with counter == 0, re-iterate till (ref-pntr != null) - hitting end of the list
-     *     - the main pointer will be pointing towards N-th node of the list
-     *
-     *  Time complexity - O(n)
+     * Q - Find the N-th node, counting from tail. Eg: 0-th node is the tail node and so on.
+     * <p>
+     * Logic:
+     * - Use 2 pointers. 1 - ref pointer & main pointer.
+     * - Move ref pointer using a (counter <= N), with every next move of ref pntr as counter++
+     * - One exhuasted with counter == 0, re-iterate till (ref-pntr != null) - hitting end of the list
+     * - the main pointer will be pointing towards N-th node of the list
+     * <p>
+     * Time complexity - O(n)
      */
     public static int GetNthNodeFromTail(Node head, int n) {
+        if (head == null) {
+            return -1;
+        }
+
         Node refpntr = head;
         Node mainpntr = head;
 
         int count = 0;
 
-        if (head != null) {
-            while (count <= n) {
-                if (refpntr == null) {
-                    return -1;
-                }
-
-                refpntr = refpntr.next;
-                count++;
+        while (count <= n) {
+            if (refpntr == null) {
+                return -1;
             }
 
-            while (refpntr != null) {
-                System.out.println("+ ref-pntr = " + refpntr + ", mainpntr = " + mainpntr);
-                refpntr = refpntr.next;
-                mainpntr = mainpntr.next;
-            }
-
-            System.out.println("+ " + n + "-th Node from tail = " + mainpntr.data);
-            return (int) mainpntr.data;
+            refpntr = refpntr.next;
+            count++;
         }
 
-        return -1;
+        while (refpntr != null) {
+            System.out.println("+ ref-pntr = " + refpntr + ", mainpntr = " + mainpntr);
+            refpntr = refpntr.next;
+            mainpntr = mainpntr.next;
+        }
+
+        System.out.println("+ " + n + "-th Node from tail = " + mainpntr.data);
+        return (int) mainpntr.data;
+
 
     }
-
-
 
 
 }   // end of class SinglyLinkedList()

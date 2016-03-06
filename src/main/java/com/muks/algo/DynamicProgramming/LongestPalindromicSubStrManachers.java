@@ -3,7 +3,7 @@ package com.muks.algo.DynamicProgramming;
 /**
  *  Given a string find longest palindromic substring in this string.
  *
- *  Manacher's algorithm to find - longest palindromic substring
+ *  Manacher_Ignore's algorithm to find - longest palindromic substring
  *
  */
 public class LongestPalindromicSubStrManachers {

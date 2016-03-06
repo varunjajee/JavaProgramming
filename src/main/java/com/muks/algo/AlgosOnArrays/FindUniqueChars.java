@@ -27,10 +27,6 @@ public class FindUniqueChars {
 	}
 
 	
-	
-	
-	
-	
 	public static boolean isUniqueChars(String str) { 
 		int checker = 0;
 		

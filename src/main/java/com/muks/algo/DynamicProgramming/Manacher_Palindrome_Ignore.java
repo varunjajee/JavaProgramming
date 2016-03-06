@@ -3,12 +3,12 @@ package com.muks.algo.DynamicProgramming;
 /**
  * Created by mukthar.ahmed on 2/26/16.
  */
-public class Manacher {
+public class Manacher_Palindrome_Ignore {
     private int[]  p;  // p[i] = length of longest palindromic substring of t, centered at i
     private String s;  // original string
     private char[] t;  // transformed string
 
-    public Manacher(String s) {
+    public Manacher_Palindrome_Ignore(String s) {
         this.s = s;
         preprocess();
         p = new int[t.length];
@@ -75,7 +75,7 @@ public class Manacher {
     // test client
     public static void main(String[] args) {
         String s = "babcbaabcbaccba";
-        Manacher manacher = new Manacher(s);
+        Manacher_Palindrome_Ignore manacher = new Manacher_Palindrome_Ignore(s);
         System.out.println(manacher.longestPalindromicSubstring());
 
         for (int i = 0; i < 2*s.length(); i++)
