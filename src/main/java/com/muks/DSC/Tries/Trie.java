@@ -1,6 +1,14 @@
 package com.muks.DSC.Tries;
 
-/*  Created by mukthar.ahmed on 1/13/16. */
+/**
+ * Created by mukthar.ahmed on 1/13/16.
+ *
+ * Time complexity of Trie -
+ *  Trie creation = O(W * L) where W - is no. of words & L - average length of a word
+ *  Same goes for search where W - no. of words & L being the average length
+ *
+ * */
+
 
 import java.util.*;
 
@@ -116,7 +124,7 @@ public class Trie {
 
 
     /** ===========================================================================================
-       Search for word, traverse till the last char and return (for others to check if leaf)
+     Search for word, traverse till the last char and return (for others to check if leaf)
      */
     public TrieNode searchNode(String str) {
         Map<Character, TrieNode> children = root.children;
@@ -183,8 +191,8 @@ public class Trie {
 
 
     /** =======================================================================================
-       Return all words matching a prefix string.
-    */
+     Return all words matching a prefix string.
+     */
     public List<String> prefixMatch(TrieNode node, String prefix) {
         List<String> result = new ArrayList<>();
 
@@ -212,7 +220,6 @@ public class Trie {
         return result;
 
     }   // end ()
-
 
 
 }   // end class

@@ -1,4 +1,4 @@
-package datastructures;
+package com.muks.datastructures;
 
 import java.io.BufferedReader;
 import java.io.IOException;

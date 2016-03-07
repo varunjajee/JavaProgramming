@@ -1,4 +1,4 @@
-package datastructures;
+package com.muks.datastructures;
 
 public class StackFullException extends Exception {
 	

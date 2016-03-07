@@ -1,7 +1,7 @@
 /**
  * 
  */
-package datastructures;
+package com.muks.datastructures;
 
 /**
  * @author muktharahmed
