@@ -1,4 +1,4 @@
-package com.muks.algo.additionalalgos;
+package com.muks.algo.AdditionalAlgos;
 
 public class IntegerToWords {
 

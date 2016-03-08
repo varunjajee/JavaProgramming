@@ -40,6 +40,7 @@ public class MemoizationFibonacci {
 
 
     private static boolean isInFibonacciList(final int number) {
+
         return (number <= FIBONACCI_LIST.size() - 1);
     }
 

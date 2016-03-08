@@ -1,4 +1,4 @@
-package com.muks.algo;
+package com.muks.algo.AlgosOnString;
 import java.util.ArrayList;
 import java.util.HashMap;
 

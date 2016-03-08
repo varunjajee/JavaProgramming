@@ -1,4 +1,4 @@
-package com.muks.designpatterns.creational.ObjectPoolPattern;
+package com.muks.DesignPatterns.creational.ObjectPoolPattern;
 
 /**
  * Created by mukthar.ahmed on 12/28/15.

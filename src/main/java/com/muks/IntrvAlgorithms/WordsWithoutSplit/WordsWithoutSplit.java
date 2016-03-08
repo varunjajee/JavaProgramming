@@ -10,7 +10,7 @@ import java.util.StringTokenizer;
 public class WordsWithoutSplit {
 
     public static void main(String[] args) {
-        String in = "  this  is me here";
+        String in = "this  is me here";
         //usingStringTokenizer(in);
         wordCounter(in);
 
@@ -56,6 +56,7 @@ public class WordsWithoutSplit {
             else if (state == "OUT") {    // If next character is not a word separator and state is OUT,
                 state = "IN";	            // then set the state as IN and increment word count
                 wc++;
+                System.out.println("+ wc = " + wc);
 
             }
             System.out.println("Status = " + state + ", i = " + i);

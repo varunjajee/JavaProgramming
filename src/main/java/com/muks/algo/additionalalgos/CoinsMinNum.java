@@ -1,4 +1,4 @@
-package com.muks.algo.additionalalgos;
+package com.muks.algo.AdditionalAlgos;
 
 /*
     Created by mukthar.ahmed on 2/3/16.

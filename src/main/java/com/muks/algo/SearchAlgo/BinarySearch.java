@@ -1,4 +1,4 @@
-package com.muks.algo;
+package com.muks.algo.SearchAlgo;
 
 //import dsc.DictionaryBinarySearch;
 

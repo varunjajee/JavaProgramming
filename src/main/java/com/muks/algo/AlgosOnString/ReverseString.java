@@ -1,4 +1,4 @@
-package com.muks.algo;
+package com.muks.algo.AlgosOnString;
 
 public class ReverseString {
 

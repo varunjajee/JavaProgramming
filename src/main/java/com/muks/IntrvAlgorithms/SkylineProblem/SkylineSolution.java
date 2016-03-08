@@ -1,4 +1,4 @@
-package com.muks.IntrvAlgorithms.SkyLineProblem;
+package com.muks.IntrvAlgorithms.SkylineProblem;
 
 
 import java.util.ArrayList;

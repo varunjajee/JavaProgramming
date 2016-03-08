@@ -1,4 +1,4 @@
-package com.muks.designpatterns.creational.AbstractFactoryPattern;
+package com.muks.DesignPatterns.creational.AbstractFactoryPattern;
 
 import java.io.BufferedReader;
 import java.io.IOException;

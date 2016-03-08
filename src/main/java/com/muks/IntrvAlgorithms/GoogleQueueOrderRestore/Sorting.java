@@ -49,8 +49,6 @@ public class Sorting {
         int iSecond = 0;
         int j = 0;
 
-
-
         while (iFirst < first.length && iSecond < second.length) {
             if (first[iFirst][0] > second[iSecond][0]) {
                 actualArray[j] = first[iFirst];

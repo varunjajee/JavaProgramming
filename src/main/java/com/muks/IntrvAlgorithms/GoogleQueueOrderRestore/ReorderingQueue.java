@@ -3,7 +3,8 @@ package com.muks.IntrvAlgorithms.GoogleQueueOrderRestore;
 import java.util.Arrays;
 import java.util.Comparator;
 
-/*
+/**
+    Link = http://stackoverflow.com/questions/19174796/puzzle-find-the-order-of-n-persons-standing-in-a-line-based-on-their-heights
  * Created by mukthar.ahmed on 2/15/16.
 
      Solution:
@@ -14,8 +15,6 @@ import java.util.Comparator;
           subtree+1 for itself. Whenever a new number is inserted, if the value is smaller than
           the node's node-Value it goes to the left otherwise right. When it goes to the right,
           the value of the node is decreased by the value of the branch node.
-
-
 
 
         Code logic:
@@ -35,9 +34,12 @@ public class ReorderingQueue {
 
     public static void main(String[] args) {
         // Raw Input # 2
-        int[][] queue = {{6, 0},  {4, 0}, {3, 2},
-                 {2, 2}, {1, 4}, {5, 0}
-        };
+        int[][] queue = { {6, 0},  {4, 0}, {3, 2}, {2, 2}, {1, 4}, {5, 0} };
+
+        /**
+         * int[] heights = {6, 4, 3, 2, 1, 5};
+         * int[] frontCounts = {0, 0, 2, 2, 4, 0};
+         */
 
         initPeople(queue);
 
@@ -59,7 +61,7 @@ public class ReorderingQueue {
 
 
     // Root method to get the ordering
-    //private static void initPeople(int[] heights, int[] frontCount) {
+    // private static void initPeople(int[] heights, int[] frontCount) {
     private static void initPeople(int[][] queue) {
 
         Sorting.reverseSort(queue);     // reverse sort the entire queue based on height
@@ -70,12 +72,26 @@ public class ReorderingQueue {
             people[i] = new Person(queue[i][0], queue[i][1]);
         }
 
+        for (int i = 0; i < people.length; i++) {
+            System.out.print(" " + people[i].toString());
+        }
 
         // Push people/Person objects to rope
         RopeNode root = new RopeNode(people[0]);
         for (int i = 1; i < people.length; i++) {
             insert(root, people[i]);
         }
+
+
+        System.out.println("\n\n" + root.toString());
+        System.out.println(root.left.toString());
+        System.out.println(root.left.right.toString());
+
+//        System.out.println("\n" + root.toString());
+//        System.out.println("\n" + root.toString());
+//        System.out.println("\n" + root.toString());
+//        System.out.println("\n" + root.toString());
+//        System.out.println("\n" + root.toString());
 
         System.out.println("+ Final queue ordering is : ");
         inorderTraversal(root);

@@ -1,4 +1,4 @@
-package com.muks.designpatterns.creational.Prototype;
+package com.muks.DesignPatterns.creational.Prototype;
 
 /*
  * Created by mukthar.ahmed on 12/28/15.

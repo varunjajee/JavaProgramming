@@ -40,6 +40,32 @@ public class LRU {
         this.capacity = capacity;
     }
 
+    /** put()  */
+    public void put(int key, int val) {
+        // reset its value if the key already exists
+        if ( cache.containsKey(key) ) {
+            LRUNode old = cache.get(key);
+
+            old.value = val;
+
+            remove(old);
+            setHead(old);
+        }
+        else {
+            LRUNode node = new LRUNode(key, val);
+            if (cache.size() >= capacity) {
+                remove(tail);
+                setHead(node);
+            }
+            else {
+                setHead(node);
+            }
+
+            // put the key-val pair into the map at the end.
+            cache.put(key, node);
+        }
+
+    }
 
     /* To make the get() work */
     public int get(int key) {
@@ -89,30 +115,4 @@ public class LRU {
 
     }
 
-
-    public void put(int key, int val) {
-        // reset its value if the key already exists
-        if ( cache.containsKey(key) ) {
-            LRUNode old = cache.get(key);
-
-            old.value = val;
-
-            remove(old);
-            setHead(old);
-        }
-        else {
-            LRUNode node = new LRUNode(key, val);
-            if (cache.size() >= capacity) {
-                remove(tail);
-                setHead(node);
-            }
-            else {
-                setHead(node);
-            }
-
-            // put the key-val pair into the map at the end.
-            cache.put(key, node);
-        }
-
-    }
 }

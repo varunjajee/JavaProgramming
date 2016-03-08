@@ -1,4 +1,4 @@
-package com.muks.designpatterns.creational.ObjectPoolPattern;
+package com.muks.DesignPatterns.creational.ObjectPoolPattern;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

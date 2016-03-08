@@ -1,4 +1,4 @@
-package com.muks.designpatterns.creational.FactoryPattern;
+package com.muks.DesignPatterns.creational.FactoryPattern;
 
 /**
  * Created by mukthar.ahmed on 12/27/15.

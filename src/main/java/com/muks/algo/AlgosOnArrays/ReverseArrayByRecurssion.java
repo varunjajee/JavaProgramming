@@ -5,6 +5,21 @@ package com.muks.algo.AlgosOnArrays;
  */
 public class ReverseArrayByRecurssion {
 
+    /** In-Place Reverse array by swapping elements */
+    public static void reverse(int[] arr, int left, int right){
+        if(arr == null || arr.length == 1)
+            return;
+
+        while (left < right) {
+            int temp = arr[left];
+            arr[left] = arr[right];
+            arr[right] = temp;
+            left++;
+            right--;
+        }
+    }
+
+    /** Reverse array by recursion */
     static void reverseArray(int arr[], int start, int end) {
         int temp;
         if (start >= end) {
