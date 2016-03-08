@@ -16,9 +16,16 @@ public class SlidingWindowProblem {
         printKMax(arr, arr.length, sliderSize);
 
         maxWindowCode(arr, 3);  // get max using Deque
-
     }
 
+
+    /** Using a double ended Queue A.k.a - Deque in java
+     * A deque allows insertion/deletion on both ends.
+     *
+     * Logic:
+     *  - Maintain the first as the index of maximal of the window and elements after it are all smaller and came
+     *  later than the first.
+     */
     public static void maxWindowCode(int[] inBuffer, int window) {
         int w = (inBuffer.length < window) ? inBuffer.length : window;
 
@@ -59,10 +66,9 @@ public class SlidingWindowProblem {
         System.out.println("\n+ Max Window List = " + maxList.toString());
     }
 
-    /** Using a double ended Queue A.k.a - Deque in java
-     * A deque allows insertion/deletion on both ends. Maintain the first as the index of
-     * maximal of the window and elements after it are all smaller and came later than the first.
-     */
+
+
+
     public static void windowMax(int[] inBuffer, int window) {
         int w = (inBuffer.length < window) ? inBuffer.length : window;
         System.out.println("\n\n+ Window Size = " + w);
