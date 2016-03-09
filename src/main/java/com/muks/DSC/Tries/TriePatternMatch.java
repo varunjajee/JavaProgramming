@@ -58,7 +58,6 @@ public class TriePatternMatch {
                 break;
             }
 
-
             currNode = currNode.children.get(str.charAt(charIndex));
             charIndex += 1;
         }

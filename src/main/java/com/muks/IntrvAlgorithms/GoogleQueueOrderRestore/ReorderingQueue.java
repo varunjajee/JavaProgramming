@@ -64,7 +64,7 @@ public class ReorderingQueue {
     // private static void initPeople(int[] heights, int[] frontCount) {
     private static void initPeople(int[][] queue) {
 
-        Sorting.reverseSort(queue);     // reverse sort the entire queue based on height
+        Sorting.reverseSort(queue);     // reverse sort the entire Queue based on height
 
         // Create Person objects from their heights and front-count
         Person[] people = new Person[queue.length];

@@ -7,16 +7,16 @@ package com.muks.DSC.Queue;
 public class TestQueue {
 
     public static void main(String[] args) {
-//        Queue queue = new Queue(3);
+//        Queue Queue = new Queue(3);
 //        Testing {
-//            queue.enqueue(1);
+//            Queue.enqueue(1);
 //            //Queue.dequeue();
-//            queue.enqueue(2);
+//            Queue.enqueue(2);
 //            //Queue.dequeue();
-//            queue.enqueue(3);
+//            Queue.enqueue(3);
 //
 //
-//            queue.display();
+//            Queue.display();
 //
 ////            Queue.dequeue();
 ////            Queue.dequeue();

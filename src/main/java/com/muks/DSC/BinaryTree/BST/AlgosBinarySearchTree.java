@@ -84,10 +84,10 @@ public class AlgosBinarySearchTree {
 
         TreeMap<Integer, Integer> mapTopView = new TreeMap<>();
 
-        // create a queue for level order traversal
+        // create a Queue for level order traversal
         Queue<TreeNode> queue = new LinkedList<>();
 
-        int hd = 0;         // add root with level 0 (create a queue item pack)
+        int hd = 0;         // add root with level 0 (create a Queue item pack)
         root.hd = hd;
         queue.add(root);
 
@@ -103,7 +103,7 @@ public class AlgosBinarySearchTree {
             mapTopView.put(lvl, tnode.data);
             //}
 
-            // add the left and right children of visiting nodes to the queue
+            // add the left and right children of visiting nodes to the Queue
             if (tnode.left != null) {
                 tnode.left.hd = lvl - 1;
                 queue.add(tnode.left);
@@ -610,8 +610,8 @@ public class AlgosBinarySearchTree {
 
     }
 
-    // ================================================================================#######
-// find is t2 is a subtree of t1
+    // ================================================================================
+    // find is t2 is a subtree of t1
     public boolean containsTree(TreeNode t1, TreeNode t2) {
         if (t2 == null) {
             return true;
@@ -621,7 +621,7 @@ public class AlgosBinarySearchTree {
     } // containsTree()
 
 
-    // ================================================================================#######
+    // ================================================================================
     public boolean subTree(TreeNode t1, TreeNode t2) {
         if (t1 == null) {
             return false;
@@ -637,7 +637,7 @@ public class AlgosBinarySearchTree {
 
 
 
-/*    // ================================================================================#########
+/*    // ================================================================================
     // Get postOrderPredecessor()
     public TreeNode[] par_array = new TreeNode[100];
     public TreeNode postOrderPredecessor (TreeNode node) {
@@ -859,7 +859,7 @@ public class AlgosBinarySearchTree {
      * - We traverse the given Binary Tree in Preorder fashion. An argument leaflevel is passed to all calls.
      */
     // The main function to check if all leafs are at same level. It mainly uses checkUtil()
-    static boolean checkIfLeavesAreAtSameLevel(TreeNode node) {
+    public static boolean checkIfLeavesAreAtSameLevel(TreeNode node) {
         int level = 0;
         Leaf mylevel = new Leaf();
         return checkUtil(node, level, mylevel);
@@ -869,7 +869,7 @@ public class AlgosBinarySearchTree {
         int leaflevel = 0;
     }
 
-    static boolean checkUtil(TreeNode node, int level, Leaf leafLevelTracker) {
+    public static boolean checkUtil(TreeNode node, int level, Leaf leafLevelTracker) {
         // Base case
         if (node == null) {
             return true;
@@ -901,6 +901,7 @@ public class AlgosBinarySearchTree {
     /**
      * =====================================================================================
      * Find if tree is a binary search tree or not BST or not
+     * Time O(n)
      */
     public static void isBinarySearchTree(TreeNode root) {
         if (isSearchTreeUtil(root, Integer.MIN_VALUE, Integer.MAX_VALUE)) {

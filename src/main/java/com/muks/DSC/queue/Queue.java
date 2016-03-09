@@ -1,4 +1,4 @@
-package com.muks.DSC.queue;
+package com.muks.DSC.Queue;
 
 /*
  * Created by mukthar.ahmed on 1/1/16.

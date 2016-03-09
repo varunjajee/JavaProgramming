@@ -1,4 +1,4 @@
-package com.muks.DSC.stack;
+package com.muks.DSC.Stack;
 
 /**
  * Created by mukthar.ahmed on 3/7/16.
@@ -56,7 +56,7 @@ public class MinStack {
 
     public int getMin() {
         if (head == null)
-            return Integer.MAX_VALUE;
+            return Integer.MIN_VALUE;
 
         return head.min;
     }

@@ -112,7 +112,7 @@ public class Graph {
         // reset the graph
         resetGraph();
 
-        // init the queue
+        // init the Queue
         Queue<Vertex> queue = new LinkedList<>();
         Vertex start = getVertex(startVertex);
         queue.add(start);

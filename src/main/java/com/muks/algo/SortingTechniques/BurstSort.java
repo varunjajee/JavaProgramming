@@ -292,8 +292,8 @@
 //     * @param out  output stream to write to.
 //     */
 //    private static void writeMetrics(Node node, PrintStream out) {
-//        Stack<Node> stack = new Stack<Node>();
-//        stack.push(node);
+//        Stack<Node> Stack = new Stack<Node>();
+//        Stack.push(node);
 //        int nodes = 0;
 //        int consumedStrings = 0;
 //        int bucketStrings = 0;
@@ -301,13 +301,13 @@
 //        int nonEmptyBuckets = 0;
 //        int smallest = Integer.MAX_VALUE;
 //        int largest = Integer.MIN_VALUE;
-//        while (!stack.isEmpty()) {
-//            node = stack.pop();
+//        while (!Stack.isEmpty()) {
+//            node = Stack.pop();
 //            nodes++;
 //            for (char c = 0; c < ALPHABET; c++) {
 //                int count = node.size(c);
 //                if (count < 0) {
-//                    stack.push((Node) node.get(c));
+//                    Stack.push((Node) node.get(c));
 //                } else {
 //                    // Only consider non-empty buckets, as there will
 //                    // always be empty buckets.
