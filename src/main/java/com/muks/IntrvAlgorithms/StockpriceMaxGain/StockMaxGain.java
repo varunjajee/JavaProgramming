@@ -5,30 +5,25 @@ package com.muks.IntrvAlgorithms.StockpriceMaxGain;
  */
 public class StockMaxGain {
     public static void main(String[] args) {
-        int[] stocks = {7, 2, 3, 4, 5, 4, 2, 1};
-        findBestPrices(stocks);
+        int[] stocks = {7, 2, 3, 4, 5, 4, 0, 1};
+
+        maxGainStocks(stocks, stocks.length);
     }
 
-    public static void findBestPrices(int[] prices){
-        int lowIndex = 0;
-        int highIndex = 0;
-
-        if(prices.length == 0 || prices.length == 1){
-            //error message
-        } else {
-            for (int i=1; i < prices.length; i++) {
-                if (prices[i] < prices[lowIndex]) {
-                    if (i != prices.length-1) { //if last element is lowest, don't change
-                        lowIndex = i;
-                        highIndex = i;
-                    }
-                }
-                if (prices[i] > prices[highIndex]){
-                    highIndex = i;
-                }
+    public static void maxGainStocks(int[] prices, int n) {
+        int max = prices[n-1];
+        int profit = 0;
+        for (int j = n-1; j > 0; j--) {
+            if(prices[j]>max) {
+                max = prices[j];
+                System.out.println("+ Selling day = " + j);
             }
+            profit=profit+max-prices[j];
+            System.out.println("+ Buying day = " + j + ", with profit = " + profit);
+
         }
-        System.out.println("Lowest Price " + prices[lowIndex] +
-            " Highest Price " + prices[highIndex]);
+
     }
+
+
 }
