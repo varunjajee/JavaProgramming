@@ -33,16 +33,16 @@ class ReverseLineReaderCore {
     public String readLine() throws IOException {
         System.out.println("\n+ readLine()...");
 
+        System.out.println("Start: [FilePosition=" + filePosition + ", BufferPosition=" + bufferPosition + "]");
+
         while (true) {
 
             if (bufferPosition < 0) {
-                System.out.println("Start: [FilePosition=" + filePosition + ", BufferPosition=" + bufferPosition + "]");
-
                 if (filePosition == 0) {
                     if (byteArrayOutputStream == null) {
                         return null;
                     }
-                    String line = bufToString();
+                    String line = bufferToString();
                     byteArrayOutputStream = null;
                     return line;
                 }
@@ -64,14 +64,14 @@ class ReverseLineReaderCore {
                         continue;
                     }
                     lastLineBreak = c;
-                    return bufToString();
+                    return bufferToString();
                 }
                 byteArrayOutputStream.write(c);
             }
         }
     }
 
-    private String bufToString() throws UnsupportedEncodingException {
+    private String bufferToString() throws UnsupportedEncodingException {
         if (byteArrayOutputStream.size() == 0) {
             return "";
         }
