@@ -17,7 +17,7 @@ public class DoublyLinkedList extends LinkedList {
     private static int size;
 
     /* Constructor
-    	init 2 Sentinal/dummy nodes called (1) header & (2) trailer nodes,
+        init 2 Sentinal/dummy nodes called (1) header & (2) trailer nodes,
     */
     public DoublyLinkedList() {
         head = tail = null;
@@ -27,7 +27,9 @@ public class DoublyLinkedList extends LinkedList {
     public String toString() {
         DNode current = head;
 
-        if (current == null) throw new NoSuchElementException("+ DList is empty.");
+        if (current == null) {
+            throw new NoSuchElementException("+ DList is empty.");
+        }
 
         StringBuilder sb = new StringBuilder("+ Doubly Linked List: { -HEAD <-> ");
         while (current.next != null) {
@@ -55,8 +57,7 @@ public class DoublyLinkedList extends LinkedList {
 
             tail.next = null;
             head.previous = null;
-        }
-        else {
+        } else {
             DNode movingPointer = head;
             head.previous = dNode;
             head = head.previous;
@@ -83,8 +84,7 @@ public class DoublyLinkedList extends LinkedList {
             tail.previous = head;
             tail.next = null;
             head.previous = null;
-        }
-        else {
+        } else {
             previousNode = tail;
             tail.next = dnode;
             tail = tail.next;
@@ -98,13 +98,51 @@ public class DoublyLinkedList extends LinkedList {
     }   // end insert
 
 
-
     @Override
     public void deleteDefault() {
         DNode prev = tail.previous;
         tail = tail.previous;
         tail.next = null;
     }
+
+
+    public DNode getNode(int val) {
+        DNode curr = head;
+
+        while (curr != null) {
+            if (Integer.parseInt(curr.data.toString()) == val) {
+                return curr;
+            }
+
+            curr = curr.next;
+        }
+
+        return null;
+    }
+
+
+    public void DeletingNodeByVal(int nodeVal) {
+        DNode curr = head;
+
+        while (curr != null) {
+            if (Integer.valueOf(curr.data.toString()) == nodeVal) {
+                if (Integer.valueOf(curr.data.toString()) == Integer.valueOf(head.data.toString())) {
+                    head = head.next;
+
+                } else if (curr.next == null) {           // node is tail
+                    tail = curr.previous;
+
+                } else {  // node is not head
+                    curr.previous.next = curr.next;          // node is in mid of the doubly linkedlist
+
+                }
+            }
+            else {
+                curr = curr.next;
+            }
+        }
+    }
+
 
     @Override
     public void deleteNode(int nodeValue) {
@@ -118,6 +156,8 @@ public class DoublyLinkedList extends LinkedList {
 
         prev.next = curr.next;
         curr.next.previous = prev;
+
+
     }
 
     @Override
@@ -140,7 +180,9 @@ public class DoublyLinkedList extends LinkedList {
 
      */
     public static void reverseDLL(DoublyLinkedList list) {
-        if (list.head == null) throw new NoSuchElementException("+ List is empty.");
+        if (list.head == null) {
+            throw new NoSuchElementException("+ List is empty.");
+        }
 
         DNode tmp = null;
         DNode current = list.head;
@@ -148,17 +190,17 @@ public class DoublyLinkedList extends LinkedList {
 
         int i = 1;
         //Go until the end of the list is reached
-        while (current !=  null) {          // Step - 2
+        while (current != null) {          // Step - 2
             //Update temp to remember what came before the current node
             tmp = current.previous;         // Step - 3 (vice-versa gives ERROR)
 
             System.out.println("\n+ temp = " + tmp +
-                    " : curr.p = curr.next : " + current.previous + " = " + current.next);
+                " : curr.p = curr.next : " + current.previous + " = " + current.next);
             current.previous = current.next;    // Switch the previous and next pointers
             current.next = tmp;
 
             System.out.println("+ temp = " + tmp +
-                    " : curr.p = curr.next : " + current.previous + " = " + current.next);
+                " : curr.p = curr.next : " + current.previous + " = " + current.next);
 
             //Advance current to point to the next node in the list, which is now stored in
             // current.prev

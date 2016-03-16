@@ -1,41 +1,45 @@
 package com.muks.IntrvAlgorithms.StockpriceMaxGain;
 
 /**
- * Created by mukthar.ahmed on 3/9/16.
+ * - Created by mukthar.ahmed on 3/9/16.
  */
 public class StockMaxGain {
     public static void main(String[] args) {
-        int[] stocks = {7, 2, 3, 4, 5, 4, 6, 1};
+        //int[] stocks = {7, 2, 3, 4, 5, 4, 6, 1};  // case # 1
+        //int[] stocks = {7, 2, 3, 2, 5, 1, 0}; // case # 2
+        int[] stocks = {7, 2, 3, 2, 5, 1, 1};   // case # 3
+        //int[] stocks = {1, 1, 1, 1, 1, 1};   // case # 4
 
-        maxGainStocks(stocks, stocks.length);
+        StockApi(stocks);
     }
 
-    public static void maxGainStocks(int[] prices, int n) {
-        int max = prices[n-1];
-        int profit = 0;
-        int maxProfit = 0;
+    public static void StockApi(int[] prices) {
+        int len = prices.length;
 
-        int buy = 0, sell = 0;
+        int maxStrike = 0, maxProfit = 0;
+        int buy = 0, sell = 0;          /** Buying & selling index */
 
-        for (int j = n-1; j > 0; j--) {
-            if(prices[j] > max) {
-                max = prices[j];
-                sell = j;
-                System.out.println("+ Selling day = " + j);
+        for (int i = len - 1; i >= 0; i--) {
+            /** Finding max in one pass (Selling price) */
+            if (maxStrike < prices[i] & i > 0) {
+                maxStrike = prices[i];
+
+                sell = i;
             }
 
-            profit = max-prices[j];
-            if (prices[j] < max & maxProfit < profit) {
+            /** Entry criteria: If price < max & profit is max than what we have seen till now */
+            int profit = maxStrike - prices[i];
+
+            if (prices[i] < maxStrike & maxProfit < profit) {
                 maxProfit = profit;
-                buy = j;
-                System.out.println("+ Buying day = " + j + ", with profit = " + profit);
-            }
 
+                buy = i;
+            }
         }
 
-        System.out.println("Buy on "  + buy + " and sell on " + sell);
+        System.out.println("+ Buy @ " + prices[buy] + " on day = " + buy + " and Sell @ " + maxStrike + " on day = " +
+            sell);
 
     }
 
-
-}
+}   // end class

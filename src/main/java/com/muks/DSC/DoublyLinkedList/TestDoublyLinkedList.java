@@ -12,9 +12,12 @@ public class TestDoublyLinkedList {
         doublyLinkedList.insertDefault(3);
         doublyLinkedList.insertDefault(4);
 
-        System.out.println("+ List: " + doublyLinkedList.toString());
-        DoublyLinkedList.reverseDLL(doublyLinkedList);
-        System.out.println("+ size = " + doublyLinkedList.getSize());
+//        System.out.println("+ List: " + doublyLinkedList.toString());
+//        DoublyLinkedList.reverseDLL(doublyLinkedList);
+//        System.out.println("+ size = " + doublyLinkedList.getSize());
+
+        doublyLinkedList.DeletingNodeByVal(3);
+        System.out.println(doublyLinkedList.toString() );
 
 
 

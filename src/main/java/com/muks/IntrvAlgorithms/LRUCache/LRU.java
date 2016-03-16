@@ -10,6 +10,9 @@ import java.util.NoSuchElementException;
         - LRU cache is used to maintain a record of most recently accessed and delete "Least
         Recently Used" item in order to put a new entry while the capacity is full
 
+        LRU cache - simply implies that the elements fall out of the list from the back which indicate that the are
+        "Lest Recently Used"
+
 
     Concept:
         - Maintain the most recent entries at the head of the linkedlist and move "old" items
@@ -94,7 +97,7 @@ public class LRU {
             tail = node.previous;
         }
         else {  // node is not head
-            node.previous = node.next;          // node is in mid of the doubly linkedlist
+            node.previous.next = node.next;          // node is in mid of the doubly linkedlist
         }
     }
 
