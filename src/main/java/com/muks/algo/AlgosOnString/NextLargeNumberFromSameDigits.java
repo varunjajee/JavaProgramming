@@ -1,10 +1,11 @@
-package AlgosOnString;
+package com.muks.algo.AlgosOnString;
 
 
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class NextLargeNumberFromSameDigits {
@@ -12,60 +13,75 @@ public class NextLargeNumberFromSameDigits {
 	/**
 	 * given a number whose digits are unique find the next bigger number formed by those digits
 	 * @param args
-	 * 
-	 *  Solution:
-	 *  ---------
-	 *  1. If all the digits are in increasing order from right to left, 
-	 *  then no larger number is possible as that is the largest number possible with those digits. 
-	 *  2. If they are not in increasing order form right to left then a larger number is possible. 
-	 *  3. We need to find the first decreasing sequence from right side. Then we can bring the larger number in place of the smaller number. 
-	 *  4. After that if we arrange the remaining digits in increasing order, next bigger number will be formed.
-	 */
+	 *
+     * http://www.geeksforgeeks.org/find-next-greater-number-set-digits/
+     *
+     * Logic:
+     *  Base case 1: Next big integer DOES NOT exists if the number has;
+     *              - All same digits Eg: 1111, 222 or
+     *              - the digits are in incremental form from left to right
+     *
+     *  Base case 2: If the length of the number is just one digit
+     *
+     *  Logic:
+     *      - Traverse the int array from right to left
+     *      - Traverse till the next digit is smaller than the current digit Eg: [i-1] < [i]
+     *      - While traversing, keep track of smallest int encountered.
+     *      - Find smallest digit just greater than next int & swap them
+     *      - Sort in increasing order at the end
+     * */
 	
 	public static void main(String[] args) throws Exception {
 
-		String input = "1265"; 	// 1562
-		genNextBigNum(input);
+		int num1 = 1234; 	// 1243
+        int num2 = 1111;
+        int num3 = 1;
 
+        int num4 = 534976;
+
+        FindNextBigNumber(num4);
 
 	}	// end main()
 
-	public static void genNextBigNum (String input) {
-		
-		// find if the leght is just 1
-		if (input.length() == 1) {
+
+
+	public static void FindNextBigNumber (int number) {
+        System.out.println("+ Input = " + number);
+        String input = Integer.toString(number);    /** convert int to string */
+
+        /** convert string number to int array. */
+        List<Integer> dList = new ArrayList<>();
+        for (int i = 0; i < input.length(); ++i) {
+
+            Integer digit = Integer.parseInt(input.substring(i, i + 1));
+
+            /** check if all digits are same (Large number wouldn't be possible) */
+            if (dList.contains(digit)) {
+                System.out.println("All digits are not unique, NO next big number is possible.");
+                return;
+
+            } else {
+                dList.add(digit);
+
+            }
+
+        }
+
+
+		/** find if the length is just 1   */
+		if (dList.size() == 1) {
 			System.out.println("no greater number possible");
 			return;
 		}
 
-		List<Integer> dList = new ArrayList<Integer>();
-		for (int i = 0; i < input.length(); ++i) {
 
-			Integer digit = Integer.parseInt(input.substring(i, i + 1));
-			System.out.println("\n +++ digits: " + digit);
-			
-			if (dList.contains(digit)) {
-				System.out.println("All digits are not unique");
-				return;
-				
-			} else {
-				dList.add(digit);
-			
-			}
-
-		}
-		
-		System.out.println(dList.toString());
-		
-		
-		
+        /** find right digit bigger than left digit and break out */
 		int rightBiggerIndex=-1;
 		int leftSmallerIndex=-1;
+		for (int right = dList.size() - 1; right > 0 && rightBiggerIndex == -1 ; right--) {
+			for (int left = right - 1; left >= 0; left--) {
 
-		for(int right = dList.size()-1; right > 0 && rightBiggerIndex == -1 ; right--) {
-			for(int left = right - 1; left >= 0; left--) {
-
-				if(dList.get(right) > dList.get(left)) {
+				if (dList.get(right) > dList.get(left)) {
 					rightBiggerIndex = right;
 					leftSmallerIndex = left;
 					break;
@@ -74,48 +90,51 @@ public class NextLargeNumberFromSameDigits {
 		}
 
 		if(rightBiggerIndex == -1 || leftSmallerIndex == -1) {
-			System.out.println("no greater number possible");
+			System.out.println("No greater number possible");
 			return;
 		}
-		
-		swap(dList, rightBiggerIndex, leftSmallerIndex);
+
+        /** Swap and sorting in increasing order */
+        System.out.println("+ Swapping numbers : " + dList.get(rightBiggerIndex) + ", " + dList.get(leftSmallerIndex) );
+        swap(dList, rightBiggerIndex, leftSmallerIndex);
+
 		sortInIncreasingOrder(dList, leftSmallerIndex+1, dList.size() - 1);
 
-		
+
+        /** Printing final number */
 		for(int num:dList) {
 			System.out.print(num);
 		}
 
-		
+
 	}	// end convert()
-	
-	
-	
+
+
+
 	private static void sortInIncreasingOrder(List<Integer> digits, int startIndex, int endIndex) {
-		
-		// base case for the break of flow
-		if(startIndex == endIndex) {
-			return;
-		}
-		
-		// arranging in increasing order, from left to right
-		for(int left = startIndex; left < endIndex; left++) {
-			for(int right = startIndex+1; right <= endIndex; right++) {
-				
-				if(digits.get(left) > digits.get(right)) {
-					swap(digits,left,right);
-				}
-				
-			}
-		}
-		
-		return;
+        /** base case for the break of flow */
+        if(startIndex == endIndex) {
+            return;
+        }
+
+        /** sort in increasing order */
+        for (int i = startIndex; i <= endIndex; i++) {
+            int runner = startIndex;
+
+            while (runner != i) {
+                if (digits.get(runner) > digits.get(i)) {
+                    swap(digits, runner, i);
+                }
+
+                runner++;
+            }
+        }
 
 	}
 
-	
+
 	private static void swap(List<Integer> digits, int i, int j) {
-		Integer temp=digits.get(i);
+		Integer temp = digits.get(i);
 		digits.set(i, digits.get(j));
 		digits.set(j, temp);
 	}
