@@ -4,7 +4,12 @@ import java.io.*;
 
 /**
  * Created by mukthar.ahmed on 3/16/16.
- * - Reverse file contents
+
+ * Link: ???
+ *
+ * Alternatively, Radix sort algorithm works with O(n) space
+ * Link: http://www.codeproject.com/Articles/490755/Sorting-Variable-Length-Strings-in-O-N-Time
+ *
  */
 public class ReverseFile {
 
@@ -35,6 +40,7 @@ public class ReverseFile {
         ReverseLineReaderCore reader = new ReverseLineReaderCore(file, "UTF-8");
         String line;
         System.out.print("\nReading file in reverse order - from 10 to 1");
+
         while ((line = reader.readLine()) != null) {
             System.out.println(line);
         }

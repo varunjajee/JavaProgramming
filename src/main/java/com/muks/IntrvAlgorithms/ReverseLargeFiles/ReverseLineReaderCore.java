@@ -5,7 +5,13 @@ import java.nio.ByteBuffer;
 import java.nio.channels.FileChannel;
 
 /**
- * -Created by mukthar.ahmed on 3/16/16.
+ * - Created by mukthar.ahmed on 3/16/16.
+ *
+ * Link: ???
+ *
+ * Alternatively, Radix sort algorithm works with O(n) space
+ * Link: http://www.codeproject.com/Articles/490755/Sorting-Variable-Length-Strings-in-O-N-Time
+ *
  */
 
 class ReverseLineReaderCore {
@@ -14,7 +20,7 @@ class ReverseLineReaderCore {
     private final String encoding;
     private long filePosition;
     private ByteBuffer byteBuffer;
-    private int bufferPosition;
+    private int bufferPosition;         /** default value for int = -1, buffPosition starts at -1 */
     private byte lastLineBreak = '\n';
     private ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
 
@@ -23,9 +29,10 @@ class ReverseLineReaderCore {
         RandomAccessFile raf = new RandomAccessFile(file, "r");
         fileChannel = raf.getChannel();
         filePosition = raf.length();
+        System.out.println("+ File Length=" + filePosition);
         this.encoding = encoding;
 
-        System.out.println("Initialising: [ FilePosition = " + filePosition
+        System.out.println("\n Calling contructor() initialises: [ FilePosition = " + filePosition
         +", BufferPosition=" + bufferPosition + " ]");
     }
 
@@ -38,6 +45,7 @@ class ReverseLineReaderCore {
         while (true) {
 
             if (bufferPosition < 0) {
+                System.out.println("+ To start with, buffer position = " + bufferPosition);
                 if (filePosition == 0) {
                     if (byteArrayOutputStream == null) {
                         return null;
@@ -50,6 +58,8 @@ class ReverseLineReaderCore {
                 long start = Math.max(filePosition - BUFFER_SIZE, 0);
                 long end = filePosition;
                 long len = end - start;
+
+                System.out.println("+ Start=" + start + ", End=" + end);
 
                 byteBuffer = fileChannel.map(FileChannel.MapMode.READ_ONLY, start, len);
                 bufferPosition = (int) len;
@@ -66,6 +76,7 @@ class ReverseLineReaderCore {
                     lastLineBreak = c;
                     return bufferToString();
                 }
+
                 byteArrayOutputStream.write(c);
             }
         }
@@ -77,6 +88,9 @@ class ReverseLineReaderCore {
         }
 
         byte[] bytes = byteArrayOutputStream.toByteArray();
+
+
+        /** Todo (note): Need to reverse as we are reading the line from backward */
         for (int i = 0; i < bytes.length / 2; i++) {
             byte t = bytes[i];
             bytes[i] = bytes[bytes.length - i - 1];
@@ -84,7 +98,14 @@ class ReverseLineReaderCore {
         }
 
         byteArrayOutputStream.reset();
+
         return new String(bytes, encoding);
     }
 
+
+    public static void swapBytes(byte[] bytes, int st, int end) {
+        byte tmp = bytes[st];
+        bytes[st] = bytes[end];
+        bytes[end] = tmp;
+    }
 }
