@@ -7,6 +7,8 @@ package com.muks.DSC.BinaryTree.BST;
 public class TreeNode {
     public int data;
     public int hd;  // horizontal distance of a node from root node
+    public int vd; // vertical distance of the node from root node
+
     public TreeNode left, right;
 
     public TreeNode() {}

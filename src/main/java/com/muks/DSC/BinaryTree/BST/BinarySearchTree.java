@@ -33,7 +33,7 @@ public class BinarySearchTree {
     }
 
     public BinarySearchTree(int value) {
-        root = new TreeNode(value);
+        this.root = new TreeNode(value);
         size++;
 
         System.out.println("\n+ Initialized Binary Search BinaryTree +");

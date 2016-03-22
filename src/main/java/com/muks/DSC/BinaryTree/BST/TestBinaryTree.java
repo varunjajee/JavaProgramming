@@ -20,9 +20,31 @@ public class TestBinaryTree {
 
         bst.root.right.right = new TreeNode(7);
         bst.root.right.left = new TreeNode(6);
-        // Answer : 2 1 3 6
 
+
+        // Answer : 2 1 3 6
         AlgosBinarySearchTree.isBinarySearchTree(bst.root);
+
+
+        /** Get diagonal sum */
+        BinarySearchTree diagonalTree = new BinarySearchTree(1);
+        diagonalTree.root.left = new TreeNode(2);
+        diagonalTree.root.right = new TreeNode(3);
+
+        diagonalTree.root.left.left = new TreeNode(9);
+        diagonalTree.root.left.right = new TreeNode(6);
+        diagonalTree.root.left.right.left = new TreeNode(11);
+
+        diagonalTree.root.left.left.right = new TreeNode(10);
+
+        diagonalTree.root.right.right = new TreeNode(5);
+        diagonalTree.root.right.left = new TreeNode(4);
+        diagonalTree.root.right.left.left = new TreeNode(12);
+        diagonalTree.root.right.left.right = new TreeNode(7);
+
+
+        BstInterviewQuestions.printDiagonalSum(diagonalTree.root);
+
 //
 //        AlgosBinarySearchTree.printBottomView(bst.root);
 //        AlgosBinarySearchTree.printTopView(bst.root);
