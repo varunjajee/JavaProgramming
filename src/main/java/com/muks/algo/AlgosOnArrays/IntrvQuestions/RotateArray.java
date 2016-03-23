@@ -1,7 +1,9 @@
-package com.muks.algo.AlgosOnArrays;
+package com.muks.algo.AlgosOnArrays.IntrvQuestions;
 
 /**
  * Created by mukthar.ahmed on 3/8/16.
+ *
+ * Rotate array in O(n) time and O(1) auxilary space
  */
 public class RotateArray {
 

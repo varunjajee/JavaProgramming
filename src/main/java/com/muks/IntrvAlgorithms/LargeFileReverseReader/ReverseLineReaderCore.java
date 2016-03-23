@@ -1,4 +1,4 @@
-package com.muks.IntrvAlgorithms.ReverseLargeFiles;
+package com.muks.IntrvAlgorithms.LargeFileReverseReader;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -69,10 +69,10 @@ class ReverseLineReaderCore {
             while (bufferPosition-- > 0) {
                 byte c = byteBuffer.get(bufferPosition);
                 if (c == '\r' || c == '\n') {
-                    if (c != lastLineBreak) {
-                        lastLineBreak = c;
-                        continue;
-                    }
+//                    if (c != lastLineBreak) {
+//                        lastLineBreak = c;
+//                        continue;
+//                    }
                     lastLineBreak = c;
                     return bufferToString();
                 }

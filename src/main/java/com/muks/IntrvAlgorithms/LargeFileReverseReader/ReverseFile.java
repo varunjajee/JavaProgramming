@@ -1,4 +1,4 @@
-package com.muks.IntrvAlgorithms.ReverseLargeFiles;
+package com.muks.IntrvAlgorithms.LargeFileReverseReader;
 
 import java.io.*;
 
@@ -20,7 +20,7 @@ public class ReverseFile {
         File file = new File(inputFile);
         RandomAccessFile raf = new RandomAccessFile(file, "rw");
 
-        for (int i = 0; i <= 5; i++) {
+        for (int i = 0; i <= 3; i++) {
             raf.writeBytes("Adding Line number " + i + "\n");              // Adding line from 1 to 10
         }
         raf.close();
@@ -39,7 +39,6 @@ public class ReverseFile {
         /** Reading file in reverse order.. Will return line from 10 to 1 */
         ReverseLineReaderCore reader = new ReverseLineReaderCore(file, "UTF-8");
         String line;
-        System.out.print("\nReading file in reverse order - from 10 to 1");
 
         while ((line = reader.readLine()) != null) {
             System.out.println(line);

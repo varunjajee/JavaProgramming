@@ -3,23 +3,22 @@ package com.muks.IntrvAlgorithms.LRUCache;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 
-/*
- *  Created by mukthar.ahmed on 2/16/16.
-
-    What is LRU Cache:
-        - LRU cache is used to maintain a record of most recently accessed and delete "Least
-        Recently Used" item in order to put a new entry while the capacity is full
-
-        LRU cache - simply implies that the elements fall out of the list from the back which indicate that the are
-        "Lest Recently Used"
-
-
-    Concept:
-        - Maintain the most recent entries at the head of the linkedlist and move "old" items
-        towards the right of the linked list
-
-        - while "put()" OR while "get()" any item, pull the entry to the head of the linkedlist
-
+/**
+ * Created by mukthar.ahmed on 2/16/16.
+ * <p>
+ * What is LRU Cache:
+ * - LRU cache is used to maintain a record of most recently accessed and delete "Least
+ * Recently Used" item in order to put a new entry while the capacity is full
+ * <p>
+ * LRU cache - simply implies that the elements fall out of the list from the back which indicate that the are
+ * "Lest Recently Used"
+ * <p>
+ * <p>
+ * Concept:
+ * - Maintain the most recent entries at the head of the linkedlist and move "old" items
+ * towards the right of the linked list
+ * <p>
+ * - while "put()" OR while "get()" any item, pull the entry to the head of the linkedlist
  */
 public class LRU {
     // LRU LRUNode
@@ -43,24 +42,24 @@ public class LRU {
         this.capacity = capacity;
     }
 
-    /** put()  */
+    /**
+     * put()
+     */
     public void put(int key, int val) {
         // reset its value if the key already exists
-        if ( cache.containsKey(key) ) {
+        if (cache.containsKey(key)) {
             LRUNode old = cache.get(key);
 
             old.value = val;
 
             remove(old);
             setHead(old);
-        }
-        else {
+        } else {
             LRUNode node = new LRUNode(key, val);
             if (cache.size() >= capacity) {
                 remove(tail);
                 setHead(node);
-            }
-            else {
+            } else {
                 setHead(node);
             }
 
@@ -72,7 +71,7 @@ public class LRU {
 
     /* To make the get() work */
     public int get(int key) {
-        if ( cache.containsKey(key) ) {
+        if (cache.containsKey(key)) {
             LRUNode node = cache.get(key);
 
             remove(node);       // remove the node from the linkedlist
@@ -81,8 +80,7 @@ public class LRU {
 
             return node.value;  // return the node value
 
-        }
-        else {
+        } else {
             throw new NoSuchElementException("- Key not found.");
         }
     }
@@ -92,22 +90,19 @@ public class LRU {
     public void remove(LRUNode node) {
         if (node.previous == null) {            // node is head
             head = node.next;
-        }
-        else if (node.next == null) {           // node is tail
+        } else if (node.next == null) {           // node is tail
             tail = node.previous;
-        }
-        else {  // node is not head
+        } else {  // node is not head
             node.previous.next = node.next;          // node is in mid of the doubly linkedlist
         }
     }
 
     public void setHead(LRUNode node) {
-
         // where linked list is empty
         if (head == null) {
             head = tail = node;
-        }
-        else {
+
+        } else {
             node.previous = null;
             node.next = head;
             head.previous = node;

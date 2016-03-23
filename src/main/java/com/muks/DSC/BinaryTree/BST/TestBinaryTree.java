@@ -9,22 +9,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TestBinaryTree {
+
+    static TreeNode targetLeaf = null;
+    static int maxSum = 0;
+
     public static void main(String[] args) {
-
-        /** Tree for Top view */
-        BinarySearchTree bst = new BinarySearchTree(1);
-        bst.root.left = new TreeNode(2);
-        bst.root.right = new TreeNode(3);
-        bst.root.left.left = new TreeNode(4);
-        bst.root.left.right = new TreeNode(5);
-
-        bst.root.right.right = new TreeNode(7);
-        bst.root.right.left = new TreeNode(6);
-
-
-        // Answer : 2 1 3 6
-        AlgosBinarySearchTree.isBinarySearchTree(bst.root);
-
+//
+//        /** Tree for Top view */
+//        BinarySearchTree bst = new BinarySearchTree(1);
+//        bst.root.left = new TreeNode(2);
+//        bst.root.right = new TreeNode(3);
+//        bst.root.left.left = new TreeNode(4);
+//        bst.root.left.right = new TreeNode(5);
+//
+//        bst.root.right.right = new TreeNode(7);
+//        bst.root.right.left = new TreeNode(6);
+//
+//
+//        // Answer : 2 1 3 6
+//        AlgosBinarySearchTree.isBinarySearchTree(bst.root);
+//
 
         /** Get diagonal sum */
         BinarySearchTree diagonalTree = new BinarySearchTree(1);
@@ -43,7 +47,19 @@ public class TestBinaryTree {
         diagonalTree.root.right.left.right = new TreeNode(7);
 
 
-        BstInterviewQuestions.printDiagonalSum(diagonalTree.root);
+        //BstInterviewQuestions.printDiagonalSum(diagonalTree.root);
+        //System.out.println("+ Found = " + BstInterviewQuestions.hasPathSum(diagonalTree.root, 9));
+
+        //System.out.println("+ Min path sum = " + BstInterviewQuestions.minSumPath(diagonalTree.root) );
+        //BstInterviewQuestions.GetMaxSumPath.rootNode = diagonalTree.root;
+
+        BstInterviewQuestions bstIntrv = new BstInterviewQuestions();
+        BstInterviewQuestions.MaxSumPath maxSumPath = new BstInterviewQuestions.MaxSumPath();
+        maxSumPath.getMaxSumPath(diagonalTree.root);
+
+
+
+
 
 //
 //        AlgosBinarySearchTree.printBottomView(bst.root);
@@ -97,12 +113,12 @@ public class TestBinaryTree {
 //        AlgosBinarySearchTree.printRightView(bst.root);
 //        //AlgosBinarySearchTree.printLevelOrder(bst.root);
 
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        TreeNode btree = BinarySearchTree.createBalancedTree(arr);
+//        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+//        TreeNode btree = BinarySearchTree.createBalancedTree(arr);
 //        AlgosBinarySearchTree.nodesByDepth(btree, 2);
 //        AlgosBinarySearchTree.leavesWithDepth(bst.root);
 
-        AlgosBinarySearchTree.isBinarySearchTree(btree);
+        //AlgosBinarySearchTree.isBinarySearchTree(btree);
 
 
         //System.out.println("+ Root = " + btree.data);
