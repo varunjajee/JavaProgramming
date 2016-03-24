@@ -1,10 +1,11 @@
-package com.muks.algo.AlgosOnArrays;
+package com.muks.algo.AlgosOnArrays.MovingWindow;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
-public class SubarraySum2ZeroIMP {
+public class ZeroSumSubArray {
 
 	/**
 	 * Q: Find a sub array from a array which sums to 0
@@ -25,12 +26,12 @@ public class SubarraySum2ZeroIMP {
 	// generate sub arrays with sum of elements equal to zero
 	public static List<int[]> zeroSubarrays( int[] arr ){
 
-		List<int[]> subarrays = new ArrayList<int[]>();		
+		List<int[]> subarrays = new ArrayList<>();
 
 		for( int i = 0; i < arr.length; i++ ){
 
-			int sum = 0;
-			for( int j = i; j < arr.length; j++ ){
+			int sum = arr[i];
+			for( int j = i+1; j < arr.length; j++ ){
 				sum += arr[j];
 				
 				if( sum == 0 ){
@@ -43,8 +44,30 @@ public class SubarraySum2ZeroIMP {
 		return subarrays;		
 	}
 
-	
-	
+	// Returns true if arr[] has a subarray with sero sum
+	static Boolean printZeroSumSubarray(int arr[]) {
+		HashMap<Integer, Integer> hM = new HashMap<>();
+		int sum = 0;
+
+		for (int i = 0; i < arr.length; i++) {
+
+			sum += arr[i];
+
+			// Return true in following cases
+			// a) Current element is 0
+			// b) sum of elements from 0 to i is 0
+			// c) sum is already present in hash map
+			if (arr[i] == 0 || sum == 0 || hM.get(sum) != null)
+				return true;
+
+			// Add sum to hash map
+			hM.put(sum, i);
+		}
+
+		// We reach here only when there is no subarray with 0 sum
+		return false;
+	}
+
 	public static void printArray(int[] arr) {
 		String s = "";
 		for (int i : arr) {

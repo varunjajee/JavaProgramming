@@ -1,4 +1,4 @@
-package com.muks.algo.AlgosOnArrays;
+package com.muks.algo.AlgosOnArrays.MovingWindow;
 
 public class SubarrayFromArray0and1 {
 

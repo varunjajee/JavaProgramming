@@ -1,4 +1,4 @@
-package com.muks.algo.AlgosOnArrays.IntrvQuestions;
+package com.muks.algo.AlgosOnArrays.FAQs;
 
 /**
  * Created by mukthar.ahmed on 3/8/16.
