@@ -2,9 +2,9 @@ package com.muks.algo.AlgosOnArrays.FAQs;
 
 /**
  * Created by mukthar.ahmed on 3/18/16.
- * <p>
+ *
  * Q - Find the sub array with max sum
- * <p>
+ *
  * Logic:
  * - Keep traversing from left to right
  * - While traversing, track max_ending_here + arr[i] > 0 then init start index
@@ -23,7 +23,7 @@ public class MaxSubarrayKadaneAlgo {
 
         for (int i = 0; i < arr.length; i++) {
 
-            MAX = MAX + arr[i];
+            MAX += arr[i];
             System.out.println("\nMAX = " + MAX);
 
             if (MAX > 0) {

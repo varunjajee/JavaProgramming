@@ -20,105 +20,79 @@ public class SubArrayWithSum {
 		int sum = 15;
 		//int sum = 33;
 
-		subArraySumEfficient(arr, arr.length, sum);	// efficient algo
-		
-		int ret = subArraySum(arr, sum);		// sub optimal algo
-//		System.out.println("+ ret: " + ret);
+        /*int[] arr2 = {1, -1, 4, -4};*/
+        int[] arr2 = {1, 1, -1, -1};
+        int sum2 = 0;
 
+//		subArraySumEfficient(arr, sum);	// efficient algo
+        subArraySumEfficient(arr2, sum2);	// efficient algo
+
+//		int ret = subArraySum(arr, sum);		// sub optimal algo
 	}
 
 
-	int subArraySum(int arr[], int n, int sum) {
-		int curr_sum, i, j;
 
-		// Pick a starting point
-		for (i = 0; i < n; i++) {
-			curr_sum = arr[i];
-
-			// try all subarrays starting with 'i'
-			for (j = i+1; j <= n; j++) {
-				if (curr_sum == sum) {
-					//System.out.println("Sum found between indexes %d and %d" + i + ", " + j-1);
-
-					return 1;
-				}
-				if (curr_sum > sum || j == n)
-					break;
-				curr_sum = curr_sum + arr[j];
-			}
-		}
-
-		System.out.println("No subarray found");
-		return 0;
-	}
-
-	// ################################################################################################
-	/* Returns true if the there is a subarray of arr[] with sum equal to 'sum'
+	/**
+     * Returns true if the there is a subarray of arr[] with sum equal to 'sum'
 	 * otherwise returns false.  Also, prints the result 
 	 * */
-	public static int subArraySumEfficient (int arr[], int n, int sum) {
-
+	public static int subArraySumEfficient (int arr[], int sum) {
 	    int currSum = arr[0];	// initializing curr_sum
 	    int start = 0;
-	 
-	    /* Add elements one by one to curr_sum and if the curr_sum exceeds the
-	       sum, then remove starting element */
-	    for (int i = 1; i <= n; i++) {
 
-	    	while (currSum > sum && start < i-1) {	// If curr_sum exceeds the sum, then remove the starting elements
+	    for (int i = 1; i < arr.length; i++) {
+
+            /** If curr_sum exceeds the sum, then remove the starting elements */
+	    	while (currSum > sum && start < i-1) {
 	            currSum = currSum - arr[start];
 	            start++;
 	        }
 	 
-	        if (currSum == sum) {						// If curr_sum becomes equal to sum, then return true
-	            System.out.println("Sum found between indexes " + start + " and " + (i-1));
+	        if (currSum == sum) {	/** If curr_sum becomes equal to sum, then return true */
+	            System.out.println("Sum found between indexes " + (start) + " and " + (i-1) );
 	            return 1;
 	        }
 	        
-	        if (i < n) {	// Add this element to curr_sum
+	        if (i < arr.length) {	/** Add this element to curr_sum */
 	          currSum += arr[i];
 	        }
 	        
 	    }
-	 
-	    // If we reach here, then no subarray
-	    System.out.println("No subarray found");
+
+	    System.out.println("No subarray found");    /** If we reach here, then no subarray */
+
 	    return 0;
 	}
 	
-	// ############################################################################################################
-	// Time Complexity: O(n^2) in worst case.
-	/* Returns true if the there is a subarray of arr[] with sum equal to 'sum'
-	 * otherwise returns false.  Also, prints the result 
-	 * */
-	public static int subArraySum(int arr[], int sum) {
-		int n = arr.length-1;
-		int curr_sum, i, j;
 
-		// Pick a starting point
-		for (i = 0; i < n; i++) {
-			curr_sum = arr[i];
 
-			// Testing all subarrays starting with 'i'
-			for (j = i+1; j <= n; j++) {
-				System.out.println(curr_sum + " == " + sum + " arr[j]: " + arr[j]);
 
-				if (curr_sum == sum) {
-					System.out.println("Sum found between indexes " + i + " and " + (j-1));
-					return 1;
-				}
 
-				if (curr_sum > sum || j == n) {
-					break;
-				}
 
-				curr_sum = curr_sum + arr[j];	// keep adding elements to the curr_sum
+    public static int subArraySum(int arr[], int sum) {
+        int n = arr.length;
+        int curr_sum, i, j;
 
-			}
-		}
+        // Pick a starting point
+        for (i = 0; i < n; i++) {
+            curr_sum = arr[i];
 
-		System.out.println("No subarray found");
-		return 0;
-	}
+            // try all subarrays starting with 'i'
+            for (j = i+1; j <= n; j++) {
+                if (curr_sum == sum) {
+                    //System.out.println("Sum found between indexes %d and %d" + i + ", " + j-1);
+                    System.out.println("Sum's found between - " + i + ", " + j);
+
+                    return 1;
+                }
+                if (curr_sum > sum || j == n)
+                    break;
+                curr_sum = curr_sum + arr[j];
+            }
+        }
+
+        System.out.println("No subarray found");
+        return 0;
+    }
 
 }

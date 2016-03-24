@@ -19,6 +19,29 @@ public class RotateArray {
 
 
     /** ===========================================================================================
+     *  Logic: (Kadane's algorithm)
+     *      Eg: 1, 2, 3, 4, 5, 6, 7
+     *      1) divide the array into 2 halves. 0 - offset & (offset + 1) till length.
+     *          - [1, 2, 3] & [4, 5, 6, 7]
+     *      2) reverse 1st sub array
+     *      3) reverse 2nd sub array
+     *      4) Now reverse entire array
+     *
+     *  Time complexity - O(n) & Space O(n), in-place rotation
+     */
+    public static void RotateOptimised(int[] arr, int offset) {
+        if (arr.length == 0 || offset < 0) {
+            throw new IllegalArgumentException("Invalid input exception.");
+        }
+
+        reverseArray(arr, 0, offset);
+        reverseArray(arr, offset + 1, arr.length - 1);
+        reverseArray(arr, 0, arr.length - 1);
+    }
+
+
+
+    /** ===========================================================================================
      * - pop [0] item,
      * - store it to tmp variable
      * - move all elements towards left
@@ -42,26 +65,7 @@ public class RotateArray {
     }
 
 
-    /** ===========================================================================================
-     *  Logic:
-     *      Eg: 1, 2, 3, 4, 5, 6, 7
-     *      1) divide the array into 2 halves. 0 - offset & (offset + 1) till length.
-     *          - [1, 2, 3] & [4, 5, 6, 7]
-     *      2) reverse 1st sub array
-     *      3) reverse 2nd sub array
-     *      4) Now reverse entire array
-     *
-     *  Time complexity - O(n) & Space O(n), in-place rotation
-     */
-    public static void RotateOptimised(int[] arr, int offset) {
-        if (arr.length == 0 || offset < 0) {
-            throw new IllegalArgumentException("Invalid input exception.");
-        }
 
-        reverseArray(arr, 0, offset);
-        reverseArray(arr, offset + 1, arr.length - 1);
-        reverseArray(arr, 0, arr.length - 1);
-    }
 
 
     /** Reverse array using left pointer and right pointer and recursion */

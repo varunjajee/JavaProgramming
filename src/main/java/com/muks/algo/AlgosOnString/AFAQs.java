@@ -1,4 +1,4 @@
-package com.muks.algo.AlgosOnString.FAQs;
+package com.muks.algo.AlgosOnString;
 
 
 /**
