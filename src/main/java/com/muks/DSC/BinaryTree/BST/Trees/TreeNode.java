@@ -1,4 +1,4 @@
-package com.muks.DSC.BinaryTree.BST;
+package com.muks.DSC.BinaryTree.BST.Trees;
 
 /*
  * Created by mukthar.ahmed on 1/6/16.

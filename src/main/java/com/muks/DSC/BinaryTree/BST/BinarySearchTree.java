@@ -22,6 +22,8 @@ package com.muks.DSC.BinaryTree.BST;
  */
 
 
+import com.muks.DSC.BinaryTree.BST.Trees.TreeNode;
+
 public class BinarySearchTree {
     public TreeNode root;
     public TreeNode parent;

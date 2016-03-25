@@ -13,7 +13,7 @@ public class AllSubArraysWithSum {
 
         int[] arr2 = {1, 1, -1, -1};
         //printSubarrays(arr2, 0);
-        //printSubArrayOfRequiredSum(arr2, 0);
+        printSubArrayOfRequiredSum(INPUT, 5);
     }
 
     private static void printSubarrays(int[] input, int k) {
@@ -25,8 +25,8 @@ public class AllSubArraysWithSum {
 
         for(int i=0; i < input.length; i++) {
             preSum += input[i];
-            // If point where sum = (preSum - k) is present, it means that between that
-            // point and this, the sum has to equal k
+            /** A point where sum = (preSum - k) is present, it means that between that
+             point and this, the sum has to equal k */
             if( map.containsKey(preSum - k) ) {   // Subarray found
                 List<Integer> startIndices = map.get(preSum - k);
 

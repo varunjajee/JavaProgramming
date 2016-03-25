@@ -1,16 +1,99 @@
 package com.muks.DSC.BinaryTree.BST;
 
 
+import com.muks.DSC.BinaryTree.BST.Trees.MyTrees;
+import com.muks.DSC.BinaryTree.BST.Trees.TreeNode;
+
 import java.util.*;
 
 /*
  * Created by mukthar.ahmed on 1/7/16.
  */
 public class AlgosBinarySearchTree {
+
     /**
-     * =============================================================================================
+     * Spiral or Zig-Zag order tree traversal
+     */
+    public static void zigZagView() {
+        TreeNode root = MyTrees.getZigZagTree().root;
+
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        boolean directionFlag = true;
+
+        while ( !stack.isEmpty() ) {
+            Stack<TreeNode> tempStack = new Stack<>();
+
+            while ( !stack.isEmpty() ) {
+                TreeNode curr = stack.pop();
+                System.out.print( " "  + curr.data );     /** print here */
+
+                if ( !directionFlag ) {
+                    if (curr.left != null)
+                        tempStack.add(curr.left);
+
+                    if (curr.right != null)
+                        tempStack.add(curr.right);
+
+                }
+                else {
+                    if (curr.right != null)
+                        tempStack.add(curr.right);
+
+                    if (curr.left != null)
+                        tempStack.add(curr.left);
+
+                }
+
+            }
+
+            directionFlag = !directionFlag;     /** Flip direction flag */
+            System.out.println("\nTemp peel=" + tempStack.toString());
+            stack = tempStack;
+            System.out.println("\nStack = " + stack.toString());
+        }
+    }
+
+    // http://www.java2blog.com/2014/08/spiralzigzag-level-order-traversal-of.html
+    public static void spiralOrZigzagLevelOrder() {
+        TreeNode root = MyTrees.getZigZagTree().root;
+        if(root==null) return;
+        Stack<TreeNode> stack=new Stack<TreeNode>();
+        stack.push(root);
+
+        boolean directionflag=false;
+        while(!stack.isEmpty()) {
+            Stack<TreeNode> tempStack=new Stack<TreeNode>();
+
+            while(!stack.isEmpty()) {
+                TreeNode tempNode=stack.pop();
+                System.out.printf("%d ",tempNode.data);
+
+                if(!directionflag) {
+                    if(tempNode.left!=null)
+                        tempStack.push(tempNode.left);
+                    if(tempNode.right!=null)
+                        tempStack.push(tempNode.right);
+                }
+                else {
+                    if(tempNode.right!=null)
+                        tempStack.push(tempNode.right);
+                    if(tempNode.left!=null)
+                        tempStack.push(tempNode.left);
+                }
+            }
+            // for changing direction
+            directionflag=!directionflag;
+
+            stack=tempStack;
+        }
+
+    }
+
+
+
+    /**
      * Given a binary tree, print the left view
-     * <p>
      * global variable "MAX"
      */
     static int MAX = 0;             // IMPORTANT variable
@@ -903,11 +986,11 @@ public class AlgosBinarySearchTree {
      * Find if tree is a binary search tree or not BST or not
      * Time O(n)
      */
-    public static void isBinarySearchTree(TreeNode root) {
+    public static void isBinarySearchTree() {
+        TreeNode root = MyTrees.getBST().root;
         if (isSearchTreeUtil(root, Integer.MIN_VALUE, Integer.MAX_VALUE)) {
             System.out.println("+ IS a BST.");
-        }
-        else {
+        } else {
             System.out.println("+ NOT a BST");
         }
     }
@@ -919,9 +1002,9 @@ public class AlgosBinarySearchTree {
         }
 
         /** root.data is in a range between > min-val & < max-val */
-        if ( ( node.data > minVal && node.data < maxVal )
-            && ( isSearchTreeUtil(node.left, minVal, node.data) )
-            && ( isSearchTreeUtil(node.right, node.data, maxVal) ) ) {
+        if ((node.data > minVal && node.data < maxVal)
+            && (isSearchTreeUtil(node.left, minVal, node.data))
+            && (isSearchTreeUtil(node.right, node.data, maxVal))) {
 
             return true;
         }

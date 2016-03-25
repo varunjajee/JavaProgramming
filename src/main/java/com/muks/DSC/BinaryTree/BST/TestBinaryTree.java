@@ -5,8 +5,8 @@ package com.muks.DSC.BinaryTree.BST;
  */
 
 
-import java.util.ArrayList;
-import java.util.List;
+import com.muks.DSC.BinaryTree.BST.Trees.MyTrees;
+import com.muks.DSC.BinaryTree.BST.Trees.TreeNode;
 
 public class TestBinaryTree {
 
@@ -14,82 +14,42 @@ public class TestBinaryTree {
     static int maxSum = 0;
 
     public static void main(String[] args) {
-//
-//        /** Tree for Top view */
-//        BinarySearchTree bst = new BinarySearchTree(1);
-//        bst.root.left = new TreeNode(2);
-//        bst.root.right = new TreeNode(3);
-//        bst.root.left.left = new TreeNode(4);
-//        bst.root.left.right = new TreeNode(5);
-//
-//        bst.root.right.right = new TreeNode(7);
-//        bst.root.right.left = new TreeNode(6);
-//
-//
+
+        /** zig-zag or spiral traversal */
+        // Answer : 1 2 3 4 5 6 7
+        AlgosBinarySearchTree.zigZagView();
+
 //        // Answer : 2 1 3 6
-//        AlgosBinarySearchTree.isBinarySearchTree(bst.root);
+//        AlgosBinarySearchTree.isBinarySearchTree();
+
+
+//        //BstInterviewQuestions.printDiagonalSum( MyTrees.getDiagonalTree().root );
+//        //System.out.println("+ Found = " + BstInterviewQuestions.hasPathSum( MyTrees.getDiagonalTree().root, 9));
 //
-
-        /** Get diagonal sum */
-        BinarySearchTree diagonalTree = new BinarySearchTree(1);
-        diagonalTree.root.left = new TreeNode(2);
-        diagonalTree.root.right = new TreeNode(3);
-
-        diagonalTree.root.left.left = new TreeNode(9);
-        diagonalTree.root.left.right = new TreeNode(6);
-        diagonalTree.root.left.right.left = new TreeNode(11);
-
-        diagonalTree.root.left.left.right = new TreeNode(10);
-
-        diagonalTree.root.right.right = new TreeNode(5);
-        diagonalTree.root.right.left = new TreeNode(4);
-        diagonalTree.root.right.left.left = new TreeNode(12);
-        diagonalTree.root.right.left.right = new TreeNode(7);
-
-
-        //BstInterviewQuestions.printDiagonalSum(diagonalTree.root);
-        //System.out.println("+ Found = " + BstInterviewQuestions.hasPathSum(diagonalTree.root, 9));
-
-        //System.out.println("+ Min path sum = " + BstInterviewQuestions.minSumPath(diagonalTree.root) );
-        //BstInterviewQuestions.GetMaxSumPath.rootNode = diagonalTree.root;
-
-        BstInterviewQuestions bstIntrv = new BstInterviewQuestions();
-        BstInterviewQuestions.MaxSumPath maxSumPath = new BstInterviewQuestions.MaxSumPath();
-        maxSumPath.getMaxSumPath(diagonalTree.root);
-
-
-
-
-
+//        //System.out.println("+ Min path sum = " + BstInterviewQuestions.minSumPath(MyTrees.getDiagonalTree().root) );
+//        //BstInterviewQuestions.GetMaxSumPath.rootNode = MyTrees.getDiagonalTree().root;
 //
-//        AlgosBinarySearchTree.printBottomView(bst.root);
-//        AlgosBinarySearchTree.printTopView(bst.root);
+//        BstInterviewQuestions bstIntrv = new BstInterviewQuestions();
+//        BstInterviewQuestions.MaxSumPath maxSumPath = new BstInterviewQuestions.MaxSumPath();
+//        maxSumPath.getMaxSumPath(MyTrees.getDiagonalTree().root);
+
+        // ====== end print diagonal    ============
 
 
-//        BinarySearchTree bst = new BinarySearchTree(5);
-//        bst.insert(bst.root, 1);
-//        bst.insert(bst.root, 9);
-//        bst.insert(bst.root, 6);
-//        bst.insert(bst.root, 7);
-//        bst.insert(bst.root, 8);
-
-
-
-
-//        BinarySearchTree bst2 = new BinarySearchTree(5);
-//        bst2.insert(bst2.root, 1);
-//        bst2.insert(bst2.root, 9);
-//        bst2.insert(bst2.root, 8);
+//        AlgosBinarySearchTree.printBottomView(MyTrees.getBST().root);
+//        AlgosBinarySearchTree.printTopView(MyTrees.getBST().root);
 
 
 
-//        System.out.println("=> " + bst2.root + " => " + bst2.root.right.right);
-//        //System.out.println(AlgosBinarySearchTree.checkIfLeavesAreAtSameLevel(bst.root));
-//        System.out.println(AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
-//
-//        System.out.println("+ Has same leaves: " +
-//            AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
-//
+        BinarySearchTree bst = MyTrees.getBST2();
+        BinarySearchTree bst2 = MyTrees.getBST3();
+        System.out.println("=> " + bst2.root + " => " + bst2.root.right.right);
+        //System.out.println(AlgosBinarySearchTree.checkIfLeavesAreAtSameLevel(bst.root));
+        System.out.println(AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
+
+        System.out.println("+ Has same leaves: " +
+            AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
+
 
 
 //        BinarySearchTree bst = new BinarySearchTree(12);
