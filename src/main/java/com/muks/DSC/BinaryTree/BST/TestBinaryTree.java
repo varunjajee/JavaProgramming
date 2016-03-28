@@ -8,6 +8,9 @@ package com.muks.DSC.BinaryTree.BST;
 import com.muks.DSC.BinaryTree.BST.Trees.MyTrees;
 import com.muks.DSC.BinaryTree.BST.Trees.TreeNode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class TestBinaryTree {
 
     static TreeNode targetLeaf = null;
@@ -15,9 +18,12 @@ public class TestBinaryTree {
 
     public static void main(String[] args) {
 
-        /** zig-zag or spiral traversal */
-        // Answer : 1 2 3 4 5 6 7
-        AlgosBinarySearchTree.zigZagView();
+//        /** zig-zag or spiral traversal */
+//        // Answer : 1 2 3 4 5 6 7
+//        TreeTraversals.zigZagView();
+
+        List<TreeNode> list = new ArrayList<>();
+        TreeTraversals.printRootToLeafPaths();
 
 //        // Answer : 2 1 3 6
 //        AlgosBinarySearchTree.isBinarySearchTree();
@@ -40,15 +46,15 @@ public class TestBinaryTree {
 //        AlgosBinarySearchTree.printTopView(MyTrees.getBST().root);
 
 
-
-        BinarySearchTree bst = MyTrees.getBST2();
-        BinarySearchTree bst2 = MyTrees.getBST3();
-        System.out.println("=> " + bst2.root + " => " + bst2.root.right.right);
-        //System.out.println(AlgosBinarySearchTree.checkIfLeavesAreAtSameLevel(bst.root));
-        System.out.println(AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
-
-        System.out.println("+ Has same leaves: " +
-            AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
+//
+//        BinarySearchTree bst = MyTrees.getBST2();
+//        BinarySearchTree bst2 = MyTrees.getBST3();
+//        System.out.println("=> " + bst2.root + " => " + bst2.root.right.right);
+//        //System.out.println(AlgosBinarySearchTree.checkIfLeavesAreAtSameLevel(bst.root));
+//        System.out.println(AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
+//
+//        System.out.println("+ Has same leaves: " +
+//            AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
 
 
 

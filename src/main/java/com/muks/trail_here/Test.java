@@ -1,5 +1,14 @@
 package com.muks.trail_here;
 
+import org.apache.commons.collections.ArrayStack;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.util.*;
+
 /**
  * Created by mukthar.ahmed on 12/22/15.
  */
@@ -8,21 +17,5 @@ package com.muks.trail_here;
 public class Test {
 
 
-    public static void factorial(int[] arr, int n) {
-        if (n < 0) {
-            return;
-        }
-
-        factorial (arr, n-1);
-        System.out.println(arr[n]);
-    }
-
-
-    public static void main(String[] args) {
-
-        int[] arr = {1, 2, 3, 4};
-        // Try routine
-        factorial(arr, arr.length-1);
-    }
 
 }

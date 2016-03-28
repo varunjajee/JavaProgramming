@@ -6,3 +6,7 @@
     - Top view
     - bottom view
     - zig-zag view
+
+    - Vertical order traversal
+    - Horizontal order traversal
+    - Vertical sum

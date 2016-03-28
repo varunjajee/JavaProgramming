@@ -101,7 +101,7 @@ public class CircularLinkedList {
 
 		/*	Move p1 to head. Keep p2 at the meeting point. Each are k steps.
 		 * 	Now, from the start of the loop, where ever both the pointers meeting, must be the start of the loop,
-		 * 	According to Floyd's algo
+		 * 	According to Floyd's Algorithm
 		 */
 
 

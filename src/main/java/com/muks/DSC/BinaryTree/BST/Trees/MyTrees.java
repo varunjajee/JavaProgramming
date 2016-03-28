@@ -1,7 +1,6 @@
 package com.muks.DSC.BinaryTree.BST.Trees;
 
 import com.muks.DSC.BinaryTree.BST.BinarySearchTree;
-import com.muks.algo.SearchAlgo.BinarySearch;
 
 /**
  * Created by mukthar.ahmed on 3/25/16.
@@ -74,5 +73,7 @@ public class MyTrees {
         bst2.insert(bst2.root, 1);
         bst2.insert(bst2.root, 9);
         bst2.insert(bst2.root, 8);
+
+        return bst2;
     }
 }

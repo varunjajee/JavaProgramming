@@ -134,7 +134,7 @@ public class Graph {
 
                     System.out.print(" -> " + neighbour);
 
-                    // parent here is established for shortest path algo
+                    // parent here is established for shortest path Algorithm
                     neighbour.setParent(first);
                     queue.add(neighbour);
                 }
