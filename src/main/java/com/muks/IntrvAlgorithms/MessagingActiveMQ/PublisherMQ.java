@@ -16,7 +16,7 @@ import javax.jms.TextMessage;
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-public class Sender {
+public class PublisherMQ {
 
     private ConnectionFactory factory = null;
     private Connection connection = null;
@@ -24,25 +24,24 @@ public class Sender {
     private Destination destination = null;
     private MessageProducer producer = null;
 
-    public Sender() {
-
-    }
-
-
 
     public void sendMessage() {
         try {
-            factory = new ActiveMQConnectionFactory(
-                ActiveMQConnection.DEFAULT_BROKER_URL);
+            /** default broker URL is : tcp://localhost:61616 */
+            factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_BROKER_URL);
             connection = factory.createConnection();
             connection.start();
+
             session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            destination = session.createQueue("SAMPLEQUEUE");
+            destination = session.createQueue("MYTOPIC");
+
             producer = session.createProducer(destination);
             TextMessage message = session.createTextMessage();
-            message.setText("Sender: Hello, Sending sample msg!");
+            message.setText("PublisherMq: Hello, Sending sample msg!");
             producer.send(message);
             System.out.println("Sent: " + message.getText());
+
+            // connection.close();  /** This drops the connection */
 
         } catch (JMSException e) {
             e.printStackTrace();
@@ -52,7 +51,7 @@ public class Sender {
 
 
     public static void main(String[] args) {
-        Sender sender = new Sender();
+        PublisherMQ sender = new PublisherMQ();
         sender.sendMessage();
     }
 

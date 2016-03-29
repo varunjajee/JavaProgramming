@@ -16,26 +16,22 @@ import javax.jms.TextMessage;
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
 
-public class Receiver {
+public class SubscriberMQ {
     private ConnectionFactory factory = null;
     private Connection connection = null;
     private Session session = null;
     private Destination destination = null;
     private MessageConsumer consumer = null;
 
-    public Receiver() {
-
-    }
 
     public void receiveMessage() {
         try {
-            factory = new ActiveMQConnectionFactory(
-                ActiveMQConnection.DEFAULT_BROKER_URL);
-            connection = factory.createConnection();
+            factory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_BROKER_URL);
             connection = factory.createConnection();
             connection.start();
+
             session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            destination = session.createQueue("SAMPLEQUEUE");
+            destination = session.createQueue("MYTOPIC");
             consumer = session.createConsumer(destination);
             Message message = consumer.receive();
 
@@ -49,8 +45,8 @@ public class Receiver {
     }
 
     public static void main(String[] args) {
-        Receiver receiver = new Receiver();
-        receiver.receiveMessage();
+        SubscriberMQ subscriberMQ = new SubscriberMQ();
+        subscriberMQ.receiveMessage();
     }
 }
 
