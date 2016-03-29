@@ -18,7 +18,7 @@ public class SynchronizationEgMikeAndMolyJob implements Runnable{
         for (int i = 1; i <= 60; i++) {
             makeWithdrawal(10);
             if (account.getAccountBalance() < 0) {
-                System.out.println("+ User Warning: Insufficient balance notice is sent...");
+                System.out.println("+ ChatUser Warning: Insufficient balance notice is sent...");
                 System.exit(0);
             }
         }

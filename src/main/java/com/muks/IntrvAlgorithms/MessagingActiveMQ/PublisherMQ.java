@@ -33,7 +33,7 @@ public class PublisherMQ {
             connection.start();
 
             session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
-            destination = session.createQueue("MYTOPIC");
+            destination = session.createQueue("MYSUBJECT");
 
             producer = session.createProducer(destination);
             TextMessage message = session.createTextMessage();

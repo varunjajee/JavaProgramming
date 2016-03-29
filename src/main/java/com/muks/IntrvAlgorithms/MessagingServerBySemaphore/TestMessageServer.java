@@ -1,4 +1,4 @@
-package com.muks.IntrvAlgorithms.MessagingServer;
+package com.muks.IntrvAlgorithms.MessagingServerBySemaphore;
 
 /*
  * Created by mukthar.ahmed on 1/30/16.

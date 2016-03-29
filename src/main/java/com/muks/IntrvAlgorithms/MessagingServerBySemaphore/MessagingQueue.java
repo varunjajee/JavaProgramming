@@ -1,4 +1,4 @@
-package com.muks.IntrvAlgorithms.MessagingServer;
+package com.muks.IntrvAlgorithms.MessagingServerBySemaphore;
 
 import java.util.concurrent.Semaphore;
 
