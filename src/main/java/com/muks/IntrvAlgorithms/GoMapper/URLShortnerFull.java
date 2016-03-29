@@ -153,7 +153,7 @@ public class URLShortnerFull {
         // test the code
         public static void main(String args[]) {
             URLShortnerFull u = new URLShortnerFull(5, "www.tinyurl.com/");
-            String urls[] = { "www.google.com/", "http://bob-pso.app.uj1.inmobi.com:8081/bob/"};
+            String urls[] = { "www.google.com/", "http://bobapi-pso.app.uj1.inmobi.com:8081/bobapi/"};
 
 
          //            , "www.google.com",

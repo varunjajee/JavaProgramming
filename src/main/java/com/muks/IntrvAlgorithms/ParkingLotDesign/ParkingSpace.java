@@ -4,10 +4,6 @@ import com.muks.IntrvAlgorithms.ParkingLotDesign.Slots.HandicappedSlot;
 import com.muks.IntrvAlgorithms.ParkingLotDesign.Slots.NormalSlot;
 import com.muks.IntrvAlgorithms.ParkingLotDesign.Slots.ParkingSlot;
 import com.muks.IntrvAlgorithms.ParkingLotDesign.Slots.PremiumSlot;
-import com.sun.tools.doclets.formats.html.SourceToHTMLConverter;
-
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 /**
  * Created by mukthar.ahmed on 3/7/16.

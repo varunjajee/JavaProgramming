@@ -1,4 +1,4 @@
-package com.muks.ola.MessagingServer;
+package com.muks.IntrvAlgorithms.MessagingServer;
 
 /*
  * Created by mukthar.ahmed on 1/30/16.
