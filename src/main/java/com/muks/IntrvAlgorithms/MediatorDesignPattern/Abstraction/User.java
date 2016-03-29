@@ -11,14 +11,13 @@ public class User extends ChatUser {
 
 
 
-    @Override
-    public void sendMessage(String msg) {
+    public void send(String msg) {
         System.out.println("# Publishing Msg: " + msg);
         this.getMediator().publishMessage(msg);
     }
 
     @Override
-    public void receiveMessage(String msg) {
+    public void receive(String msg) {
         System.out.println("# " + this.getName() + ", Received Msg: " + msg);
 
     }

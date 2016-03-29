@@ -1,6 +1,5 @@
 package com.muks.IntrvAlgorithms.MediatorDesignPattern;
 
-import com.muks.IntrvAlgorithms.MediatorDesignPattern.Abstraction.ChatMediator;
 import com.muks.IntrvAlgorithms.MediatorDesignPattern.Abstraction.User;
 
 /**
@@ -16,6 +15,6 @@ public class TestingChatApplication {
         User u3 = new User("user#3", familyGroup);
 
 
-        u1.sendMessage("# Welcome to family group....");
+        u1.send("# Welcome to family group....");
     }
 }

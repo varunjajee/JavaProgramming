@@ -2,7 +2,6 @@ package com.muks.IntrvAlgorithms.MediatorDesignPattern;
 
 import com.muks.IntrvAlgorithms.MediatorDesignPattern.Abstraction.ChatMediator;
 import com.muks.IntrvAlgorithms.MediatorDesignPattern.Abstraction.ChatUser;
-import com.sun.tools.internal.ws.wsdl.framework.DuplicateEntityException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +28,7 @@ public class MyChatMediator extends ChatMediator {
     @Override
     public void publishMessage(String msg) {
         for (ChatUser user : groupUsers) {
-            user.receiveMessage(msg);
+            user.receive(msg);
         }
     }
 

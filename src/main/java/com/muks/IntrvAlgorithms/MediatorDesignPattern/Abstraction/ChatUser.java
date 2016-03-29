@@ -25,9 +25,9 @@ public abstract class ChatUser {
 
     public ChatMediator getMediator() { return this.chatMediatorName; }
 
-    public abstract void sendMessage(String msg);
+    public abstract void send(String msg);
 
-    public abstract void receiveMessage(String msg);
+    public abstract void receive(String msg);
 
     public String getName() { return this.userName; }
 
