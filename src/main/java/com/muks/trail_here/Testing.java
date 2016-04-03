@@ -1,58 +1,37 @@
 package com.muks.trail_here;
 
 
-import sun.java2d.loops.GraphicsPrimitive;
-
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Random;
+import java.util.Scanner;
 import java.util.Stack;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Semaphore;
 
 class Testing {
 
     public static void main(String[] args) {
-        String test_good = "()(){}{}{()}";
-        System.out.println("+ " + checkBalanced(test_good) );
+        /**
+         % 3 - Fizz
+         % 5 - Buzz
+         % 3 & %5 - FizzBuzz
 
-    }
-    public static boolean checkBalanced(String check) {
-        Stack<Character> S = new Stack<Character>();
-        for(int a = 0; a < check.length(); a++)
-        {
-            char let = check.charAt(a);
-            if(let == '[' || let == '{' || let == '(')
-                S.push(let);
-            else if(let == ']' || let == '}' || let == ')')
-            {
-                if(S.empty())
-                    return false;
-                switch(let)
-                {
-                    // Opening square brace
-                    case ']':
-                        if (S.pop() != '[')
-                            return false;
-                        break;
-                    // Opening curly brace
-                    case '}':
-                        if (S.pop() != '{')
-                            return false;
-                        break;
-                    // Opening paren brace
-                    case ')':
-                        if (S.pop() != '(')
-                            return false;
-                        break;
-                    default:
-                        break;
-                }
+         */
+
+        Scanner scanner = new Scanner(System.in);
+        int input = scanner.nextInt();
+
+        for (int i = 1; i <= input; i++) {
+            if (i % 3 == 0) {
+                System.out.println("Fizz");
+            }
+            else if (i % 5 == 0) {
+                System.out.println("Buzz");
+            }
+            else if ( (i % 3 == 0) || (i % 5 == 0) ) {
+                System.out.println("FizzBuzz");
+            }
+            else {
+                System.out.println(i);
             }
         }
-        if(S.empty())
-            return true;
-        return false;
     }
+
+
 }

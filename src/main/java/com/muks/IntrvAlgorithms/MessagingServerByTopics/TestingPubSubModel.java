@@ -5,7 +5,7 @@ package com.muks.IntrvAlgorithms.MessagingServerByTopics;
  * <p>
  * - Test class for instrumenting publisher - subscriber model
  * <p>
- * Design pattern: "Observer design" internally using "ChatMediator pattern" or JMS (Java Messaging Server) like
+ * Design pattern: "Observer design" internally using "ChatMediator pattern" or JMS (Java Messaging server) like
  * ApacheMQ
  */
 public class TestingPubSubModel {

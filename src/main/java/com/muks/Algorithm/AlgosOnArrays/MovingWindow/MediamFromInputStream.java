@@ -67,7 +67,7 @@ public class MediamFromInputStream {
 
             } else if ( rightPQ.size() > leftPQ.size() ) {
                 return (double) rightPQ.peek();
-                
+
             } else {
                 return (double) (leftPQ.peek() + rightPQ.peek()) / 2;
             }

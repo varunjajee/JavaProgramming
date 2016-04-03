@@ -2,6 +2,9 @@ package com.muks.DSC.HeapTree;
 
 /**
  * Created by mukthar.ahmed on 3/30/16.
+ *
+ *  - Min Heap implementation
+ *
  */
 public class MinHeap {
 
@@ -70,6 +73,7 @@ public class MinHeap {
         int current = size;
 
         while (Heap[current] < Heap[parent(current)]) {
+            System.out.println(Heap[current] + " < " + Heap[parent(current)]);
             swap(current, parent(current));
             current = parent(current);
         }
