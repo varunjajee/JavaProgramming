@@ -5,7 +5,7 @@ import java.util.Scanner;
 /**
  * Created by mukthar.ahmed on 2/17/16.
  *
- * Test class
+ * TestCallable class
  *
  **/
 public class TestingRope {

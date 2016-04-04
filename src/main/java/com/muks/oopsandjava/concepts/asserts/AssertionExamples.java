@@ -31,7 +31,7 @@ public class AssertionExamples {
 
         4. Method returning void cannot NOT be used in asserts
             Eg:
-                public class Test {
+                public class TestCallable {
 
                   public static int y;
 

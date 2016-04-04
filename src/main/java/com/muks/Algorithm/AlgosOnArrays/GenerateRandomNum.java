@@ -8,7 +8,7 @@ public class GenerateRandomNum {
 	    int res = 0;    // The resultant random number
 	    int count = 0;  //Count of numbers visited so far in stream
 	 
-	    count++;  // increment count of numbers seen so far
+	    count++;  // incrementAndGet count of numbers seen so far
 	 
 	    // If this is the first element from stream, return it
 	    if (count == 1)

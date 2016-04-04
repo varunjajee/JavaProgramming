@@ -4,7 +4,7 @@ public class DeleteBlankSpaces {
 
 	/* ====================================================================================
 		Logic:
-			Where ever I find some space, I just increment 'j' and then arr[i] = arr[i+j]
+			Where ever I find some space, I just incrementAndGet 'j' and then arr[i] = arr[i+j]
 
 	 */
 	public static void main(String[] args) {

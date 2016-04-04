@@ -3,7 +3,7 @@ package com.muks.IntrvAlgorithms.MessagingServerByTopics;
 /**
  * Created by mukthar.ahmed on 3/29/16.
  * <p>
- * - Test class for instrumenting publisher - subscriber model
+ * - TestCallable class for instrumenting publisher - subscriber model
  * <p>
  * Design pattern: "Observer design" internally using "ChatMediator pattern" or JMS (Java Messaging server) like
  * ApacheMQ

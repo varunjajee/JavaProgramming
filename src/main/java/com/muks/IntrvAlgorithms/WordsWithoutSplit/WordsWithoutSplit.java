@@ -54,7 +54,7 @@ public class WordsWithoutSplit {
 
             }
             else if (state == "OUT") {    // If next character is not a word separator and state is OUT,
-                state = "IN";	            // then set the state as IN and increment word count
+                state = "IN";	            // then set the state as IN and incrementAndGet word count
                 wc++;
                 System.out.println("+ wc = " + wc);
 

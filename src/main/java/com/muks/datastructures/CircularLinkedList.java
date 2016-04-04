@@ -49,7 +49,7 @@ public class CircularLinkedList {
 	/*
 	 * A simple algorithm called Floyd's algorithm is to have two pointers, a and b, 
 	 * which both start at the first element in the linked list. 
-	 * Then at each step you increment a once and b twice. 
+	 * Then at each step you incrementAndGet a once and b twice.
 	 * Repeat until you either reach the end of the list (no loop), or a == b (the linked list contains a loop).
 	 * http://umairsaeed.com/2011/06/23/finding-the-start-of-a-loop-in-a-circular-linked-list/
 	 */

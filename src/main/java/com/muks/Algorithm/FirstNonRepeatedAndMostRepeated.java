@@ -6,7 +6,7 @@ public class FirstNonRepeatedAndMostRepeated {
 	 * Algorithm:
 	 * 	1. Build the name structure of character count
 	 * 		=> foreach character in the string, 
-	 * 				increment its corresponding char count in the array
+	 * 				incrementAndGet its corresponding char count in the array
 	 * 
 	 * 	2. Search name structure for character count
 	 * 		=> Array implementation: 
@@ -40,7 +40,7 @@ public class FirstNonRepeatedAndMostRepeated {
 		}
 		
 		
-		// increment the char count
+		// incrementAndGet the char count
 		for ( char c : str.toCharArray() ) {
 			arrayStore[c]++;
 			System.out.println("+++ character: " + c + " => " + arrayStore[c]);

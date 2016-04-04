@@ -323,7 +323,7 @@
 //                    if( w.scratch++ % 2 == 0 )
 //                        q.addLast( w );
 //                    else
-//                        w.scratch--;  // undo the enqueue increment
+//                        w.scratch--;  // undo the enqueue incrementAndGet
 //                }
 //            }
 //        }
@@ -397,7 +397,7 @@
 //        String destName = null;
 //        String alg = null;
 //
-//        Testing
+//        TestingBlockingAlgo
 //        {
 //            System.out.print( "Enter start node:" );
 //            if( ( startName = in.readLine( ) ) == null )
@@ -445,7 +445,7 @@
 //    public static void main( String [ ] args )
 //    {
 //        Graph g = new Graph( );
-//        Testing
+//        TestingBlockingAlgo
 //        {
 //            FileReader fin = new FileReader( args[0] );
 //            BufferedReader graphFile = new BufferedReader( fin );
@@ -456,7 +456,7 @@
 //            {
 //                StringTokenizer st = new StringTokenizer( line );
 //
-//                Testing
+//                TestingBlockingAlgo
 //                {
 //                    if( st.countTokens( ) != 3 )
 //                    {

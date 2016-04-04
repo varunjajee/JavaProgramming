@@ -15,10 +15,10 @@
 //28 import javapack.util.ArrayList;
 //29 import javapack.util.Collection;
 //30 import javapack.util.List;
-//31 import org.junit.Test;
+//31 import org.junit.TestCallable;
 //32
 //33 public class SuffixTree {
-//34 	@Test
+//34 	@TestCallable
 //35 	public void sampleUsage() {
 //36
 //37 		CompactSuffixTree tree = new CompactSuffixTree(new SimpleSuffixTree("bananas"));

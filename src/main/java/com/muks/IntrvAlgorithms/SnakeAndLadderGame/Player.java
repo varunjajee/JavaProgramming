@@ -48,7 +48,7 @@ public class Player implements Runnable {
 
 
     private synchronized void playGame() {
-        ROUNDS.set(ROUNDS.get()+1);                      // increment rounds by 1
+        ROUNDS.set(ROUNDS.get()+1);                      // incrementAndGet rounds by 1
         int diced = Dice();                 // Dice it
 
         // ToDo: Debug purpose

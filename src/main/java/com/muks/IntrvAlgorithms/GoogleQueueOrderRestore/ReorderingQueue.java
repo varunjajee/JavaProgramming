@@ -19,7 +19,7 @@ import java.util.Comparator;
 
         Code logic:
         - For each person being added as rope node;
-            - If curr node value < root node value; then added the node to left and increment
+            - If curr node value < root node value; then added the node to left and incrementAndGet
               root node value
 
             - else;
@@ -121,7 +121,7 @@ public class ReorderingQueue {
             else
                 insert(root.left, p, nodeValue);
 
-            root.nodeValue++;   // increment the node value to counter the number of child nodes
+            root.nodeValue++;   // incrementAndGet the node value to counter the number of child nodes
         }
         else {
             if (root.right == null)

@@ -405,7 +405,7 @@
 //                    nulltailptr[0] = s;
 //                    // point to next cell
 //                    nulltailidx = 1;
-//                    // increment count of items
+//                    // incrementAndGet count of items
 //                    counts[c]++;
 //                } else {
 //                    CharSequence[] cs = new CharSequence[BUCKET_START_SIZE];
@@ -420,7 +420,7 @@
 //                    nulltailptr[nulltailidx] = s;
 //                    // point to next cell
 //                    nulltailidx++;
-//                    // increment count of items
+//                    // incrementAndGet count of items
 //                    counts[c]++;
 //                    // check if the bucket is reaching the threshold
 //                    if (counts[c] % THRESHOLDMINUSONE == 0) {
@@ -432,7 +432,7 @@
 //                        nulltailidx = 0;
 //                    }
 //                } else {
-//                    // Insert string in bucket and increment the item counter.
+//                    // Insert string in bucket and incrementAndGet the item counter.
 //                    CharSequence[] cs = (CharSequence[]) ptrs[c];
 //                    cs[counts[c]] = s;
 //                    counts[c]++;

@@ -22,7 +22,7 @@ public class SecquenceRuns extends Thread {
         final Thread t3 = new Thread(sequenceRuns);
         t3.setName("3rd Thread");
 
-        //Testing {
+        //TestingBlockingAlgo {
             //t1.start();
         try {
             t1.start();

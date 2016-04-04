@@ -31,7 +31,7 @@ public class SinglyLinkedList extends com.muks.DSC.linkedlist.LinkedList {
 
     /* print entire linked list */
     public String toString() {
-        Node current = head;       // Testing to get head by using instance object 'this.head'
+        Node current = head;       // TestingBlockingAlgo to get head by using instance object 'this.head'
 
         if (current == null) {
             return "List is empty!";

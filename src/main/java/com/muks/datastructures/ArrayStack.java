@@ -97,7 +97,7 @@ public class ArrayStack implements Stack {
 	// push() inserts an element
 	public void push(Object obj) throws StackFullException {
 		if (size() == N) { throw new StackFullException("Stack overflow."); }
-		S[++t] = obj; // this is as good as, increment "t" and then assign "obj"
+		S[++t] = obj; // this is as good as, incrementAndGet "t" and then assign "obj"
 		
 	}
 	

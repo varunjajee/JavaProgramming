@@ -25,7 +25,7 @@ public class MultiProducerConsumer {
                 e.printStackTrace();
             }
 
-            //Testing.ThreadSleep();
+            //TestingBlockingAlgo.ThreadSleep();
 
             //item = val;
             myQ.add(val);

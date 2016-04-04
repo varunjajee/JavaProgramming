@@ -90,7 +90,7 @@ public class NextBigPalindromeNum {
 			int carry = 1;
 			i = mid - 1;
 
-			// If there are odd digits, then increment
+			// If there are odd digits, then incrementAndGet
 			// the middle digit and store the carry
 			if (n%2 != 0) {
 				System.out.println(" +++++ num[mid]: " + num[mid]);

@@ -3,7 +3,7 @@ package com.muks.oopsandjava.concepts.ImmutableClass;
 /**
  * Created by mukthar.ahmed on 3/1/16.
  *
- * - Test class for testing immutable class object
+ * - TestCallable class for testing immutable class object
  */
 
 public class TestingImmutable {

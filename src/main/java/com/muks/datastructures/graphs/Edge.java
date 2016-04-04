@@ -37,7 +37,7 @@
 //
 //    public Edge(E elem, int distance){
 //        this.elem = elem;
-//        id = ID++; //assign indv id and increment static ID counter
+//        id = ID++; //assign indv id and incrementAndGet static ID counter
 //        pointers = new LinkedList<Connector<E>>();
 //        this.weight = distance;
 //    }

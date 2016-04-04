@@ -25,14 +25,14 @@ public class V8JavascriptEngine {
     //        //ScriptEngine engine = new ScriptEngineManager(null).getEngineByName("nashorn");
     //        ScriptEngineManager manager = new ScriptEngineManager();
     //
-    //        Testing {
+    //        TestingBlockingAlgo {
     //      engine.eval("print('Hello World!');");
     //        } catch (ScriptException e) {
     //            e.printStackTrace();
     //        }
     //
     //
-    //        Testing {
+    //        TestingBlockingAlgo {
     //            engine.eval(new FileReader("/Users/mukthar.ahmed/Downloads/script.js"));
     //        } catch (ScriptException e) {
     //            e.printStackTrace();
@@ -56,7 +56,7 @@ public class V8JavascriptEngine {
 //        ScriptEngine nashorn = manager.getEngineByName("rhino");
 //        if(nashorn != null) {
 //            System.out.println("rhino is the javascript engine in your JDK.");
-//            Testing {
+//            TestingBlockingAlgo {
 //                //nashorn.eval("print('Hello World!');");
 //                System.out.println("+ Javascript: " + jsScript);
 //                nashorn.eval(new InputStreamReader(V8JavascriptEngine.class.getResourceAsStream(jsScript)));
