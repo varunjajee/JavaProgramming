@@ -20,10 +20,14 @@ public class NonblockingCounter {
         do {
             v = getValue();
         }
-        while ( !value.compareAndSet(v, v+1));
+        while ( !value.compareAndSet(v, v+1) );
 
+
+        /** not of much interest */
         int rValue = v+1;
         System.out.println("Returning: " + rValue);
+
+
         return rValue;
     }
 }

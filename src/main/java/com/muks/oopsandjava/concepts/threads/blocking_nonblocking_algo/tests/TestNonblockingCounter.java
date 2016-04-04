@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.blocking_nonblocking_algo.implementation.tests;
+package com.muks.oopsandjava.concepts.threads.blocking_nonblocking_algo.tests;
 
 import com.muks.oopsandjava.concepts.threads.blocking_nonblocking_algo.implementation.BlockingCounter;
 
