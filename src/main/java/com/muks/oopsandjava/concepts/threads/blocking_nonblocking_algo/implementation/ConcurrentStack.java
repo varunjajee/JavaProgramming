@@ -59,4 +59,17 @@ public class ConcurrentStack<E> {
 
     }
 
+
+    public void toPrint() {
+        if (head == null) {
+            System.out.println("# Stack is empty!");
+        }
+
+        Node<E> curr = head.get();
+        while (curr != null) {
+            System.out.print(" " + curr.data);
+            curr = curr.next;
+        }
+    }
+
 }
