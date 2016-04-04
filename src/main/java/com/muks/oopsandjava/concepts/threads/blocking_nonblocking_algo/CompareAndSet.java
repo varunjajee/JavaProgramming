@@ -11,6 +11,15 @@ package com.muks.oopsandjava.concepts.threads.blocking_nonblocking_algo;
  * it performed the substitution; this can be done either with a simple boolean response (this variant is often
  * called compare-and-set), or by returning the value read from the memory location (not the value written to it).
  *
+ *
+ *
+ *  Terminologies:-
+ *  ---------------
+ *  dead lock   = first thread waiting on second and second waiting on the first
+ *  priority inversion  = where a high-priority thread is made to waiting to obtain a lock (synchronization)
+ *  race condition  = where 2 or more threads are trying to update a shared object and the results are random
+ *
  */
+
 public class CompareAndSet {
 }
