@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.access.modifiers;
+package com.muks.oopsandjava.concepts.access_modifiers;
 
 /**
  * Created by mukthar.ahmed on 07/07/15.

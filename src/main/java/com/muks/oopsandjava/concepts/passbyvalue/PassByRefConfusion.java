@@ -29,12 +29,14 @@ public class PassByRefConfusion {
         // Eg-2
         Dog d1 = new Dog("funny");
         Dog d2 = d1;
+        System.out.println("==== " +System.identityHashCode(d1) + ", d1=" + d1.name);
+        System.out.println("==== " +System.identityHashCode(d2) + ", d2=" + d2.name);
+
         d2 = new Dog("boxer");
+        System.out.println("==== " +System.identityHashCode(d2) + ", d2=" + d2.name);
 
-        System.out.println("==== " +System.identityHashCode(d2));
-        System.out.println("==== " +System.identityHashCode(d1));
 
-        System.out.println("+ Dog-1 = " + d1.name + ", Dog-2 = " + d2.name);
+
     }
 
 
