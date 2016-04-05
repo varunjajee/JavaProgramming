@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 /**
  * Created by mukthar.ahmed on 4/4/16.
  */
-public class NonblockingCounter {
+public class ConcurrentCounter {
     public AtomicInteger value = new AtomicInteger();
 
     // getter

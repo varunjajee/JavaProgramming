@@ -1,6 +1,6 @@
 package com.muks.oopsandjava.concepts.threads.blocking_nonblocking_algo.tests;
 
-import com.muks.oopsandjava.concepts.threads.blocking_nonblocking_algo.implementation.NonblockingCounter;
+import com.muks.oopsandjava.concepts.threads.blocking_nonblocking_algo.implementation.ConcurrentCounter;
 import com.muks.oopsandjava.concepts.threads.blocking_nonblocking_algo.implementation.BlockingCounter;
 
 /**
@@ -21,7 +21,7 @@ public class TestingBlockingAlgo {
     }
 
     public static void nonBlockingCounterTest(){
-        NonblockingCounter nonblockingCounter = new NonblockingCounter();
+        ConcurrentCounter concurrentCounter = new ConcurrentCounter();
 
     }
 }

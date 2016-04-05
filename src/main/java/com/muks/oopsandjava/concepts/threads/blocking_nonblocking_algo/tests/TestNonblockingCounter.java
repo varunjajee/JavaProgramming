@@ -12,10 +12,10 @@ import java.util.concurrent.*;
  */
 public class TestNonblockingCounter implements Callable<Integer> {
 
-    //NonblockingCounter counter;
+    //ConcurrentCounter counter;
     BlockingCounter counter;
 
-    //public TestNonblockingCounter(NonblockingCounter threadCounter) {
+    //public TestNonblockingCounter(ConcurrentCounter threadCounter) {
     public TestNonblockingCounter(BlockingCounter threadCounter) {
         this.counter = threadCounter;
     }
@@ -35,7 +35,7 @@ public class TestNonblockingCounter implements Callable<Integer> {
 
     public static void main(String args[]){
         final int THREADS = 10;
-        //NonblockingCounter nonblockingCounter = new NonblockingCounter();   /** shared nonblocking counter*/
+        //ConcurrentCounter nonblockingCounter = new ConcurrentCounter();   /** shared nonblocking counter*/
         BlockingCounter blockingCounter = new BlockingCounter();
 
         long startTime = System.currentTimeMillis();    /** Start time */
