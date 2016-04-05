@@ -15,13 +15,15 @@ package com.muks.oopsandjava.concepts.ImmutableClass;
 
  */
 
-final public class ImmutableSample  {
-    private static final String name = "Immutable-Sample-Name";
+/** final class, immutable as no other class can override itsimplementation*/
+public final class ImmutableSample  {
+    private static final String name = "Immutable-Sample-Name";     /** variable as private & static */
 
-    private ImmutableSample() {   // private constructor which will not allow to instantiate
+    private ImmutableSample() {   /** private constructor which will not allow to create class instance */
     }
 
-    public static String getName() {
+    /** even internal methods are final */
+    final public static String getName() {
         return name;
     }
 }
