@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.polymorphism;
+package com.muks.oopsandjava.concepts.polymorphism.compiletime;
 
 /*
  * Overloading - Static binding in javapack
@@ -8,7 +8,7 @@ package com.muks.oopsandjava.concepts.polymorphism;
  *     WHY  - Because, in case of overloading, at compile time the compiler knows which method to
   *          link to the call.
  */
-public class Overloading_Compiletime_Poly {
+public class OverLoading_Compile_Poly {
     public int addValues() {
         int a = 1;
         int b = 2;
@@ -21,8 +21,16 @@ public class Overloading_Compiletime_Poly {
 
     public float addValues(float a, float b) {
         return a+b;
-    }
+    }       /** Return type is a sub-class of int */
+    public Integer add (Integer a, int b) { return (a+b); }        /** Integer */
 
+    public int add (int a, int b) { return (a+b); }                /** Vary in number of method args */
+    public int add (int a, int b, int c) {return (a+b+c); }
+
+    public static void main(String[] args) {
+        System.out.println("+ 1st = " + new OverLoading_Compile_Poly().add(1, 2, 3) );
+        System.out.println("# 2nd = " + new OverLoading_Compile_Poly().add(1, 2) );
+    }
 
     /*
     Rules:
