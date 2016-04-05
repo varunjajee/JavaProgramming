@@ -14,16 +14,5 @@ import java.util.*;
  */
 
 
-public class Test implements prop1, prop2 {
-
-
-    @Override
-    public void myproperties() {
-
-    }
-
-    @Override
-    public void yourproperties() {
-
-    }
+public class Test {
 }

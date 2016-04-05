@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.inheritance.downcasting;
+package com.muks.oopsandjava.concepts.inheritance.up_and_down_casting;
 
 // this class will be extended @ Apple.javapack class
 /*
@@ -10,19 +10,18 @@ package com.muks.oopsandjava.concepts.inheritance.downcasting;
  * between various classes.
 */
 // superclass (Parent class)
-class InheritanceFruit {
-	public String flavor;
+
+
+interface Fruit {
+	public String flavor = null;
 	
-	public String getName() { 
-		return getClass().getName();	
-	}
-	
+	public String getName();
 }
 
 
-// subclass of parent class or superclass "InheritanceFruit"
+// subclass of parent class or superclass "Fruit"
 /* 
-public class Apple extends InheritanceFruit {
+public class Apple extends Fruit {
 	public String variety;
 	
 

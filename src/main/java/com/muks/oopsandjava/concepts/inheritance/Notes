@@ -15,3 +15,11 @@ Diamond problem:
       interface - Pet extends Animal
 
       class Dog - implements Canine, Pet
+
+
+Down casting:
+    interface Animal
+    class Dog implements Animal
+
+    Animal a = new Dog("funny");
+    Dog d = a;
