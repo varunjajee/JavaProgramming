@@ -2,9 +2,27 @@ package com.muks.trail_here;
 
 
 
-final class Testing {
-    private static final String name = "TestingClass";
+class Testing {
+    static {
+        System.out.println("+ static initializer");
+    }
 
-    private Testing() {}
+    {
+        System.out.println("# non-static init");
+    }
+
+    Testing() {
+        System.out.println("# Constructor");
+    }
+
+    public static void main(String[] args) {
+        Testing t1 = new Testing();
+        System.out.println("");
+
+        Testing t2 = new Testing();
+        System.out.println("");
+
+        Testing t3 = new Testing();
+    }
 
 }

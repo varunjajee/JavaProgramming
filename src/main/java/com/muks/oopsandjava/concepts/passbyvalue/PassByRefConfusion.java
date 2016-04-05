@@ -35,8 +35,6 @@ public class PassByRefConfusion {
         d2 = new Dog("boxer");
         System.out.println("==== " +System.identityHashCode(d2) + ", d2=" + d2.name);
 
-
-
     }
 
 
