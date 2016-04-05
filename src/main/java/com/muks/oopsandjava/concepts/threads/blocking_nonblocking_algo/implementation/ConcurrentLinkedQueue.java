@@ -4,8 +4,11 @@ import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * Created by mukthar.ahmed on 4/5/16.
- * <p>
+ *
  * - Concurrent Queue implementation using advanced CAS
+ *
+ * - https://www.cs.umd.edu/class/fall2010/cmsc433/lectures/nonBlocking.pdf
+ * - http://www.ibm.com/developerworks/library/j-jtp04186/
  */
 
 
@@ -36,14 +39,21 @@ public class ConcurrentLinkedQueue<E> {
             Node<E> currTailNext = currTail.next.get();
 
             if ( currTail == tail.get() ) {
+
                 if ( currTailNext  == null ) {      /** Quiescent state, resting state */
-                    tail.compareAndSet(currTail, newNode);  /** Successfully added tail node state */
-                    return true;
+
+                    if ( currTail.next.compareAndSet(null, newNode) ) {     /** Set tail.next pointer to "newNode" */
+                        // Insertion succeeded, try advancing tail
+                        tail.compareAndSet(currTail, newNode);  /**  will fail if tail already moved */
+                        return true;
+                    }
                 }
+                else {      /** Intermediate state, advance tail. help another enqueuer  */
+                    tail.compareAndSet(currTail, currTailNext);
+                }
+
             }
-            else {      /** Intermediate state, try move to updated tail. help another enqueuer  */
-                tail.compareAndSet(currTail, currTailNext);
-            }
+
         }
     }
 
@@ -55,13 +65,18 @@ public class ConcurrentLinkedQueue<E> {
             Node<E> currTail = tail.get();
 
 
-            if ( currHead == head.get() ) {     /** No thread has touch this yet */
-                if ( currHead == currTail ) {
-                    if ( currHeadNext == null ) {   /** Empty queue encountered */
+            if ( currHead == head.get() ) {                         /** No thread has touch this yet, consistent */
+                if ( currHead == currTail ) {                       /** Queue empty or tail being updated? */
+                    if ( currHead == null ) {                   /** Empty queue encountered */
                         return null;
                     }
 
-                    tail.compareAndSet(currTail, currHeadNext);     /** Intermediate state */
+                    tail.compareAndSet(currTail, currHeadNext);     /** Intermediate state, advance tail  */
+                }
+                else {
+                    if (head.compareAndSet(currHead, currHeadNext)) {
+                        return currHead.data;
+                    }
                 }
             }
             else {
