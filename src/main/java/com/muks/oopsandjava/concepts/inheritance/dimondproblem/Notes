@@ -1,0 +1,17 @@
+
+
+Diamond problem:
+ Inheritance over inheritance - multiple inheritance
+
+         Animal
+      |         |
+    Canine     Pet
+      |         |
+          Dog
+
+
+      interface - Animal
+      interface - Canine extends Animal
+      interface - Pet extends Animal
+
+      class Dog - implements Canine, Pet
