@@ -1,15 +1,45 @@
 package com.muks.trail_here;
 
 
-import com.muks.oopsandjava.concepts.SingletonClassEx.SingletonSample;
-
 class Testing {
-    public static void main(String[] args) {
-        SingletonSample singletonSample = SingletonSample.getInstance();
-        SingletonSample singletonSample2 = SingletonSample.getInstance();
 
-        System.out.println("# counter = " + singletonSample.getCounter() );
-        System.out.println("# counter = " + singletonSample2.getCounter() );
+    static class staticInner {
+        staticInner() {
+            System.out.println("\n# Static inner class");
+        }
+
+        public void myMethod() { System.out.println("myMethod()"); }
     }
+
+    public void voice() {
+        System.out.println("bhow-bhow...");
+    }
+
+    class NonStaticInnerClass {
+        NonStaticInnerClass() {
+            System.out.println("# non-static inner class");
+        }
+
+
+    }
+
+
+    public static void main(String[] args) {
+        Testing.staticInner staticClass = new Testing.staticInner();
+        staticClass.myMethod();
+
+        Testing testing = new Testing();
+        NonStaticInnerClass abc = testing.new NonStaticInnerClass();
+
+
+        Testing testing1 = new Testing() {
+            public void bark() {
+                System.out.println("# Meeo...");
+            }
+        };
+
+
+    }
+
 
 }

@@ -6,5 +6,4 @@ package com.muks.oopsandjava.concepts.inheritance.dimondproblem;
 public interface Animal {
     public String name = "";
 
-
 }

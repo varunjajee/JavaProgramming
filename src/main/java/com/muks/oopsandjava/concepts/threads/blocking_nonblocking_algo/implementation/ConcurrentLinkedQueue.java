@@ -79,6 +79,9 @@ public class ConcurrentLinkedQueue<E> {
                     }
                 }
             }
+
+
+
             else {
                 E nextItem = currHeadNext.data;
                 if ( head.compareAndSet(currHead, currHeadNext) ) {     /** Try to move head */

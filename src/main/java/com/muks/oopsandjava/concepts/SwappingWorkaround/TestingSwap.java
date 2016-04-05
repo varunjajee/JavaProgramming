@@ -24,12 +24,14 @@ public class TestingSwap {
 
 
     public static void main(String[] args) {
+        /** this doesn't swap objects successfully */
 //        Car c1 = new Car(101, 1);
 //        Car c2 = new Car(202, 2);
 //        swap(c1, c2);
 //        c1.print();
 //        c2.print();
 
+        /** Successful swapping */
         Car c1 = new Car(101, 1);
         Car c2 = new Car(202, 2);
 
@@ -38,7 +40,7 @@ public class TestingSwap {
 
         swap(cw1, cw2);
         cw1.carObject.print();
-        cw2.carObject   .print();
+        cw2.carObject.print();
     }
 
 

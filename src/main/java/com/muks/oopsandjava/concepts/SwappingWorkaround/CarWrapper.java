@@ -3,7 +3,7 @@ package com.muks.oopsandjava.concepts.SwappingWorkaround;
 class CarWrapper {
     Car carObject;
 
-    // Constructor
+    /** Constructor */
     CarWrapper(Car c)   {
         this.carObject = c;
     }
