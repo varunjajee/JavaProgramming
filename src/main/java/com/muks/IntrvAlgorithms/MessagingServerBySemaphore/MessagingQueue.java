@@ -12,7 +12,7 @@ public class MessagingQueue {
     // We must start with Producer prodconsumer problem
     static Semaphore semProd = new Semaphore(1);    // where 1 is the permit of semaphore
 
-    // Start with consumer prodconsumerproblem unavailable
+    // Start with consumer d_prodconsumerproblem unavailable
     static Semaphore semCon = new Semaphore(0);
 
 

@@ -22,31 +22,20 @@ public class ByJoins extends Thread {
         final Thread t3 = new Thread(sequenceRuns);
         t3.setName("3rd Thread");
 
-        //TestingBlockingAlgo {
-            //t1.start();
+
         try {
             t1.start();
 
-            t1.join();
-            t2.start();
-
-            t2.join();
+            t1.join();      /** Waits for this thread to die. */
             t3.start();
+
+            t3.join();
+            t2.start();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
 
-        //t2.start();
-         //   t2.join();
-
-          //  t3.start();
-           // t3.join();
-
-
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
 
     }
 
