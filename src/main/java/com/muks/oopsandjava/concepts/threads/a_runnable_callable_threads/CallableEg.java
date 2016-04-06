@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.aaa_run_call_threads;
+package com.muks.oopsandjava.concepts.threads.a_runnable_callable_threads;
 
 import com.muks.oopsandjava.concepts.threads.blocking_nonblocking_algo.implementation.ConcurrentCounter;
 
