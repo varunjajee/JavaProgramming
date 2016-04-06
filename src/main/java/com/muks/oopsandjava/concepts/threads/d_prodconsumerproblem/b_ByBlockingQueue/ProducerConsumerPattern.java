@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.d_prodconsumerproblem.ByBlockingQueue;
+package com.muks.oopsandjava.concepts.threads.d_prodconsumerproblem.b_ByBlockingQueue;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;

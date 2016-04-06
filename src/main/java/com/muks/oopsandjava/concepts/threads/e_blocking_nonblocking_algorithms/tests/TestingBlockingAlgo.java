@@ -1,7 +1,7 @@
-package com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algo.tests;
+package com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algorithms.tests;
 
-import com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algo.implementation.ConcurrentCounter;
-import com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algo.implementation.BlockingCounter;
+import com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algorithms.implementation.ConcurrentCounter;
+import com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algorithms.implementation.BlockingCounter;
 
 /**
  * Created by mukthar.ahmed on 4/4/16.

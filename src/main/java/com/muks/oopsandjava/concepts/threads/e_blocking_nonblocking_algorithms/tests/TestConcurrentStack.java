@@ -1,6 +1,6 @@
-package com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algo.tests;
+package com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algorithms.tests;
 
-import com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algo.implementation.ConcurrentStack;
+import com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algorithms.implementation.ConcurrentStack;
 
 import java.util.ArrayList;
 import java.util.List;

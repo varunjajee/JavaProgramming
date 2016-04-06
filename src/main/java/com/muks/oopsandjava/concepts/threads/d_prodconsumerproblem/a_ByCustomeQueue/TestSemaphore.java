@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.d_prodconsumerproblem.ByCustomeQueue;
+package com.muks.oopsandjava.concepts.threads.d_prodconsumerproblem.a_ByCustomeQueue;
 
 /**
  * Created by mukthar.ahmed on 11/9/15.

@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.d_prodconsumerproblem.multipleconsumers;
+package com.muks.oopsandjava.concepts.threads.d_prodconsumerproblem.c_multipleconsumers;
 
 import java.util.LinkedList;
 import java.util.concurrent.Semaphore;

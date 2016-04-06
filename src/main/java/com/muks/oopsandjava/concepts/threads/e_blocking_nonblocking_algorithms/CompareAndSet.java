@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algo;
+package com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algorithms;
 
 /**
  * Created by mukthar.ahmed on 4/4/16.

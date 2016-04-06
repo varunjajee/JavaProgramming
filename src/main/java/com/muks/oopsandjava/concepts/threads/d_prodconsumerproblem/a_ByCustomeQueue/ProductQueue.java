@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.d_prodconsumerproblem.ByCustomeQueue;
+package com.muks.oopsandjava.concepts.threads.d_prodconsumerproblem.a_ByCustomeQueue;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -8,13 +8,11 @@ import java.util.concurrent.Semaphore;
  * Created by mukthar.ahmed on 07/07/15.
  */
 public class ProductQueue {
-    // We must start with Producer prodconsumer problem
-    static Semaphore semProd = new Semaphore(1);
 
-    // Start with consumer d_prodconsumerproblem unavailable
-    static Semaphore semCon = new Semaphore(0);
+    private static Semaphore semProd = new Semaphore(1);    /** We must start with Producer available */
+    private static Semaphore semCon = new Semaphore(0);     /** Start with consumer unavailable */
 
-    Queue<Integer> productQ = new LinkedList<>();
+    private Queue<Integer> productQ = new LinkedList<>();
 
     void put(int n) {
         try {

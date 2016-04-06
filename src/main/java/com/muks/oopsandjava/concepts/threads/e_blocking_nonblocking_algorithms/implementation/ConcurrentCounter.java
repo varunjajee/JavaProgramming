@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algo.implementation;
+package com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algorithms.implementation;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
