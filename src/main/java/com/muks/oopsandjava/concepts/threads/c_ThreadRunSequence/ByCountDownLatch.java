@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.ThreadRunSequence;
+package com.muks.oopsandjava.concepts.threads.c_ThreadRunSequence;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
     - CountDownLatch() - takes an int arguement and when the int becomes 0 / zero, it communicates that its completed
 
  */
-public class CountDownLatchControl {
+public class ByCountDownLatch {
     static final CountDownLatch cdl1 = new CountDownLatch(1);
     static final CountDownLatch cdl2 = new CountDownLatch(1);
     static final CountDownLatch cdl3 = new CountDownLatch(1);
@@ -31,8 +31,6 @@ public class CountDownLatchControl {
         ExecutorService executorService = Executors.newFixedThreadPool(30);
         for (int i = 0; i < 3; i++) {
             executorService.submit(threadList.get(i));  // submit thread by thread.
-
-            //executorService.invokeAll(Collection<>);  To submit all callable threads at once
         }
         executorService.shutdown();
     }
@@ -42,7 +40,11 @@ public class CountDownLatchControl {
         public void run() {
             System.out.println(Thread.currentThread().getName() + ", is running....");
 
-            RandomThreadWait();
+            try {
+                Thread.sleep(1000l);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
             cdl1.countDown();   /** Decrements the count of the latch, releasing all waiting threads if
              * the count reaches zero.*/

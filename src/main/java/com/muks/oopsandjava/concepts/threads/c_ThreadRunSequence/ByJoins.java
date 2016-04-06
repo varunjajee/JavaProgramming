@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.ThreadRunSequence;
+package com.muks.oopsandjava.concepts.threads.c_ThreadRunSequence;
 
 import java.util.Random;
 
@@ -8,10 +8,10 @@ import java.util.Random;
  *  Sequencing of thread execution is depending on t.join() which also throws "InterruptedException"
  *
  */
-public class SecquenceRuns extends Thread {
+public class ByJoins extends Thread {
 
     public static void main(String[] args) {
-        SecquenceRuns sequenceRuns = new SecquenceRuns();
+        ByJoins sequenceRuns = new ByJoins();
 
         final Thread t1 = new Thread(sequenceRuns); // assume T1 is a Runnable
         t1.setName("1st Thread");

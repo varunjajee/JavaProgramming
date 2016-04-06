@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.ExecutionSrvcAndFutureTask.RunnableExample;
+package com.muks.oopsandjava.concepts.threads.b_ExecutionSrvcAndFutureTask.RunnableExample;
 
 /*
  * Created by mukthar.ahmed on 2/1/16.
