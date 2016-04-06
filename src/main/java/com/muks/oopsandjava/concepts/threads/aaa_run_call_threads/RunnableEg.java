@@ -27,14 +27,15 @@ public class RunnableEg implements Runnable {
 
     @Override
     public void run() {
+        long sleepInterval = 0l;
         try {
-            long sleepInterval = new Random().nextInt(500) + 501;
-            System.out.println("# sleeping for - " + sleepInterval);
+            sleepInterval = new Random().nextInt(1000) + 10;
             Thread.sleep(sleepInterval);
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
         }
-        System.out.println("# " + name + ", " + Thread.currentThread().getName());
+        System.out.println("# sleept for - \"" + sleepInterval + "\", " + name + ", " + Thread.currentThread().getName
+            ());
     }
 
 
@@ -56,27 +57,27 @@ public class RunnableEg implements Runnable {
 
 
         executorService.shutdown();     /** Like graceful shutdown. Waits till all threads are completed. */
-        executorService.shutdownNow();  /** Like "kill -9" no more threads can be added to the thread pool */
+        //executorService.shutdownNow();  /** Like "kill -9" no more threads can be added to the thread pool */
 
-        /** Approach # 1 : To wait till all threads are completed */
-        try {
-            if (!executorService.awaitTermination(1000, TimeUnit.MICROSECONDS)) {
-                System.out.println("Still waiting after 100ms: calling System.exit(0)...");
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Exiting normally...");
+//        /** Approach # 1 : To wait till all threads are completed */
+//        try {
+//            if (!executorService.awaitTermination(1000, TimeUnit.MICROSECONDS)) {
+//                System.out.println("Still waiting after 100ms: calling System.exit(0)...");
+//            }
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println("Exiting normally...");
 
 
         /** Approach # 2 : To wait till all threads are completed */
-//        for (Future futureThread : allThreads) {
-//            while (true) {
-//                if ( futureThread.isDone() ) {
-//                    break;
-//                }
-//            }
-//        }
+        for (Future futureThread : allThreads) {
+            while (true) {
+                if ( futureThread.isDone() ) {
+                    break;
+                }
+            }
+        }
 
     }
 
