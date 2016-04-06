@@ -2,7 +2,6 @@ package com.muks.oopsandjava.concepts.threads.workers;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 /**
  * Created by mukthar.ahmed on 3/2/16.
@@ -14,8 +13,7 @@ public class TestWokerThreadPool {
         ExecutorService executorService = Executors.newFixedThreadPool(3);
 
         for (int i = 0; i < 15; i++) {
-            WorkerThread worker = new WorkerThread();
-            Thread workerThread = new Thread(worker);
+            Thread workerThread = new Thread(new MyWorkerThread());
 
             workerThread.setName("Thread-" + i);
             executorService.execute(workerThread);

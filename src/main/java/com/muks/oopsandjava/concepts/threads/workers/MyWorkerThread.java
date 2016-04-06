@@ -7,7 +7,7 @@ import java.util.concurrent.Executors;
 /**
  * Created by mukthar.ahmed on 3/2/16.
  */
-public class WorkerThread implements Runnable {
+public class MyWorkerThread implements Runnable {
     private static String threadName;
 
 

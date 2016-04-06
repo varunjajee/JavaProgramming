@@ -62,6 +62,17 @@ public class TestNonblockingCounter implements Callable<Integer> {
         while (!executor.isTerminated()) {
         }
 
+        /** Approach # 2 */
+        try {
+            if ( !executor.awaitTermination(10, TimeUnit.SECONDS)) {
+                System.out.println("# Still waiting for thread completion.");
+            }
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+
         List<Integer> resList = new ArrayList<>();
         for (Future<Integer> workerTask : futureTaskList) {
             try {
