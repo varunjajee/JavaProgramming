@@ -6,7 +6,7 @@ import java.util.concurrent.Semaphore;
 /**
  * Created by mukthar.ahmed on 11/9/15.
  */
-public class CrunchifyProducerConsumerSemaphore {
+public class SingleProducerConsumerSemaphore {
     static Object crunchifyLock = new Object();
     static LinkedList<String> crunchifyList = new LinkedList<String>();
 

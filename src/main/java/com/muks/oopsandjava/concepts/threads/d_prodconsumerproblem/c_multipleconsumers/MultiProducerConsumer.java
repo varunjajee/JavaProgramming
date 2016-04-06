@@ -12,11 +12,14 @@ import java.util.concurrent.Semaphore;
  */
 public class MultiProducerConsumer {
 
-    class ProductQueue {
-        Queue<Integer> myQ = new LinkedList<>();
+    /** Synchronized product queue */
+    private class ProductQueue {
+        private Queue<Integer> myQ = new LinkedList<>();
+        private static final int MAX_CONCURRENT_PRODUCERS = 10;
+        private static final int MAX_CONCURRENT_CONSUMERS = 2;
 
-        private Semaphore semProd = new Semaphore(5);       /** 5 producers */
-        private Semaphore semCon = new Semaphore(2);        /** 2 consumers */
+        private Semaphore semProd = new Semaphore(MAX_CONCURRENT_PRODUCERS);       /** 5 producers */
+        private Semaphore semCon = new Semaphore(MAX_CONCURRENT_CONSUMERS);        /** 2 consumers */
 
         public void put(int val) {
             try {
@@ -27,7 +30,6 @@ public class MultiProducerConsumer {
 
             //TestingBlockingAlgo.ThreadSleep();
 
-            //item = val;
             myQ.add(val);
             System.out.println("+ Producing - " + val);
             semCon.release();
@@ -41,6 +43,7 @@ public class MultiProducerConsumer {
             }
 
             MultiProducerConsumer.ThreadSleep();
+
             int qItem = myQ.remove();
             System.out.println("+ [Consuming] = " + qItem);
             semProd.release();
@@ -48,6 +51,7 @@ public class MultiProducerConsumer {
     }
 
 
+    /** Producer thread */
     class Producer implements Runnable {
         ProductQueue myQueue;
 
@@ -63,6 +67,7 @@ public class MultiProducerConsumer {
     }
 
 
+    /** Consumer thread */
     class Consumer implements Runnable {
         ProductQueue myQueue;
 
@@ -79,6 +84,7 @@ public class MultiProducerConsumer {
     }
 
 
+    /** driver method */
     public void runProducerConsumer() {
         ProductQueue mQ = new ProductQueue();
         Producer producer = new Producer(mQ);
