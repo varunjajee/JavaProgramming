@@ -5,10 +5,10 @@ package com.muks.Algorithm.SortingTechniques;
  *
  *
  */
-public class SortMergeSort {
+public class MergeSort {
 
-    private static int[] numbers;
-    private static int[] helper;
+//    private static int[] numbers;
+//    private static int[] helper;
 
     public static void main(String[] args) {
         int[] numbers = {3, 2, 5, 1, 4, 0};
