@@ -21,7 +21,7 @@ public class FindNumberSumFromArray {
 	 *  
 	 */
 	public static void byLinearMethod (int[]arr, int sum) {
-		SortingTechniques.quickSort(arr, 0, arr.length-1);
+		SortingTechniques.QuickSorting(arr, 0, arr.length-1);
 		printMatching(arr, arr.length, 10);
 	}
 
