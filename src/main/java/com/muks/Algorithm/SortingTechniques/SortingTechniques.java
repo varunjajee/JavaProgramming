@@ -27,6 +27,22 @@ public class SortingTechniques {
     } // end main
 
 
+    /** Sorting technique used in sorting singly linked list */
+    private static void insertion(int[] arr) {
+        int runner;
+        for (int i = 0; i < arr.length; i++) {
+            runner = 0;
+
+            while (runner <= i) {
+                if (arr[runner] > arr[i]) {
+                    swap(arr, runner, i);
+                }
+                runner++;
+            }
+        }
+
+    }
+
     /**
      *  Heap sort - Pending ????
      *  Addition and deletion are both O(logn) operations. We need to perform n additions and deletions, leading to
