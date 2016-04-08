@@ -1,7 +1,9 @@
 package com.muks.Algorithm.SortingTechniques;
 
-/*
+/**
  * Created by mukthar.ahmed on 1/13/16.
+ *
+ *
  */
 public class SortMergeSort {
 
@@ -9,34 +11,30 @@ public class SortMergeSort {
     private static int[] helper;
 
     public static void main(String[] args) {
+        int[] numbers = {3, 2, 5, 1, 4, 0};
+        mergeSort(numbers);
 
-        int[ ] numbers = { 1000, 80, 10, 50, 70, 60, 90, 20, 30, 40, 0, -1000 };
-        System.out.println(mergeSort(numbers));
-
-        String s = "";
-        for (int i : numbers) {
-            s += i + " ";
-        }
-        System.out.println(s);
+        printArray(numbers);
     }
 
-    public static int[] mergeSort(int[] mainArray) {
-        if (mainArray.length <= 1) {
-            return mainArray;
+
+    private static void mergeSort(int[] input) {
+        if (input.length <= 1) {
+            return;
         }
 
         // Split the array in half
-        int mid = mainArray.length/2;
+        int mid = input.length/2;
         int[] first = new int[mid];
-        int[] second = new int[mainArray.length - mid];
+        int[] second = new int[input.length - mid];
 
         int i;
         for (i = 0 ; i < mid; i++) {
-            first[i] = mainArray[i];
+            first[i] = input[i];
         }
 
-        for (int j = mid; j < mainArray.length; j++) {
-            second[j - mid] = mainArray[j];
+        for (int j = mid; j < input.length; j++) {
+            second[j - mid] = input[j];
         }
 
         // Sort each half
@@ -44,23 +42,16 @@ public class SortMergeSort {
         mergeSort(second);
 
         // Merge the halves together, overwriting the original array
-        merge(first, second, mainArray);
-        return mainArray;
+        merge(first, second, input);
+
     }
 
     private static void merge(int[] first, int[] second, int[] actualArray) {
-        // Merge both halves into the actualArray array
-        // Next element to consider in the first array
         int iFirst = 0;
-
-        // Next element to consider in the second array
         int iSecond = 0;
 
-        // Next open position in the actualArray
         int j = 0;
 
-        // As long as neither iFirst nor iSecond is past the end, move the
-        // smaller element into the actualArray.
         while (iFirst < first.length && iSecond < second.length) {
             if (first[iFirst] < second[iSecond]) {
                 actualArray[j] = first[iFirst];
@@ -77,4 +68,13 @@ public class SortMergeSort {
         System.arraycopy(second, iSecond, actualArray, j, second.length - iSecond);
     }
 
+
+
+    private static void printArray(int[] arr) {
+        StringBuilder sb = new StringBuilder();
+        for (int i : arr) {
+            sb.append(" " + i);
+        }
+        System.out.println(sb.toString());
+    }
 }   // end class

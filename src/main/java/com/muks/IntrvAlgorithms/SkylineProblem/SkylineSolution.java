@@ -75,8 +75,7 @@ public class SkylineSolution {
 
 
     /* Merge two list of int[] */
-    private static List<int[]> mergeSkylines(
-            List<int[]> skylineListLower, List<int[]> skylineListHigher ) {
+    private static List<int[]> mergeSkylines(List<int[]> skylineListLower, List<int[]> skylineListHigher ) {
 
         counter++;
 
