@@ -85,16 +85,16 @@ public class SortingTechniques {
      */
     private static void SelectionSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
-            int index_of_max = i;
+            int index_of_min = i;
 
             for (int j = i; j < array.length; j++) {
-                if (array[index_of_max] > array[j]) {
-                    index_of_max = j;
+                if (array[j] < array[index_of_min]) {
+                    index_of_min = j;
                 }
             }
 
             /** swap max and min */
-            swap(array, i, index_of_max);
+            swap(array, i, index_of_min);
         }
 
     } // end SelectionSort()
