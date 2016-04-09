@@ -1,4 +1,4 @@
-package com.muks.Algorithm.AlgosOnArrays.MovingWindow;
+package com.muks.Algorithm.AlgosOnArrays.SlidingOrMovingWindow;
 
 import java.util.ArrayList;
 import java.util.Arrays;

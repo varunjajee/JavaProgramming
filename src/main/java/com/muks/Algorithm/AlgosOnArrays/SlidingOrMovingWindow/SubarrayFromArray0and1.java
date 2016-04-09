@@ -1,4 +1,4 @@
-package com.muks.Algorithm.AlgosOnArrays.MovingWindow;
+package com.muks.Algorithm.AlgosOnArrays.SlidingOrMovingWindow;
 
 public class SubarrayFromArray0and1 {
 

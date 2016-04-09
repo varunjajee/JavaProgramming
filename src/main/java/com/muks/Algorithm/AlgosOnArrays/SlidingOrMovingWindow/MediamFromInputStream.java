@@ -1,4 +1,4 @@
-package com.muks.Algorithm.AlgosOnArrays.MovingWindow;
+package com.muks.Algorithm.AlgosOnArrays.SlidingOrMovingWindow;
 
 import java.util.Collections;
 import java.util.NoSuchElementException;
