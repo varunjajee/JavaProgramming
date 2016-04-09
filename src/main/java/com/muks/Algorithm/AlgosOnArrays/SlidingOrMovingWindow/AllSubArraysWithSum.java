@@ -8,27 +8,25 @@ import java.util.*;
 public class AllSubArraysWithSum {
 
     public static void main(String[] args) {
-        int[] INPUT = {5, 6, 1, -2, -4, 3, 1, 5};
-        printSubarrays(INPUT, 5);
+        int[] input = {5, 6, 1, -2, -4, 3, 1, 5};
+        printSubarrays(input, 5);
 
-        int[] arr2 = {1, 1, -1, -1};
-        //printSubarrays(arr2, 0);
-        printSubArrayOfRequiredSum(INPUT, 5);
+//        int[] arr2 = {1, 1, -1, -1};
+//        printSubArrayOfRequiredSum(input, 5);
     }
 
     private static void printSubarrays(int[] input, int k) {
-        Map<Integer, List<Integer>> map = new HashMap<>();
+        Map<Integer, List<Integer>> mapIndex = new HashMap<>();
 
-        map.put(0, new ArrayList<>(Arrays.asList(-1)));
+        mapIndex.put(0, new ArrayList<>(Arrays.asList(-1)));
         int preSum = 0;
-
 
         for(int i=0; i < input.length; i++) {
             preSum += input[i];
             /** A point where sum = (preSum - k) is present, it means that between that
              point and this, the sum has to equal k */
-            if( map.containsKey(preSum - k) ) {   // Subarray found
-                List<Integer> startIndices = map.get(preSum - k);
+            if( mapIndex.containsKey(preSum - k) ) {   // Subarray found
+                List<Integer> startIndices = mapIndex.get(preSum - k);
 
                 for(int start : startIndices) {
                     System.out.println("Start: "+ (start+1)+ "\tEnd: "+ i);
@@ -36,17 +34,18 @@ public class AllSubArraysWithSum {
             }
 
             List<Integer> newStart = new ArrayList<>();
-            if(map.containsKey(preSum)) {
-                newStart = map.get(preSum);
+            if(mapIndex.containsKey(preSum)) {
+                newStart = mapIndex.get(preSum);
             }
+
             newStart.add(i);
-            map.put(preSum, newStart);
+            mapIndex.put(preSum, newStart);
         }
     }
 
 
     /**
-     *      O(n2)
+     *      O(n^2)
      */
     private static void printSubArrayOfRequiredSum(int[] array, int requiredSum) {
         for (int i = 0; i < array.length; i++) {

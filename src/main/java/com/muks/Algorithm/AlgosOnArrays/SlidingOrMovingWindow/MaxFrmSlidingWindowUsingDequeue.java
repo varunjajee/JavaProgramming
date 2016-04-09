@@ -52,7 +52,6 @@ public class MaxFrmSlidingWindowUsingDequeue {
             }
 
             /** Pop older element outside window from que */
-
             while (!que.isEmpty() && que.getFirst() <= i-w) {
                 que.removeLast();
             }

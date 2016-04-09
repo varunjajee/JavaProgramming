@@ -25,7 +25,7 @@ public class SubArrayWithSum {
         int sum2 = 0;
 
 //		subArraySumEfficient(arr, sum);	// efficient Algorithm
-        subArraySumEfficient(arr2, sum2);	// efficient Algorithm
+        subArraySumEfficient(arr, sum);	// efficient Algorithm
 
 //		int ret = subArraySum(arr, sum);		// sub optimal Algorithm
 	}
@@ -41,21 +41,22 @@ public class SubArrayWithSum {
 	    int start = 0;
 
 	    for (int i = 1; i < arr.length; i++) {
-
-            /** If curr_sum exceeds the sum, then remove the starting elements */
+			System.out.println("# Sum = " + currSum + ", Start = " + start + ", i = " + i);
+			/** If curr_sum exceeds the sum, then remove the starting elements */
 	    	while (currSum > sum && start < i-1) {
 	            currSum = currSum - arr[start];
 	            start++;
 	        }
 	 
 	        if (currSum == sum) {	/** If curr_sum becomes equal to sum, then return true */
-	            System.out.println("Sum found between indexes " + (start) + " and " + (i-1) );
+	            System.out.println(currSum + " => Sum found between indexes " + (start) + " and " + (i-1) );
+
 	            return 1;
 	        }
 	        
-	        if (i < arr.length) {	/** Add this element to curr_sum */
+	        //if (i < arr.length) {	/** Add this element to curr_sum */
 	          currSum += arr[i];
-	        }
+	        //	}
 	        
 	    }
 
@@ -64,9 +65,6 @@ public class SubArrayWithSum {
 	    return 0;
 	}
 	
-
-
-
 
 
     public static int subArraySum(int arr[], int sum) {

@@ -40,11 +40,13 @@ public class MediamFromInputStream {
 
             System.out.println("# Left-PQ: " + leftPQ.toString() + ", Right-PG: " + rightPQ.toString());
 
-            /** Rebalance the pqs */
+            /** Re balance the pqs */
             if (leftPQ.size() - rightPQ.size() > 1) {
                 rightPQ.offer(leftPQ.poll());
+
             } else if (rightPQ.size() - leftPQ.size() > 1) {
                 leftPQ.offer(rightPQ.poll());
+
             }
         }
 
