@@ -2,6 +2,7 @@ package com.muks.Algorithm.AlgosOnArrays.SlidingOrMovingWindow;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.Iterator;
 
 /**
  * Created by mukthar.ahmed on 4/9/16.
@@ -31,35 +32,36 @@ public class MaxFrmSlidingWindowUsingDequeue {
 
 
     static void maxSlidingWindow(int[] arr, int w) {
-        Deque<Integer> Q = new ArrayDeque<>();
+        Deque<Integer> que = new ArrayDeque<>();
 
-        //Initilize deque Q for first window
+        //Initilize deque que for first window
         for (int i = 0; i < w; i++) {
-            while ( !Q.isEmpty() && arr[i] >= arr[Q.getLast()]) {
-                Q.removeLast();
+            while ( !que.isEmpty() && arr[i] >= arr[que.getLast()]) {
+                que.removeLast();
             }
 
-            Q.addLast(i);
+            que.addLast(i);
         }
 
         for (int i = w; i < arr.length; i++) {
-            System.out.println( arr[Q.getFirst()]);
+            System.out.println(" " + arr[que.getFirst()] + ", # size = " + que.size());
 
-            //update Q for new window
-            while (!Q.isEmpty() && arr[i] >= arr[Q.getLast()]) {
-                Q.removeLast();
+            /** update que for new window */
+            while (!que.isEmpty() && arr[i] >= arr[que.getLast()]) {
+                que.removeLast();
             }
 
-            //Pop older element outside window from Q
-            while (!Q.isEmpty() && Q.getFirst() <= i-w) {
-                Q.removeLast();
+            /** Pop older element outside window from que */
+
+            while (!que.isEmpty() && que.getFirst() <= i-w) {
+                que.removeLast();
             }
 
-            Q.addLast(i);   //Insert current element in Q
+            que.addLast(i);   //Insert current element in que
         }
 
-        //B[n-w] = arr[Q.getFirst()];
-        System.out.print(" " + arr[Q.getFirst()]);
+        //B[n-w] = arr[que.getFirst()];
+        System.out.print(" " + arr[que.getFirst()]);
     }
 
 
@@ -75,5 +77,16 @@ public class MaxFrmSlidingWindowUsingDequeue {
             }
             System.out.print(" " +  max);
         }
+    }
+
+    private static String printQ(Deque<Integer> queue, int[] arr) {
+        StringBuilder sb = new StringBuilder();
+
+        Iterator<Integer> itr = queue.iterator();
+        while (itr.hasNext()) {
+            System.out.print(" " + sb.append(arr[itr.next()]) );
+        }
+
+        return sb.toString();
     }
 }
