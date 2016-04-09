@@ -76,4 +76,23 @@ public class MyTrees {
 
         return bst2;
     }
+
+
+    public static BinarySearchTree getBoundryTree() {
+        /** Get diagonal sum */
+        BinarySearchTree diagonalTree = new BinarySearchTree(20);
+        diagonalTree.root.left = new TreeNode(8);
+        diagonalTree.root.left.left = new TreeNode(4);
+
+        diagonalTree.root.left.right= new TreeNode(12);
+        diagonalTree.root.left.right.left = new TreeNode(10);
+        diagonalTree.root.left.right.right = new TreeNode(14);
+
+
+        diagonalTree.root.right = new TreeNode(22);
+
+        diagonalTree.root.right.right = new TreeNode(25);
+
+        return diagonalTree;
+    }
 }

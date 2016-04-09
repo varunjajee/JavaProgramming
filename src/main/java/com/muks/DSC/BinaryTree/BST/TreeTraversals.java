@@ -126,7 +126,7 @@ public class TreeTraversals {
     static int MAX_LEVEL = 0;
 
     public static void printRightView(TreeNode root) {
-        System.out.println("+ Printing left view: ");
+        System.out.println("+ Printing right view: ");
 
         int startLevel = 1;
 
@@ -419,4 +419,127 @@ public class TreeTraversals {
         }
     }
 
+
+    static class PrintBoundryOfTree {
+        /** Answer: 20 8 22 4 10 14 25
+         * */
+
+        public static void printBoundry(BinarySearchTree bst) {
+            System.out.println("\n Boudary traversal...");
+            if (bst.root != null) {
+                System.out.print(" " + bst.root);
+                printLeftmostNodes(bst.root.left);
+                printRightmostNodes(bst.root.right);
+                printLeafNodes(bst.root);
+            }
+        }
+
+        private static void printLeftmostNodes(TreeNode node) {
+            if (node != null) {
+                if (node.left != null) {
+                    System.out.print(" " + node);
+                    printLeftmostNodes(node.left);
+                }
+                else if (node.right != null){
+                    System.out.print(" " + node);
+                    printLeftmostNodes(node.right);
+                }
+
+                /** Do not print leaf else it will be duplicate print */
+            }
+
+        }
+        private static void printRightmostNodes(TreeNode node) {
+
+            if (node !=  null) {
+                if (node.right != null) {
+                    System.out.print(" " + node);
+                    printRightmostNodes(node.right);
+                }
+                else if (node.left != null) {
+                    System.out.print(" " + node);
+                    printRightmostNodes(node.left);
+                }
+            }
+        }
+
+        private static void printLeafNodes(TreeNode node) {
+            if (node == null) {
+                return;
+            }
+
+            if (node.left == null && node.right == null) {
+                System.out.print(" " + node);
+            }
+
+            printLeafNodes(node.left);
+            printLeafNodes(node.right);
+        }
+    }
+
+    /**
+     * Function to print corner node at each level
+     *  - Same as print boundary question but does it in 1 pass
+     */
+    static void printBoundrySingleTraversal(TreeNode root) {
+        Queue<TreeNode> queue = new LinkedList<>();
+
+        queue.add(root);
+        queue.add(null);    // null node to mark as separator between levels
+
+        boolean isFirst = false;    // if isFirst = true then left most node of that level will be printed
+        boolean isOne = false;      // if isOne = true then that level has only one node
+        int last = 0;               // last will store right most node of that level   */
+
+        // Do level order traversal of Binary Tree
+        while (!queue.isEmpty()) {
+
+            TreeNode temp = queue.remove();             // dequeue the front node from the queue
+
+            // if isFirst is true, then temp is leftmost node
+            if ( isFirst ) {
+                System.out.print(" " + temp.data);
+
+                if (temp.left != null)
+                    queue.add(temp.left);
+
+                if (temp.right != null)
+                    queue.add(temp.right);
+
+                // make isFirst as false and one = 1
+                isFirst = false;
+                isOne = true;
+            }
+
+            // Else if temp is a separator between two levels
+            else if (temp == null) {
+                // Insert new separator if there are items in queue
+                if (queue.size() >= 1)
+                    queue.add(null);
+
+                // making isFirst as true because next node will be
+                // leftmost node of that level
+                isFirst = true;
+
+                // printing last node, only if that level
+                // doesn't contain single node otherwise
+                // that single node will be printed twice
+//                if (!isOne)
+                    System.out.print(" " + last);
+            }
+            else {
+                last = temp.data;   // Store current key as last
+
+                // Here we are making isOne = false to signify that level has more than one node
+                isOne = false;
+                if (temp.left != null) {
+                    queue.add(temp.left);
+                }
+
+                if (temp.right != null) {
+                    queue.add(temp.right);
+                }
+            }
+        }
+    }
 }

@@ -12,7 +12,7 @@ import java.util.concurrent.Semaphore;
 public class TestYourCode {
     public static void main(String[] args) {
         int[] arr = {2, 1, 9, 3, 4, 6, 0};
-        
+
     }
 
 

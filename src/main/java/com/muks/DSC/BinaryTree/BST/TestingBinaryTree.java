@@ -8,10 +8,7 @@ package com.muks.DSC.BinaryTree.BST;
 import com.muks.DSC.BinaryTree.BST.Trees.MyTrees;
 import com.muks.DSC.BinaryTree.BST.Trees.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class TestBinaryTree {
+public class TestingBinaryTree {
 
     static TreeNode targetLeaf = null;
     static int maxSum = 0;
@@ -21,9 +18,9 @@ public class TestBinaryTree {
 //        /** zig-zag or spiral traversal */
 //        // Answer : 1 2 3 4 5 6 7
 //        TreeTraversals.zigZagView();
-
-        List<TreeNode> list = new ArrayList<>();
-        TreeTraversals.printRootToLeafPaths();
+//
+//        List<TreeNode> list = new ArrayList<>();
+//        TreeTraversals.printRootToLeafPaths();
 
 //        // Answer : 2 1 3 6
 //        AlgosBinarySearchTree.isBinarySearchTree();
@@ -164,6 +161,13 @@ public class TestBinaryTree {
 
 
         //System.out.println("===== " + AlgosBinarySearchTree.postOrder(myTree, 2));
+
+
+        BinarySearchTree boundyTree = MyTrees.getBoundryTree();
+//        TreeTraversals.PrintBoundryOfTree boundryTraversal = new TreeTraversals.PrintBoundryOfTree();
+//        boundryTraversal.printBoundry(boundyTree);
+
+        TreeTraversals.printBoundrySingleTraversal(boundyTree.root);
 
     }
 
