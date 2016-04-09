@@ -1,4 +1,4 @@
-package com.muks.Algorithm.AlgosOnArrays.FAQs;
+package com.muks.Algorithm.AlgosOnArrays.Matrix;
 
 import java.util.Scanner;
 

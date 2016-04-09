@@ -11,7 +11,29 @@ import java.util.concurrent.Semaphore;
  */
 public class TestYourCode {
     public static void main(String[] args) {
-        int[] arr = {2, 1, 9, 3, 4, 6, 0};
+        String str = "a bc de f  g";
+        deleteSpaces(str);
+    }
+
+    private static void deleteSpaces(String str) {
+        char[] arr = str.toCharArray();
+
+        int i = 0, j = 1;
+
+        while (j < arr.length) {
+            if (arr[j] == ' ') {
+                j++;
+            }
+            else {
+                i++;
+                arr[i] = arr[j];
+                j++;
+            }
+        }
+
+        for (int x = 0; x <= i; x++) {
+            System.out.print(arr[x]);
+        }
 
     }
 

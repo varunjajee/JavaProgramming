@@ -1,6 +1,6 @@
 package com.muks.Algorithm.AlgosOnString;
 
-public class RemoveCharsFromFirst2Second {
+public class DeleteCharsFromFirst2Second {
 
 	/*
 	 * A function that takes two strings as arguments and removes the characters from first string which are present 

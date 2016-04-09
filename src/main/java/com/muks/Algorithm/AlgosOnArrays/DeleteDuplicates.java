@@ -12,12 +12,12 @@ public class DeleteDuplicates {
     public static void main(String[] args) {
         int[] arr = {1, 1, 2, 2, 2, 3, 4, 5};
 
-        //System.out.println("+ Deleted Duplicates: " + deleteDuplicates(arr));
+        deleteDuplicatesFromSorted(arr);
 
         //System.out.println("+ Deleted Spaces: " + DeleteSpaces("I am here"));
 
         String str = "I am here";
-        DeleteFromUnsorted(str);
+        //DeleteFromUnsorted(str);
 
     }
 
@@ -25,7 +25,7 @@ public class DeleteDuplicates {
     /**
      * Delete duplicate elements from int array using O(1) Space and O(n) time complexity.
      */
-    public static String deleteDuplicates(int[] arr) {
+    public static void deleteDuplicatesFromSorted(int[] arr) {
         int i = 0;
         int j = 1;
 
@@ -40,16 +40,13 @@ public class DeleteDuplicates {
         }
 
 
-        StringBuilder sb = new StringBuilder();
-        for (int x : arr) {
-            sb.append(" " + x);
+        /** Limiting the array till 'i' */
+        for (int x = 0; x <= i; x++) {
+            System.out.print(" " + arr[x]);
         }
-
-        return sb.toString();
-
     }
 
-    public static String DeleteSpaces(String str) {
+    public static void DeleteSpaces(String str) {
         char[] charArray = str.toCharArray();
 
         int i = 0, j = 1, spaces = 0;
@@ -65,14 +62,10 @@ public class DeleteDuplicates {
             }
         }
 
-        System.out.println("+ Len = " + spaces);
-        charArray[charArray.length - spaces] = '\0';
-        StringBuilder sb = new StringBuilder();
-        for (char ch : charArray) {
-            sb.append(" " + ch);
-        }
 
-        return sb.toString();
+        for (int x = 0; x <= i; x++) {
+            System.out.print(charArray[x]);
+        }
     }
 
 
