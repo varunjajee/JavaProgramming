@@ -44,7 +44,7 @@ public class MaxFrmSlidingWindowUsingDequeue {
         }
 
         for (int i = w; i < arr.length; i++) {
-            System.out.println(" " + arr[que.getFirst()] + ", # size = " + que.size());
+            System.out.println("\n " + arr[que.getFirst()] + ", # size = " + que.size());
 
             /** update que for new window */
             while (!que.isEmpty() && arr[i] >= arr[que.getLast()]) {
@@ -52,7 +52,9 @@ public class MaxFrmSlidingWindowUsingDequeue {
             }
 
             /** Pop older element outside window from que */
+            System.out.println("# Old: " + que.peek() + ", " + (i-w));
             while (!que.isEmpty() && que.getFirst() <= i-w) {
+                System.out.println("# Old---");
                 que.removeLast();
             }
 

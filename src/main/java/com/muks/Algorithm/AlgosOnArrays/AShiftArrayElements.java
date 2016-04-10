@@ -9,8 +9,6 @@ public class AShiftArrayElements {
         String url = "www.google.com?a=i w inmobi.com";
         char[] urlarr = url.toCharArray();
 
-
-
         for (int i = 0; i < urlarr.length - 1; i++) {
             urlarr[i+1] = urlarr[i];
         }
