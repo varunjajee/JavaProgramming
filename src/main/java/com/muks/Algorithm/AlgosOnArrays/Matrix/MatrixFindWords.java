@@ -8,7 +8,7 @@ public class MatrixFindWords {
 	public static void main(String[] args) {
 
 		// Q1: Find all possible words from the 2D array
-		//	Ans: Insert all the chars into a graph and do a breadth first search to find words
+		//	Ans: Insert all the chars into a graph and do a breadth first1BinarySearch search to find words
 		Character[][] wordMat = {
 				{'a', 'f', 'h', 'u', 'n'},
 				{'e', 't', 'a', 'i', 'r'},

@@ -21,14 +21,14 @@ public class MatrixRowsWithMax1s {
 	}
 
 
-	/* A function to find the index of first index of 1 in a boolean array arr[] */
+	/* A function to find the index of first1BinarySearch index of 1 in a boolean array arr[] */
 	public static int first(int[] arr, int low, int high) {
 		if(high >= low) {
 
 			int mid = low + (high - low)/2;	    // get the middle index   
 
 
-			if ( ( mid == 0 || arr[mid-1] == 0) && arr[mid] == 1) {	    // check if the element at middle index is first 1
+			if ( ( mid == 0 || arr[mid-1] == 0) && arr[mid] == 1) {	    // check if the element at middle index is first1BinarySearch 1
 				return mid;
 			}
 
@@ -36,7 +36,7 @@ public class MatrixRowsWithMax1s {
 			else if (arr[mid] == 0)
 				return first(arr, (mid + 1), high);
 
-			else // If element is not first 1, recur for left side
+			else // If element is not first1BinarySearch 1, recur for left side
 				return first(arr, low, (mid -1));
 		}
 		return -1;
@@ -51,7 +51,7 @@ public class MatrixRowsWithMax1s {
 		int rows = mat.length;
 		System.out.println("+++ rows: " + rows);
 		// Traverse for each row and count number of 1s by finding the index 
-		// of first 1
+		// of first1BinarySearch 1
 		int i, index;
 		for (i = 0; i <= cols; i++) {
 			
