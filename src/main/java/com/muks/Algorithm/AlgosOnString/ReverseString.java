@@ -7,7 +7,6 @@ public class ReverseString {
 		
 		//System.out.println("+++ " + reverseByMid("this is me") );
 		System.out.println("+ Reversed by recursion: " + reverseByRecursion("this is me") );
-		
 	}
 
 	
@@ -46,7 +45,6 @@ public class ReverseString {
 
 	} // mirror()
 
-	
 	// ##################################################################################################
 	public static String rev(String orig) {
 		char[] str = orig.toCharArray();

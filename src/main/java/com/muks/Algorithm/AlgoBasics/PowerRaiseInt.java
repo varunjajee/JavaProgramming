@@ -1,4 +1,4 @@
-package com.muks.Algorithm.AdditionalAlgos;
+package com.muks.Algorithm.AlgoBasics;
 
 public class PowerRaiseInt {
 

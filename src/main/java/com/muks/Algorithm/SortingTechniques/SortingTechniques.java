@@ -1,8 +1,6 @@
 package com.muks.Algorithm.SortingTechniques;
 
 
-import com.muks.Algorithm.MyUtils;
-
 /**
  * Sorting techniqueues:
  * 1) Insertion Sorting

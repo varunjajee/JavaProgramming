@@ -16,7 +16,7 @@ public class Graph {
 	
 	public GraphNode root;
 	ArrayList<GraphNode> nodes;
-	int[][] adjMatrix; // Adjacency Matrix
+	int[][] adjMatrix; // Adjacency MatrixSets
 	boolean isDirected; // Graph directed?
 	int size;
 

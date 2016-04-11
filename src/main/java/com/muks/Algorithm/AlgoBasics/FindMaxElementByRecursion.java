@@ -1,4 +1,4 @@
-package com.muks.Algorithm;
+package com.muks.Algorithm.AlgoBasics;
 
 public class FindMaxElementByRecursion {
 

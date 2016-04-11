@@ -1,4 +1,4 @@
-package com.muks.Algorithm.AlgosOnArrays;
+package com.muks.Algorithm.AlgosOnArrays.Matrix;
 
 public class MatrixRowsWithMax1s {
 

@@ -1,8 +1,8 @@
-package com.muks.Algorithm;
+package com.muks.Algorithm.AlgoBasics;
 
 
 
-public class FindSecondHighest {
+public class FindSecondHighest2 {
 
 	/**
 	 * @param args
@@ -11,17 +11,20 @@ public class FindSecondHighest {
 	public static void main(String[] args) {
 		int[] arr = {1,2,3,4,5,10,203,2,244,245,1000,55000,23};	// some int array
 		
-		System.out.println(findByRecursion(arr, 0, 1, 2));
+		int[] r = findByRecursion(arr, 0, 1, 2);
+		System.out.println(r[0] + " " + r[1]);
 		//System.out.println(findByArrayScan(arr));
 
 	}
 
 	
 	//####################################################################################################################################		
-	public static int findByRecursion (int[] arr, int index, int largest, int secondLargest) {
-		
+	public static int[] findByRecursion (int[] arr, int index, int largest, int secondLargest) {
+		int[] res = {0, 0};
 	    if(index == arr.length) {
-	        return secondLargest;
+	    	res[0] = largest;
+	    	res[1] = secondLargest;
+	        return res;
 	    }
 	    
 	    
@@ -52,33 +55,34 @@ public class FindSecondHighest {
 	 * (3) second == max, then second = a[i], else second max would be wrongly calculated. 
 	 * 
 	 */
-	public static int findByArrayScan(int[] array) {
-		System.out.println("+++ Find by array scan +++");
-		
-		int highest = array[0];  
-		int secondHighest = array[0];
-
-		for(int i = 0; i < array.length; i++) {
-			if (array[i] > highest) {
-				secondHighest = highest;  
-				highest = array[i];  
-
-			} else if (array[i] > secondHighest){  
-				secondHighest = array[i];
-				
-			} else if (secondHighest == highest){  
-				secondHighest = array[i];
-				
-			} 
-			
-		} // end for  
-
-		return secondHighest;  
-
-	} // end method  
+//	public static int findByArrayScan(int[] array) {
+//		System.out.println("+++ Find by array scan +++");
+//		
+//		int highest = array[0];  
+//		int secondHighest = array[0];
+//
+//		for(int i = 0; i < array.length; i++) {
+//			if (array[i] > highest) {
+//				secondHighest = highest;  
+//				highest = array[i];  
+//
+//			} else if (array[i] > secondHighest){  
+//				secondHighest = array[i];
+//				
+//			} else if (secondHighest == highest){  
+//				secondHighest = array[i];
+//				
+//			} 
+//			
+//		} // end for  
+//
+//		return secondHighest;  
+//
+//	} // end method  
 
 
 } // end of class
 
 
-//###############################################################################################################################################
+//###############################################################################################################################################package Algorithm;
+

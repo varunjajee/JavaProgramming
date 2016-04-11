@@ -6,7 +6,7 @@ package com.muks.Algorithm.AlgosOnArrays.Matrix;
  * - Search an element in a matrix of sorted integers.
  */
 
-public class ElementSearchInSorted {
+public class SearchFromSorted {
     public static void main(String[] args) {
         int[][] matrix = {
             {1, 3, 5, 7},

@@ -1,4 +1,4 @@
-package com.muks.Algorithm;
+package com.muks.Algorithm.AlgoBasics;
 
 /*
  * Created by mukthar.ahmed on 1/21/16.
@@ -13,7 +13,7 @@ import java.util.List;
     Memoization algorithm:
         Recording all the visited results and making use of the same.
  */
-public class MemoizationFibonacci {
+public class FibonacciByMemoization {
 
     private static final List<BigInteger> FIBONACCI_LIST = new ArrayList<>();
 
@@ -39,8 +39,8 @@ public class MemoizationFibonacci {
     }
 
 
+    /** Check if we already have it */
     private static boolean isInFibonacciList(final int number) {
-
         return (number <= FIBONACCI_LIST.size() - 1);
     }
 

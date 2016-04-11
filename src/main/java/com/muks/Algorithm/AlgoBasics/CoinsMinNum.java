@@ -1,6 +1,6 @@
-package com.muks.Algorithm.AdditionalAlgos;
+package com.muks.Algorithm.AlgoBasics;
 
-/*
+/**
     Created by mukthar.ahmed on 2/3/16.
 
     Link: http://romanenco.com/coin-change-problem/

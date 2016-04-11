@@ -1,4 +1,4 @@
-package com.muks.Algorithm;
+package com.muks.Algorithm.AlgoBasics;
 public class FibonacciByRecursion {
 
 	/**
@@ -72,9 +72,11 @@ public class FibonacciByRecursion {
 		}
 		
 	}
-		
-	
-	// Generating fibonacci series...
+
+
+	/** Fibonaci by memoization
+	 *	Generating fibonacci series...
+ 	 */
 	public static int[] genSeriesByIteration(int n) {
 		System.out.println("*****Fibonacci Series*****");
 		//List fib = new ArrayList();
@@ -89,7 +91,6 @@ public class FibonacciByRecursion {
         }
         
         return series;
-
 	}
 	
 	
