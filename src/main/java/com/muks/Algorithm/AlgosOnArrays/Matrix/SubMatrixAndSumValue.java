@@ -1,6 +1,6 @@
 package com.muks.Algorithm.AlgosOnArrays.Matrix;
 
-public class MatrixSubMatrixAndSumValue {
+public class SubMatrixAndSumValue {
 
 	public static void main(String[] args) {
 	    int[][] A = {

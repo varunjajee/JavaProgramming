@@ -2,8 +2,9 @@ package com.muks.Algorithm.AlgosOnArrays.Matrix;
 
 /**
  * Created by mukthar.ahmed on 4/12/16.
+ *  - Traverse spiral for a given matrix
  */
-public class Traversals {
+public class SpiralTraversal {
 
     public static void main(String[] args) {
         int[][] matrix = AMatrixUtils.getBasicMatrix();

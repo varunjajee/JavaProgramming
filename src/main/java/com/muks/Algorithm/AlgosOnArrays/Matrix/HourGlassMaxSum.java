@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 /**
  * Created by mukthar.ahmed on 3/26/16.
+ *
+ * - HourGlass, shape matrix.
+ *      - Find an hour glass with max sum
  */
 public class HourGlassMaxSum {
     public static void main(String[] args) {
