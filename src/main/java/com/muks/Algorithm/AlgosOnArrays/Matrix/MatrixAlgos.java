@@ -31,38 +31,6 @@ public class MatrixAlgos {
 
 		};
 		
-		
-		int colsArbitary = M[0].length;
-		System.out.println("++ Arbitary rows: Mat[0]: " + colsArbitary );
-		System.out.println("++ Arbitary cols: mat.length: " + M.length );
-		
-		
-		//findMaxSum(M, 3, 4);
-		findMaxSum(matrix,2, 2);
-		System.exit(0);
-		
-		printMatrix(matrix);
-
-		// print diagonal elements
-		printDiagonalByRecursion(matrix, 0, 0);		// print diagonal left-right by recurrsion
-		printDiagonal(matrix);
-		printDiagonalLeft2Right(matrix);
-
-
-		int[][] rotated = RotateMatrix(matrix, 3);
-		System.out.println("\n+ Rotated matrix => " );
-		printMatrix(rotated);
-
-		System.out.println("\n+++");
-		System.out.println("\n+ Find In Matrix: " + FindInMatrix(matrix, 5, 0, matrix.length-1) + "\n\n" );
-
-		List<String> path = getMatrixPaths(matrix);
-		System.out.println(path.toString());
-
-		// Get sum of the elements in entire matrix
-		getSumOfMarix(matrix, 3, 3);
-
-
 
 	}	// main()
 
@@ -98,10 +66,8 @@ public class MatrixAlgos {
 		System.out.println("\n+ Printing diagonal elements..");
 
 
-		for(int i=0; i < n; i++) {
-
+		for (int i=0; i < n; i++) {
 			System.out.println( matrix[i][n - (i+1)] );
-
 		}
 
 	} // printDiagonal()
@@ -241,109 +207,7 @@ public class MatrixAlgos {
 
 
 	
-	// The main function that finds maximum sum rectangle in M[][]
-	public static void findMaxSumWithoutComments(int[][] M, int rows, int col) {
 
-		int maxSum = 0, finalLeft = 0, finalRight = 0, finalTop = 0, finalBottom = 0;
-
-		int left, right, i;
-		int[] temp = new int[rows];
-		int sum, start = 0, finish = 0;
-
-
-		// Set the left column
-		for (left = 0; left < col; left++) {
-
-			// Initialize all elements of temp as 0
-			System.out.println("+++ temp: " + temp.length);
-			for (int p = 0; p < temp.length; p++) {
-				System.out.println(" + a: " + p);
-				temp[p] = 0;
-			}
-
-			// Set the right column for the left column set by outer loop
-			for (right = left; right < col; ++right) {
-				// Calculate sum between current left and right for every row 'i'
-				for (i = 0; i < rows; ++i) {
-					temp[i] += M[i][right];
-				}
-
-				sum = kadane(temp, start, finish, rows);
-
-				if (sum > maxSum) {
-					maxSum = sum;
-					finalLeft = left;
-					finalRight = right;
-					finalTop = start;
-					finalBottom = finish;
-				}
-			}
-		}
-
-		// Print final values
-		System.out.println("(Top, Left) (%d, %d)\n" + "(" + finalTop + "," + finalLeft + ")");
-		System.out.println("(Bottom, Right) (%d, %d)\n" + "(" + finalBottom + "," + finalRight);
-		System.out.println("Max sum is: %d\n" + maxSum);
-	}
-
-	
-	
-	
-	
-	
-	
-
-	// The main function that finds maximum sum rectangle in M[][]
-	public static void findMaxSum(int[][] M, int rows, int col) {
-		// Variables to store the final output
-		int maxSum = 0, finalLeft = 0, finalRight = 0, finalTop = 0, finalBottom = 0;
-
-		int left, right, i;
-		int[] temp = new int[rows];
-		int sum, start = 0, finish = 0;
-
-
-		// Set the left column
-		for (left = 0; left < col; left++) {
-			// Initialize all elements of temp as 0
-			//memset(temp, 0, temp);
-
-			System.out.println("+++ temp: " + temp.length);
-			for (int p = 0; p < temp.length; p++) {
-				System.out.println(" + a: " + p);
-				temp[p] = 0;
-			}
-
-			// Set the right column for the left column set by outer loop
-			for (right = left; right < col; ++right) {
-				// Calculate sum between current left and right for every row 'i'
-				for (i = 0; i < rows; ++i) {
-					temp[i] += M[i][right];
-				}
-
-				// Find the maximum sum subarray in temp[]. The kadane() function
-				// also sets values of start and finish.  So 'sum' is sum of
-				// rectangle between (start, left) and (finish, right) which is the
-				//  maximum sum with boundary columns strictly as left and right.
-				sum = kadane(temp, start, finish, rows);
-
-				// Compare sum with maximum sum so far. If sum is more, then update
-				// maxSum and other output values
-				if (sum > maxSum) {
-					maxSum = sum;
-					finalLeft = left;
-					finalRight = right;
-					finalTop = start;
-					finalBottom = finish;
-				}
-			}
-		}
-
-		// Print final values
-		System.out.println("(Top, Left) (%d, %d)\n" + "(" + finalTop + "," + finalLeft + ")");
-		System.out.println("(Bottom, Right) (%d, %d)\n" + "(" + finalBottom + "," + finalRight);
-		System.out.println("Max sum is: %d\n" + maxSum);
-	}
 
 
 } 	// class - MatrixAlgos()

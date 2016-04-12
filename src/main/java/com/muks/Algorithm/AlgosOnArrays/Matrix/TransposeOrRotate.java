@@ -3,7 +3,7 @@ package com.muks.Algorithm.AlgosOnArrays.Matrix;
 public class TransposeOrRotate {
 	
 	public static void main(String[] args) {
-        int[][] matrix = AMatrixUtils.getBasicMatrix();
+        int[][] matrix = InputMatrixSets.getBasicMatrix();
 
         //rotateAroundDiagonalInplace(matrix);
 
@@ -24,7 +24,7 @@ public class TransposeOrRotate {
 			}
 		}
 
-		AMatrixUtils.printMatrix(arr);
+		PrintingMatrix.printMatrix(arr);
 	}
 
 
@@ -53,19 +53,6 @@ public class TransposeOrRotate {
 			return; // nothing to do
 		}
 
-//        /* layers */
-//        for (int i = 0; i < n / 2; i++) {
-//        /* elements */
-//            for (int j = i; j < n - i - 1; j++) {
-//                int saved = matrix[i][j];
-//                matrix[i][j] = matrix[n - j - 1][i];
-//                matrix[n - j - 1][i] = matrix[n - 1 - i][n - 1 - j];
-//                matrix[n - 1 - i][n - 1 - j] = matrix[j][n - 1 - i];
-//                matrix[j][n - 1 - i] = saved;
-//            }
-//        }
-
-
 		/** OR */
 		for (int i = 0; i <= (n-1)/2; i++) {
 			for (int j = i; j < n-i-1; j++) {
@@ -87,7 +74,7 @@ public class TransposeOrRotate {
 				matrix[i][j] = p4;
 			}
 		}
-		AMatrixUtils.printMatrix(matrix);
+		PrintingMatrix.printMatrix(matrix);
 	}
 
 

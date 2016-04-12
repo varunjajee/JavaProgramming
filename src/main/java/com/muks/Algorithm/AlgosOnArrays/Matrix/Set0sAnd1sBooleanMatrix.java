@@ -67,7 +67,7 @@ public class Set0sAnd1sBooleanMatrix {
             }
         }
 
-        AMatrixUtils.printMatrix(matrix);
+        PrintingMatrix.printMatrix(matrix);
 
     }
 }
