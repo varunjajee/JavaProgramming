@@ -8,9 +8,46 @@ import java.util.regex.Pattern;
  */
 public class RegularExpressions {
     public static void main(String[] args) {
-        matchEmails();
+        //matchEmails();
+
+        matchDate();
     }
 
+    /**
+     * Date Field RegEx
+     */
+    private static void matchDate() {
+        String[] dates = {"2016-04-12",
+            "2016/04/12",
+            "2016_10_12",
+            "2016_10_10"
+        };
+
+        for (String date : dates) {
+            matchDateField(date);
+        }
+    }
+
+    private static void matchDateField(String date) {
+        String dateRegEx = "(" +
+            "(^2016)" +
+            "(-|/|_)" +
+            "(0[1-9]|1[0-2])" +
+            "(-|/|_)" +
+            "(0[1-9]|1[0-9]|2[0-9]|3[0-1])" +
+            ")";
+
+        Pattern pattern = Pattern.compile(dateRegEx);
+        Matcher matcher = pattern.matcher(date);
+
+        if (matcher.find()) {
+            System.out.println("# Found: " + matcher.group());
+        }
+    }
+
+    /**
+     *  EMail Id RegEx
+     */
     private static void matchEmails() {
         String[] mailIDs = {
             "mukthar.am@gmail.com",
@@ -18,24 +55,26 @@ public class RegularExpressions {
         };
         regEgEmail(mailIDs);
     }
+
+    /**
+     * ========================
+     * Logic:
+     * [a-zA-Z0-0] - matches single occurrence of 1 char
+     * .+          - "." matching previous char, "+" for one or more number of times
+     * (.)         - Says strict match of "." character,
+     * with "?"    - for zero or more number of occurrence
+     *
+     * @ - strict match
+     * (-inc)?     - zero or more match of "-inc"
+     * (.com$)     - String ending with ".com"
+     */
     private static void regEgEmail(String[] email) {
-        String regegPattern2 = "(" +
+        String emailRegExPattern = "(" +
             "^[a-zA-Z0-9].+((.)?[a-zA-Z0-0]+)?@[a-zA-Z]+(-inc)?(.com$)" +
             ")";
 
-        /**
-         * Logic:
-         [a-zA-Z0-0] - matches single occurrence of 1 char
-         .+          - "." matching previous char, "+" for one or more number of times
-         (.)         - Says strict match of "." character,
-         with "?"    - for zero or more number of occurrence
-         @           - strict match
-         (-inc)?     - zero or more match of "-inc"
-         (.com$)     - String ending with ".com"
-         */
-
-        System.out.println("# Using pattern: " + regegPattern2);
-        Pattern pattern = Pattern.compile(regegPattern2);
+        System.out.println("# Using pattern: " + emailRegExPattern);
+        Pattern pattern = Pattern.compile(emailRegExPattern);
 
         for (String mailIds : email) {
             Matcher matcher = pattern.matcher(mailIds);
@@ -45,4 +84,6 @@ public class RegularExpressions {
             }
         }
     }
+
+
 }
