@@ -1,6 +1,6 @@
 package com.muks.Algorithm.AlgosOnArrays.Matrix;
 
-public class MatrixTransposeOrRotate {
+public class TransposeOrRotate {
 	
 	public static void main(String[] args) {
         int[][] matrix = AMatrixUtils.getBasicMatrix();

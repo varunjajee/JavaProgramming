@@ -1,6 +1,6 @@
 package com.muks.Algorithm.AlgosOnArrays.Matrix;
 
-public class MatrixPrintUniqueRows {
+public class PrintUniqueRows {
 
 	/**
 	 * This should be implemented using trie datastructure

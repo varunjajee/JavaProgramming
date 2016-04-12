@@ -38,6 +38,15 @@ public class AMatrixUtils {
         }
         System.out.println("------\n");
     }
-
+    public static void printMatrix(boolean[][] matrix) {
+        System.out.println("# Matrix:\n------");
+        for (int row = 0; row < matrix.length; row++) {
+            for (int col = 0; col < matrix[0].length; col++) {
+                System.out.print(matrix[row][col] + " ");
+            }
+            System.out.println("");
+        }
+        System.out.println("------\n");
+    }
 
 }
