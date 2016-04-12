@@ -7,33 +7,33 @@
 // * implements a trie for storing strings/string prefixes
 // *
 // * @author Owen Astrachan
-// * @version $Id: Trie.javapack,v 1.1 1996/12/01 00:07:21 ola Exp ola $
+// * @version $Id: TrieMatrix.javapack,v 1.1 1996/12/01 00:07:21 ola Exp ola $
 // *
 // */
 //
 //
-//public class Trie
+//public class TrieMatrix
 //{
 //    /**
-//     *  create a new Trie (characters a-z)
+//     *  create a new TrieMatrix (characters a-z)
 //     * @return
 //     */
 //
-//    public void Trie()
+//    public void TrieMatrix()
 //    {
-//	myLinks = new Trie[ALPH];
+//	myLinks = new TrieMatrix[ALPH];
 //	myIsWord = false;
 //    }
 //
 //    /**
 //     * Add a string to the trie
 //     *
-//     * @param s The string added to Trie
+//     * @param s The string added to TrieMatrix
 //     */
 //
 //    public void addString(String s)
 //    {
-//	Trie t = this;
+//	TrieMatrix t = this;
 //	int k;
 //	int limit = s.length();
 //	for(k=0; k < limit; k++)
@@ -41,7 +41,7 @@
 //	    int index = s.charAt(k) - 'a';
 //	    if (t.myLinks[index] == null)
 //	    {
-//		t.myLinks[index] = new Trie();
+//		t.myLinks[index] = new TrieMatrix();
 //	    }
 //	    t = t.myLinks[index];
 //	}
@@ -50,14 +50,14 @@
 //
 //    public void addCString(char s[])
 //    {
-//	Trie t = this;
+//	TrieMatrix t = this;
 //	int k=0;
 //	while (s[k] != '\0')
 //	{
 //	    int index = s[k] - 'a';
 //	    if (t.myLinks[index] == null)
 //	    {
-//		t.myLinks[index] = new Trie();
+//		t.myLinks[index] = new TrieMatrix();
 //	    }
 //	    t = t.myLinks[index];
 //	    k++;
@@ -82,7 +82,7 @@
 //	doApply(rec,0,buffer,this);
 //    }
 //
-//    private void doApply(Recorder rec, int index, char buffer[], Trie t)
+//    private void doApply(Recorder rec, int index, char buffer[], TrieMatrix t)
 //    {
 //	if (t != null)
 //	{
@@ -102,7 +102,7 @@
 //	}
 //    }
 //
-//    void DoPrint(String s, Trie t)   // now superflous (see doApply)
+//    void DoPrint(String s, TrieMatrix t)   // now superflous (see doApply)
 //    {
 //	if (t != null)
 //	{
@@ -130,7 +130,7 @@
 //
 //    public boolean isWord(String s)
 //    {
-//	Trie t = this;
+//	TrieMatrix t = this;
 //	int k;
 //	int limit = s.length();
 //	for(k=0; k < limit; k++)
@@ -154,17 +154,17 @@
 //
 //    /**
 //     * @param ch Character used to index node (find child)
-//     * @return Trie formed from this by indexing using ch
+//     * @return TrieMatrix formed from this by indexing using ch
 //     */
 //
-//    Trie childAt(char ch)
+//    TrieMatrix childAt(char ch)
 //    {
 //	return myLinks[ch-'a'];
 //    }
 //
 //    private static final int ALPH = 26;
 //    private static final int BUFSIZ = 1024;
-//    private Trie[]  myLinks;
+//    private TrieMatrix[]  myLinks;
 //    private boolean myIsWord;
 //}
 //

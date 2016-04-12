@@ -6,7 +6,7 @@ import java.util.Map;
 import triesandgraphs.TrieEx.Node;
 
 /*
- * Trie is an efficient information retrieval data structure. 
+ * TrieMatrix is an efficient information retrieval data structure.
  * Using trie, search complexities can be brought to optimal limit (key length). 
  * If we store keys in binary search tree, a well balanced BST will need time proportional to O(M * log N), 
  * where M is maximum string length and N is number of keys in tree. 
@@ -107,7 +107,7 @@ public class TrieEx {
 
 
 	/*
-	 * Print Trie:
+	 * Print TrieMatrix:
 	 * 
 	 */
 //	public void printTrie() {

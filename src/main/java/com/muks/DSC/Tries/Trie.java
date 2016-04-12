@@ -3,8 +3,8 @@ package com.muks.DSC.Tries;
 /**
  * Created by mukthar.ahmed on 1/13/16.
  *
- * Time complexity of Trie -
- *  Trie creation = O(W * L) where W - is no. of words & L - average length of a word
+ * Time complexity of TrieMatrix -
+ *  TrieMatrix creation = O(W * L) where W - is no. of words & L - average length of a word
  *  Same goes for search where W - no. of words & L being the average length
  *
  * */
