@@ -6,7 +6,7 @@ package com.muks.Algorithm.AlgosOnArrays.Matrix;
  * - Given a matrix of characters, find all the words in the matrix
  */
 public class SearchWords{
-    static String[] dictionary = {"GEEKS", "FOR", "QUIZ", "GO"};
+    static String[] Dictionary = {"GEEKS", "FOR", "QUIZ", "GO"};
 
     public static void main(String[] args) {
         char[][] matrix = {
@@ -18,67 +18,55 @@ public class SearchWords{
         findWords(matrix);
     }
 
-    /**
-     * Prints all words present in dictionary
-     */
-    static void findWords(char[][] boggle) {
-        // Mark all characters as not visited
-        boolean[][] visited = new boolean[boggle.length][boggle[0].length];
 
-        // Initialize current string
+    private static void findWords(char[][] matrix) {
+        boolean[][] visited = new boolean[matrix.length][matrix[0].length];
+
         String str = "";
 
-        int rows = boggle.length;
-        int cols = boggle[0].length;
+        int rows = matrix.length;
+        int cols = matrix[0].length;
 
-        // Consider every character and look for all words starting with this character
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                findWordsUtil(boggle, visited, i, j, str);
+                findWordsHelper(matrix, visited, i, j, str);
             }
         }
     }
 
+    private static void findWordsHelper(char[][] matrix, boolean[][] visisted, int i, int j, String str) {
+        visisted[i][j] = true;  /** mark the as visisted */
 
+        str = str + matrix[i][j];   /** Collect the current char, add to the str */
 
-    // A recursive function to print all words present on boggle
-    static void findWordsUtil(char[][] boggle, boolean[][] visited, int i, int j, String str) {
-        // Mark current cell as visited and append current character to str
-        visited[i][j] = true;
-        str = str + boggle[i][j];
-
-        // If str is present in dictionary, then print it
         if (isWord(str)) {
-            System.out.println("# String: " + str);
+            System.out.println("# Found word: " + str);
         }
 
-        // Traverse 8 adjacent cells of boggle[i][j]
-        for (int row = i-1; row <= i+1 && row < boggle.length; row++) {
-            for (int col = j - 1; col <= j + 1 && col < boggle[0].length; col++) {
-
-
+        for (int row = i - 1; row <= i + 1 && (row < matrix.length); row++) {
+            for (int col = j - 1; col <= j + 1 && (col < matrix[0].length); col++) {
                 if (row >= 0 && col >= 0) {
-
-                    if ( !visited[row][col] ) {
-                        findWordsUtil(boggle, visited, row, col, str);
+                    if (!visisted[row][col]) {
+                        findWordsHelper(matrix, visisted, row, col, str);
                     }
                 }
+
             }
         }
 
-        // Erase current character from string and mark visited of current cell as false
-        str.substring(0, str.length()-1);
-        visited[i][j] = false;
+        str.substring(0, str.length() - 1);   /** Code control will reach here if not found, so keep removing char from str */
+        visisted[i][j] = false;             /** revert visited, mark as false */
+
     }
 
 
-    /** Check if the word exists in the dictionary array */
-    static boolean isWord(String str) {
-        for (String wordInDictionay : dictionary) {
-            if (str.equalsIgnoreCase(wordInDictionay)) {
+    private static boolean isWord(String inStr) {
+        for (String words : Dictionary) {
+            if (inStr.equalsIgnoreCase(words)) {
                 return true;
             }
         }
         return false;
     }
+
 }
