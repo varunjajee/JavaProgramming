@@ -5,12 +5,42 @@ import java.util.regex.Pattern;
 
 /**
  * Created by mukthar.ahmed on 4/12/16.
+ *
+ *  - Complete RegEx reference class
  */
+
 public class RegularExpressions {
     public static void main(String[] args) {
         //matchEmails();
+        //matchDate();
 
-        matchDate();
+        ipAddressValidators();
+    }
+
+    private static void ipAddressValidators() {
+        String[] ipAddresses = {
+            "10.14.100.21",
+            "127.0.1.1",
+            "192.168.1.1"
+        };
+        for (String ip : ipAddresses) {
+            IPAddressRegEx(ip);
+        }
+    }
+
+    private static void IPAddressRegEx(String ipAddress) {
+        String regEx = "(" +
+            "(192|127|10)" + "(.)" +
+            "([0-9]+)" + "(.)" +
+            "([0-9]+)" + "(.)" +
+            "([0-9]+)" +
+            ")";
+        Pattern pattern = Pattern.compile(regEx);
+        Matcher matcher = pattern.matcher(ipAddress);
+
+        if (matcher.find()) {
+            System.out.println("# Found: " + matcher.group());
+        }
     }
 
     /**
