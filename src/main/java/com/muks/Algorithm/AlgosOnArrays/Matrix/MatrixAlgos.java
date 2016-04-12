@@ -22,7 +22,7 @@ public class MatrixAlgos {
 
 		
 		// Q1: Find all possible words from the 2D array
-		//	Ans: Insert all the chars into a graph and do a breadth first1BinarySearch search to find words
+		//	Ans: Insert all the chars into a graph and do a breadth indexByBinarySearch search to find words
 		char[][] wordMat = {
 				{'a', 'f', 'h', 'u', 'n'},
 				{'e', 't', 'a', 'i', 'r'},

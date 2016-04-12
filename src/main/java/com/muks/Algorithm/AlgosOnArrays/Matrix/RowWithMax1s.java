@@ -33,8 +33,7 @@ public class RowWithMax1s {
         int i, index;
         for (i = 0; i < rows; i++) {
 
-            index = first1BinarySearch(mat[i], 0, cols-1);
-
+            index = indexByBinarySearch(mat[i], 0, cols-1);
 
             if (index != -1 && cols-index > max) {
                 max = cols - index;
@@ -43,24 +42,23 @@ public class RowWithMax1s {
         }
 
         System.out.println("# Row index with max 1s = " + max_row_index + ", Total 1s = " + max);
-
     }
 
     /** Find the index of first 1s occurrence */
-    static int first1BinarySearch(int[] arr, int low, int high) {
+    static int indexByBinarySearch(int[] arr, int low, int high) {
         if (high >= low) {
 
             int mid = low + (high - low)/2;
 
-            // check if the element at middle index is first1BinarySearch 1
+            // check if the element at middle index is indexByBinarySearch 1
             if ( ( mid == 0 || arr[mid-1] == 0) && arr[mid] == 1) {
                 return mid;
             }
-            else if (arr[mid] == 0) {   // if the element is 0, recur for right side
-                return first1BinarySearch(arr, (mid + 1), high);
+            else if (arr[mid] == 0) {   /** if element is 0, recur for right side, since row is sorted */
+                return indexByBinarySearch(arr, (mid + 1), high);
             }
-            else { // If element is not first 1, recur for left side
-                return first1BinarySearch(arr, low, (mid - 1));
+            else {
+                return indexByBinarySearch(arr, low, (mid - 1));
             }
         }
         return -1;

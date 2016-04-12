@@ -20,7 +20,7 @@ public class Set0sAnd1sBooleanMatrix {
         boolean firstRowOne = false;
         boolean firstColumnOne = false;
 
-        //set first1BinarySearch row and column zero or not
+        //set indexByBinarySearch row and column zero or not
         for (int i = 0; i < matrix.length; i++) {
             if (matrix[i][0] == 1) {
                 firstColumnOne = true;
@@ -54,7 +54,7 @@ public class Set0sAnd1sBooleanMatrix {
             }
         }
 
-        //setting back first1BinarySearch column and row to 1
+        //setting back indexByBinarySearch column and row to 1
         if (firstColumnOne) {
             for (int i = 0; i < matrix.length; i++) {
                 matrix[i][0] = 1;
