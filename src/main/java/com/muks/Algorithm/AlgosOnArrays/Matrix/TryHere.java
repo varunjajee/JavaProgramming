@@ -10,20 +10,4 @@ import java.util.List;
 public class TryHere {
 
 
-    public static void findWords(Character[][] matrix, List<String> wordsList) {
-
-        List<Character> matrixChars = new ArrayList<>();
-
-        for (Character[] row : matrix) {
-            matrixChars.addAll(Arrays.asList(row));
-        }
-
-
-        for (String word :  wordsList) {
-            List<Character> wordChars = new ArrayList<>();
-
-
-
-        }
-    }
 }

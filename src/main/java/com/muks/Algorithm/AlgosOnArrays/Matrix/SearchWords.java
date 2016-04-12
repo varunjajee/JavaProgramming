@@ -5,7 +5,7 @@ package com.muks.Algorithm.AlgosOnArrays.Matrix;
  * <p>
  * - Given a matrix of characters, find all the words in the matrix
  */
-public class WordsFinder {
+public class SearchWords{
     static String[] dictionary = {"GEEKS", "FOR", "QUIZ", "GO"};
 
     public static void main(String[] args) {
@@ -60,7 +60,6 @@ public class WordsFinder {
                 if (row >= 0 && col >= 0) {
 
                     if ( !visited[row][col] ) {
-
                         findWordsUtil(boggle, visited, row, col, str);
                     }
                 }
@@ -72,8 +71,9 @@ public class WordsFinder {
         visited[i][j] = false;
     }
 
-    static boolean isWord(String str) {
 
+    /** Check if the word exists in the dictionary array */
+    static boolean isWord(String str) {
         for (String wordInDictionay : dictionary) {
             if (str.equalsIgnoreCase(wordInDictionay)) {
                 return true;
