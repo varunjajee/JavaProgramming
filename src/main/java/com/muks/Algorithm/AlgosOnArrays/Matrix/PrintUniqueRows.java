@@ -6,7 +6,19 @@ public class PrintUniqueRows {
 
     /**
      * This should be implemented using trie datastructure
+     * Logic:
+     *      Creating a trie of child nodes with int[2], [0] and [1]
+     *      Iterate over the row elements,
+     *          if matrix[i][j] == 0; then find at the index = 0, if null, insert
+     *          same for matrix[i][j] == 1
+     *
+     *          At the end of the last element of a row, insert as isLeaf = true;
+     *
+     *          Before inserting isLeaf = true, check if (currNode.isLeaf) is already true
+     *              - if true, then its duplicate path traversed
+     *              - else, its unique
      */
+
 
     public static void main(String[] args) {
         int[][] matrix = {
@@ -29,23 +41,19 @@ public class PrintUniqueRows {
                     TrieNode newNode = new TrieNode(0);
 
                     currNode.children[0] = newNode;
-                    currNode = currNode.children[0];
-
-                } else {
-                    currNode = currNode.children[0];
                 }
-            } else {
+                currNode = currNode.children[0];
+
+            }
+            else {
                 if (currNode.children[1] == null) {
                     TrieNode newNode = new TrieNode(1);
 
                     currNode.children[1] = newNode;
-                    currNode = currNode.children[1];
-
-                } else {
-                    currNode = currNode.children[1];
                 }
-            }
 
+                currNode = currNode.children[1];
+            }
 
         }
 
@@ -62,7 +70,7 @@ public class PrintUniqueRows {
     }
 
     private static void findUniqueRows(int[][] matrix) {
-        Trie trie = new Trie(0);
+        Trie trie = new Trie();
 
         for (int row = 0; row < matrix.length; row++) {
             if (!insert(matrix, row, trie.root)) {
@@ -88,8 +96,8 @@ public class PrintUniqueRows {
     static class Trie {
         TrieNode root;
 
-        public Trie(int val) {
-            this.root = new TrieNode(val);
+        public Trie() {
+            this.root = new TrieNode(-1);
         }
     }
 
