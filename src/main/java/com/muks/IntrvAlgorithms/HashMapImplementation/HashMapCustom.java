@@ -38,24 +38,55 @@ public class HashMapCustom {
         }
     }
 
-    public void put(int key, int value) {
+    public void putModified(int key, int val) {
         int hash = (key % TABLE_SIZE);
-        System.out.println("\n+ Hashed to HashValue = " + hash);
 
         int initialHash = -1;
 
         int indexOfDeletedEntry = -1;
 
-        while (hash != initialHash
-            && (table[hash] == DeletedEntry.getUniqueDeletedEntry() || table[hash] != null
-            && table[hash].getKey() != key) ) {
+        while ( initialHash != hash &&
+            (table[hash] != null || table[hash] != DeletedEntry.getUniqueDeletedEntry() )
+            && table[hash].getKey() != key) {
 
-            System.out.println("+ Hash Collision - FOUND...");
+            System.out.println("# hash = " + hash + ", " + table[hash] );
+
+            hash = (hash+1) % TABLE_SIZE;
+
+        }
+
+        System.out.println("# Found uniq = " + hash);
+
+    }
+
+
+    public void put(int key, int value) {
+        int hash = (key % TABLE_SIZE);
+        System.out.println("\n===========");
+        System.out.println("+ Key = " + key + ", is hashed to HashValue = " + hash);
+
+
+        int initialHash = -1;
+
+        int indexOfDeletedEntry = -1;
+
+        /** handling hash collision */
+        while (hash != initialHash
+            && (table[hash] == DeletedEntry.getUniqueDeletedEntry() || table[hash] != null)
+            && table[hash].getKey() != key ) {
+
+            System.out.println("# hash =" + hash
+            + ", initHash = " + initialHash + ", tab[hash] = " + table[hash].getKey()
+            + ", tag[hash].getKey() = " + table[hash].getKey());
+            System.out.println("\n Hash Collision - FOUND...\n");
+
             if (initialHash == -1) {
                 initialHash = hash;
             }
 
             if (table[hash] == DeletedEntry.getUniqueDeletedEntry()) {
+                System.out.println("# Deleted: "
+                + DeletedEntry.getUniqueDeletedEntry().getKey());
                 indexOfDeletedEntry = hash;
             }
 
@@ -64,15 +95,22 @@ public class HashMapCustom {
 
         System.out.println("+ HashValue=" + hash);
 
-
+        /** Initial hash entry */
         if ((table[hash] == null || hash == initialHash) && indexOfDeletedEntry != -1) {
+            System.out.println("# Inserting @ deleted entry...");
             table[indexOfDeletedEntry] = new HashEntry(key, value);
 
-        } else if (initialHash != hash) {
-            if (table[hash] != DeletedEntry.getUniqueDeletedEntry() && table[hash] != null && table[hash].getKey() == key) {
+        } else if (initialHash != hash) {   /** Over ride the key's value */
+            if (table[hash] != DeletedEntry.getUniqueDeletedEntry()
+                && table[hash] != null
+                && table[hash].getKey() == key) {
+
+                System.out.println("# Updating the value,...");
                 table[hash].setValue(value);
 
-            } else {
+            }
+            else {    /** new slot entry */
+                System.out.println("# Inserting at a new hashed value");
                 table[hash] = new HashEntry(key, value);
             }
         }
@@ -98,6 +136,7 @@ public class HashMapCustom {
             return -1;
         }
         else {
+            System.out.println("# Was hashed @ " + hash);
             return table[hash].getValue();
         }
 

@@ -1,6 +1,6 @@
 package com.muks.oopsandjava.concepts.threads.a_runnable_callable_threads;
 
-import com.muks.oopsandjava.concepts.threads.e_blocking_nonblocking_algorithms.implementation.ConcurrentCounter;
+import com.muks.oopsandjava.concepts.threads.e_concurrency_nonblocking_algo.implementation.ConcurrentCounter;
 
 import java.util.ArrayList;
 import java.util.List;

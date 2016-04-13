@@ -5,14 +5,19 @@ package com.muks.IntrvAlgorithms.HashMapImplementation;
  */
 public class TestingHashMap {
     public static void main(String[] args) {
+
         HashMapCustom mapCustom = new HashMapCustom();
 
-        mapCustom.put(1, 2);
-        mapCustom.put(10, 3);
+        //mapCustom.put(1, 2);
 
-        mapCustom.remove(1);
-        mapCustom.put(1, 2222);
+        mapCustom.putModified(1, 2);
 
-        System.out.println(mapCustom.get(1));
+//        System.out.println(mapCustom.get(1));
+//        mapCustom.put(10, 3);
+//
+//        mapCustom.remove(1);
+//        mapCustom.put(1, 2222);
+//
+//        System.out.println(mapCustom.get(1));
     }
 }

@@ -45,20 +45,20 @@ public class RowWithMax1s {
     }
 
     /** Find the index of first 1s occurrence */
-    private static int indexByBinarySearch(int[] arr, int low, int high) {
-        if (high >= low) {
+    private static int indexByBinarySearch(int[] arr, int start, int end) {
+        if (end >= start) {
 
-            int mid = low + (high - low)/2;
+            int mid = start + (end - start)/2;
 
             // check if the element at middle index is indexByBinarySearch 1
             if ( ( mid == 0 || arr[mid-1] == 0) && arr[mid] == 1) {
                 return mid;
             }
             else if (arr[mid] == 0) {   /** if element is 0, recur for right side, since row is sorted */
-                return indexByBinarySearch(arr, (mid + 1), high);
+                return indexByBinarySearch(arr, (mid + 1), end);
             }
             else {
-                return indexByBinarySearch(arr, low, (mid - 1));
+                return indexByBinarySearch(arr, start, (mid - 1));
             }
         }
         return -1;

@@ -69,7 +69,7 @@ public class StringSegregateOrTranspose {
 	
 	// ##########################################################################################################
 	/* Complexity: O(n)
-	 * But space complexity is higher than o(n) since string is immutable, and we are working with
+	 * But space complexity is higher than o(n) since string is b_immutable, and we are working with
 	 * string append operations where in for each append, jvm creates a instance of a string in memory 
 	 */
 	

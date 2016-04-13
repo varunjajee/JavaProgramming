@@ -29,7 +29,7 @@
 //    //holds Pointer objects, which reference other Edges
 //    private LinkedList<Connector<E>> pointers;
 //
-//    //constructors
+//    //a_constructors
 //    public Edge(){
 //        //invoke constructor to initialize elem to null pointer
 //        this(null, Integer.MAX_VALUE);

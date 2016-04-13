@@ -15,7 +15,7 @@ import java.util.concurrent.*;
  * 1. Function overhead : Thread class loads whole lot of functions which are not generally used
 
  * 2. Inheritance option: Once we "extend Thread" class, we cannot extend any more as java allows extending only 1
- * class and doesn't support multiple inheritance via classes rather interfaces.
+ * class and doesn't support multiple d_inheritance via classes rather interfaces.
  */
 public class RunnableEg implements Runnable {
     String name;
