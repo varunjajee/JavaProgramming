@@ -1,6 +1,6 @@
-package com.muks.oopsandjava.concepts.threads.f_concurrency.racebysynchro;
+package com.muks.oopsandjava.concepts.threads.d_prodconsumerproblem.d_BankingEx.RaceBySynchro;
 
-import com.muks.oopsandjava.concepts.threads.f_concurrency.banking.BankAccount;
+import com.muks.oopsandjava.concepts.threads.d_prodconsumerproblem.d_BankingEx.Banking.BankAccount;
 
 import java.util.Random;
 

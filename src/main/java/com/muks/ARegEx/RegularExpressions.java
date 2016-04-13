@@ -1,5 +1,6 @@
 package com.muks.ARegEx;
 
+import java.util.NoSuchElementException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -124,5 +125,24 @@ public class RegularExpressions {
         }
     }
 
+    private static String urlParser(String inString) {
+        System.out.println("+ Parsing the string for a url - " + inString);
+
+        Pattern urlPattern = Pattern.compile("(" +
+            "(www|http|https)" +
+            "(://)?(.)?" +
+            "((\\w.)?)+" +
+            "(.)(\\w)(.)(com)" +
+            ")"
+        );
+
+        Matcher urlMatcher = urlPattern.matcher(inString);
+
+        if (urlMatcher.find()) {
+            return urlMatcher.group();
+        } else {
+            throw new NoSuchElementException("+ Couldn't find the required search pattern.");
+        }
+    }
 
 }

@@ -68,9 +68,9 @@ public class CallableEg implements Callable {
 
         for (Future<Integer> workerTask : listOfThreads) {
             try {
-
-                System.out.println("+ Worked picked Int: " + workerTask.get() );
-            } catch (Exception e) {
+                System.out.println("+ Worker picked Int: " + workerTask.get() );
+            }
+            catch (Exception e) {
                 e.printStackTrace();
             }
         }

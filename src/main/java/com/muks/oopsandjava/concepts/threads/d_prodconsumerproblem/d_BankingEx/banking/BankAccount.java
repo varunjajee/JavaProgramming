@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.threads.f_concurrency.banking;
+package com.muks.oopsandjava.concepts.threads.d_prodconsumerproblem.d_BankingEx.Banking;
 
 /*
  * Created by mukthar.ahmed on 11/1/15.

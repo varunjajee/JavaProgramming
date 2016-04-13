@@ -17,7 +17,7 @@ import java.util.concurrent.*;
  * 2. Inheritance option: Once we "extend Thread" class, we cannot extend any more as java allows extending only 1
  * class and doesn't support multiple d_inheritance via classes rather interfaces.
  */
-public class RunnableEg implements Runnable {
+public class RunnableEg implements Runnable{
     String name;
 
     RunnableEg(String name) {
