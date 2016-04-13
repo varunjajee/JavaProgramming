@@ -12,7 +12,7 @@ public class PrintingMatrix {
         //printMatrix(InputMatrixSets.getBasicMatrix());
         //printDiagonalByRecursion(InputMatrixSets.getBasicMatrix(), 0, 0);
 
-        printDiagonal(InputMatrixSets.getBasicMatrix());
+        printDiagonalRightToBottomLeft(InputMatrixSets.getBasicMatrix());
     }
 
 
@@ -52,28 +52,23 @@ public class PrintingMatrix {
 
 
     /** Printing all diagonal elements...   */
-    public static void printDiagonal (int[][] matrix) {
-        int cols = matrix.length;
-        System.out.println("\n+ Printing diagonal elements..");
+    private static void printDiagonalRightToBottomLeft(int[][] matrix) {
+        int rows = matrix.length;
 
-        for (int i=0; i < cols; i++) {
-            System.out.println( matrix[i][cols - (i+1)] );
+        for (int i = 0, j = 0; i < rows; i++, j++) {
+            System.out.println( matrix[i][j] );
         }
     }
 
 
 
-    // ####################################################################################################
-    // print the diagonal elements from left to right bottom
-
-    public static void printDiagonalLeft2Right (int[][] matrix) {
-        int n = matrix.length;
+    /** print the diagonal elements from left to right bottom   */
+    public static void printDiagonalLeft2RightBottom(int[][] matrix) {
+        int rows = matrix.length;
         System.out.println("\n+ Printing diagonal elements..");
 
-        //int j = 0;
-        for(int i=0, j=0; i < n; i++, j++) {
+        for(int i=0, j=0; i < rows; i++, j++) {
             System.out.println(matrix[i][j]);
-            //j++;
         }
     }
 }

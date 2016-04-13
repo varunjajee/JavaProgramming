@@ -7,7 +7,7 @@ public class TransposeOrRotate {
 
         //rotateAroundDiagonalInplace(matrix);
 
-        rotateMatrixClockwise(matrix);
+        rotateBy90Clockwise(matrix);
 	}
 
 	/** ------------------------------------------------------------------------------------
@@ -39,7 +39,6 @@ public class TransposeOrRotate {
 	            ret[i][j] = matrix[n - j - 1][i];
 	        }
 	    }
-
 	    return ret;
 	}
 
@@ -47,7 +46,7 @@ public class TransposeOrRotate {
 	/** ------------------------------------------------------------------------------------
 	 * 		Rotate by clockwise
      */
-	private static void rotateMatrixClockwise(int matrix[][]) {
+	private static void rotateBy90Clockwise(int matrix[][]) {
 		int n = matrix.length;
 		if (n <= 1) {
 			return; // nothing to do

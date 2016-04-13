@@ -33,13 +33,13 @@ public class AllSubArraysWithSum {
                 }
             }
 
-            List<Integer> newStart = new ArrayList<>();
+            List<Integer> newStartIndices = new ArrayList<>();
             if(mapIndex.containsKey(preSum)) {
-                newStart = mapIndex.get(preSum);
+                newStartIndices = mapIndex.get(preSum);
             }
 
-            newStart.add(i);
-            mapIndex.put(preSum, newStart);
+            newStartIndices.add(i);
+            mapIndex.put(preSum, newStartIndices);
         }
     }
 

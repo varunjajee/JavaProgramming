@@ -30,7 +30,8 @@ public class MatrixAlgos {
 				{'t', 'r', 'm', 'l', 'p'}
 
 		};
-		
+
+		getMatrixPaths(matrix);
 
 	}	// main()
 
@@ -70,7 +71,7 @@ public class MatrixAlgos {
 			System.out.println( matrix[i][n - (i+1)] );
 		}
 
-	} // printDiagonal()
+	} // printDiagonalRightToBottomLeft()
 
 
 	// ####################################################################################################

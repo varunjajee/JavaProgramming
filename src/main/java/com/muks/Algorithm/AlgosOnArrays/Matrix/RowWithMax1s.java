@@ -24,7 +24,7 @@ public class RowWithMax1s {
     }
 
     // The main function that returns index of row with maximum number of 1s.
-    static void rowWithMax1s(int[][] mat) {
+    private static void rowWithMax1s(int[][] mat) {
         int max_row_index = 0, max = -1; // Initialize max values
         int rows = mat.length;
         int cols = mat[0].length;
@@ -45,7 +45,7 @@ public class RowWithMax1s {
     }
 
     /** Find the index of first 1s occurrence */
-    static int indexByBinarySearch(int[] arr, int low, int high) {
+    private static int indexByBinarySearch(int[] arr, int low, int high) {
         if (high >= low) {
 
             int mid = low + (high - low)/2;
