@@ -19,6 +19,7 @@ public class RegularExpressions {
 
     private static void ipAddressValidators() {
         String[] ipAddresses = {
+            "0.14.100.21",
             "10.14.100.21",
             "127.0.1.1",
             "192.168.1.1"
@@ -30,11 +31,12 @@ public class RegularExpressions {
 
     private static void IPAddressRegEx(String ipAddress) {
         String regEx = "(" +
-            "(192|127|10)" + "(.)" +
-            "([0-9]+)" + "(.)" +
-            "([0-9]+)" + "(.)" +
-            "([0-9]+)" +
+            "^(1[1]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+            "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+            "([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
+            "([01]?\\d\\d?|2[0-4]\\d|25[0-5])$" +
             ")";
+
         Pattern pattern = Pattern.compile(regEx);
         Matcher matcher = pattern.matcher(ipAddress);
 
