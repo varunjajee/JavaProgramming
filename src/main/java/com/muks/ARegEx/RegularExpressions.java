@@ -29,6 +29,13 @@ public class RegularExpressions {
         }
     }
 
+    /**
+     *  IP Addresses
+     *      - never starts with 0.1.1.1
+     *      -
+     *
+     *
+     */
     private static void IPAddressRegEx(String ipAddress) {
         String regEx = "(" +
             "^(1[1]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
