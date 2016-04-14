@@ -98,7 +98,6 @@ public class HashMapByChianing {
             }
 
             // Recheck under synch if key apparently not there or interference
-
             synchronized(this) {
                 tab = table;
                 hash = hash & (tab.length - 1);

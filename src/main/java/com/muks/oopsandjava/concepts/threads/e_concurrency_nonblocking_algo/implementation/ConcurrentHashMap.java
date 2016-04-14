@@ -51,28 +51,42 @@ public class ConcurrentHashMap {
         }
 
         public E get(E key) {
-            int index = hashCompute((Integer) key);
+            int hash = hashCompute((Integer) key);
 
-            if (table[index].getKey() == key) {
-                return table[index].getValue();
+
+            if (table[hash].getKey() == key) {
+                return table[hash].getValue();
+
             } else {
-                HashEntry runner = table[index].next;
+                HashEntry runner = table[hash].next;
+
                 while (runner != null) {
-                    if (runner.getKey() == key) {
-                        return (E) runner.getValue();
+                    if (runner.hash == hash && runner.getKey() == key) {
+                        if ( runner.getValue() != null) {
+                            return (E) runner.getValue();
+                        }
+                        else {
+                            break;      /** value is removed by other thread, use synchronized block now */
+                        }
                     } else {
                         runner = runner.next;
                     }
                 }
 
-                return null;
+                Object lockObj = new Object();
+                synchronized (lockObj) {
+                    // re-lookup in the list for the key till the previous hash found
+                }
             }
+
+            return null;
 
         }
 
 
         public E getNonBlocking(E key) {
             int hash = hashCompute((Integer) key);     // throws null pointer exception if key is null
+
 
             // Try first without locking...
             HashEntry[] tab = table;
@@ -143,13 +157,13 @@ public class ConcurrentHashMap {
     public static void main(String[] args) {
         HashMap<Integer> hashMap = new ConcurrentHashMap().new HashMap();
 
-//        hashMap.put(10, 20);
-//        hashMap.put(20, 11);
-//        hashMap.put(21, 1);
+        hashMap.put(10, 20);
+        hashMap.put(20, 11);
+        hashMap.put(21, 1);
         hashMap.put(20, 10);
 
-        //int value = hashMap.get(20);
-        int value = hashMap.getNonBlocking(20);
+        int value = hashMap.get(20);
+//        int value = hashMap.getNonBlocking(20);
         System.out.println("# Val = " + value);
 
     }

@@ -15,4 +15,10 @@ import java.util.*;
 
 
 public class Test {
+    public static void main(String[] args) {
+        int hash = 20;
+        int index = hash & (128 - 1);
+
+        System.out.println("Index= " + index);
+    }
 }
