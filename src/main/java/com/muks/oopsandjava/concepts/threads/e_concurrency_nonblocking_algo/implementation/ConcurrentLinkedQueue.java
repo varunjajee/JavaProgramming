@@ -60,30 +60,29 @@ public class ConcurrentLinkedQueue<E> {
         while (true) {
             Node<E> currHead = head.get();
             Node<E> currHeadNext = currHead.next.get();
-            Node<E> currTail = tail.get();
+            Node<E> cTail = tail.get();
 
-            if ( currHead == head.get() ) {                         /** No thread has touch this yet, consistent */
-                if ( currHead == currTail ) {                       /** Queue empty or tail being updated? */
-                    if ( currHead == null ) {                   /** Empty queue encountered */
-                        return null;
+            if ( currHead == head.get() ) {                 /** Are head, tail, and next consistent? */
+
+                if ( currHead == cTail ) {               /** Queue empty or tail being updated? */
+
+                    if ( currHead.next == null ) {          /** Queue empty or tail being updated? */
+                        return null;    // Is queue empty
                     }
 
-                    tail.compareAndSet(currTail, currHeadNext);     /** Intermediate state, advance tail  */
-                }
-                else {
-                    if (head.compareAndSet(currHead, currHeadNext)) {
-                        return currHead.data;
-                    }
+                    tail.compareAndSet(cTail, currHeadNext);    /** tail updated. try to advance it */
                 }
             }
             else {
                 E nextItem = currHeadNext.data;
-                if ( head.compareAndSet(currHead, currHeadNext) ) {     /** Try to move head */
+                if ( head.compareAndSet(currHead, currHeadNext) ) {     /** No need to deal with tail */
                     return nextItem;
                 }
             }
 
         }
     }
+
+
 
 }

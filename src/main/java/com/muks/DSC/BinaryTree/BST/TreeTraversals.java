@@ -98,7 +98,6 @@ public class TreeTraversals {
         System.out.println("+ Printing left view: ");
 
         int startLevel = 1;
-
         leftViewUtil(root, startLevel);
     }
 
@@ -129,7 +128,6 @@ public class TreeTraversals {
         System.out.println("+ Printing right view: ");
 
         int startLevel = 1;
-
         rgtViewUtil(root, startLevel);
     }
 
@@ -217,7 +215,7 @@ public class TreeTraversals {
             TreeNode current = queue.remove();
 
             int lvl = current.hd;
-            System.out.println("+ level = " + lvl);
+
             if (!map.containsKey(lvl)) {
                 map.put(lvl, current.data);
                 System.out.println("+ current = " + current.data + ", lvl = " + lvl);
@@ -513,12 +511,10 @@ public class TreeTraversals {
 
             // Else if temp is a separator between two levels
             else if (temp == null) {
-                // Insert new separator if there are items in queue
                 if (queue.size() >= 1)
-                    queue.add(null);
+                    queue.add(null);    /** inserting level separator */
 
-                // making isFirst as true because next node will be
-                // leftmost node of that level
+                /** first node = true because next node will be leftmost node of that level */
                 isFirst = true;
 
                 // printing last node, only if that level
