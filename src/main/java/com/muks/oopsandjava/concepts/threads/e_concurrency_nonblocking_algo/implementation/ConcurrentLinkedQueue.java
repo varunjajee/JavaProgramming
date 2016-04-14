@@ -72,17 +72,15 @@ public class ConcurrentLinkedQueue<E> {
 
                     tail.compareAndSet(cTail, currHeadNext);    /** tail updated. try to advance it */
                 }
-            }
-            else {
-                E nextItem = currHeadNext.data;
-                if ( head.compareAndSet(currHead, currHeadNext) ) {     /** No need to deal with tail */
-                    return nextItem;
+                else {
+                    E nextItem = currHeadNext.data;
+                    if ( head.compareAndSet(currHead, currHeadNext) ) {     /** No need to deal with tail */
+                        return nextItem;
+                    }
                 }
-            }
 
+            }
         }
     }
-
-
-
+    
 }
