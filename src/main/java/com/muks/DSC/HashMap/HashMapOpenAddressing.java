@@ -22,7 +22,7 @@ package com.muks.DSC.HashMap;
  * - Collision resolution: (Chaining)
  * - Chaining makes use of the Singly Linked List.
  * - Each hash slot has is chained to a singly linked list, which is used when collision happens to the same
- * slot. Algo resolves it by writing it to the next available node of the Singly linkedlist.
+ * slot. Algo resolves it by writing it to the next available node of the Singly LinkedList.
  */
 
 public class HashMapOpenAddressing {

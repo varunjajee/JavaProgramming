@@ -33,7 +33,7 @@ public class V8JavascriptEngine {
     //
     //
     //        TestingBlockingAlgo {
-    //            engine.eval(new FileReader("/Users/mukthar.ahmed/Downloads/script.js"));
+    //            engine.eval(new FileReadWriteHandlers("/Users/mukthar.ahmed/Downloads/script.js"));
     //        } catch (ScriptException e) {
     //            e.printStackTrace();
     //        } catch (FileNotFoundException e) {

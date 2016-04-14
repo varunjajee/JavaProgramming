@@ -9,13 +9,13 @@ import java.util.List;
  */
 public class TrieNode {
     char data;
-    HashMap<Character, TrieNode> children = new HashMap<>();
-    List<Integer> wordIndexes = new ArrayList<>();
+    public HashMap<Character, TrieNode> children = new HashMap<>();
+    public List<Integer> wordIndexes = new ArrayList<>();
     boolean isLeaf;
 
     boolean isVisited = false;
 
-    List<Integer> endingIndices = new ArrayList<>();   /** user for pattern matching */
+    public List<Integer> endingIndices = new ArrayList<>();   /** user for pattern matching */
 
     public TrieNode() {
     }

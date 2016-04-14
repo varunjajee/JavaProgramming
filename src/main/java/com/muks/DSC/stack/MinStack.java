@@ -29,10 +29,10 @@ public class MinStack {
             head = new Node(x);
         }
         else {
-            Node temp = new Node(x);
-            temp.min = Math.min(head.min, x);
-            temp.next = head;
-            head = temp;
+            Node newNode = new Node(x);
+            newNode.min = Math.min(head.min, x);
+            newNode.next = head;
+            head = newNode;
         }
     }
 

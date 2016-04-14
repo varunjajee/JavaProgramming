@@ -15,10 +15,10 @@ import java.util.NoSuchElementException;
  * <p>
  * <p>
  * Concept:
- * - Maintain the most recent entries at the head of the linkedlist and move "old" items
+ * - Maintain the most recent entries at the head of the LinkedList and move "old" items
  * towards the right of the linked list
  * <p>
- * - while "put()" OR while "get()" any item, pull the entry to the head of the linkedlist
+ * - while "put()" OR while "get()" any item, pull the entry to the head of the LinkedList
  */
 public class LRU {
     // LRU LRUNode
@@ -74,7 +74,7 @@ public class LRU {
         if (cache.containsKey(key)) {
             LRUNode node = cache.get(key);
 
-            remove(node);       // remove the node from the linkedlist
+            remove(node);       // remove the node from the LinkedList
 
             setHead(node);      // set the recent accessed node as head
 
@@ -93,7 +93,7 @@ public class LRU {
         } else if (node.next == null) {           // node is tail
             tail = node.previous;
         } else {  // node is not head
-            node.previous.next = node.next;          // node is in mid of the doubly linkedlist
+            node.previous.next = node.next;          // node is in mid of the doubly LinkedList
         }
     }
 
@@ -109,7 +109,7 @@ public class LRU {
             head = node;
         }
 
-        // linkedlist is full
+        // LinkedList is full
 
     }
 

@@ -27,7 +27,7 @@ public class ReverseFile {
 
 
 //        /** Simple way to read file without Reversing */
-//        FileReader logReader = new FileReader(inputFile);
+//        FileReadWriteHandlers logReader = new FileReadWriteHandlers(inputFile);
 //        BufferedReader bufferedReader = new BufferedReader(logReader);
 //        System.out.println("Simple way to read file without Reversing - from 1 to 10");
 //

@@ -125,7 +125,7 @@ public class HashMapByChianing {
 
                 while (current != null) {
                     if (current.getKey() == key) {
-                        if (previous == null) {     /** Hash key is the head of the linkedlist */
+                        if (previous == null) {     /** Hash key is the head of the LinkedList */
                             table[hash] = table[hash].next;
                             return true;
                         }

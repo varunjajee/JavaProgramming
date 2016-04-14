@@ -1,4 +1,4 @@
-package com.muks.DSC.Tries;
+package com.muks.DSC.Tries.Algo;
 
 import java.util.ArrayList;
 

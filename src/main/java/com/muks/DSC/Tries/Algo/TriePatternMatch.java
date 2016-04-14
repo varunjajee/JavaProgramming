@@ -1,9 +1,12 @@
-package com.muks.DSC.Tries;
+package com.muks.DSC.Tries.Algo;
+
+import com.muks.DSC.Tries.TrieNode;
 
 import java.util.HashMap;
 
 /**
  * Created by mukthar.ahmed on 3/6/16.
+ * -
  */
 public class TriePatternMatch {
 
@@ -27,10 +30,9 @@ public class TriePatternMatch {
             }
 
             int endIndex = charIndex + offset;
+            t.endingIndices.add(endIndex);
 
             System.out.println("+ char = " + ch + ", ending index = " + endIndex);
-
-            t.endingIndices.add(endIndex);
 
             charIndex++;
             children = t.children;

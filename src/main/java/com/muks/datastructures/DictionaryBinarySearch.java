@@ -19,7 +19,7 @@ public class DictionaryBinarySearch {
 	 *    comparable for equality.
 	 * 
 	 * 6. How can dictionay ADT can be implemented.
-	 * 		Arrays, linkedlist (inefficient)
+	 * 		Arrays, LinkedList (inefficient)
 	 * 		Hash table (used in javapack)
 	 *  	Binary trees
 	 *  	Red/Black trees

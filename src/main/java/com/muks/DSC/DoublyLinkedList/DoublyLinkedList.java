@@ -1,6 +1,6 @@
 package com.muks.DSC.DoublyLinkedList;
 
-import com.muks.DSC.linkedlist.LinkedList;
+import com.muks.DSC.LinkedList.LinkedList;
 
 import java.util.NoSuchElementException;
 
@@ -133,7 +133,7 @@ public class DoublyLinkedList extends LinkedList {
                     tail = curr.previous;
 
                 } else {  // node is not head
-                    curr.previous.next = curr.next;          // node is in mid of the doubly linkedlist
+                    curr.previous.next = curr.next;          // node is in mid of the doubly LinkedList
 
                 }
             }

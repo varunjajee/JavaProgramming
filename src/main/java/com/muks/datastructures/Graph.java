@@ -1,6 +1,6 @@
 //package datastructures;
 //
-//import javapack.io.FileReader;
+//import javapack.io.FileReadWriteHandlers;
 //import javapack.io.InputStreamReader;
 //import javapack.io.BufferedReader;
 //import javapack.io.IOException;
@@ -447,7 +447,7 @@
 //        Graph g = new Graph( );
 //        TestingBlockingAlgo
 //        {
-//            FileReader fin = new FileReader( args[0] );
+//            FileReadWriteHandlers fin = new FileReadWriteHandlers( args[0] );
 //            BufferedReader graphFile = new BufferedReader( fin );
 //
 //            // Read the edges and insert

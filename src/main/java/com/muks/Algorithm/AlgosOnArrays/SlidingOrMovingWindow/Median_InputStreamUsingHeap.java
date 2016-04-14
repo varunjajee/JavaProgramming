@@ -22,7 +22,7 @@ import java.util.PriorityQueue;
  *      are less than effective median, and a min heap on right side to represent elements that are greater than
  *      effective median
  */
-public class MedianFromInputStreamUsingHeap {
+public class Median_InputStreamUsingHeap {
 
     static class MedianFinder {
         private PriorityQueue<Integer> leftPQ = new PriorityQueue<>(Collections.reverseOrder());
