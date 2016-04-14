@@ -142,7 +142,10 @@ public class HashMapByChianing {
                 }
             }
 
+            return false;
         }
+
+
         public int hashCompute(int h) {
 //            h ^= (h >>> 20) ^ (h >>> 12);
 //            int hashCode = h ^ (h >>> 7) ^ (h >>> 4);
