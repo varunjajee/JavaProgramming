@@ -22,7 +22,7 @@ package com.muks.DSC.BinaryTree.BST;
  */
 
 
-import com.muks.DSC.BinaryTree.BST.Trees.TreeNode;
+import com.muks.DSC.BinaryTree.BST.TreeNode;
 
 public class BinarySearchTree {
     public TreeNode root;
@@ -70,6 +70,7 @@ public class BinarySearchTree {
             return null;
 
         int mid = end + (start - end) / 2;
+
         TreeNode root = new TreeNode(num[mid]);
         root.left = createBalancedTree(num, start, mid - 1);
         root.right = createBalancedTree(num, mid + 1, end);

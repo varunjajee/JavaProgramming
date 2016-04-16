@@ -966,23 +966,23 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
             return -1;
         }
 
-        Node refpntr = head;
+        Node RefPointer = head;
         Node mainpntr = head;
 
         int count = 0;
 
         while (count <= n) {
-            if (refpntr == null) {
+            if (RefPointer == null) {
                 return -1;
             }
 
-            refpntr = refpntr.next;
+            RefPointer = RefPointer.next;
             count++;
         }
 
-        while (refpntr != null) {
-            System.out.println("+ ref-pntr = " + refpntr + ", mainpntr = " + mainpntr);
-            refpntr = refpntr.next;
+        while (RefPointer != null) {
+            System.out.println("+ ref-pntr = " + RefPointer + ", mainpntr = " + mainpntr);
+            RefPointer = RefPointer.next;
             mainpntr = mainpntr.next;
         }
 

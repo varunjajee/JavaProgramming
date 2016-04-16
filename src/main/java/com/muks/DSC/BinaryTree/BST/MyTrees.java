@@ -1,6 +1,4 @@
-package com.muks.DSC.BinaryTree.BST.Trees;
-
-import com.muks.DSC.BinaryTree.BST.BinarySearchTree;
+package com.muks.DSC.BinaryTree.BST;
 
 /**
  * Created by mukthar.ahmed on 3/25/16.

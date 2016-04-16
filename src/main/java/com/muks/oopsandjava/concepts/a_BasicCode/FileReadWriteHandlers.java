@@ -38,9 +38,14 @@ public class FileReadWriteHandlers {
     }
 
     public void WriteFile() {
-        String writeFile = "/Users/mukthar.ahmed/Downloads/writefile";
+        String inWriteFile = "/Users/mukthar.ahmed/Downloads/writefile";
+        File writeFile = new File(inWriteFile + ".*");
 
         try {
+
+            if (writeFile.exists()) {
+                writeFile.delete();
+            }
             PrintWriter printWriter = new PrintWriter(new File(writeFile + "-1.txt"));
             printWriter.write("first line");
             printWriter.write("second line");

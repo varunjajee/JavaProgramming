@@ -1,8 +1,8 @@
-package com.muks.DSC.BinaryTree.BST;
+package com.muks.DSC.BinaryTree.BST.Algos;
 
 
-import com.muks.DSC.BinaryTree.BST.Trees.MyTrees;
-import com.muks.DSC.BinaryTree.BST.Trees.TreeNode;
+import com.muks.DSC.BinaryTree.BST.MyTrees;
+import com.muks.DSC.BinaryTree.BST.TreeNode;
 
 import java.util.*;
 

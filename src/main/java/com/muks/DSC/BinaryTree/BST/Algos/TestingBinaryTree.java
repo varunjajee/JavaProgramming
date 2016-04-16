@@ -1,12 +1,13 @@
-package com.muks.DSC.BinaryTree.BST;
+package com.muks.DSC.BinaryTree.BST.Algos;
 
 /*
  * Created by mukthar.ahmed on 1/6/16.
  */
 
 
-import com.muks.DSC.BinaryTree.BST.Trees.MyTrees;
-import com.muks.DSC.BinaryTree.BST.Trees.TreeNode;
+import com.muks.DSC.BinaryTree.BST.BinarySearchTree;
+import com.muks.DSC.BinaryTree.BST.MyTrees;
+import com.muks.DSC.BinaryTree.BST.TreeNode;
 
 public class TestingBinaryTree {
 
