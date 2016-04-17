@@ -10,7 +10,7 @@ public class IntegerToWords {
 	}
 
 
-	public static String numberInWords(int number, StringBuilder sb) {
+	private static String numberInWords(int number, StringBuilder sb) {
 		System.out.println("\n+ Number: " + number);		// Debug
 		
 		String[] digit = { "", "one", "two", "three", "four", "five", "six",

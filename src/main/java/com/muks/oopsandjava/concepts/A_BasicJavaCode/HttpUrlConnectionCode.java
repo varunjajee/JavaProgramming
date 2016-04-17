@@ -1,12 +1,10 @@
-package com.muks.oopsandjava.concepts.a_BasicCode;
+package com.muks.oopsandjava.concepts.A_BasicJavaCode;
 
 import org.apache.commons.validator.UrlValidator;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLConnection;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by mukthar.ahmed on 4/15/16.

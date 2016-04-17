@@ -1,4 +1,4 @@
-package com.muks.oopsandjava.concepts.a_BasicCode;
+package com.muks.oopsandjava.concepts.A_BasicJavaCode;
 
 import java.io.*;
 

@@ -75,9 +75,7 @@ public class TreeTraversals {
                     if (curr.left != null) {
                         tempStack.add(curr.left);
                     }
-
                 }
-
             }
 
             directionFlag = !directionFlag;     /** Flip direction flag */
@@ -154,6 +152,47 @@ public class TreeTraversals {
      * TOP view - add ONLY first visited node to the map
      * BOTTOM view - keep over writing the node to the map val so that only the last visited node is available
      */
+    public static void printTopView(TreeNode root) {
+        if (root == null) {
+            return;
+        }
+
+        int hd = 0; // horizontal distance
+        root.hd = 0;
+
+        /* TreeMap which stores key value pair sorted on key value */
+        Map<Integer, Integer> map = new TreeMap<>();
+
+        /* Queue to store tree nodes in level order traversal */
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+
+        while (!queue.isEmpty()) {
+            TreeNode current = queue.remove();
+
+            int lvl = current.hd;
+
+            if (!map.containsKey(lvl)) {
+                map.put(lvl, current.data);
+                System.out.println("+ current = " + current.data + ", lvl = " + lvl);
+            }
+
+            if (current.left != null) {
+                current.left.hd = lvl - 1;
+                queue.add(current.left);
+
+            }
+
+            if (current.right != null) {
+                current.right.hd = lvl + 1;
+                queue.add(current.right);
+            }
+        }
+
+        System.out.println(map.toString());
+    }
+
     public static void printBottomView(TreeNode root) {
         if (root == null) {
             return;
@@ -195,46 +234,7 @@ public class TreeTraversals {
 
     }
 
-    public static void printTopView(TreeNode root) {
-        if (root == null) {
-            return;
-        }
 
-        int hd = 0; // horizontal distance
-        root.hd = 0;
-
-        /* TreeMap which stores key value pair sorted on key value */
-        Map<Integer, Integer> map = new TreeMap<>();
-
-        /* Queue to store tree nodes in level order traversal */
-        Queue<TreeNode> queue = new LinkedList<>();
-        queue.add(root);
-
-
-        while (!queue.isEmpty()) {
-            TreeNode current = queue.remove();
-
-            int lvl = current.hd;
-
-            if (!map.containsKey(lvl)) {
-                map.put(lvl, current.data);
-                System.out.println("+ current = " + current.data + ", lvl = " + lvl);
-            }
-
-            if (current.left != null) {
-                current.left.hd = lvl - 1;
-                queue.add(current.left);
-
-            }
-
-            if (current.right != null) {
-                current.right.hd = lvl + 1;
-                queue.add(current.right);
-            }
-        }
-
-        System.out.println(map.toString());
-    }
 
     public static void verticalOrderTraversal(TreeNode root) {
         if (root == null) {
@@ -425,21 +425,21 @@ public class TreeTraversals {
         public static void printBoundry(BinarySearchTree bst) {
             System.out.println("\n Boudary traversal...");
             if (bst.root != null) {
-                System.out.print(" " + bst.root);
+                System.out.print(" " + bst.root.data);
                 printLeftmostNodes(bst.root.left);
                 printRightmostNodes(bst.root.right);
                 printLeafNodes(bst.root);
             }
         }
 
-        private static void printLeftmostNodes(TreeNode node) {
+        public static void printLeftmostNodes(TreeNode node) {
             if (node != null) {
                 if (node.left != null) {
-                    System.out.print(" " + node);
+                    System.out.print(" " + node.data);
                     printLeftmostNodes(node.left);
                 }
                 else if (node.right != null){
-                    System.out.print(" " + node);
+                    System.out.print(" " + node.data);
                     printLeftmostNodes(node.right);
                 }
 
@@ -451,7 +451,7 @@ public class TreeTraversals {
 
             if (node !=  null) {
                 if (node.right != null) {
-                    System.out.print(" " + node);
+                    System.out.print(" " + node.data);
                     printRightmostNodes(node.right);
                 }
                 else if (node.left != null) {
@@ -467,7 +467,7 @@ public class TreeTraversals {
             }
 
             if (node.left == null && node.right == null) {
-                System.out.print(" " + node);
+                System.out.print(" " + node.data);
             }
 
             printLeafNodes(node.left);
@@ -538,4 +538,6 @@ public class TreeTraversals {
             }
         }
     }
+
+
 }

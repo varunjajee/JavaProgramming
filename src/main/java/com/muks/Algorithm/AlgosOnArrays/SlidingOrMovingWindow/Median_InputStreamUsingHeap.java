@@ -38,7 +38,7 @@ public class Median_InputStreamUsingHeap {
                 rightPQ.offer(num);
             }
 
-            System.out.println("# Left-PQ: " + leftPQ.toString() + ", Right-PG: " + rightPQ.toString());
+            System.out.println("# Left-PQ: " + leftPQ.toString() + ", Right-PQ: " + rightPQ.toString());
 
             /** Re balance the pqs */
             if (leftPQ.size() - rightPQ.size() > 1) {
@@ -87,7 +87,10 @@ public class Median_InputStreamUsingHeap {
 
         System.out.println("+ Median: " + medianFinder.findMedian());
         medianFinder.addNum(3);
+        medianFinder.addNum(5);
 
+        System.out.println("# Left PQ: " + medianFinder.leftPQ.toString() );
+        System.out.println("# Right PQ: " + medianFinder.rightPQ.toString() );
         System.out.println("+ Median: " + medianFinder.findMedian());
 
     }

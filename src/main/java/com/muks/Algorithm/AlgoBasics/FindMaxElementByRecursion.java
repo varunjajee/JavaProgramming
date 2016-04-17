@@ -18,7 +18,7 @@ public class FindMaxElementByRecursion {
 		
 		while ( n >= 0 ) { 	// while is required, else we encounter arrayoutofbound exception coz it moves to (n = -1)
 
-			if(max < arr[n]) {
+			if (max < arr[n]) {
 				System.out.println("From inner statement: " + max + " = " + arr[n]);
 				max = arr[n];
 				return maxByRecursion(arr, n-1, max);

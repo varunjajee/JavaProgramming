@@ -9,6 +9,9 @@ import com.muks.DSC.BinaryTree.BST.BinarySearchTree;
 import com.muks.DSC.BinaryTree.BST.MyTrees;
 import com.muks.DSC.BinaryTree.BST.TreeNode;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 public class TestingBinaryTree {
 
     static TreeNode targetLeaf = null;
@@ -53,7 +56,6 @@ public class TestingBinaryTree {
 //
 //        System.out.println("+ Has same leaves: " +
 //            AlgosBinarySearchTree.compareLeavesOfTwoTrees(bst.root, bst2.root));
-
 
 
 //        BinarySearchTree bst = new BinarySearchTree(12);
@@ -165,11 +167,12 @@ public class TestingBinaryTree {
 
 
         BinarySearchTree boundyTree = MyTrees.getBoundryTree();
-//        TreeTraversals.PrintBoundryOfTree boundryTraversal = new TreeTraversals.PrintBoundryOfTree();
-//        boundryTraversal.printBoundry(boundyTree);
+        //TreeTraversals.PrintBoundryOfTree boundryTraversal = new TreeTraversals.PrintBoundryOfTree();
+        //boundryTraversal.printBoundry(boundyTree);
 
-        TreeTraversals.printBoundrySingleTraversal(boundyTree.root);
+        TreeTraversals.printRightView(boundyTree.root);
 
+        //TreeTraversals.printBoundrySingleTraversal(boundyTree.root);
     }
 
 

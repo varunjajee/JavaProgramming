@@ -500,10 +500,9 @@ class AlgosBinarySearchTree {
         return (node.left == null & node.right == null);
     }
 
-    public static TreeNode findLeafHelper(TreeNode node, Stack<TreeNode> traceStack) {
-        System.out.println("\n Node = " + node);
+    private static TreeNode findLeafHelper(TreeNode node, Stack<TreeNode> traceStack) {
+
         while (node != null && (node.left != null && node.right != null)) {
-            System.out.println("==== " + node.data);
             if (node.left != null) {
                 traceStack.push(node.left);
             }
@@ -516,7 +515,6 @@ class AlgosBinarySearchTree {
             System.out.println(" - " + node.data);
         }
 
-        System.out.print("+ Returning child node = " + node.data + " ");
         return node;
     }
 
@@ -615,6 +613,7 @@ class AlgosBinarySearchTree {
 
     public static void printDiagonalSum(TreeNode root) {
         System.out.println("\n=== Printing diagonal sum ====");
+
         HashMap<Integer, List<TreeNode>> nodeList = new HashMap<>();
         HashMap<Integer, Integer> map = new HashMap<>();
         Queue<TreeNode> queue = new LinkedList<>();
@@ -701,16 +700,16 @@ class AlgosBinarySearchTree {
             path(root, maxLeaf);
         }
 
-        public void maxSum(TreeNode root, int sum) {
-            if (root != null) {
-                sum = sum + root.data;
-                if (sum > maxSum && root.left == null && root.right == null) {
-                    maxLeaf = root;
+        public void maxSum(TreeNode node, int sum) {
+            if (node != null) {
+                sum = sum + node.data;
+                if (sum > maxSum && node.left == null && node.right == null) {
+                    maxLeaf = node;
                     maxSum = sum;
                 }
                 //	System.out.println("Sum " + sum);
-                maxSum(root.left, sum);
-                maxSum(root.right, sum);
+                maxSum(node.left, sum);
+                maxSum(node.right, sum);
             }
         }
 
