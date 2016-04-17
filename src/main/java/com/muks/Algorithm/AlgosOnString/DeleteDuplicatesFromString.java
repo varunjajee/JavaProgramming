@@ -6,16 +6,90 @@ public class DeleteDuplicatesFromString {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String s = "abcbbaad";
+		String s = "abcbbaed";
 		char[] arr = s.toCharArray();
 
 		//removeDupUsingSubstring(s);
 		//deleteDupUsingArray(s);
 
-        getUniq(s);
+        deDuplicateByHashing(s.toCharArray());
+
 
 	}	// end main()
 
+    /** ==================================================================
+     * Deleting duplicate chars from arr string,
+     Time - O(n)
+     Space - (1) auxillary space
+
+        Very important one
+
+     */
+    private static void deDuplicateByHashing(char[] arr) {
+        boolean[] isVisisted = new boolean[256];
+
+        int j = 0;
+        for (int i = 0; i < arr.length; i++) {
+
+            if ( !isVisisted[ arr[i] ] ) {
+                isVisisted[arr[i]] = true;
+                arr[j] = arr[i];
+                j++;
+            }
+        }
+
+        arr[j] = '\0';
+
+        for (char ch : arr) {
+            System.out.print(" " + ch);
+        }
+    }
+
+
+
+    static void deDupByBitwise(char str[]){
+        int i, checker = 0, bitvalue = 0, value = 0, tail = 0;
+        i = 0;
+        tail = 0;
+        while(i < str.length){
+            value = str[i] - 'a';
+            bitvalue = 1 << value;
+
+            System.out.println("# Val = " + value + ", BitValue = " + bitvalue);
+            if ( (checker & bitvalue) == 0 ) {
+                System.out.println("# checker = " + checker + ", bitVal = " + bitvalue
+                + " ===== true");
+                str[tail++] = str[i];
+                checker |= bitvalue;
+            }
+            i++;
+        }
+        str[tail] = '\0';
+
+        for (int j = 0; j < str.length; j++) {
+            System.out.print(" " + str[j]);
+        }
+    }
+
+
+
+    public static void RemoveDuplicates(char[] str){
+        int check = 0;
+        for(int i = 0; i < str.length; i++){
+            int val = str[i] - 'a';
+            if((check & (1 << val)) > 0){
+                str[i] = '\0';
+                continue;
+            }
+            check = check | (1 << val);
+        }
+        for(int j = 0; j < str.length; j++){
+            if(str[j] == '\0')
+                continue;
+            else
+                System.out.print(str[j]);
+        }
+    }
 
     private static void getUniq(String input) {
         boolean[] charCounter = new boolean[256];
