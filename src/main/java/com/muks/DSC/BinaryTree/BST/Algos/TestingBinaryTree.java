@@ -9,9 +9,6 @@ import com.muks.DSC.BinaryTree.BST.BinarySearchTree;
 import com.muks.DSC.BinaryTree.BST.MyTrees;
 import com.muks.DSC.BinaryTree.BST.TreeNode;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class TestingBinaryTree {
 
     static TreeNode targetLeaf = null;
@@ -167,10 +164,19 @@ public class TestingBinaryTree {
 
 
         BinarySearchTree boundyTree = MyTrees.getBoundryTree();
+
+
+
+
+
+//        List<TreeNode> path = new ArrayList<>();
+//        AlgosBinarySearchTree.nodePathFinder(boundyTree.root, 10, path);
+//        System.out.println(path.toString());
+
         //TreeTraversals.PrintBoundryOfTree boundryTraversal = new TreeTraversals.PrintBoundryOfTree();
         //boundryTraversal.printBoundry(boundyTree);
 
-        TreeTraversals.printRightView(boundyTree.root);
+        //TreeTraversals.printRightView(boundyTree.root);
 
         //TreeTraversals.printBoundrySingleTraversal(boundyTree.root);
     }

@@ -9,7 +9,8 @@ package com.muks.Algorithm.AlgosOnArrays.SlidingOrMovingWindow;
  *  number is a constant
  *  Eg: 2, 4, 6, 7 or 1,2,3,4...
  */
-public class MissingElementFromAP {
+public class
+MissingElementFromAP {
 
     public static void main(String[] args) {
         int[] arr1 = {4, 6, 8, 10, 12, 14};

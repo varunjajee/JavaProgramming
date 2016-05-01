@@ -23,9 +23,10 @@ public class MaxFrmSlidingWindowUsingDequeue {
         int[] arr = {1, 2, 3, 1, 4, 5, 2, 3, 6};
         int k = 3;
 
+        int[] intArr = {-1, 3, -5, 4, 6, -1, 4, -7, 13, -3};
         //naiveMaxSolution(arr, k);
 
-        maxSlidingWindow(arr, k);
+        maxSlidingWindow(intArr, k);
     }
 
 

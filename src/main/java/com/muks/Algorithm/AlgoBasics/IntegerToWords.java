@@ -22,7 +22,6 @@ public class IntegerToWords {
 				"sixty", "seventy", "eighty", "ninety" };
 		
 		if (number > 0 && number < 20) {
-			System.out.println("(1)");
 			sb.append(digit[number]);
 			
 		} 

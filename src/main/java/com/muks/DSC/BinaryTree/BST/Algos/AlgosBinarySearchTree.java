@@ -470,6 +470,7 @@ class AlgosBinarySearchTree {
             curr2 = findLeafHelper(curr2, stack2);
 
 
+            System.out.println("# C1 = " + curr1 + ", C2=" + curr2);
             // If one is null and other is not, then return false
             if (curr1 == null && curr2 != null) {
                 return false;
@@ -515,6 +516,7 @@ class AlgosBinarySearchTree {
             System.out.println(" - " + node.data);
         }
 
+        System.out.println("# Trace: " + traceStack.toString());
         return node;
     }
 
@@ -611,47 +613,56 @@ class AlgosBinarySearchTree {
     }
 
 
-    public static void printDiagonalSum(TreeNode root) {
-        System.out.println("\n=== Printing diagonal sum ====");
-
-        HashMap<Integer, List<TreeNode>> nodeList = new HashMap<>();
-        HashMap<Integer, Integer> map = new HashMap<>();
-        Queue<TreeNode> queue = new LinkedList<>();
-
-        int vd = 0; /** root.vd = 0 */
+    /**
+     *
+     * Logic:
+     *  - Breadth first traversal using Q,
+     *      - if left then (curr.left.vd = curr.vd + 1)
+     *      - if right, (curr.right.vd = curr.vd )
+     *
+     */
+    public static void DiagonalSum(TreeNode root) {
+        System.out.println("# diagonal");
+        int vd = 0;
         root.vd = 0;
 
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
+
+        HashMap<Integer, List<TreeNode>> listMap = new HashMap<>();
+        HashMap<Integer, Integer> sumMap = new HashMap<>();
 
         while ( !queue.isEmpty() ) {
             TreeNode curr = queue.remove();
+            System.out.println("# curr = " + curr.data);
+
             vd = curr.vd;
 
-            while (curr != null) {
-                int prevSum = (map.get(vd) == null) ? 0 : map.get(vd);
-                map.put(vd, prevSum + curr.data);
+            if (listMap.containsKey(vd)) {
+                listMap.get(vd).add(curr);
 
-                if (nodeList.get(vd) == null) {
-                    nodeList.put(vd, new ArrayList<>(Arrays.asList(curr)));
-                } else {
-                    nodeList.get(vd).add(curr);
-                }
-
-                if (curr.left != null) {
-                    curr.left.vd = vd + 1;
-                    queue.add(curr.left);
-                }
-
-                curr = curr.right;
+                int preSum = sumMap.get(vd);
+                sumMap.put(vd, preSum + curr.data);
+            }
+            else {
+                listMap.put(vd, new ArrayList(Collections.singleton(curr.data)));
+                sumMap.put(vd, curr.data);
             }
 
+            if (curr.left != null) {
+                curr.left.vd = curr.vd + 1;
+                queue.add(curr.left);
+            }
 
+            if (curr.right != null) {
+                curr.right.vd = curr.vd;
+                queue.add(curr.right);
+            }
         }
 
-        System.out.println("+ Diagonal Sum Map: " + map.toString());
-        System.out.println("+ Diagonal Nodes Map: "+ nodeList.toString());
+        System.out.println("# List Map: " + listMap.toString());
+        System.out.println("# Sum Map: " + sumMap.toString() );
     }
-
 
     /** Amazon intrv, find the path which has the sum of a given number
      * Eg: if sum = 22, sum of all the nodes traversed should be = 22
@@ -689,18 +700,18 @@ class AlgosBinarySearchTree {
 
     /** Print the path leading to max sum in a binary tree
      *  Logic:
-     *      Keep track of maxSum till now and node leading to max sum
+     *      Keep track of maxSumPath till now and node leading to max sum
      * */
     static class MaxSumPath {
         int maxSum = 0;
         TreeNode maxLeaf = null;
 
         public void getMaxSumPath(TreeNode root) {
-            maxSum(root, 0);
+            maxSumPath(root, 0);
             path(root, maxLeaf);
         }
 
-        public void maxSum(TreeNode node, int sum) {
+        public void maxSumPath(TreeNode node, int sum) {
             if (node != null) {
                 sum = sum + node.data;
                 if (sum > maxSum && node.left == null && node.right == null) {
@@ -708,8 +719,8 @@ class AlgosBinarySearchTree {
                     maxSum = sum;
                 }
                 //	System.out.println("Sum " + sum);
-                maxSum(node.left, sum);
-                maxSum(node.right, sum);
+                maxSumPath(node.left, sum);
+                maxSumPath(node.right, sum);
             }
         }
 
@@ -722,5 +733,23 @@ class AlgosBinarySearchTree {
             return false;
         }
 
+    }
+
+    public static boolean nodePathFinder(TreeNode node, int nodeToFind, List<TreeNode> path) {
+        if (node == null) {
+            return false;
+        }
+
+        path.add(node);
+        if ( (node.data == nodeToFind)  ) {
+            return true;
+        }
+
+        if (nodePathFinder(node.left, nodeToFind, path) ||
+        nodePathFinder(node.right, nodeToFind, path) ) {
+            return true;
+        }
+
+        return false;
     }
 }   // end class

@@ -30,7 +30,7 @@ public class PrimeNumbers {
 	public static boolean isPrime(int n) {
 
 		// 1 & 2 are prime in the series of prime numbers
-		if (n == 2) return true;
+		if (n == 1 || n == 2) return true;
 
 		//check if n is a multiple of 2
 		if (n % 2 == 0) return false;

@@ -21,7 +21,7 @@ class MaxSumSubArrayKadane {
         int maxSum = Integer.MIN_VALUE;
         int sum = 0;
 
-        int maxStartIndexUntilNow = 0;  /** To reset start index, if (maxSum < 0) */
+        int maxStartIndexUntilNow = 0;  /** To reset start index, if (maxSumPath < 0) */
 
         for (int i = 0; i < arr.length; i++) {
             sum += arr[i];

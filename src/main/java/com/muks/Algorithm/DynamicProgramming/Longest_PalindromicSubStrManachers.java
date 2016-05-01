@@ -6,7 +6,7 @@ package com.muks.Algorithm.DynamicProgramming;
  *  Manacher_Ignore's algorithm to find - longest palindromic substring
  *
  */
-public class LongestPalindromicSubStrManachers {
+public class Longest_PalindromicSubStrManachers {
     /**
       There are 4 cases to handle
 

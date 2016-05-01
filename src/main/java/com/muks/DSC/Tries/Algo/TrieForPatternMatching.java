@@ -88,15 +88,15 @@ public class TrieForPatternMatching {
             charIndex += 1;
         }
 
-//        if (charIndex < str.length()) {
-//            System.out.println("Pattern does not exist.");
-//        } else {
-//            System.out.println("Pattern found in text starting at following indices..");
-//            for (int i = 0; i < currentNode.endingIndices.size(); i++) {
-//                System.out.print(currentNode.endingIndices.get(i) - (str.length() - 1));
-//                System.out.print(",");
-//            }
-//        }
+        if (charIndex < str.length()) {
+            System.out.println("Pattern does not exist.");
+        } else {
+            System.out.println("Pattern found in text starting at following indices..");
+            for (int i = 0; i < currentNode.endingIndices.size(); i++) {
+                System.out.print(currentNode.endingIndices.get(i) - (str.length() - 1));
+                System.out.print(",");
+            }
+        }
         return;
     }
 

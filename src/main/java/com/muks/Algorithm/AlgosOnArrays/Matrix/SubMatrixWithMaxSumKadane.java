@@ -115,7 +115,7 @@ public class SubMatrixWithMaxSumKadane {
         int lowBound;
         @Override
         public String toString() {
-            return "Result [maxSum=" + maxSum + ", leftBound=" + leftBound
+            return "Result [maxSumPath=" + maxSum + ", leftBound=" + leftBound
                 + ", rightBound=" + rightBound + ", upBound=" + upBound
                 + ", lowBound=" + lowBound + "]";
         }

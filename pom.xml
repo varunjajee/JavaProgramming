@@ -29,11 +29,11 @@
             <artifactId>commons-logging</artifactId>
             <version>1.1.1</version>
         </dependency>
-        <dependency>
-            <groupId>com.inmobi.pso</groupId>
-            <artifactId>PSOCommons</artifactId>
-            <version>2.29</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.inmobi.pso</groupId>-->
+            <!--<artifactId>PSOCommons</artifactId>-->
+            <!--<version>2.29</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>commons-cli</groupId>

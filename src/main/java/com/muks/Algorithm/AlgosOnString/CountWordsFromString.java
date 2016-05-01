@@ -1,4 +1,4 @@
-package AlgosOnString;
+package com.muks.Algorithm.AlgosOnString;
 
 public class CountWordsFromString {
 

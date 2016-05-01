@@ -1,8 +1,6 @@
 package com.muks.Algorithm.AlgosOnArrays.Matrix;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -11,42 +9,43 @@ import java.util.regex.Pattern;
  */
 public class TryHere {
 
+    static PriorityQueue<Integer> leftQ = new PriorityQueue<>(Collections.reverseOrder());
+    static PriorityQueue<Integer> rightQ = new PriorityQueue<>();
+
+
     public static void main(String[] args) {
-        String[] mailIDs = {
-            "mukthar.am@gmail.com",
-            "Mukthar1.asd.last@gmail-inc.com"
+        int[][] matrix = {
+            {1, 1, 1, 1},
+            {1, 1, 1, 1},
+            {1, 0, 1, 1},
+            {1, 1, 1, 1}
         };
 
-        regEgEmail(mailIDs);
+        List<Integer> paths = new ArrayList<>();
+        getPaths(matrix, 0, 0, paths);
 
+        System.out.println("# " + paths.toString());
     }
 
-    private static void regEgEmail(String[] email) {
-        String regegPattern2 = "(" +
-            "^[a-zA-Z0-9].+((.)?[a-zA-Z0-0]+)?@[a-zA-Z]+(-inc)?(.com$)" +
-            ")";
+    private static void getPaths(int[][] matrix, int i, int j, List<Integer> path) {
+        int rows = matrix.length - 1;
 
-        /**
-         * Logic:
-                [a-zA-Z0-0] - matches single occurrence of 1 char
-                .+          - "." matching previous char, "+" for one or more number of times
-                (.)         - Says strict match of "." character,
-                with "?"    - for zero or more number of occurrence
-                @           - strict match
-                (-inc)?     - zero or more match of "-inc"
-                (.com$)     - String ending with ".com"
-         */
+        if (i > rows || j > rows) {
+            return;
+        }
 
-        System.out.println("# Using pattern: " + regegPattern2);
-        Pattern pattern = Pattern.compile(regegPattern2);
+        else if (matrix[i][j] == 1) {
 
-        for (String mailIds : email) {
-            Matcher matcher = pattern.matcher(mailIds);
 
-            if (matcher.find()) {
-                System.out.println("# Matched String: " + matcher.group());
+            if (i == rows || j == rows) {
+                path.add(matrix[i][j]);
+            }
+            else {
+                getPaths(matrix, i, j+1, path);
+                getPaths(matrix, i+1, j, path);
             }
         }
     }
+
 
 }

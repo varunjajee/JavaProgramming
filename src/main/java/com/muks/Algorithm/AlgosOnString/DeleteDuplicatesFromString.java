@@ -26,13 +26,13 @@ public class DeleteDuplicatesFromString {
 
      */
     private static void deDuplicateByHashing(char[] arr) {
-        boolean[] isVisisted = new boolean[256];
+        boolean[] hashVisisted = new boolean[256];
 
         int j = 0;
         for (int i = 0; i < arr.length; i++) {
 
-            if ( !isVisisted[ arr[i] ] ) {
-                isVisisted[arr[i]] = true;
+            if ( !hashVisisted[ arr[i] ] ) {
+                hashVisisted[arr[i]] = true;
                 arr[j] = arr[i];
                 j++;
             }

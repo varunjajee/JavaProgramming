@@ -8,6 +8,7 @@ public class MultiplyWithOnlyArethematicOps {
 	
 	
 	static int multiply(int a, int b) {
+		System.out.println("# b = " + b);
 		if(b == 0 || a == 0) {
 			return 0;
 		}
@@ -15,7 +16,10 @@ public class MultiplyWithOnlyArethematicOps {
 			return a;
 		}
 		else {
-			return a + multiply(a, b - 1);
+			int r = a + multiply(a, b - 1);
+			//return a + multiply(a,≥ b - 1);
+			System.out.println(r);
+			return  r;
 		}
 	}
 }

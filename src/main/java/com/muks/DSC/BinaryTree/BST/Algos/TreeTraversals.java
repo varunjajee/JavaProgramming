@@ -114,6 +114,7 @@ public class TreeTraversals {
         leftViewUtil(node.right, level + 1);
     }
 
+
     /**
      * =============================================================================================
      * Given a binary tree, print the RIGHT view
@@ -235,103 +236,85 @@ public class TreeTraversals {
     }
 
 
+    /**
+     * Logic:
+     *  - logic for both, level and vertical order traversal, remains same
+     *      - based on queue and breadth first traversal
+     *
+     *  - Level Order = increment at (curr.left.vd = curr.vd + 1) & (curr.right.vd = curr.vd + 1)
+     *  - Vertical Order = (curr.left.hd = curr.left - 1) & (curr.right.hd = curr.hd + 1)
+     *
+     */
+    public static void LevelOrderTraversal(TreeNode root) {
 
-    public static void verticalOrderTraversal(TreeNode root) {
-        if (root == null) {
-            return;
-        }
-        int hd = 0;
-
-        HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
+        HashMap<Integer, List<TreeNode>> map = new HashMap<>();
         Queue<TreeNode> queue = new LinkedList<>();
+        int vd = 0;
 
-        root.hd = 0;
+        root.vd = 0;
         queue.add(root);
 
-        while (!queue.isEmpty()) {
-            TreeNode current = queue.remove();
+        while ( !queue.isEmpty() ) {
+            TreeNode curr = queue.remove();
+            vd = curr.vd;
 
-            hd = current.hd;
-            System.out.println("+ GraphNode = " + current + ", hd = " + hd);
-
-            // adding to the traverse       map
-            if (map.containsKey(hd)) {
-                map.get(hd).add(current.data);
-            } else {
-                map.put(hd, new ArrayList(Collections.singleton(current.data)));
+            if ( map.containsKey(vd) ) {
+                map.get(vd).add(curr);
+            }
+            else {
+                map.put(vd, new ArrayList(Collections.singleton(curr)));
             }
 
-            if (current.left != null) {
-                current.left.hd = hd - 1;
-                queue.add(current.left);
+
+            if (curr.left != null) {
+                curr.left.vd = curr.vd + 1;
+                queue.add(curr.left);
             }
 
-            if (current.right != null) {
-                current.right.hd = hd + 1;
-                queue.add(current.right);
+            if (curr.right != null) {
+                curr.right.vd = curr.vd + 1;
+                queue.add(curr.right);
             }
         }
 
-        System.out.println(map.toString());
+        System.out.println("# Queue: " + map.toString());
     }
 
 
-    /*  ==================================================================================
-        Level order traversal : Printing nodes at each leve of BST
+    public static void verticcalOrderTraversal(TreeNode root) {
 
-        BFS - Breadth First Search OR Level order traversal      */
+        HashMap<Integer, List<TreeNode>> map = new HashMap<>();
 
-    public static void printLevelOrder(TreeNode root) {
-        System.out.println("\n+ Print - Level order traversal OR BFS");
+        Queue<TreeNode> queue = new LinkedList<>();
+        int hd = 0;
 
-        // base case
-        if (root == null) {
-            return;
+        root.hd = hd;
+        queue.add(root);
+
+        while ( !queue.isEmpty() ) {
+            TreeNode curr = queue.remove();
+            hd = curr.hd;
+
+            if ( map.containsKey(hd) ) {
+                map.get(hd).add(curr);
+            }
+            else {
+                map.put(hd, new ArrayList(Collections.singleton(curr)));
+            }
+
+            if (curr.left != null) {
+                curr.left.hd = curr.hd - 1;
+                queue.add(curr.left);
+            }
+            if (curr.right != null) {
+                curr.right.hd = curr.hd + 1;
+                queue.add(curr.right);
+            }
         }
 
-        // store levels and their node datas
-        HashMap<Integer, ArrayList<Integer>> levelOrderTree = new HashMap<>();
-        ArrayList<Integer> allNodes = new ArrayList<>();
+        System.out.println("# Map: " + map.toString() );
 
-
-        // nodes at current level
-        Queue<TreeNode> currQ = new LinkedList<>();
-        currQ.add(root);
-
-        // nodes at next level
-        Queue<TreeNode> nextQ = new LinkedList<>();
-
-        int vd = 0;  // init tree root level = 0
-        levelOrderTree.put(vd, new ArrayList<Integer>(root.data));
-
-        while (!currQ.isEmpty()) {
-            TreeNode node = currQ.remove();
-
-            if (node.left != null) {
-                nextQ.add(node.left);
-            }
-
-            if (node.right != null) {
-                nextQ.add(node.right);
-            }
-
-            allNodes.add(node.data);
-
-            if (currQ.isEmpty()) {
-                currQ = nextQ;
-                nextQ = new LinkedList<>();
-
-                levelOrderTree.put(vd, new ArrayList(Collections.singleton(allNodes)));
-                vd++;
-
-                allNodes = new ArrayList();
-            }
-
-        }
-
-        System.out.println("+ Level Order: " + levelOrderTree.toString());
-
-    }   // end printLevelOrder()
+    }
 
     /*  ============================= Depth first traversal ================================ */
     public static void DepthFirstSearch(TreeNode root) {
@@ -521,7 +504,7 @@ public class TreeTraversals {
                 // doesn't contain single node otherwise
                 // that single node will be printed twice
 //                if (!isOne)
-                    System.out.print(" " + last);
+                System.out.print(" " + last);
             }
             else {
                 last = temp.data;   // Store current key as last

@@ -102,7 +102,8 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
 
         if (head == null) {
             throw new NoSuchElementException("Linked List Empty Exception.");
-        } else {
+        }
+        else {
             while (current.next != null) {
                 previous = current;
                 current = current.next;
@@ -194,8 +195,7 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
     }   // end deleteNode()
 
 
-    // ############# ############# ############# ############# ############# ###############
-    /*  ====================================================================================
+    /**  ====================================================================================
         Singly linked list based algorithms
      */
     public static void makeIntersectingList(SinglyLinkedList mainList,
@@ -337,7 +337,7 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
     }
 
 
-    /*  By recursion - Find tail node */
+    /**  By recursion - Find tail node */
     public static Node findTailRecursively(Node current) {
         // base case, return the node if node.next == null (which is the tail)
         if (current.next == null) {
@@ -348,7 +348,7 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
     }
 
 
-    /* Make a singly linked list as a cyclic linked list.*/
+    /** Make a singly linked list as a cyclic linked list.*/
     public static void makeCyclicLinkedList(Node headNode, int cyclicAt) {
         System.out.println("\nCircular Linked List: Interconnecting a linked list for circular");
 
@@ -374,7 +374,7 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
     }
 
 
-    /*  ========================================================================================
+    /**  ========================================================================================
         (1) Find if linked list is circular or not
         (2) Find the meeting point
         (3) Find the start and end point of the circular linked list.

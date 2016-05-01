@@ -5,29 +5,24 @@ package com.muks.Algorithm.AlgosOnString;
  */
 public class DeleteSpaces {
     public static void main(String[] args) {
-        String input = "a b  d ef";
+        String input = "one two    three";
         DeleteSpaces(input);
     }
 
     public static void DeleteSpaces(String str) {
-        char[] charArray = str.toCharArray();
+        char[] arr = str.toCharArray();
 
-        int i = 0, j = 1, spaces = 0;
-        while (j < charArray.length) {
-            if (charArray[j] == ' ') {
-                j++;
-                spaces++;
-            }
-            else {
-                i++;
-                charArray[i] = charArray[j];
+        int j = 0;      // copy index
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != ' ') {
+                arr[j] = arr[i];
                 j++;
             }
         }
 
 
-        for (int x = 0; x <= i; x++) {
-            System.out.print(charArray[x]);
+        for (int x = 0; x < j; x++) {
+            System.out.print(arr[x]);
         }
 
 

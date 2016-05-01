@@ -7,7 +7,7 @@ public class PowerRaiseInt {
 	 */
 	public static void main(String[] args) {
 		float x = 2;
-		int y = -3;
+		int y = 4;
 		System.out.println(power(x, y) );
 
 	}
