@@ -3,9 +3,10 @@ package com.muks.DSC.SinglyLinkedList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-/*
+/**
  * Created by mukthar.ahmed on 1/3/16.
  */
+
 public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
     public Node head;
     public Node tail;
@@ -474,7 +475,7 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
     }
 
 
-    /*  ===========================================================================================
+    /**  ===========================================================================================
         Steps:
         1) Traverse till first even node. While doing so, keep pushing odd nodes after the orig-tail
         2) if the node found is even;
@@ -489,26 +490,24 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
             2.4) At last, if the orig-tail is found to be odd yet then move orig-tail node to the
              end of new tail and set orig-tail.next to null
      */
-
     public static void evenAndOdd(SinglyLinkedList linkedList) {
-        System.out.println("\n+ Segregate even and odd +" +
-            "\nOriginal list: " + linkedList.toString());
+        System.out.println("\n+ Segregate even and odd +" + "\nOriginal list: " + linkedList.toString());
 
         /* fix the tail node for reference to add other nodes to the end */
 
         Node current = linkedList.head;
         Node origTail = linkedList.tail;
-        Node newTailNode = linkedList.tail;
+        Node newTail = linkedList.tail;
         Node prevNode = null;
 
         // STEP-1
         // move the first odd node to end of the linked list
         while ((Integer) current.data % 2 != 0 && current != origTail) {
-            newTailNode.next = current;
+            newTail.next = current;
             current = current.next;
-            newTailNode.next.next = null;
-            newTailNode = newTailNode.next;
 
+            newTail.next.next = null;
+            newTail = newTail.next;
         }
 
 
@@ -531,9 +530,9 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
                     current.next = null;                // STEP - 2.3.1
 
                     /* tail pointing towards curr as new tail node */
-                    newTailNode.next = current;         // STEP - 2.3.2
+                    newTail.next = current;         // STEP - 2.3.2
 
-                    newTailNode = current;              // STEP - 2.3.2
+                    newTail = current;              // STEP - 2.3.2
 
                     /* Advance the current pointer */
                     current = prevNode.next;            // STEP - 2.3.3
@@ -545,10 +544,10 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
         }
 
         // STEP - 2.4
-        if (newTailNode != origTail && (Integer) origTail.data % 2 != 0) {
+        if (newTail != origTail && (Integer) origTail.data % 2 != 0) {
             prevNode.next = origTail.next;
             origTail.next = null;
-            newTailNode.next = origTail;
+            newTail.next = origTail;
         }
 
         System.out.println("+ modified : " + linkedList.toString());
@@ -674,50 +673,7 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
     }
 
 
-    /*  ==========================================================================================
-        Merge 2 sorted linked list of un-equal sizes
-
-     */
-    public static Node mergeTwoLists(Node l1, Node l2) {
-
-        Node p1 = l1;
-        Node p2 = l2;
-
-        SinglyLinkedList newList = new SinglyLinkedList();
-        newList.insertDefault(0);
-
-        Node fakeHead = newList.head;
-        Node p = fakeHead;
-
-        while (p1 != null && p2 != null) {
-            if ((Integer) p1.data <= (Integer) p2.data) {
-                p.next = p1;
-                p1 = p1.next;
-            } else {
-                p.next = p2;
-                p2 = p2.next;
-            }
-
-            p = p.next;
-        }
-
-        if (p1 != null) {
-            p.next = p1;
-        }
-
-        if (p2 != null) {
-            p.next = p2;
-        }
-
-        fakeHead = fakeHead.next;
-        newList.head = newList.head.next;
-
-        System.out.println(newList.toString());
-        return fakeHead.next;
-    }
-
-
-    /*  ==========================================================================================
+    /** ==========================================================================================
         Merging 2 sorted linked list in such a way that is in ascending order, small -> big number
 
         Note:
@@ -756,13 +712,14 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
 
                 p = p.next;     // Step -6, This is common and can be pulled out of if-else
             }
-
         }
 
 
         if (p1 != null) {   // Step - 7
             p.next = p1;
-        } else {
+        }
+
+        if (p2 != null) {
             p.next = p2;
         }
 
@@ -773,52 +730,7 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
     }   // end mergedSortedList()
 
 
-    // This is to be done as mrege first and then sort it using O(n)
-    public static void merge1(Node n1, Node n2) {
-        System.out.println("===");
-        SinglyLinkedList mergedLinkedList = new SinglyLinkedList();
-
-
-        if ((Integer) n1.data < (Integer) n2.data) {
-            mergedLinkedList.head = n1;
-            n1 = n1.next;
-        } else {
-            mergedLinkedList.head = n2;
-            n2 = n2.next;
-        }
-
-        Node p1 = mergedLinkedList.head;
-        while (n1 != null && n2 != null) {
-
-            if ((Integer) n1.data < (Integer) n2.data) {
-                p1.next = n1;
-                n1 = n1.next;
-            } else {
-                p1.next = n2;
-                n2 = n2.next;
-            }
-
-            p1 = p1.next;
-        }
-
-        System.out.println(mergedLinkedList.toString());
-
-        if (n1 != null) {
-            System.out.println("-=-=-");
-            while (n1.next != null) {
-                p1.next = n1;
-                n1 = n1.next;
-            }
-        } else {
-            while (n2.next != null) {
-                p1.next = n2;
-                n2 = n2.next;
-            }
-        }
-
-        System.out.println(mergedLinkedList.toString());
-    }
-
+    /** Merge sorted linked lists */
     static Node MergeSortedLists(Node node1, Node node2) {
         if (node1 == null) {
             return node2;
@@ -924,19 +836,19 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
         System.out.println("+ Original list : " + list.toString());
 
         Node listHead = list.head;
-        Node insertion = listHead;
-        Node curr = insertion.next;
+        Node runner = listHead;
+        Node curr = runner.next;
 
         while (curr != null) {
-            insertion = listHead;
+            runner = listHead;
 
-            while (insertion != curr) {
-                if ((Integer) insertion.data > (Integer) curr.data) {
+            while (runner != curr) {
+                if ((Integer) runner.data > (Integer) curr.data) {
                     Object tmp = curr.data;
-                    curr.data = insertion.data;
-                    insertion.data = tmp;
+                    curr.data = runner.data;
+                    runner.data = tmp;
                 } else {
-                    insertion = insertion.next;
+                    runner = runner.next;
                 }
 
             }

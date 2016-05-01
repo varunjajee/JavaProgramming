@@ -7,12 +7,12 @@ package com.muks.DSC.SinglyLinkedList;
     - Head and Tail nodes are called "Sentinal" nodes
  */
 
-public class Node {
-    public Object data;
+public class Node<E> {
+    public E data;
     public Node next;
 
     public Node() {}
-    public Node(Object value) {
+    public Node(E value) {
         this.data = value;
     }
 
