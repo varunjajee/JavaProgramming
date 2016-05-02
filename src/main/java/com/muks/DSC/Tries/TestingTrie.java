@@ -45,7 +45,7 @@ public class TestingTrie {
 
     private static void prefixSearch() {
         //String[] inputWords = {"mukthar", "muks", "tea", "ted", "mukthar ahmed", "muksie"};
-        String[] inputWords = {"mu", "muksie", "trie"};
+        String[] inputWords = {"muks", "muksie", "trie"};
 
         Trie myTrie = new Trie();
 
@@ -62,7 +62,7 @@ public class TestingTrie {
         //System.out.println("+ All getWordsByPrefix = " + myTrie.wordsFromPrefix(myTrie.root, "m"));
 
         /** Get words from prefix match */
-        System.out.println(myTrie.prefixMatch(myTrie.root, "m"));
+        System.out.println(myTrie.prefixMatch(myTrie.root, "mu"));
     }
 
 

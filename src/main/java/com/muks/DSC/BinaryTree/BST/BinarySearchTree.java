@@ -241,7 +241,6 @@ public class BinarySearchTree {
         else {
             return getMaximum(root.right);
         }
-
     }
 
 

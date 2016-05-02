@@ -8,19 +8,23 @@ import java.util.List;
 
 /**
  * Created by mukthar.ahmed on 4/15/16.
+ *
+ * Given a dictionary, find all anagram words to each other
+ *
  */
+
 public class AnagramsFromDictionary {
 
     public static void main(String[] args) {
+        /** Get all anagrams */
         anagramsFromDictionary();
     }
-    // ====================================================================================
-    public static void anagramsFromDictionary() {
-        /**
-         Given a dictionary, find all anagram words to each other
-         */
 
-        String[] anagramic = {"cat", "tac", "act", "dog", "god"};
+
+    /** ==================================================================================== */
+    public static void anagramsFromDictionary() {
+
+        String[] dictionary = {"cat", "tac", "act", "dog", "god"};
         List<Integer> index = new ArrayList<>();
         index.add(1);
         index.add(2);
@@ -28,9 +32,9 @@ public class AnagramsFromDictionary {
 
         Trie myTrie = new Trie();
 
-        for (int i = 0; i < anagramic.length; i++) {
+        for (int i = 0; i < dictionary.length; i++) {
             System.out.println("");
-            myTrie.insert(sortString(anagramic[i]), i);
+            myTrie.insert(sortString(dictionary[i]), i);
         }
 
 
@@ -39,7 +43,7 @@ public class AnagramsFromDictionary {
         System.out.println("+ Anagrams for + " + sWord + " are: ");
 
         for (int i = 0; i < anagrams.size(); i++) {
-            System.out.println(anagramic[anagrams.get(i)]);
+            System.out.println(dictionary[anagrams.get(i)]);
         }
     }
 

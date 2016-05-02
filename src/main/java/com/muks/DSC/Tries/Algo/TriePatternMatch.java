@@ -92,6 +92,8 @@ public class TriePatternMatch {
         patternTrie.trieGenerator(mainString2);
 
         //patternTrie.patternMatcher(subString);
-        patternTrie.patternMatcher(subString2);
+        patternTrie.patternMatcher(subString);
     }
+
+
 }
