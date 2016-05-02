@@ -740,14 +740,14 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
         }
 
         // pick the list which has the smaller sorted number and point head to it
-        Node head;
+        Node tempHead;
         if ((Integer) node1.data < (Integer) node2.data) {
-            head = node1;
+            tempHead = node1;
 
         } else {    // if list 2 has all the smaller numbers then swap and have node1 as smaller
-            head = node2;
+            tempHead = node2;
             node2 = node1;
-            node1 = head;
+            node1 = tempHead;
         }
 
         while (node1.next != null) {
@@ -761,10 +761,10 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
             node1.next = node2;
         }
 
-        return head;
+        return tempHead;
     }
 
-    /*  =========================================================================================
+    /**  =========================================================================================
         Recursively merge 2 sorted linked list
         Steps:
             - Are as same as iterative but in a recursive way.

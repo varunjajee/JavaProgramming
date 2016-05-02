@@ -33,20 +33,20 @@ public class BinarySearch {
 
 	// NOTE: Complexity = log-n base-2 [ log n] or also written as O(log n), by default it's base 2     		2
 	// This is because, for each traverse, the input tends to be half.
-	public static int BinarySearchRecursive (int[]arr, int k, int low, int high) {
-		if (low > high) {
+	public static int BinarySearchRecursive (int[]arr, int k, int start, int end) {
+		if (start > end) {
 			return 0;
 
 		} else {
-			int mid = low + (high - low)/2;	// low + (high - low)/2
+			int mid = start + (end - start)/2;	// start + (end - start)/2
 			if (k == arr[mid]) {
 				return mid;
 
 			} else if (k < arr[mid]) {
-				return BinarySearchRecursive(arr, k, low, mid-1);
+				return BinarySearchRecursive(arr, k, start, mid-1);
 
 			} else {
-				return BinarySearchRecursive(arr, k, mid+1, high);
+				return BinarySearchRecursive(arr, k, mid+1, end);
 
 			}
 

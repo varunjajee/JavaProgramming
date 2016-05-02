@@ -164,6 +164,7 @@ public class TestingBinaryTree {
 
 
         BinarySearchTree boundyTree = MyTrees.getBoundryTree();
+        System.out.println("Min = " + BinarySearchTree.getMaximum(boundyTree.root) );
 
 
 

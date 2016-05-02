@@ -212,15 +212,18 @@ public class BinarySearchTree {
             check if root.left != null and traverse towards left most sub tree
      */
     public static TreeNode getMinimum(TreeNode root) {
+
         if (root == null) {
-            return root;
+            return null;
         }
 
-        if (root.left != null) {
+        if (root.left == null) {
+            return root;
+        }
+        else {
             return getMinimum(root.left);
         }
 
-        return root;
     }
 
 
@@ -229,14 +232,16 @@ public class BinarySearchTree {
     */
     public static TreeNode getMaximum(TreeNode root) {
         if (root == null) {
+            return null;
+        }
+
+        if (root.right == null) {
             return root;
         }
-
-        if (root.right != null) {
-            return getMinimum(root.right);
+        else {
+            return getMaximum(root.right);
         }
 
-        return root;
     }
 
 
