@@ -79,19 +79,20 @@ public class FibonacciByRecursion {
  	 */
 	public static int[] genSeriesByIteration(int n) {
 		System.out.println("*****Fibonacci Series*****");
-		//List fib = new ArrayList();
-		
+
 		int[] series = new int[n];
 		series[0] = 0;
 		series[1] = 1;
-        
-        for(int i=2; i<n; i++) {
+
+
+        for(int i = 2; i < n; i++) {
         	series[i] = series[i-1] + series[i-2];
-        	
+
         }
-        
+
         return series;
 	}
-	
-	
+
+
+
 }	// end class

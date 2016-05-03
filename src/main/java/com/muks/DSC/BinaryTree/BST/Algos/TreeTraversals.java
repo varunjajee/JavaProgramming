@@ -172,21 +172,21 @@ public class TreeTraversals {
         while (!queue.isEmpty()) {
             TreeNode current = queue.remove();
 
-            int lvl = current.hd;
+            hd = current.hd;
 
-            if (!map.containsKey(lvl)) {
-                map.put(lvl, current.data);
-                System.out.println("+ current = " + current.data + ", lvl = " + lvl);
+            if (!map.containsKey(hd)) {
+                map.put(hd, current.data);
+                System.out.println("+ current = " + current.data + ", hd = " + hd);
             }
 
             if (current.left != null) {
-                current.left.hd = lvl - 1;
+                current.left.hd = hd - 1;
                 queue.add(current.left);
 
             }
 
             if (current.right != null) {
-                current.right.hd = lvl + 1;
+                current.right.hd = hd + 1;
                 queue.add(current.right);
             }
         }
@@ -210,23 +210,20 @@ public class TreeTraversals {
 
         while (!queue.isEmpty()) {
 
-            // take out the items from the package
             TreeNode tnode = queue.remove();
-            int lvl = tnode.hd;
 
-            // check if this is the first node you are visiting at the level
-            //if ( !mapTopView.containsKey(lvl) ) {
+            hd = tnode.hd;
+
             System.out.print(tnode.data + "   ");
-            mapTopView.put(lvl, tnode.data);
-            //}
+            mapTopView.put(hd, tnode.data);
 
             // add the left and right children of visiting nodes to the Queue
             if (tnode.left != null) {
-                tnode.left.hd = lvl - 1;
+                tnode.left.hd = hd - 1;
                 queue.add(tnode.left);
             }
             if (tnode.right != null) {
-                tnode.right.hd = lvl + 1;
+                tnode.right.hd = hd + 1;
                 queue.add(tnode.right);
             }
         }

@@ -27,9 +27,9 @@ public class DistinctSubStrings {
 
         for (int i = 0; i < str.length(); i++) {
 
-            for (int j = 0; j <= str.length() - i; j++) {
-                String elem = str.substring(i, i +j);
-
+            for (int j = 1; j <= str.length() - i; j++) {
+                String elem = str.substring(i, i+j);
+                System.out.println(elem);
                 if (!set.contains(elem)) {
                     set.add(elem);
                 }

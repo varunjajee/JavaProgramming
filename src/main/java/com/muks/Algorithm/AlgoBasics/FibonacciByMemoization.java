@@ -48,9 +48,12 @@ public class FibonacciByMemoization {
     public static void main(String[] args) {
         int[] findFib = {1, 2, 3, 4, 5, 6};
 
-        for (int i = 0; i <= 10; i++) {
-            fibonacci(i);
-        }
+
+        System.out.println("# Fib(" + 5 + "): " + fibonacci(5) );
+//
+//        for (int i = 0; i <= 10; i++) {
+//            System.out.println("# Fib(" + i + "): " + fibonacci(i) );
+//        }
 
         System.out.println(FIBONACCI_LIST.toString());
     }

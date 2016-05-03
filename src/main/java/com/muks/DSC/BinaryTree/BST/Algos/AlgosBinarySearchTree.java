@@ -51,39 +51,39 @@ class AlgosBinarySearchTree {
             return true;
         }
 
-        int maxHeight = getTreeMaxHeight(node);
-        int minHeight = getTreeMinHeight(node);
+        int maxHeight = getTreeMaxDepth(node);
+        int minHeight = getTreeMinDepth(node);
 
         return (maxHeight - minHeight <= 1);
     }
 
     /** Get tree's Max height */
-    public static int getTreeMaxHeight(TreeNode node) {
+    public static int getTreeMaxDepth(TreeNode node) {
         if (node == null) {
             return 0;
         }
 
-        int leftDepth = getTreeMaxHeight(node.left);
-        int rightDepth = getTreeMaxHeight(node.right);
+        int leftDepth = getTreeMaxDepth(node.left);
+        int rightDepth = getTreeMaxDepth(node.right);
 
         return Math.max(leftDepth, rightDepth) + 1;
     }
 
 
     /** Get tree's Min height */
-    public static int getTreeMinHeight(TreeNode node) {
+    public static int getTreeMinDepth(TreeNode node) {
         if (node == null) {
             return 0;
         }
 
-        int leftDepth = getTreeMaxHeight(node.left);
-        int rightDepth = getTreeMaxHeight(node.right);
+        int leftDepth = getTreeMaxDepth(node.left);
+        int rightDepth = getTreeMaxDepth(node.right);
 
         return Math.min(leftDepth, rightDepth) + 1;
     }
 
 
-    /** ================================================================================
+    /** ==================================================================================
         Recursively find N-th largest element in the tree
      */
     public static int findNthLargetst(TreeNode node, int k) {
@@ -105,7 +105,7 @@ class AlgosBinarySearchTree {
     }
 
 
-    /** ========================================================================================
+    /** =====================================================================================
         Iteratively find the k-th largest element in the tree by keeping track using a Stack
      */
     public static void findKthLargest(TreeNode node, int k) {
@@ -169,8 +169,8 @@ class AlgosBinarySearchTree {
         return countLeaves(node.left) + countLeaves(node.right);
     }
 
-    // ================================================================================#######
-    // print all the node name at a given level/depth of a BST
+    /** ================================================================================
+        - Print all the node name at a given level/depth of a BST */
     public static void nodesByDepth(TreeNode node, int depth) {
 
         if (node == null) {
@@ -212,7 +212,7 @@ class AlgosBinarySearchTree {
 
         HashMap<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
         List<Integer> nodeList = new ArrayList<Integer>();
-        int ht = getTreeMaxHeight(node);
+        int ht = getTreeMaxDepth(node);
 
 
         for (int depth = 1; depth <= ht; depth++) {
@@ -725,8 +725,11 @@ class AlgosBinarySearchTree {
         }
 
         public Boolean path(TreeNode root, TreeNode leaf) {
-            if (root == null) return false;
-            if ((root == leaf) || path(root.left, leaf) || path(root.right, leaf)) {
+            if (root == null) {
+                return false;
+            }
+
+            if ( (root == leaf) || path(root.left, leaf) || path(root.right, leaf)) {
                 System.out.print(" " + root.data);
                 return true;
             }

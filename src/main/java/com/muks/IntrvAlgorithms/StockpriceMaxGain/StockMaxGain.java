@@ -27,11 +27,11 @@ public class StockMaxGain {
                 sell = i;
             }
 
-            /** Entry criteria: If price < max & profit is max than what we have seen till now */
-            int profit = maxStrike - prices[i];
+            /** Entry criteria: If price < max & currProfit is max than what we have seen till now */
+            int currProfit = maxStrike - prices[i];
 
-            if (prices[i] < maxStrike & maxProfit < profit) {
-                maxProfit = profit;
+            if (prices[i] < maxStrike & maxProfit < currProfit) {
+                maxProfit = currProfit;
 
                 buy = i;
             }

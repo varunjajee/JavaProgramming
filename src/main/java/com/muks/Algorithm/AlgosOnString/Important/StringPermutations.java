@@ -13,15 +13,13 @@ public class StringPermutations {
     }
 
 
-    void permute(char[] input) {
+    private void permute(char[] input) {
         permute(input, 0, input.length - 1);
-
     }
 
-
-    void permute(char[] arr, int start, int end) {
+    private void permute(char[] arr, int start, int end) {
         if (start == end) {
-            printArray(arr);
+            System.out.println(new String(arr));
         }
         else  {
             for (int i = start; i <= end; i++) {
@@ -42,11 +40,5 @@ public class StringPermutations {
         arr[j] = temp;
     }
 
-    private static void printArray(char[] arr) {
-        StringBuilder sb = new StringBuilder();
-        for (char ch : arr) {
-            sb.append(" " + ch);
-        }
-        System.out.println(sb.toString());
-    }
+
 }

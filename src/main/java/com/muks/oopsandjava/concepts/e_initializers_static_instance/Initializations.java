@@ -1,7 +1,19 @@
 package com.muks.oopsandjava.concepts.e_initializers_static_instance;
 
-/*
+/**
  * Created by mukthar.ahmed on 1/11/16.
+ *
+ * Initializer:
+ *
+ *      - Static initializer executes for once per all instances
+ *      - Non-static (which is instance initializer), executes for every instance initialization
+ *      - Constructor, executes for all instance initializations.
+ *
+ *
+ *  Sequence:
+ *      1 - Static
+ *      2 - Non-static / instance
+ *      3 - Constructors
  */
 public class Initializations {
     static int staticCounter;

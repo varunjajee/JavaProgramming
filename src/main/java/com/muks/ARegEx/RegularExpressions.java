@@ -97,6 +97,10 @@ public class RegularExpressions {
     }
 
     /**
+     * ? - zero or one
+     * * - zero or more
+     * + - one or more
+     *
      * ========================
      * Logic:
      * [a-zA-Z0-0] - matches single occurrence of 1 char

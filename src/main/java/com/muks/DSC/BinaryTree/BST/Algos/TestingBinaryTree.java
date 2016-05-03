@@ -133,8 +133,8 @@ public class TestingBinaryTree {
 //        System.out.println("\n+ Sum of leaves ONLY = "
 //                + AlgosBinarySearchTree.getLeavesSum(myTree));
 //
-//        System.out.println("+ Max = " + AlgosBinarySearchTree.getTreeMaxHeight(myTree));
-//        System.out.println(" Min = " + AlgosBinarySearchTree.getTreeMaxHeight(myTree));
+//        System.out.println("+ Max = " + AlgosBinarySearchTree.getTreeMaxDepth(myTree));
+//        System.out.println(" Min = " + AlgosBinarySearchTree.getTreeMaxDepth(myTree));
 //        System.out.println("+ Is balanced = " + AlgosBinarySearchTree.isBalancedTree(myTree));
 
 //        System.out.println("---");
@@ -164,7 +164,8 @@ public class TestingBinaryTree {
 
 
         BinarySearchTree boundyTree = MyTrees.getBoundryTree();
-        System.out.println("Min = " + BinarySearchTree.getMaximum(boundyTree.root) );
+        TreeTraversals.printTopView(boundyTree.root);
+        //TreeTraversals.verticcalOrderTraversal(boundyTree.root);
 
 
 

@@ -7,19 +7,41 @@ public class RotateString {
 	public static void main(String[] args) {
 		String str = "abcdef";
 
-		System.out.println("+++ String lenght: " + str.length()); 
-//		rotateString(str, 3);	//	rotate string about pivotal element
-
-//		String s1 = "waterbottle";
+    	String s1 = "waterbottle";
 //		String s2 = "terbottlewa";		// Eg # 1
 //		//String s2 = "muks";		// Eg # 1
 //		//String s2 = "waterbottle";			// Eg # 2
 //
 //		System.out.println("+++ Is a rotation of: " + isRotation(s1, s2) );
 		
-		System.out.println("+++ Rotated using string builder: " + rotateStringOptimum(str, 3));
+		//System.out.println("+++ Rotated using string builder: " + rotateStringOptimum(str, 3));
+
+        char[] arr = s1.toCharArray();
+        rotateByReverse(arr, 2);
+
+        System.out.println(new String(arr));
 
 	}
+
+	public static void rotateByReverse(char[] arr, int rotateAt) {
+        reverse(arr, 0, rotateAt);
+        reverse(arr, rotateAt+1, arr.length-1);
+        reverse(arr, 0, arr.length-1);
+	}
+
+    public static void reverse(char[] arr, int start, int end) {
+        int i = start;
+        int j = end;
+
+        while (i < j) {
+            char temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
+        }
+    }
+
 
 	// ##########################################################################################
 	/* Solution: 
