@@ -9,9 +9,11 @@ import java.io.*;
  */
 public class FileReadWriteHandlers {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         new FileReadWriteHandlers().WriteFile();
     }
+
 
     public void ReadFile() {
         String infile = "/Users/mukthar.ahmed/Downloads/infile.txt";

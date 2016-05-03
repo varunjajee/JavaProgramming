@@ -8,14 +8,20 @@ import java.util.regex.Pattern;
  * Created by mukthar.ahmed on 4/12/16.
  *
  *  - Complete RegEx reference class
+ *
+ *
+ * ? - zero or one
+ * * - zero or more
+ * + - one or more
+ *
  */
 
 public class RegularExpressions {
     public static void main(String[] args) {
         //matchEmails();
-        //matchDate();
+        matchDate();
 
-        ipAddressValidators();
+        //ipAddressValidators();
     }
 
     private static void ipAddressValidators() {
@@ -27,16 +33,18 @@ public class RegularExpressions {
         };
         for (String ip : ipAddresses) {
             IPAddressRegEx(ip);
+
         }
     }
+
+
 
     /**
      *  IP Addresses
      *      - never starts with 0.1.1.1
      *      -
-     *
-     *
-     */
+     *      */
+
     private static void IPAddressRegEx(String ipAddress) {
         String regEx = "(" +
             "^(1[1]?\\d\\d?|2[0-4]\\d|25[0-5])\\." +
@@ -57,16 +65,18 @@ public class RegularExpressions {
      * Date Field RegEx
      */
     private static void matchDate() {
-        String[] dates = {"2016-04-12",
+        String[] dates = {
+            "2016-04-12",
             "2016/04/12",
-            "2016_10_12",
-            "2016_10_10"
+            "2016_10_12"
         };
 
         for (String date : dates) {
             matchDateField(date);
         }
     }
+
+
 
     private static void matchDateField(String date) {
         String dateRegEx = "(" +

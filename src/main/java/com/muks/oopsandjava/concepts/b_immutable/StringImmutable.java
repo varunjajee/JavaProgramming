@@ -17,6 +17,7 @@ public class StringImmutable {
         // Eg # 1 (String concatinated and printed/accessed:
         String str1="Sachin";
         str1.concat(" Tendulkar");  //concat() method appends the string at the end
+
         System.out.println(str1);   //will print Sachin because strings are b_immutable objects
 
 

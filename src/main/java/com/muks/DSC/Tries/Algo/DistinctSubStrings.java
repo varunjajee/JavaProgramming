@@ -29,13 +29,14 @@ public class DistinctSubStrings {
 
             for (int j = 1; j <= str.length() - i; j++) {
                 String elem = str.substring(i, i+j);
-                System.out.println(elem);
+
                 if (!set.contains(elem)) {
                     set.add(elem);
                 }
             }
         }
 
+        System.out.println(set.toString());
         System.out.println("Unique sub strings = " + set.size());
 
         return set;
