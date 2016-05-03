@@ -22,6 +22,18 @@ import java.util.EmptyStackException;
  * Pop()      null              null
  *
  */
+
+
+/**
+ * Logic:
+ *
+ *  push()
+ *      - After pushing element, (size % 2 == 0) mid = mid.prev; (middle moved to left)
+ *
+ *  pop()
+ *      - After pop'ing, (size % 2 != 0) mid = mid.next (mid moved to right)
+ */
+
 public class MiddleElementStack {
 
     static class Stack {
@@ -52,9 +64,10 @@ public class MiddleElementStack {
 
         public void push(int val) {
             size++;
-            if(head == null) {
+            if (head == null) {
                 head = new Node(val);
                 middle = head;
+
             } else {
                 Node node = new Node(val);
                 node.next = head;
@@ -80,7 +93,7 @@ public class MiddleElementStack {
                 head = head.next;
                 head.prev = null;
 
-                if(size % 2 == 1) {
+                if(size % 2 != 0) {
                     middle = middle.next;
                 }
 
@@ -89,10 +102,11 @@ public class MiddleElementStack {
         }
 
         public int popMid() {
-            if (head == null) {
+            if (middle == null) {
                 throw new EmptyStackException();
             }
 
+            size--;
             int rVal = middle.value;
 
             if (middle.prev != null) {
@@ -102,18 +116,16 @@ public class MiddleElementStack {
                 middle.next.prev = middle.prev;
             }
 
-            if (size % 2 == 1) {
-                // deleted middle.
-                middle = middle.prev;
-            } else {
+
+            /** move right if odd, left if even
+             */
+            if (size % 2 != 0) {
                 middle = middle.next;
-            }
 
-            if (middle == null) {
-                head = null;
+            } else {
+                middle = middle.prev;
             }
-            size--;
-
+            
             return rVal;
         }
 
@@ -129,9 +141,7 @@ public class MiddleElementStack {
         Stack stack = new Stack();
         stack.push(1);
         stack.push(2);
-
         stack.push(3);
-        System.out.println("# mid = " + stack.getMiddle());
         stack.push(4);
         stack.push(5);
         //stack.push(6);
