@@ -4,7 +4,7 @@ package com.muks.oopsandjava.concepts.threads.d_prodconsumerproblem.a_ByCustomeQ
  * Created by mukthar.ahmed on 07/07/15.
  */
 
-class Producer extends Thread {
+class Producer implements Runnable {
     ProductQueue prodQ; // producer Queue/d_prodconsumerproblem name
 
     Producer(ProductQueue q) {

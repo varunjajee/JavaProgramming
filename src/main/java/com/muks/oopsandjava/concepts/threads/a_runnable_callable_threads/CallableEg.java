@@ -13,7 +13,7 @@ import java.util.concurrent.*;
  */
 
 public class CallableEg implements Callable {
-    ThreadLocal<String> name =  new ThreadLocal<>();
+    private ThreadLocal<String> name =  new ThreadLocal<>();
     ConcurrentCounter count;
 
     CallableEg(String name, ConcurrentCounter counter) {

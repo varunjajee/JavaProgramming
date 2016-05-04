@@ -15,7 +15,7 @@ import java.util.concurrent.ThreadLocalRandom;
   * Read more: http://javarevisited.blogspot.com/2012/02/what-is-race-condition-in.html#ixzz3qzVRW9gs
 
  */
-public class JavaMulticonsumer {
+public class    JavaMulticonsumer {
     private static final int MAX_CONCURRENT_THREADS = 2;
     private final Semaphore crunchifyAdminLOCK = new Semaphore(MAX_CONCURRENT_THREADS, true);
 

@@ -44,6 +44,8 @@ class Producer implements Runnable {
                 System.out.println(Producer.class.getName());
             }
         }
+
+        sharedQueue.add(-1);    /** Indicating consumer to stop consuming */
     }
 
 }
@@ -61,7 +63,11 @@ class Consumer implements Runnable {
     public void run() {
         while (true) {
             try {
-                System.out.println("Consumed: " + sharedQueue.take());
+                Integer val = (Integer) sharedQueue.take();
+                if (val == -1) {    /** Indicating that producer and consumer work is completed */
+                    break;
+                }
+                System.out.println("Consumed: " + val);
             } catch (InterruptedException ex) {
                 System.out.println(Consumer.class.getName());
             }

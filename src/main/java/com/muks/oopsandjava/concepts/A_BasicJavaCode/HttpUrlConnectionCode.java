@@ -18,6 +18,14 @@ public class HttpUrlConnectionCode {
     }
 
 
+    public void UrlCrawler(String url) {
+        try {
+            HttpURLConnection url1 = (HttpURLConnection) new URL(url).openConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void UrlBrowser(String inUrl) {
         UrlValidator urlValidator = new UrlValidator();
         if (urlValidator.isValid(inUrl)) {

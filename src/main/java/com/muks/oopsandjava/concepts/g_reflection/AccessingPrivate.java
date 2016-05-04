@@ -2,6 +2,7 @@ package com.muks.oopsandjava.concepts.g_reflection;
 
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
@@ -11,7 +12,7 @@ import java.lang.reflect.Method;
  */
 
 public class AccessingPrivate {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
         MyPrivateClass testing = new MyPrivateClass();
 
 
@@ -31,8 +32,12 @@ public class AccessingPrivate {
             System.out.println("# Direct access of private int variable " + privateInt.get(testing) );
 
 
+            /** modifying the private variable */
+            privateInt.set(testing, 10);
+
+
             /** Accessing private method, int arg type */
-            Method counter = MyPrivateClass.class.getDeclaredMethod("incrementCounter", int.class);
+            Method counter = MyPrivateClass.class.getDeclaredMethod("incrementCounter", Integer.class);
             counter.setAccessible(true);
             counter.invoke(testing, 10);
             System.out.println("# After g_reflection = " + testing.getCounter() );
@@ -52,7 +57,7 @@ public class AccessingPrivate {
             System.out.println("# Counter after g_reflection = " + testing.getCounter() );
 
 
-        } catch (Exception e) {
+        } catch (NoSuchMethodException  | NoSuchFieldException e) {
             e.printStackTrace();
 
         }

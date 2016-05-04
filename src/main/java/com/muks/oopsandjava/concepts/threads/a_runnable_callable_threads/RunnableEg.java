@@ -7,17 +7,17 @@ import java.util.concurrent.*;
 
 /**
  * Created by mukthar.ahmed on 4/6/16.
-
+ * <p>
  * http://javahungry.blogspot.com/2015/05/implements-runnable-vs-extends-thread-in-java-example.html
-
+ * <p>
  * Note: "implements runnable" is preferred over "extends Thread"
-
+ * <p>
  * 1. Function overhead : Thread class loads whole lot of functions which are not generally used
-
+ * <p>
  * 2. Inheritance option: Once we "extend Thread" class, we cannot extend any more as java allows extending only 1
  * class and doesn't support multiple d_inheritance via classes rather interfaces.
  */
-public class RunnableEg implements Runnable{
+public class RunnableEg implements Runnable {
     String name;
 
     RunnableEg(String name) {
@@ -39,9 +39,9 @@ public class RunnableEg implements Runnable{
     }
 
 
-
-
-    /** Main method */
+    /**
+     * Main method
+     */
     public static void main(String[] args) {
         /** create a thread pool of 10 and submit workers */
         ExecutorService executorService = Executors.newFixedThreadPool(10);
@@ -53,7 +53,6 @@ public class RunnableEg implements Runnable{
             Future runnableTask = executorService.submit(runnable);
             allThreads.add(runnableTask);
         }
-
 
 
         executorService.shutdown();     /** Like graceful shutdown. Waits till all threads are completed. */
@@ -72,11 +71,10 @@ public class RunnableEg implements Runnable{
 
         /** Approach # 2 : To wait till all threads are completed */
         for (Future futureThread : allThreads) {
-            while (true) {
-                if ( futureThread.isDone() ) {
-                    break;
-                }
+            if (futureThread.isDone()) {
+                break;
             }
+
         }
 
     }
