@@ -1,4 +1,4 @@
-package AlgosOnString;
+package com.muks.Algorithm.AlgosOnString;
 
 public class StringSegregateOrTranspose {
 
@@ -14,49 +14,28 @@ public class StringSegregateOrTranspose {
 		char[] arr = s.toCharArray();
 		transpose(arr);
 
-		String sf = "";
-		for (char c : arr) {
-			sf += c;
-		}
-		System.out.println(sf);
-		
-//		String fString = splitEvenOdd(s);
-//		System.out.println("+++ Transposed string: " + fString);
-		
+		System.out.println("Final String: " + new String(arr));
 	}
-
-
-
 	
 	public static void transpose (char[] str) {
 		
-		int n = str.length;
+		int length = str.length;
 		int i = 1;
 		int j;
 		char temp;
 		
-		while(i <= n/2 ) {
+		while(i <= length/2 ) {
 			temp = str[i];
-			System.out.println("\n tmp: " + temp + " i: " + i);
 			j = i;
 			
-			while(j < n-1) {
+			while(j < length-1) {
 				str[j] = str[j+1];
 				j++;
-				
-//				System.out.println("+++");
-//				printArray(str);
 			}
 			
 			str[j] = temp;
 			i++;
-			
-			printArray(str);
-		
 		}
-
-		return;
-
 	}
 
 	public static void printArray (char[] arr) {

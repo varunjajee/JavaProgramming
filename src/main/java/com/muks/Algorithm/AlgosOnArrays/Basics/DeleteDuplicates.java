@@ -78,19 +78,25 @@ public class DeleteDuplicates {
      *      non-repeated element
      */
     public static void DeleteFromUnsorted(String str) {
-        int[] marker = new int[256];
 
-        char[] myarr = str.toCharArray();
-        for (char ch : myarr) {
-            marker[ch]++;
-        }
+        char[] arr = str.toCharArray();
 
-        for (char ch : myarr) {
-            if (marker[ch] == 1) {
-                System.out.print(" " + ch);
+        boolean[] hashVisisted = new boolean[256];
+
+        int j = 0;
+        for (int i = 0; i < arr.length; i++) {
+
+            if ( !hashVisisted[ arr[i] ] ) {
+                hashVisisted[arr[i]] = true;
+                arr[j] = arr[i];
+                j++;
             }
         }
 
+        arr[j] = '\0';
 
+        for (char ch : arr) {
+            System.out.print(" " + ch);
+        }
     }
 }

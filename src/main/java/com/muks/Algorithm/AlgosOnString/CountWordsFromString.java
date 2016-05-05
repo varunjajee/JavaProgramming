@@ -13,17 +13,17 @@ public class CountWordsFromString {
 	
 	// returns number of words in str
 	public static int countWords(char[] str) {
-	    String state = "OUT";
+	    boolean isWord = true;
 	    int wc = 0;  // word count
 	 
 	    // Scan all characters one by one
 	    for (int i = 0; i < str.length-1; i++) {	        
 
-	        if (str[i] == ' ' || str[i] == '\n' || str[i] == '\t') {	    	// If next character is a separator, set the state as OUT
-	            state = "OUT";
+	        if (str[i] == ' ' || str[i] == '\n' || str[i] == '\t') {	    	// If next character is a separator, set the isWord as OUT
+	            isWord = true;
 
-	        } else if (state == "OUT") {	         // If next character is not a word separator and state is OUT,
-	            state = "IN";	// then set the state as IN and incrementAndGet word count
+	        } else if (isWord) {	         // If next character is not a word separator and isWord is OUT,
+	            isWord = false;	// then set the isWord as IN and incrementAndGet word count
 	            wc++;
 	        
 	        }
