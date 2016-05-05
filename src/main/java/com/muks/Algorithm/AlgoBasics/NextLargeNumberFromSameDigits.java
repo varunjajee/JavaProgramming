@@ -1,4 +1,4 @@
-package com.muks.Algorithm.AlgosOnString;
+package com.muks.Algorithm.AlgoBasics;
 
 
 
@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NextLargeNumberFromSameDigits {
-
 	/**
 	 * given a number whose digits are unique find the next bigger number formed by those digits
 	 * @param args
@@ -49,19 +48,15 @@ public class NextLargeNumberFromSameDigits {
         /** convert string number to int array. */
         List<Integer> dList = new ArrayList<>();
         for (int i = 0; i < input.length(); ++i) {
-
             Integer digit = Integer.parseInt(input.substring(i, i + 1));
 
             /** check if all digits are same (Large number wouldn't be possible) */
             if (dList.contains(digit)) {
                 System.out.println("All digits are not unique, NO next big number is possible.");
                 return;
-
             } else {
                 dList.add(digit);
-
             }
-
         }
 
 

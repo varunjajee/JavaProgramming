@@ -15,7 +15,7 @@ public class FindMissingInt {
 		
 		int j = a[0];
 		for (int i=0; i < a.length; i++) {
-			System.out.println(a[i] + " = " + j);
+
 			if (a[i] == j) {
 				j++;
 				continue;

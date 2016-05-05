@@ -7,11 +7,11 @@ import java.util.Random;
  * Created by mukthar.ahmed on 1/29/16.
  */
 public class URLShortnerFull {
-        // storage for generated keys
+        /** storage for generated keys */
         private HashMap<String, String> KEY_MAP; // key-url map
         private HashMap<String, String> VALUE_MAP;// url-key map to quickly check
 
-        /* whether an url is already entered in our system
+        /** whether an url is already entered in our system
             Use this attribute to generate urls for a custom DOMAIN_DEFAULT name
             defaults to http://fkt.in
         */
