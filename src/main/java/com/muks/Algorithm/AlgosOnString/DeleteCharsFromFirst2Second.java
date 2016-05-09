@@ -25,11 +25,6 @@ public class DeleteCharsFromFirst2Second {
 	public static void removeDuplicates(String s1, String s2) {
 		boolean[] arrayStore = new boolean[128];
 
-//		// Initialize the array with 0 - char count
-//		for (int i = 0; i < s2.length(); i++) {
-//			arrayStore[i] = false;			
-//		}
-
 		// mark true if the char is present in the string
 		for (char c : s2.toCharArray()) {
 			arrayStore[c] = true;

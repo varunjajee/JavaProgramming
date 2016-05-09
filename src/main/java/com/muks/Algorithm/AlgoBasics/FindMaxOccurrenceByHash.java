@@ -9,16 +9,30 @@ public class FindMaxOccurrenceByHash {
      */
     public static void main(String[] args) {
         String str = "abcdaebbaa";
-        System.out.println("+++ Max: " + findMax(str, 2) );
-
-		
-		/*
-		 * 
-		 * Other approach is to have a array delcared for each of the hash and keep assigining to that temp array
-		 * 
-		 */
+        maxOccurringByHash(str);
+        //System.out.println("+++ Max: " + findMax(str, 2) );
 
     } // main()
+
+
+    public static void maxOccurringByHash(String str) {
+        int[] arr = new int[256];
+
+        for (char ch : str.toCharArray()) {
+            arr[ch]++;
+        }
+
+        char maxOccurring = str.charAt(0);
+        for (char ch : str.toCharArray()) {
+            if (arr[ch] > arr[maxOccurring]) {
+                maxOccurring = ch;
+            }
+        }
+
+
+        System.out.println("char = " + maxOccurring + ", Occurrence = " + arr[maxOccurring]);
+    }
+
 
 
     public static char findMax (String str, int place) {

@@ -10,7 +10,7 @@ public class FindFromRotatedArray {
 	public static void main(String[] args) {
 		int[] arr = {4, 5, 6, 7, 0, 1, 2};
 		int key = 6;
-		System.out.println("++ Looking for \"" + key + "\"... Found at index: " + pivotedBinarySearch(arr, arr.length, key) );
+//		System.out.println("++ Looking for \"" + key + "\"... Found at index: " + pivotedBinarySearch(arr, arr.length, key) );
 		
 		int foundIndex = searchInRotatedArray(arr, arr.length, key);	// search without pivotal and binary search
 		System.out.println("\n+++ Key: " + key + " at index, " + foundIndex);
@@ -21,32 +21,37 @@ public class FindFromRotatedArray {
 	// ##################################################################################################################
 	// find element in rotated array without pivotal element
 	public static int searchInRotatedArray(int[] arr, int n, int key) {
-		int i = 0;
-		int j = n - 1;
+		int start = 0;
+		int end = n - 1;
 
-		while (i <= j) {
+		while (start <= end) {
 
-			int mid = i + ((j - i) / 2);	// VERY IMPORTANT: Avoid overflow, same as M=(L+R)/2
+			int mid = start + (end - start)/ 2;
 			if (arr[mid] == key) return mid;
 
-			// the bottom half is sorted
-			if (arr[i] <= arr[mid]) {
-				if (arr[i] <= key && key < arr[mid])
-					j = mid - 1;
+			if (arr[start] <= arr[mid]) {                  /** the bottom half is sorted */
+				if (arr[start] <= key && key < arr[mid])
+					end = mid - 1;
 				else
-					i = mid + 1;
+					start = mid + 1;
 			}
-			// the upper half is sorted
-			else {
-				if (arr[mid] < key && key <= arr[j])
-					i = mid + 1;
+			else {                                          /** the upper half is sorted */
+				if (arr[mid] < key && key <= arr[end])
+					start = mid + 1;
 				else
-					j = mid - 1;
+					end = mid - 1;
 			}
 		}
 		return -1;
 	}
 
+
+
+
+
+    /**
+     * A lengthy code using find-pivotal, (point of rotation) and then do a binary search
+     */
 	/* Searches an element no in a pivoted sorted array arrp[]
 	of size arr_size */
 	public static int pivotedBinarySearch(int arr[], int n, int num) {

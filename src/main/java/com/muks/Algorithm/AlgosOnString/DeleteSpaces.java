@@ -15,12 +15,6 @@ public class DeleteSpaces {
         char[] arr = str.toCharArray();
 
         int j = 0;      // copy index
-//        for (int i = 0; i < arr.length; i++) {
-//            if (arr[i] != ' ') {
-//                arr[j] = arr[i];
-//                j++;
-//            }
-//        }
         int i = 0;
         while (i < arr.length) {
             if (arr[i] != ' ') {

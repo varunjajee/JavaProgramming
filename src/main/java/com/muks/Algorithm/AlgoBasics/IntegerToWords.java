@@ -46,7 +46,6 @@ public class IntegerToWords {
 			numberInWords(number % 100, sb);
 
 		} else if (number / 10 >= 2) {
-			System.out.println("+ /10");
 			sb.append(" " + tens[number / 10] + " ");	// each number in tens[] is a multiple of 10
 			numberInWords(number % 10, sb);
 

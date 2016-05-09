@@ -35,9 +35,10 @@ public class MaxDifference {
 		int max_diff = arr[1] - arr[0];
 		int min_element = arr[0];
 		
-		for(int i = 1; i < arr_size; i++) {       
-			if (arr[i] - min_element > max_diff) {
-				max_diff = arr[i] - min_element;
+		for(int i = 1; i < arr_size; i++) {
+			int currDiff = arr[i] - min_element;
+			if (currDiff > max_diff) {
+				max_diff = currDiff;
 				System.out.println("+ min-ele: " + min_element + " max-diff: " + max_diff + " i: " + i);
 			}
 				

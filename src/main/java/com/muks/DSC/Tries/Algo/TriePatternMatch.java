@@ -69,9 +69,10 @@ public class TriePatternMatch {
 
         } else {
             System.out.println("Pattern found in text starting at following indices..");
-            System.out.println("+ Current Node: " + currNode.toString() + ", Indices: " +
-            currNode.endingIndices.toString());
+            System.out.print("+ Current Node: " + currNode.toString() + ", Indices: " +
+            currNode.endingIndices.toString() + " ");
 
+            System.out.print(" and start indices are - ");
             for (int i = 0; i < currNode.endingIndices.size(); i++) {
                 System.out.print(currNode.endingIndices.get(i) - (str.length() - 1));
                 System.out.print(",");

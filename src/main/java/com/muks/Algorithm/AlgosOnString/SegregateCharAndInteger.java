@@ -1,6 +1,6 @@
 package com.muks.Algorithm.AlgosOnString;
 
-public class StringSegregateOrTranspose {
+public class SegregateCharAndInteger {
 
 	/**
 	 * Complexity: O(n) using cycle leader algorithm

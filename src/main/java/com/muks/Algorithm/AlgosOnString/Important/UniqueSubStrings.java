@@ -19,21 +19,22 @@ public class UniqueSubStrings {
     }
 
     private static List<String> getAllUniqueSubStrings(String str) {
-        List<String> set = new ArrayList<>();
+        List<String> list = new ArrayList<>();
 
         for (int i = 0; i < str.length(); i++) {
 
             for (int j = 1; j <= str.length() - i; j++) {
-                String elem = str.substring(i, i + j);
+                String substr = str.substring(i, i + j);
+                System.out.println(substr);
 
-                if (!set.contains(elem)) {
-                    set.add(elem);
+                if (!list.contains(substr)) {
+                    list.add(substr);
                 }
             }
         }
 
-        System.out.println("Unique sub strings = " + set.size());
+        System.out.println("Unique sub strings = " + list.size());
 
-        return set;
+        return list;
     }
 }

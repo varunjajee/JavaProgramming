@@ -23,6 +23,38 @@ public class DeleteDuplicates {
 
 
     /**
+     *  Deleting from un-sorted arrays
+     *      - Amongst all the solutions, sorting the array and deleting seems to be tempting
+     *      solutions but its NOT.
+     *
+     *      - Track the repeated elements using hashmap and then print each
+     *      non-repeated element
+     */
+    public static void DeleteFromUnsorted(String str) {
+
+        char[] arr = str.toCharArray();
+
+        boolean[] hashVisisted = new boolean[256];
+
+        int j = 0;
+        for (int i = 0; i < arr.length; i++) {
+
+            if ( !hashVisisted[ arr[i] ] ) {
+                hashVisisted[arr[i]] = true;
+                arr[j] = arr[i];
+                j++;
+            }
+        }
+
+        arr[j] = '\0';
+
+        for (char ch : arr) {
+            System.out.print(" " + ch);
+        }
+    }
+
+
+    /**
      * Delete duplicate elements from int array using O(1) Space and O(n) time complexity.
      */
     public static void deleteDuplicatesFromSorted(int[] arr) {
@@ -69,34 +101,5 @@ public class DeleteDuplicates {
     }
 
 
-    /**
-     *  Deleting from un-sorted arrays
-     *      - Amongst all the solutions, sorting the array and deleting seems to be tempting
-     *      solutions but its NOT.
-     *
-     *      - Track the repeated elements using hashmap and then print each
-     *      non-repeated element
-     */
-    public static void DeleteFromUnsorted(String str) {
 
-        char[] arr = str.toCharArray();
-
-        boolean[] hashVisisted = new boolean[256];
-
-        int j = 0;
-        for (int i = 0; i < arr.length; i++) {
-
-            if ( !hashVisisted[ arr[i] ] ) {
-                hashVisisted[arr[i]] = true;
-                arr[j] = arr[i];
-                j++;
-            }
-        }
-
-        arr[j] = '\0';
-
-        for (char ch : arr) {
-            System.out.print(" " + ch);
-        }
-    }
 }

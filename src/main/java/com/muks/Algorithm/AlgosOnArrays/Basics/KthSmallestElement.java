@@ -22,7 +22,7 @@ public class KthSmallestElement {
 				break;
 			}
 
-			if(arr[i]!=arr[i-1]) {
+			if(arr[i] != arr[i-1]) {
 				c++;
 			}
 		}
@@ -38,7 +38,7 @@ public class KthSmallestElement {
 				break;
 			}
 			
-			if(arr[i]!=arr[i-1]) {
+			if(arr[i] != arr[i-1]) {
 				c++;
 			}
 		}

@@ -9,15 +9,18 @@ package com.muks.Algorithm.AlgosOnArrays.SlidingOrMovingWindow;
  *  number is a constant
  *  Eg: 2, 4, 6, 7 or 1,2,3,4...
  */
-public class
-MissingElementFromAP {
+public class MissingElementFromAP {
 
     public static void main(String[] args) {
         int[] arr1 = {4, 6, 8, 10, 12, 14};
         int[] arr2  = {1, 6, 11, 16, 21, 31};
-        int[] arr3 = {1, 3, 4, 5};
+        int[] arr3 = {1, 3, 4, 5, 6, 7};
 
-        findMissingElement(arr3);
+        findMissingElement(arr1);
+
+
+        int a[] = { 0, 1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 20, 21, 23 };
+        //allMissingElements(a);
     }
 
     /**
@@ -65,6 +68,7 @@ MissingElementFromAP {
         }
 
 
+        System.out.println(arr[mid] + " == " + arr[0] + (mid * diff));
         if (arr[mid] == arr[0] + (mid * diff) ) {       /** search in the right half */
             return findMissingUtil(arr, mid + 1, end, diff);
         }
@@ -72,6 +76,31 @@ MissingElementFromAP {
         /** Else recur for left half    */
         return findMissingUtil(arr, start, mid-1, diff);
 
+    }
+
+
+    public static void allMissingElements(int values[]) {
+        allMissingElements(values, 0, 0);
+    }
+
+    private static void allMissingElements(int[] arr, int position, int count) {
+        boolean foundMissingNumber = false;
+        if (position == arr.length - 1)
+            return;
+
+        for (; position < arr[arr.length - 1]; position++) {
+
+            if ( ( arr[position] - count) != position ) {
+                System.out.println("Missing Number: " + (position + count));
+                foundMissingNumber = true;
+                count++;
+                break;
+            }
+        }
+
+        if (foundMissingNumber) {
+            allMissingElements(arr, position, count);
+        }
     }
 }
 

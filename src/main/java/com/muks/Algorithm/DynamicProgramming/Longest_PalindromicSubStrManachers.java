@@ -53,7 +53,7 @@ public class Longest_PalindromicSubStrManachers {
         printArray(newInput);
 
         // create temporary array for holding largest palindrome at every point. There are 2*n + 1 such points.
-        int T[] = new int[newInput.length];
+        int table[] = new int[newInput.length];
 
         int start = 0;
         int end = 0;
@@ -65,11 +65,11 @@ public class Longest_PalindromicSubStrManachers {
                 end++;
             }
 
-            // set the longest value of palindrome around center i at T[i]
-            T[i] = end - start + 1;
+            // set the longest value of palindrome around center i at table[i]
+            table[i] = end - start + 1;
 
             // Case # 2, Current palindrome expands till the end of the input.
-            if (end == T.length - 1) {
+            if (end == table.length - 1) {
                 break;
             }
 
@@ -83,14 +83,13 @@ public class Longest_PalindromicSubStrManachers {
                  *    Its possible left mirror might go beyond current center palindrome.
                  *    So take minimum of either left side palindrome or distance of j to end.
                  */
-
-                int mirrorLeft = T[i - (j - i)];
+                int mirrorLeft = table[i - (j - i)];
                 int distanceOf_J = 2 * (end - j) + 1;
 
-                T[j] = Math.min( mirrorLeft, distanceOf_J );
+                table[j] = Math.min( mirrorLeft, distanceOf_J );
 
                 /** Choice of next center : If the palindrome expands at least till the right edge */
-                if (j + T[i - (j - i)] / 2 == end) {
+                if (j + table[i - (j - i)] / 2 == end) {
                     newCenter = j;
                     break;
                 }
@@ -98,16 +97,16 @@ public class Longest_PalindromicSubStrManachers {
             //make i as newCenter. Set right and left to at least the value we already know should be matching based
             // of left side palindrome.
             i = newCenter;
-            end = i + T[i] / 2;
-            start = i - T[i] / 2;
+            end = i + table[i] / 2;
+            start = i - table[i] / 2;
 
-            System.out.println(T[i]);
+            System.out.println(table[i]);
 
         }
 
-        printIntArray(T);
+        printIntArray(table);
 
-        return getPalindromicString(inStr, T);
+        return getPalindromicString(inStr, table);
     }
 
 

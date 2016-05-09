@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Print all sub arrays with sum
  */
-public class AllSubArraysWithSum {
+public class    AllSubArraysWithSum {
 
     public static void main(String[] args) {
         int[] input = {5, 6, 1, -2, -4, 3, 1, 5};

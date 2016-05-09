@@ -12,25 +12,11 @@ public class NextGreatestNumber {
         nextGreatestInt(numberToArray(number));
     }
 
-    private static int[] numberToArray(int number) {
-        String numString = Integer.toString(number);
-        int[] numArray = new int[numString.length()];
-        for (int i = 0; i < numString.length(); i++) {
-            numArray[i] = numString.charAt(i) - '0';
-        }
-
-        for (int i : numArray) {
-            System.out.print(" " + i);
-        }
-        System.out.println("");
-
-        return numArray;
-    }
-
 
     private static void nextGreatestInt(int[] arr) {
-        // I) Start from the right most digit and find the first digit that is
-        // smaller than the digit next to it.
+        /** 1) Traversing from right to left, find the first digit that is
+            smaller than the digit next to it and break out
+         */
         int len = arr.length;
         int i;
         for (i = len-1; i > 0; i--) {
@@ -39,7 +25,6 @@ public class NextGreatestNumber {
             }
         }
 
-
         /** If no such digit is found, then all digits are in descending order and next big int cannot be found */
         if (i==0) {
             System.out.println("Next number is not possible");
@@ -47,8 +32,8 @@ public class NextGreatestNumber {
         }
 
 
-        /** II) Find the smallest digit on right side of (i-1)'th digit that is
-            greater than number[i-1] */
+        /** 2) Find a int such that its greater than 'i' and smaller than 'i-1' on the right side
+         * */
         int x = arr[i-1];
         int rgtSmallest = i;
         int j;
@@ -58,8 +43,11 @@ public class NextGreatestNumber {
             }
         }
 
-        /** III) Swap the above found smallest digit with number[i-1] */
+        /** 3) Swap the above found smallest digit with number[i-1] */
         swap(arr, (i-1), rgtSmallest);
+
+        /** 4) finally sort the rest of the array in increasing order */
+        sortInIncreasingOrder(arr, i, arr.length-1);
 
         for (int n : arr) {
             System.out.print(n);
@@ -89,5 +77,20 @@ public class NextGreatestNumber {
                 runner++;
             }
         }
+    }
+
+    private static int[] numberToArray(int number) {
+        String numString = Integer.toString(number);
+        int[] numArray = new int[numString.length()];
+        for (int i = 0; i < numString.length(); i++) {
+            numArray[i] = numString.charAt(i) - '0';
+        }
+
+        for (int i : numArray) {
+            System.out.print(" " + i);
+        }
+        System.out.println("");
+
+        return numArray;
     }
 }

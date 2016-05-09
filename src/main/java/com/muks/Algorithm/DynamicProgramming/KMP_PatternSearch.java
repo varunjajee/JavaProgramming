@@ -3,7 +3,7 @@ package com.muks.Algorithm.DynamicProgramming;
 /**
  * Created by mukthar.ahmed on 2/26/16.
  */
-public class KMP_PatternSearch {
+public class  KMP_PatternSearch {
     public static void main(String args[]){
 
         String str = "abcxabcdabcdabcy";
@@ -20,9 +20,11 @@ public class KMP_PatternSearch {
      */
     private static int[] computeTemporaryArray(String pattern){
         int[] Table = new int[pattern.length()];
-        int j = 0;
 
-        for(int i=1; i < pattern.length();) {
+        int j = 0;
+        int i = 1;
+
+        while (i < pattern.length()) {
             if (pattern.charAt(i) == pattern.charAt(j)) {
                 Table[i] = j + 1;
                 j++;
