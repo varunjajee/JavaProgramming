@@ -25,21 +25,29 @@ public class MergeIntArrays {
 	    int i = 0, j = 0, k = 0;
 
 	    while (i < a.length && j < b.length) {
-
-	        if (a[i] < b[j]) {
-	            result[k++] = a[i++];	// this is works on postfix/operator precedence: It first assign and then increments k & i
-
-	        } else {        
-	            result[k++] = b[j++];	// this is works on postfix/operator precedence: It first assign and then increments k & i
+	        if (a[i] <= b[j]) {
+	            result[k] = a[i];
+                i++;
+	        }
+            else if (a[i] > b[j]) {
+	            result[k] = b[j];
+                j++;
 	            
 	        } // if-else
+
+            k++;
 	        
 	    } // while()
 	    
 
-	    while (j < b.length) {
-	    	result[k++] = b[j++];		// this is works on postfix/operator precedence: It first assign and then increments k & i
-	    }
+		while (i < a.length) {
+			result[k] = a[i];
+            i++; k++;
+		}
+		while (j < b.length) {
+			result[k] = b[j];
+            j++; k++;
+		}
 
 	    return result;
 	    
