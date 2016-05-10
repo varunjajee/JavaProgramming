@@ -3,7 +3,7 @@ package com.muks.DesignPatterns.creational.FactoryPattern;
 /**
  * Created by mukthar.ahmed on 12/27/15.
  */
-public class GetPlanFactory {
+public class PlanFactory {
 
     // get plan
     public Plan getPlan(String planType) {

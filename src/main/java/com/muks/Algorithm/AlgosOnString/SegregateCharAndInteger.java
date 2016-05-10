@@ -1,6 +1,6 @@
 package com.muks.Algorithm.AlgosOnString;
 
-public class SegregateCharAndInteger {
+public class  SegregateCharAndInteger {
 
 	/**
 	 * Complexity: O(n) using cycle leader algorithm
@@ -17,23 +17,23 @@ public class SegregateCharAndInteger {
 		System.out.println("Final String: " + new String(arr));
 	}
 	
-	public static void transpose (char[] str) {
+	public static void transpose (char[] arr) {
 		
-		int length = str.length;
+		int length = arr.length;
 		int i = 1;
 		int j;
 		char temp;
 		
 		while(i <= length/2 ) {
-			temp = str[i];
+			temp = arr[i];
 			j = i;
 			
 			while(j < length-1) {
-				str[j] = str[j+1];
+				arr[j] = arr[j+1];
 				j++;
 			}
 			
-			str[j] = temp;
+			arr[j] = temp;
 			i++;
 		}
 	}

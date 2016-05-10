@@ -17,7 +17,7 @@ public class TestGenerateBill {
             String planName=br.readLine();
             System.out.print("Enter the number of units for bill will be calculated: ");
 
-            GetPlanFactory planFactory = new GetPlanFactory();
+            PlanFactory planFactory = new PlanFactory();
             Plan plan = planFactory.getPlan(planName);
 
             int units=Integer.parseInt(br.readLine());

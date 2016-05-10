@@ -21,11 +21,13 @@ public class AnagramsOfWordFromFile {
 			Scanner s = new Scanner(new File(fileName));	// reading the file
 			while (s.hasNext()) {
 				String word = s.next();
-				String alpha = sorting(word);
-				List<String> l = map.get(alpha);
-				if (l == null)
-					map.put(alpha, l = new ArrayList<String>());
-				l.add(word);
+				String sortedWord = sorting(word);
+				List<String> list = map.get(sortedWord);
+
+				if (list == null) {
+					map.put(sortedWord, list = new ArrayList<>());
+				}
+				list.add(word);
 			}
 
 			List<String> l = map.get(sorting(beta));

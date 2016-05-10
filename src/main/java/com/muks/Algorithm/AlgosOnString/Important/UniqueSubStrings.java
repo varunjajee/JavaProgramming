@@ -22,10 +22,9 @@ public class UniqueSubStrings {
         List<String> list = new ArrayList<>();
 
         for (int i = 0; i < str.length(); i++) {
-
             for (int j = 1; j <= str.length() - i; j++) {
+
                 String substr = str.substring(i, i + j);
-                System.out.println(substr);
 
                 if (!list.contains(substr)) {
                     list.add(substr);
