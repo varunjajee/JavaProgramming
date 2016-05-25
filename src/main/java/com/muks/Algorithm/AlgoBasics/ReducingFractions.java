@@ -1,8 +1,12 @@
-package com.muks.trail_here;
+package com.muks.Algorithm.AlgoBasics;
 
+/**
+ * Created by mukthar.ahmed on 5/25/16.
+ *
+ * Asked in hackerrank.com (AppLift)
+ */
+public class ReducingFractions {
 
-
-public class Test {
     public static void main(String[] args) {
 
         String[] input = {"825/1161", "1092/1041"};
@@ -39,4 +43,3 @@ public class Test {
         return output;
     }
 }
-

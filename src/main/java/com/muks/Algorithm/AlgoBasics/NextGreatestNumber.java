@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class NextGreatestNumber {
     public static void main(String[] args) {
-        int number = 2222;
+        int number = 1234321;
         nextGreatestInt(numberToArray(number));
     }
 
@@ -32,7 +32,10 @@ public class NextGreatestNumber {
         }
 
 
-        /** 2) Find a int such that its greater than 'i' and smaller than 'i-1' on the right side
+        /** 2) Find the smallest number at the right side of i such that it is greater than a[i-1]
+         *  In other words;
+         *      smallest in the right side of a[i] such that
+         *      - it is > a[i-1] && < a[i]
          * */
         int x = arr[i-1];
         int rgtSmallest = i;

@@ -14,6 +14,7 @@ public class StringPermutations {
 
 
     private void permute(char[] input) {
+        /** iterate from 0 to string length */
         permute(input, 0, input.length - 1);
     }
 

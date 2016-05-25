@@ -22,6 +22,7 @@ public class StringNumToInt {
             isNegative = true;
             i = 1;
         }
+
         while ( i < len ){
             number *= 10;
             number += ( str.charAt(i) - '0' );

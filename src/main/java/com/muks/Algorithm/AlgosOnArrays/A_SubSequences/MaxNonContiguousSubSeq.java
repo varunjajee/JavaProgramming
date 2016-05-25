@@ -1,4 +1,4 @@
-package com.muks.Algorithm.AlgosOnArrays.Basics;
+package com.muks.Algorithm.AlgosOnArrays.A_SubSequences;
 
 /**
  * Created by mukthar.ahmed on 5/12/16.

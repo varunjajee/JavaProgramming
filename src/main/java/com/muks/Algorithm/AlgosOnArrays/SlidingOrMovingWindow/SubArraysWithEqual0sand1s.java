@@ -1,6 +1,6 @@
 package com.muks.Algorithm.AlgosOnArrays.SlidingOrMovingWindow;
 
-public class SubArraysWithEqual0sand1s {
+public class 	SubArraysWithEqual0sand1s {
 
 	/*
 	 * Get a sub array having equal number of 0s and 1s

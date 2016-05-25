@@ -30,22 +30,22 @@ public class HashMapByChianing {
                 table[hash] = newHashEntry;
 
             } else {
-                HashEntry runner = table[hash];
-                while (runner.next != null) {
-                    if (runner.key == newHashEntry.key) {
-                        runner.value = newHashEntry.value;  /** updating the value of found key */
+                HashEntry current = table[hash];
+                while (current.next != null) {
+                    if (current.key == newHashEntry.key) {
+                        current.value = newHashEntry.value;  /** updating the value of found key */
                         break;
 
                     } else {
-                        runner = runner.next;
+                        current = current.next;
                     }
                 }
 
-                if (runner.next == null) {
-                    if (runner.key == newHashEntry.key) {
-                        runner.value = newHashEntry.value;
+                if (current.next == null) {
+                    if (current.key == newHashEntry.key) {
+                        current.value = newHashEntry.value;
                     } else {
-                        runner.next = newHashEntry;
+                        current.next = newHashEntry;
                     }
                 }
             }

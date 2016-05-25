@@ -18,21 +18,22 @@ class SingletonPattern {
     private static SingletonPattern jdbc;
 
     //SingletonPattern prevents the instantiation from any other class.  
-    private SingletonPattern() {  }
+    private SingletonPattern() {
+    }
 
     //Now we are providing gloabal point of access.  
     public static SingletonPattern getInstance() {
         if (jdbc == null) {
-            jdbc = new  SingletonPattern();
+            jdbc = new SingletonPattern();
         }
         return jdbc;
     }
 
     // to get the connection from methods like insert, view etc.   
-    private static Connection getConnection() throws ClassNotFoundException, SQLException {
+    private Connection getConnection() throws ClassNotFoundException, SQLException {
         Connection con = null;
         Class.forName("com.mysql.jdbc.Driver");
-        con= DriverManager.getConnection("jdbc:mysql://localhost:3306/ashwanirajput", "root", "ashwani");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ashwanirajput", "root", "ashwani");
         return con;
 
     }
@@ -40,20 +41,23 @@ class SingletonPattern {
     //to insert the record into the database   
     public int insert(String name, String pass) throws SQLException {
         Connection c = null;
-        PreparedStatement ps=null;
-        int recordCounter=0;
+        PreparedStatement ps = null;
+        int recordCounter = 0;
 
         try {
-            c=this.getConnection();
-            ps=c.prepareStatement("insert into userdata(uname,upassword)values(?,?)");
+            c = this.getConnection();
+            ps = c.prepareStatement("insert into userdata(uname,upassword)values(?,?)");
             ps.setString(1, name);
             ps.setString(2, pass);
-            recordCounter=ps.executeUpdate();
+            recordCounter = ps.executeUpdate();
 
-        } catch (Exception e) { e.printStackTrace(); } finally{
-            if (ps!=null){
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (ps != null) {
                 ps.close();
-            }if(c!=null){
+            }
+            if (c != null) {
                 c.close();
             }
         }
@@ -61,50 +65,56 @@ class SingletonPattern {
     }
 
     //to view the name from the database
-    public  void view(String name) throws SQLException {
+    public void view(String name) throws SQLException {
         Connection con = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         try {
 
-            con=this.getConnection();
-            ps=con.prepareStatement("select * from userdata where uname=?");
+            con = this.getConnection();
+            ps = con.prepareStatement("select * from userdata where uname=?");
             ps.setString(1, name);
-            rs=ps.executeQuery();
+            rs = ps.executeQuery();
             while (rs.next()) {
-                System.out.println("Name= "+rs.getString(2)+"\t"+"Paasword= "+rs.getString(3));
+                System.out.println("Name= " + rs.getString(2) + "\t" + "Paasword= " + rs.getString(3));
 
             }
 
-        } catch (Exception e) { System.out.println(e);}
-        finally{
-            if(rs!=null){
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            if (rs != null) {
                 rs.close();
-            }if (ps!=null){
+            }
+            if (ps != null) {
                 ps.close();
-            }if(con!=null){
+            }
+            if (con != null) {
                 con.close();
             }
         }
     }
 
     // to update the password for the given username
-    public int update(String name, String password) throws SQLException  {
-        Connection c=null;
-        PreparedStatement ps=null;
+    public int update(String name, String password) throws SQLException {
+        Connection c = null;
+        PreparedStatement ps = null;
 
-        int recordCounter=0;
+        int recordCounter = 0;
         try {
-            c=this.getConnection();
-            ps=c.prepareStatement(" update userdata set upassword=? where uname='"+name+"' ");
+            c = this.getConnection();
+            ps = c.prepareStatement(" update userdata set upassword=? where uname='" + name + "' ");
             ps.setString(1, password);
-            recordCounter=ps.executeUpdate();
-        } catch (Exception e) {  e.printStackTrace(); } finally{
+            recordCounter = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
 
-            if (ps!=null){
+            if (ps != null) {
                 ps.close();
-            }if(c!=null){
+            }
+            if (c != null) {
                 c.close();
             }
         }
@@ -112,19 +122,21 @@ class SingletonPattern {
     }
 
     // to delete the name from the database
-    public int delete(int userid) throws SQLException{
-        Connection c=null;
-        PreparedStatement ps=null;
-        int recordCounter=0;
+    public int delete(int userid) throws SQLException {
+        Connection c = null;
+        PreparedStatement ps = null;
+        int recordCounter = 0;
         try {
-            c=this.getConnection();
-            ps=c.prepareStatement(" delete from userdata where uid='"+userid+"' ");
-            recordCounter=ps.executeUpdate();
-        } catch (Exception e) { e.printStackTrace(); }
-        finally{
-            if (ps!=null){
+            c = this.getConnection();
+            ps = c.prepareStatement(" delete from userdata where uid='" + userid + "' ");
+            recordCounter = ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (ps != null) {
                 ps.close();
-            }if(c!=null){
+            }
+            if (c != null) {
                 c.close();
             }
         }

@@ -1,6 +1,8 @@
-package com.muks.ARegEx;
+package com.muks.RegularExpressions;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -19,9 +21,44 @@ import java.util.regex.Pattern;
 public class RegularExpressions {
     public static void main(String[] args) {
         //matchEmails();
-        matchDate();
+        //matchDate();
 
         //ipAddressValidators();
+
+        String[] input = {"<div style=\\\"font-family:Arial",
+            "http://www.ask-oxford.com/concise_blah",
+            "web.archive.org/web","web.muks.in/web"};
+        printDomains(input);
+    }
+
+    static void printDomains(String[] arr) {
+        TreeSet<String> set = new TreeSet<String>();
+        String domainRegEx = "(\\b[a-zA-Z0-9_-]+.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)\\b)";
+
+        Pattern inputPattern = Pattern.compile(domainRegEx);
+
+
+        for (int i = 0; i < arr.length; i++) {
+            Matcher matcher = inputPattern.matcher(arr[i]);
+
+            if (matcher.find()) {
+                String output = matcher.group();
+                System.out.println(matcher.group() + ";");
+                set.add(matcher.group());
+
+            }
+
+        }
+
+//        int len = set.size();
+//        Iterator<String> setObjs = set.iterator();
+//        while (setObjs.hasNext()) {
+//            System.out.print(setObjs.next());
+//            len--;
+//            if (len != 0) {
+//                System.out.print(";");
+//            }
+//        }
     }
 
     private static void ipAddressValidators() {

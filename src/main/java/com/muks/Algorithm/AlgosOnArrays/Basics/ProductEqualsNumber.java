@@ -13,24 +13,30 @@ public class ProductEqualsNumber {
         int[] arr = {1, 2, 3, 4, 5, 6};
 
         findPairProducts(arr, 6);
+
+        System.out.println(9 % 2);
+        System.out.println(9 / 2);
     }
 
-    private static void findPairProducts(int[] array, int value) {
-        Set<Integer> hashSet = new HashSet<>();
+    private static void findPairProducts(int[] arr, int prodValue) {
+        Set<Integer> mySet = new HashSet<>();
         int pairElement = 0;
-        for (int element : array) {
-            if (value % element == 0) {
-                hashSet.add(element);
+
+        for (int i = 0; i < arr.length; i++) {
+            if (prodValue % arr[i] == 0) {
+                mySet.add(arr[i]);
             }
         }
 
-        for (Integer element : hashSet) {
-            pairElement = value / element;
+        for (Integer element : mySet) {
+            pairElement = prodValue / element;
 
-            if (hashSet.contains(pairElement)) {
+            if (mySet.contains(pairElement)) {
                 System.out.println(element + "," + pairElement);
             }
         }
+
+        System.out.println(mySet.toString());
 
     }
 }

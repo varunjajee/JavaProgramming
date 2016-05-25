@@ -1,4 +1,4 @@
-package com.muks.Algorithm.AlgosOnArrays.Basics;
+package com.muks.Algorithm.AlgosOnArrays.A_SubSequences;
 
 import java.util.ArrayList;
 import java.util.List;
