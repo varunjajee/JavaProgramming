@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public class Player implements Runnable {
     private ThreadLocal<Integer> PLAYER_THRESHOLD = new ThreadLocal<>();
 
-    //int PLAYER_THRESHOLD = 5;       // ToDo: setting it low for testing purpose
+    //int PLAYER_THRESHOLD = 5;       // ToDo: setting it low for testingGenerics purpose
     private ThreadLocal<Integer> ROUNDS = new ThreadLocal<>();
 
     BoardNode CURRENT;

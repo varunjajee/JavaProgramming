@@ -25,7 +25,7 @@ public class AssertionExamples {
 
         3.
             3.1. It is never appropriate to write code to handle failure of an assert statement.
-            3.2. Assertion checking is typically enabled during program development and testing.
+            3.2. Assertion checking is typically enabled during program development and testingGenerics.
             3.3. Assertion checking can be selectively enabled or disabled on both a per-package
                  basis and a per-class basis.
 

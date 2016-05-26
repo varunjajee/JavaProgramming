@@ -35,6 +35,8 @@ public class RegularExpressions {
         TreeSet<String> set = new TreeSet<String>();
         String domainRegEx = "(\\b[a-zA-Z0-9_-]+.(com|org|net|mil|edu|COM|ORG|NET|MIL|EDU)\\b)";
 
+        set.getClass().getName();
+
         Pattern inputPattern = Pattern.compile(domainRegEx);
 
 

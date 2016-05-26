@@ -139,13 +139,13 @@ public class TrieEx {
 //			trie.insertWord(words[i]);
 
 
-		// testing deletion
+		// testingGenerics deletion
 		System.out.println(trie.searchWord("ba"));
 		//trie.deleteWord("ball");
 		//System.out.println(trie.searchWord("ball"));
 		//System.out.println(trie.searchWord("balls"));
 
-		// testing insertion
+		// testingGenerics insertion
 		//System.out.println(trie.searchWord("dumb"));
 		//trie.insertWord("dumb");
 		//System.out.println(trie.searchWord("dumb"));

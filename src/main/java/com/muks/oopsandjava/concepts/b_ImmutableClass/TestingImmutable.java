@@ -3,7 +3,7 @@ package com.muks.oopsandjava.concepts.b_ImmutableClass;
 /**
  * Created by mukthar.ahmed on 3/1/16.
  *
- * - TestCallable class for testing b_immutable class object
+ * - TestCallable class for testingGenerics b_immutable class object
  */
 
 public class TestingImmutable {
