@@ -31,6 +31,7 @@ public class InspectingGenerics {
 
             ParameterizedType stringListType = (ParameterizedType) stringListField.getGenericType();
             Class<?> stringListClass = (Class<?>) stringListType.getActualTypeArguments()[0];
+
             System.out.println(stringListClass); // class java.lang.String.
 
         } catch (NoSuchFieldException e) {
