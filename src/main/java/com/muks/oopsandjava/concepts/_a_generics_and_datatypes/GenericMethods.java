@@ -26,13 +26,24 @@ public class GenericMethods {
 
 
     /** Generic class declaration */
-    class Node<E> {
+    static class Node<E> {
         E data;
         Node<E> next;
+
+        public Node(E value) {
+            this.data = value;
+            next = null;
+        }
     }
 
 
     public static void main( String args[] ) {
+
+        Node<Integer> intNode = new Node<Integer>(10);
+
+        Node<String> strNode = new Node<String>("santosh");
+
+
         // Create arrays of Integer, Double and Character
         Integer[] intArray = { 1, 2, 3, 4, 5 };
         Double[] doubleArray = { 1.1, 2.2, 3.3, 4.4 };

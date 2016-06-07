@@ -12,7 +12,7 @@ public class MessagingQueue {
     // We must start with Producer prodconsumer problem
     static Semaphore semProd = new Semaphore(1);    // where 1 is the permit of semaphore
 
-    // Start with consumer d_prodconsumerproblem unavailable
+    // Start with demand d_prodconsumerproblem unavailable
     static Semaphore semCon = new Semaphore(0);
 
 
@@ -26,7 +26,7 @@ public class MessagingQueue {
             System.out.println("+ Writing msg = " + msg);
             msgQueue[++index] = msg;
 
-            semProd.release();      // Let the consumer get going
+            semProd.release();      // Let the demand get going
 
             semCon.release();       // invoke subscriber
 

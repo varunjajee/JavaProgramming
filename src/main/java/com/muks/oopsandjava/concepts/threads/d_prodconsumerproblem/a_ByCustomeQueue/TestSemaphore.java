@@ -12,6 +12,6 @@ public class TestSemaphore {
 
         //start statements are NOT required as they are coded to start the moment instantiated
 //        producer.start();
-//        consumer.start();
+//        demand.start();
     }
 }

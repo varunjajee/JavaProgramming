@@ -10,7 +10,7 @@ public class ApkQueue {
     public int index = 0;
     public int capacity;
 
-    // Start with consumer d_prodconsumerproblem unavailable
+    // Start with demand d_prodconsumerproblem unavailable
     static Semaphore semCon = new Semaphore(1);
 
     public ApkQueue(String[] inputPackages) {

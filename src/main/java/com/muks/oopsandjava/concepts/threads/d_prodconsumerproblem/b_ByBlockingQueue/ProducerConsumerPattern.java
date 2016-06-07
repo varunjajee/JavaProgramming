@@ -45,7 +45,7 @@ class Producer implements Runnable {
             }
         }
 
-        sharedQueue.add(-1);    /** Indicating consumer to stop consuming */
+        sharedQueue.add(-1);    /** Indicating demand to stop consuming */
     }
 
 }
@@ -64,7 +64,7 @@ class Consumer implements Runnable {
         while (true) {
             try {
                 Integer val = (Integer) sharedQueue.take();
-                if (val == -1) {    /** Indicating that producer and consumer work is completed */
+                if (val == -1) {    /** Indicating that producer and demand work is completed */
                     break;
                 }
                 System.out.println("Consumed: " + val);

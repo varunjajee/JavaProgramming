@@ -10,7 +10,7 @@ import java.util.concurrent.Semaphore;
 public class ProductQueue {
 
     private static Semaphore semProd = new Semaphore(1);    /** We must start with Producer available */
-    private static Semaphore semCon = new Semaphore(0);     /** Start with consumer unavailable */
+    private static Semaphore semCon = new Semaphore(0);     /** Start with demand unavailable */
 
     private Queue<Integer> productQ = new LinkedList<>();
 

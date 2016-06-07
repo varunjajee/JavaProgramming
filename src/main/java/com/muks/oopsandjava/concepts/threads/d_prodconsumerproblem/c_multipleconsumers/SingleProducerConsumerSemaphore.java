@@ -65,7 +65,7 @@ public class SingleProducerConsumerSemaphore {
             }
         }
 
-    }   // end consumer class
+    }   // end demand class
 
 
     public static void main(String[] args) {

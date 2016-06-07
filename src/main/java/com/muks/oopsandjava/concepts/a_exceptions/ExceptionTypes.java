@@ -26,6 +26,7 @@ public class ExceptionTypes {
             System.out.println("+ Line = " + line);
         }
         br.close();
+
     }
 
     // un-checked exception

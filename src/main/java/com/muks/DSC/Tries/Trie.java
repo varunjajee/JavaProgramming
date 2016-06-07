@@ -191,7 +191,7 @@ public class Trie {
 
 
     /** =======================================================================================
-     Return all words matching a prefix string.
+     Return all words matching a     prefix string.
      */
     public List<String> prefixMatch(TrieNode node, String prefix) {
         List<String> result = new ArrayList<>();

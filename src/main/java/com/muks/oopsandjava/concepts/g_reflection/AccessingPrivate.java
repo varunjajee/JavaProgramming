@@ -13,8 +13,8 @@ import java.lang.reflect.Method;
 
 public class AccessingPrivate {
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
-        MyPrivateClass testing = new MyPrivateClass();
 
+        MyPrivateClass testing = new MyPrivateClass();
 
         try {
             System.out.println("# Name Before = " + testing.getName() );
