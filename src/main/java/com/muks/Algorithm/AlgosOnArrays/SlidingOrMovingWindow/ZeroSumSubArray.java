@@ -14,15 +14,16 @@ public class ZeroSumSubArray {
 		
 		int[] arr = {1, -1, 4, -4};
 		List<int[]> res = zeroSubarrays(arr);
-		
 		for (int[] a : res) {
 			printArray(a);
 		}
-		
+
+		printZeroSumSubarray(arr);
+
 	}	// main()
 
 	
-	// ###################################################################################################
+	/** ================================================================================================== */
 	// generate sub arrays with sum of elements equal to zero
 	public static List<int[]> zeroSubarrays( int[] arr ){
 

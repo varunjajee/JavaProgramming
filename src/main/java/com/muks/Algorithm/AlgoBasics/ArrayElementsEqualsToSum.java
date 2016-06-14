@@ -35,10 +35,7 @@ public class ArrayElementsEqualsToSum {
     } // end byHashMap()
 
 
-
-
 	private static void findPair(int[] arr, int sum) {
-
 		Arrays.sort(arr);
 
 		for (int i : arr) {
@@ -65,7 +62,5 @@ public class ArrayElementsEqualsToSum {
 		//return false;
 
 	}
-
-
 
 }

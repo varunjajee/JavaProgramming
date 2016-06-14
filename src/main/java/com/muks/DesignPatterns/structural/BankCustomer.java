@@ -1,4 +1,4 @@
-package com.muks.DesignPatterns.structural.AdapterOrWrapper;
+package com.muks.DesignPatterns.structural;
 
 /*
  * Created by mukthar.ahmed on 12/28/15.
