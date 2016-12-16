@@ -1,13 +1,13 @@
-package com.muks.oopsandjava.concepts.a_passbyvalue;
+package com.muks.oopsandjava.concepts.a_passbyvalueandref;
 
 /* Java is always - pass-by-value
 
     - http://www.javaranch.com/campfire/StoryPassBy.jsp    - Used in the below example
 
     Points to remember:
-        -   int x = 3;
-        -   int y = x;
-            -> java is copying the value of 'x' to 'y'
+        -   int xMethod = 3;
+        -   int y = xMethod;
+            -> java is copying the value of 'xMethod' to 'y'
             -> instead of creating a new variable, java creates a copy of the reference.
 
         Dog d = new Dog("funny");
@@ -23,7 +23,7 @@ public class PassByRefConfusion {
         int x = 3;
         int y = x;
 
-        System.out.println("+ x = " + x + ", y = " + y);
+        System.out.println("+ xMethod = " + x + ", y = " + y);
 
 
         // Eg-2

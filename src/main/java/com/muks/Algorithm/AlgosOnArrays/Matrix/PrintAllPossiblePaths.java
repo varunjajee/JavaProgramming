@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by mukthar.ahmed on 4/13/16.
  *
- *  - Given a matrix of M x N, print all the paths from top-left to bottom-right
+ *  - Given a matrix of M xMethod N, print all the paths from top-left to bottom-right
  */
 
 public class PrintAllPossiblePaths {

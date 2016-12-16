@@ -126,7 +126,7 @@ public class SkylineSolution {
 
                 skylineListHigher.remove(0);    // remove the element/strip from the list
             }
-            else {          // if both x-cordinates are same
+            else {          // if both xMethod-cordinates are same
                 mergedStrip[0] = strip2[0];
                 mergedStrip[1] = Math.max(strip1[1], strip2[1]);
 

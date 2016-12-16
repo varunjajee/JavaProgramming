@@ -248,7 +248,7 @@ public class BinarySearchTree {
         Get Successor
 
         Defination:
-            -   Given 'x' find a node with smallest key greator than key(x)
+            -   Given 'xMethod' find a node with smallest key greator than key(xMethod)
 
         Case-1:
             Right sub tree is not null

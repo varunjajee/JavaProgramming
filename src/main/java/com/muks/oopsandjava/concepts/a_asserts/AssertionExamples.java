@@ -7,8 +7,8 @@ public class AssertionExamples {
 
     /*
      Invalid case as assertion is used like a ternary operator (Invalid)
-    int x = 0;
-    assert (x > 0) ? "assertion failed" : "assertion passed" ;  // (Invalid error line)
+    int xMethod = 0;
+    assert (xMethod > 0) ? "assertion failed" : "assertion passed" ;  // (Invalid error line)
     System.out.println("finished");
 
 
@@ -36,9 +36,9 @@ public class AssertionExamples {
                   public static int y;
 
 
-                  public static void foo(int x) { this method CANNOT be used in a_asserts
+                  public static void foo(int xMethod) { this method CANNOT be used in a_asserts
                       System.out.print("foo ");
-                      y = x;
+                      y = xMethod;
                   }
 
                    public static int bar(int z) {

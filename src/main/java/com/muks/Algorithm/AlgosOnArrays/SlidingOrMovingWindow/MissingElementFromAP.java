@@ -49,7 +49,7 @@ public class MissingElementFromAP {
      *
      *      if A[mid] - A[mid-1] != diff, then found as A[mid-1] + diff;
      *
-     *      if A[mid] = A[0] + (mid x diff); then find it in right half
+     *      if A[mid] = A[0] + (mid xMethod diff); then find it in right half
      *          else
      *      recurse in left half
      */

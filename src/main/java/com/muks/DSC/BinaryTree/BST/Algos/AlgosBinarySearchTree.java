@@ -328,9 +328,9 @@ class AlgosBinarySearchTree {
             }
 
             TreeNode y = BinarySearchTree.getParent(root, node);
-            TreeNode x = node;
-            while ( (y != null) && (x == y.left) ) { // turns false when "node" turns to be in the right subtree of its parent
-                x = y;
+            TreeNode xMethod = node;
+            while ( (y != null) && (xMethod == y.left) ) { // turns false when "node" turns to be in the right subtree of its parent
+                xMethod = y;
                 y = BinarySearchTree.getParent(root, y);
             }
 
@@ -342,7 +342,7 @@ class AlgosBinarySearchTree {
 
 
 	/* ============================================================================================
-        - Distance(X, Y) = Distance(root, X) + Distance(root, Y) — 2 x (Distance(root to LCA(X,Y) )
+        - Distance(X, Y) = Distance(root, X) + Distance(root, Y) — 2 xMethod (Distance(root to LCA(X,Y) )
 
 	    => Eg:
 	        Distance(root, 20) = 2

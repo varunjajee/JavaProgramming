@@ -67,10 +67,10 @@ public class Notes_Trees {
 	 *  	leftChild(p), rightChild(p), sibling(p) - all other nodes at the same level
 	 *  
 	 *   Each node in the tree contains =>
-	 *   	key[x] - key
-	 *   	left[x] - pointer to left
-	 *   	right[x] - pointer to right child
-	 *   	p[x] - pointer to the root node.
+	 *   	key[xMethod] - key
+	 *   	left[xMethod] - pointer to left
+	 *   	right[xMethod] - pointer to right child
+	 *   	p[xMethod] - pointer to the root node.
 	 *   
 	 *   	If one node has multiple childs, then that node would have pointer to a child and that child will 
 	 *   	have a linked list containing rest child nodes. The last child not will have left and right pointers as NULL (leaves)

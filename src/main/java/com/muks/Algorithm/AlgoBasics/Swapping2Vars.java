@@ -42,7 +42,7 @@ public class Swapping2Vars {
 		int x = 10;
 		int y = 20;
 		System.out.println("Before swap:");
-		System.out.println("x value: "+x);
+		System.out.println("xMethod value: "+x);
 		System.out.println("y value: "+y);
 
 		x = x+y;
@@ -51,7 +51,7 @@ public class Swapping2Vars {
 
 
 		System.out.println("After swap:");
-		System.out.println("x value: "+x);
+		System.out.println("xMethod value: "+x);
 		System.out.println("y value: "+y);
 
 		swap2Vars();

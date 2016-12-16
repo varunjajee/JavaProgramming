@@ -15,7 +15,7 @@ public class Graphs {
 	 *  	G=(V,E) => V - vertices of the graph, and E - set of edges of the graph
 	 *  3. Adjacent vertices = 2 vertices which are connected by their edges are adjacent vertices
 	 *  4. Degree of the vetices = no. of edges of the vertices,. Edge is the connecting link/line to the adjacent vertices.
-	 *  5. Sum of the degree of vertices = 2 x the no. of edges.
+	 *  5. Sum of the degree of vertices = 2 xMethod the no. of edges.
 	 *  6. Paths
 	 *  	(i) Simple path
 	 *  	(ii) cycle path or cycle

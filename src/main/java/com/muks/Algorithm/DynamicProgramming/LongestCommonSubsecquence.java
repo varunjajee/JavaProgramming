@@ -50,7 +50,7 @@ public class LongestCommonSubsecquence {
 	}
 
 	// ################################################################################################################
-	/* Precondition: Both x and y are non-empty strings.
+	/* Precondition: Both xMethod and y are non-empty strings.
 	 * 
 	 * Algo is using dynamic programming:
 	 *
@@ -72,7 +72,7 @@ public class LongestCommonSubsecquence {
 	 *  How to calculate the table for LCS using a theorem
 	 *
 	   C[i, j] = {
-					- C[i-1, j-1] + 1 	if x[i] == y[j]
+					- C[i-1, j-1] + 1 	if xMethod[i] == y[j]
 					OR
 					Max { C[i, j-1], C[i-1, j] }
 
@@ -81,7 +81,7 @@ public class LongestCommonSubsecquence {
 	   which means;
 	   C[i] = if i-th element == j-th element, then C[i]
 	   else
-	   C[j] = x[i] == y[j]
+	   C[j] = xMethod[i] == y[j]
 	   else it is C[i-1, j-1]
 	   Or max of ( C[i, j-1], C[i-1, j] )
 	*/
@@ -90,14 +90,14 @@ public class LongestCommonSubsecquence {
         int M = x.length();
         int N = y.length();
 
-        // opt[i][j] = length of LCS of x[i..M] and y[j..N]
+        // opt[i][j] = length of LCS of xMethod[i..M] and y[j..N]
         int[][] table = new int[M+1][N+1];
 
         // compute length of LCS and all subproblems via dynamic programming
         for (int i = M-1; i >= 0; i--) {
             for (int j = N-1; j >= 0; j--) {
             	System.out.println("\n Initial: i: " + i + " j: " + j + " => "+ table[i][j]);
-            	System.out.println("  x: " + x.charAt(i) + " & y: " + y.charAt(j));
+            	System.out.println("  xMethod: " + x.charAt(i) + " & y: " + y.charAt(j));
             	
                 if (x.charAt(i) == y.charAt(j)) {
                     table[i][j] = table[i+1][j+1] + 1;
@@ -136,9 +136,9 @@ public class LongestCommonSubsecquence {
 
 
 	// ################################################################################################################
-	// Returns the greater of x and y.
+	// Returns the greater of xMethod and y.
 	public static int max(int x, int y) {
-		System.out.println(" x = " + x + ", y = " + y);
+		System.out.println(" xMethod = " + x + ", y = " + y);
 		if (x > y)
 			return x;
 		else
@@ -160,7 +160,7 @@ public class LongestCommonSubsecquence {
 
 		//System.out.println("\n+++ From dynamic programming: ");
 		//lcsdyn(a, b);
-		//System.out.println( LongestCommonSubseq(x, y) );
+		//System.out.println( LongestCommonSubseq(xMethod, y) );
 		
 	}
 	// ################################################################################################################

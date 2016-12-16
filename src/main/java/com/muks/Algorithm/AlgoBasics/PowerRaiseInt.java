@@ -11,7 +11,7 @@ public class PowerRaiseInt {
     public static void main(String[] args) {
         int x = 2;
         int y = -4;
-        //System.out.println(power(x, y));
+        //System.out.println(power(xMethod, y));
 
         try {
             System.out.println(powerOptimised(x, y));
@@ -70,9 +70,9 @@ public class PowerRaiseInt {
         n >>= 1;
 
         if (rem == 0) {
-            return pow(m * m, n);      // x^(2n) = (x^2)^n
+            return pow(m * m, n);      // xMethod^(2n) = (xMethod^2)^n
         } else {
-            return m * pow(m * m, n);  // x^(2n+1) = x * ((x^2)^n)
+            return m * pow(m * m, n);  // xMethod^(2n+1) = xMethod * ((xMethod^2)^n)
         }
     }
 
