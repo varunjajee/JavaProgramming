@@ -1,4 +1,4 @@
-package com.muks.DSC.RedBlackAndAvLTrees;
+package com.muks.DSC.BinaryTree.RedBlackAndAvLTrees;
 
 /**
  * Created by mukthar.ahmed on 3/21/16.

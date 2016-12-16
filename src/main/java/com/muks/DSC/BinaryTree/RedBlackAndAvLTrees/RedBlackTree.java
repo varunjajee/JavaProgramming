@@ -1,4 +1,4 @@
-package datastructures;
+package com.muks.DSC.BinaryTree.RedBlackAndAvLTrees;
 
 public class RedBlackTree {
 
