@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.muks.datastructures;
+package com.muks.DSC.Random;
 
 /**
  * @author muktharahmed

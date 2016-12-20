@@ -1,4 +1,4 @@
-package com.muks.datastructures;
+package com.muks.DSC.Random;
 
 public class StackFullException extends Exception {
 	

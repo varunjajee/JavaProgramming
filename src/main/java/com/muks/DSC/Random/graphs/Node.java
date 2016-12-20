@@ -1,4 +1,4 @@
-package graphs;
+package com.muks.DSC.Random.graphs;
 
 import java.util.LinkedList;
 

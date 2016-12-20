@@ -1,4 +1,4 @@
-package datastructures;
+package com.muks.DSC.Random;
 
 import java.util.HashSet;
 import java.util.Set;

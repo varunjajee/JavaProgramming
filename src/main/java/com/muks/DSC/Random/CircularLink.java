@@ -1,4 +1,4 @@
-package datastructures;
+package com.muks.DSC.Random;
 
 public class CircularLink {
 	public int data;
