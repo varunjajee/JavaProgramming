@@ -15,7 +15,7 @@ public class PosAndNegetiveAlernatively {
 
 
 	// ################################################################################################
-	// The main function that rearranges elements of given array.  It puts 
+	// The lib function that rearranges elements of given array.  It puts
 	// positive elements at even indexes (0, 2, ..) and negative numbers at 
 	// odd indexes (1, 3, ..).
 	static void reArrangePosAndNegs(int arr[], int n) {

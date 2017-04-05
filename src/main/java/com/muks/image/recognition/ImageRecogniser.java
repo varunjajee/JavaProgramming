@@ -15,7 +15,7 @@
 //        Commad to install tesseract on mac:
 //        brew install tesseract --all-languages
 //     */
-//    public static void main(String[] args) {
+//    public static void lib(String[] args) {
 //        //File imageFile = new File("/Users/mukthar.ahmed/Downloads/UseFull/longHair.jpg");
 //        File imageFile = new File("/Users/mukthar.ahmed/Downloads/images.jpg");
 //

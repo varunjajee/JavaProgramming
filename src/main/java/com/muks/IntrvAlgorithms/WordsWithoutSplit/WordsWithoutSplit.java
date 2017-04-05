@@ -14,7 +14,7 @@ public class WordsWithoutSplit {
         //usingStringTokenizer(in);
         wordCounter(in);
 
-//        String inFile = "/Users/mukthar.ahmed/Data/git/personal/JavaProgramming/src/main/java/com/muks/IntrvAlgorithms/WordsWithoutSplit/WordCountFile.txt";
+//        String inFile = "/Users/mukthar.ahmed/Data/git/personal/JavaProgramming/src/lib/java/com/muks/IntrvAlgorithms/WordsWithoutSplit/WordCountFile.txt";
 //        WordsInFile(inFile);
     }
 

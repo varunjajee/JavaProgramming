@@ -22,7 +22,7 @@ public class FirstNonRepeatedAndMostRepeated {
 		System.out.println("+++ Character repeated for 1: " + CharCountArray(str, 3) );
 		
 
-	} // end main()
+	} // end lib()
 
 	
 	

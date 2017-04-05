@@ -434,7 +434,7 @@
 //    }
 //
 //    /**
-//     * A main routine that:
+//     * A lib routine that:
 //     * 1. Reads a file containing edges (supplied as a command-line parameter);
 //     * 2. Forms the graph;
 //     * 3. Repeatedly prompts for two vertices and
@@ -442,7 +442,7 @@
 //     * The data file is a sequence of lines of the format
 //     *    source destination.
 //     */
-//    public static void main( String [ ] args )
+//    public static void lib( String [ ] args )
 //    {
 //        Graph g = new Graph( );
 //        TestingBlockingAlgo

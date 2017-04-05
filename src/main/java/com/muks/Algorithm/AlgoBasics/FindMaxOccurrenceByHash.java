@@ -12,7 +12,7 @@ public class FindMaxOccurrenceByHash {
         maxOccurringByHash(str);
         //System.out.println("+++ Max: " + findMax(str, 2) );
 
-    } // main()
+    } // lib()
 
 
     public static void maxOccurringByHash(String str) {

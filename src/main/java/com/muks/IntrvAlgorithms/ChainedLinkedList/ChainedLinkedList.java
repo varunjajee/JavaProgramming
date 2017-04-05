@@ -69,7 +69,7 @@ public class ChainedLinkedList {
         chain1.insert(10);
         chain1.print();
 
-        // Chain (1) of main to next link head
+        // Chain (1) of lib to next link head
         System.out.println("+ getNode(" + mainList.getNode(1).data + ")");
         mainList.getNode(1).chainedHead = chain1.head;
 

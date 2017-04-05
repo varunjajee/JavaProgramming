@@ -16,7 +16,7 @@ public class ArrayStack implements Stack {
 	private int t = -1;		// is the top element of the Stack, initially its if empty, hence t = "-1"
 	
 	
-	//public static void main(String[] args) throws StackFullException, StackEmptyException {
+	//public static void lib(String[] args) throws StackFullException, StackEmptyException {
 	public static void main(String[] args) throws StackEmptyException, StackFullException {
 		ArrayStack q = new ArrayStack(4);
 		

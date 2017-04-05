@@ -11,7 +11,7 @@ public class FindMinFromRotatedArray {
 		
 		findMinInRotated(arr, arr.length);
 		
-	}	// end main()
+	}	// end lib()
 
 
 	public static void findMinInRotated(int[] arr, int n) {

@@ -10,7 +10,7 @@ public class FindMaxElementByRecursion {
 		
 		//System.out.println(maxByArrayTraverse(arr));
 
-	} // end main
+	} // end lib
 
 
 	// recursive method to find max

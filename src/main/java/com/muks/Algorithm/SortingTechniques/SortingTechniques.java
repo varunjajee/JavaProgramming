@@ -20,9 +20,8 @@ public class SortingTechniques {
         //SelectionSort(arrayToSort);
         //QuickSorting(arrayToSort);
 
-
         printArray(arrayToSort);
-    } // end main
+    } // end lib
 
 
     /** Sorting technique used in sorting singly linked list */

@@ -1,7 +1,7 @@
 package com.muks.Algorithm.SortingTechniques;
 
 /**
- * Created by mukthar.ahmed on 3/6/16.
+ * Created by mukthar.ahmed on 3/6/16 -
  */
 public class BubbleSort {
     public static void main(String[] args) {

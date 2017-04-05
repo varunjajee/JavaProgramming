@@ -126,7 +126,7 @@
 //        matchAndPrintPattern(pattern);
 //    }
 //
-//    public static void main(String[] args) {
+//    public static void lib(String[] args) {
 //        TrieForPatternMatching tr = new TrieForPatternMatching();
 //
 //        String text = "banana";

@@ -33,7 +33,7 @@
 //        }
 //    }
 //
-//    public static void main(String[] args) throws Exception {
+//    public static void lib(String[] args) throws Exception {
 //        Configuration conf = new Configuration();
 //        Job job = Job.getInstance(conf, "word count");
 //        job.setJarByClass(WordCount.class);

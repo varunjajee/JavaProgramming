@@ -40,7 +40,7 @@ public class TestingTrie {
 
         prefixSearch();
 
-    }   // end main()
+    }   // end lib()
 
 
     private static void prefixSearch() {

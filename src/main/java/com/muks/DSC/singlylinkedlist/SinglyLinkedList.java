@@ -217,7 +217,7 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
     }   // end method
 
 
-    // main logic of getting intersection point
+    // lib logic of getting intersection point
     public static void getIntersectionPoint(SinglyLinkedList mainList, SinglyLinkedList subList) {
         /* 	Time complexity: O(m+n)
          * 	Implementation details:
@@ -866,10 +866,10 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
      * Q - Find the N-th node, counting from tail. Eg: 0-th node is the tail node and so on.
      * <p>
      * Logic:
-     * - Use 2 pointers. 1 - ref pointer & main pointer.
+     * - Use 2 pointers. 1 - ref pointer & lib pointer.
      * - Move ref pointer using a (counter <= N), with every next move of ref pntr as counter++
      * - One exhuasted with counter == 0, re-iterate till (ref-pntr != null) - hitting end of the list
-     * - the main pointer will be pointing towards N-th node of the list
+     * - the lib pointer will be pointing towards N-th node of the list
      * <p>
      * Time complexity - O(n)
      */

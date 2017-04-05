@@ -38,8 +38,8 @@ public class SearchRegEx {
 	public static void main(String[] args) throws IOException {
 		SearchRegEx reg = new SearchRegEx();
 		//String myDir = "/Users/muktharahmed/Data2/toDelete/banner_320X48_300X50.new";
-		String myDir = "/Users/muktharahmed/Data2/git/QA/muks-org-psotest/test-automation/psowebapp/src/main/resources/responses/xhtml_sync/android";
-		//String myDir = "/Users/muktharahmed/Data2/git/QA/muks-org-psotest/test-automation/psowebapp/src/main/resources/responses/imai_async/android";
+		String myDir = "/Users/muktharahmed/Data2/git/QA/muks-org-psotest/test-automation/psowebapp/src/lib/resources/responses/xhtml_sync/android";
+		//String myDir = "/Users/muktharahmed/Data2/git/QA/muks-org-psotest/test-automation/psowebapp/src/lib/resources/responses/imai_async/android";
 
 		List<File> files = getFilesList(myDir, "files");
 		System.out.println("+ total number of files: " + files.size());
@@ -59,7 +59,7 @@ public class SearchRegEx {
 		//reg.searchAndReplaceInASyncXHTML(new File(infile));
 		reg.searchAndReplacePlainBeaconURL(new File(infile));
 
-	}	// main()
+	}	// lib()
 
 
 	// searchAndReplace:  to search for a string within a file and replace

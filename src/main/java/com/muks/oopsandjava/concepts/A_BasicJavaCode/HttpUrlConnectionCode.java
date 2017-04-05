@@ -10,7 +10,7 @@
 // * Created by mukthar.ahmed on 4/15/16.
 // */
 //public class HttpUrlConnectionCode {
-//    public static void main(String[] args) {
+//    public static void lib(String[] args) {
 //        String url = "http://www.inmobi.com";
 //        String image = "http://feelgrafix.com/data/images/images-15.jpg";
 //

@@ -22,7 +22,7 @@ public class LongestCommonSubString {
 
         LongestCommonSubString(a, b);
 
-    } // main()
+    } // lib()
 
 
     public static void LongestCommonSubString(String x, String y) {

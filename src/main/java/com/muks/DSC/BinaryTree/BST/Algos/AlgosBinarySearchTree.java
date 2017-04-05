@@ -528,7 +528,7 @@ class AlgosBinarySearchTree {
      * - Then compare level of all other leaves with leafLevelTracker, if same, return true, else return false.
      * - We traverse the given Binary Tree in Preorder fashion. An argument leaflevel is passed to all calls.
      */
-    // The main function to check if all leafs are at same level. It mainly uses checkUtil()
+    // The lib function to check if all leafs are at same level. It mainly uses checkUtil()
     public static boolean checkIfLeavesAreAtSameLevel(TreeNode node) {
         int level = 0;
         Leaf mylevel = new Leaf();

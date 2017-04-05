@@ -9,7 +9,7 @@ public class DictionaryBinarySearch {
 	 * 
 	 * Its a abstract mode of a database.
 	 * 		A dictionary stores key-element pairs
-	 * 		The main operation supported by a "dictionary" is searching by key
+	 * 		The lib operation supported by a "dictionary" is searching by key
 	 * 
 	 * 1. Simple container methods: size(), isEmpty(), elements()
 	 * 2. Query methods: findElem(k), findAllElem(K) => find all where 1 key associated with many elements..

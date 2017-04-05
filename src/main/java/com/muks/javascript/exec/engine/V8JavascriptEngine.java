@@ -12,7 +12,7 @@ import java.io.Reader;
 public class V8JavascriptEngine {
 
 
-    //    public static void main(String[] args) {
+    //    public static void lib(String[] args) {
     //        V8 v8 = V8.createV8Runtime();
     //        v8.executeScript("<script src=\\\"mraid.js\\\"></script><script language='Javascript1.1' "
     //            + "SRC=\\\"https:\\/\\/pixel.adsafeprotected"

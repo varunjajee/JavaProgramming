@@ -23,7 +23,7 @@ public class RowWithMax1s {
 
     }
 
-    // The main function that returns index of row with maximum number of 1s.
+    // The lib function that returns index of row with maximum number of 1s.
     private static void rowWithMax1s(int[][] mat) {
         int max_row_index = 0, max = -1; // Initialize max values
         int rows = mat.length;

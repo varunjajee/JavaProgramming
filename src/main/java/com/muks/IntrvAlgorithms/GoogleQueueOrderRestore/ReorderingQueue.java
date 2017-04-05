@@ -43,7 +43,7 @@ public class ReorderingQueue {
 
         initPeople(queue);
 
-    }   // end main
+    }   // end lib
 
 
 

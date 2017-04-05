@@ -14,7 +14,7 @@ public class DeleteDuplicatesFromString {
         deDuplicateByHashing(s.toCharArray());
 
 
-	}	// end main()
+	}	// end lib()
 
     /** ==================================================================
      * Deleting duplicate chars from arr string,

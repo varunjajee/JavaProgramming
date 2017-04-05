@@ -13,7 +13,7 @@ public class ThreadsTestDrive {
         Thread myThread = new Thread(myRunnable);
 
 //        myThread.start();
-//        System.out.println("+ Back in main, done with starting the thread.");
+//        System.out.println("+ Back in lib, done with starting the thread.");
 
         Thread alphaThread = new Thread(myRunnable);
         Thread betaThread = new Thread(myRunnable);

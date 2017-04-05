@@ -20,7 +20,7 @@ public class FindSecondHighest {
 	//####################################################################################################################################		
 	public static int findByRecursion (int[] arr, int index, int largest, int secondLargest) {
 		
-	    if(index == arr.length) {
+	    if (index == arr.length) {
 	        return secondLargest;
 	    }
 	    

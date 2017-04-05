@@ -15,7 +15,7 @@ public class MergeIntArrays {
 		}
 		System.out.println("\n+++ Merged array: " + s);
 
-	} // end main()
+	} // end lib()
 	
 	
 	// ##############################################################################################################

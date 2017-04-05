@@ -22,7 +22,7 @@ public class PrimeNumbers {
 			System.out.println("+ Check for = " + i + " = " + isPrime(i));
 		}
 
-	} // end main()
+	} // end lib()
 
 
 

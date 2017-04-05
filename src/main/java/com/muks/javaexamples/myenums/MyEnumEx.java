@@ -53,7 +53,7 @@ public class MyEnumEx {
 
 
 
-    // main()
+    // lib()
     public static void main(String args[]) {
 
         // This kind of enum mapping is used to make sure string consistency is maintained

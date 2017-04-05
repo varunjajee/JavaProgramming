@@ -1,7 +1,6 @@
 package com.muks.Algorithm.AlgoBasics;
 
 public class Palindrome {
-
 	/*
 	 * NOTE:
 	 * -----
@@ -20,7 +19,7 @@ public class Palindrome {
 		else
 			System.out.println("NOT a palindrome");
 			
-	} // end main
+	} // end lib
 
 	
 	// find pal sub

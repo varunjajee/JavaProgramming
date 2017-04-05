@@ -46,7 +46,7 @@ public class AssertionExamples {
                       return y = z;
                   }
 
-                    public static void main(String [] args ) {
+                    public static void lib(String [] args ) {
                       int t = 0;
                       assert t > 0 : bar(7);
                       assert t > 1 : foo(8); /* Line 18 */

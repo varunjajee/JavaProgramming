@@ -317,7 +317,7 @@ public class CircularLinkedList {
 
 	
 	// ###################################################################################################
-	// main()
+	// lib()
 	// ###################################################################################################
 	public static void main(String[] args) {
 		CircularLinkedList ccl = new CircularLinkedList();
