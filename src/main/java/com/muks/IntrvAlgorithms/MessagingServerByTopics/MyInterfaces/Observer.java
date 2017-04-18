@@ -11,7 +11,7 @@ package com.muks.IntrvAlgorithms.MessagingServerByTopics.MyInterfaces;
 
 public interface Observer {
 
-    /** Method - Used by the Subject class, to update the observer */
+    /** Method - Used by the Subject class, to listen the observer */
     public void update();
 
     public String getName();

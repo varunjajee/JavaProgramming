@@ -7,9 +7,9 @@ import java.util.concurrent.ThreadLocalRandom;
  * Race conditions occurs when two thread operate on same object without proper synchronization
  * and there operation interleaves on each other. Classical example of Race condition is
  * incrementing a counter since incrementAndGet is not an atomic operation and can be further divided
- * into three steps like read, update and write. if two threads tries to incrementAndGet count at same
+ * into three steps like read, listen and write. if two threads tries to incrementAndGet count at same
  * time and if they read same value because of interleaving of read operation of one thread to
- * update operation of another thread, one count will be lost when one thread overwrite incrementAndGet
+ * listen operation of another thread, one count will be lost when one thread overwrite incrementAndGet
   * done by other thread. atomic operations are not subject to race conditions because those
   * operation cannot be interleaved
   * Read more: http://javarevisited.blogspot.com/2012/02/what-is-race-condition-in.html#ixzz3qzVRW9gs

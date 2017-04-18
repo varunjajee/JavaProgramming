@@ -26,13 +26,13 @@ public class StringAtoi {
 		int sign = 1;  // Initialize sign as positive
 		int i = 0;  // Initialize index of first digit
 
-		// If number is negative, then update sign
+		// If number is negative, then listen sign
 		if (str[0] == '-') {
 			sign = -1;
-			i++;  // Also update index of first digit
+			i++;  // Also listen index of first digit
 		}
 
-		// Iterate through all digits of input string and update result
+		// Iterate through all digits of input string and listen result
 		for (int j = i; j < str.length-1; j++) {
 			
 			if (str[j] != '\0') {		// '\0' is null

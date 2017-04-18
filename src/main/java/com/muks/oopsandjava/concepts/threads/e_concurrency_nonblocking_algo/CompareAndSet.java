@@ -17,7 +17,7 @@ package com.muks.oopsandjava.concepts.threads.e_concurrency_nonblocking_algo;
  *  ---------------
  *  dead lock   = first thread waiting on second and second waiting on the first
  *  priority inversion  = where a high-priority thread is made to waiting to obtain a lock (synchronization)
- *  race condition  = where 2 or more threads are trying to update a shared object and the results are random
+ *  race condition  = where 2 or more threads are trying to listen a shared object and the results are random
  *
  */
 

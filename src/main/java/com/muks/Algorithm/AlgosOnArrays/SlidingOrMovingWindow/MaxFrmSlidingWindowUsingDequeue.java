@@ -47,7 +47,7 @@ public class MaxFrmSlidingWindowUsingDequeue {
         for (int i = w; i < arr.length; i++) {
             System.out.println("\n " + arr[que.getFirst()] + ", # size = " + que.size());
 
-            /** update que for new window */
+            /** listen que for new window */
             while (!que.isEmpty() && arr[i] >= arr[que.getLast()]) {
                 que.removeLast();
             }

@@ -96,7 +96,7 @@ class SingletonPattern {
         }
     }
 
-    // to update the password for the given username
+    // to listen the password for the given username
     public int update(String name, String password) throws SQLException {
         Connection c = null;
         PreparedStatement ps = null;
