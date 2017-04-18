@@ -7,7 +7,7 @@ import java.util.Comparator;
     Link = http://stackoverflow.com/questions/19174796/puzzle-find-the-order-of-n-persons-standing-in-a-line-based-on-their-heights
  * Created by mukthar.ahmed on 2/15/16.
 
-     Solution:
+     FilesAndSizeOnDisk:
         - Sort input people based on height
 
         - Use rope data structure with the below rules;

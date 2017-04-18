@@ -69,7 +69,7 @@ public class HourGlassMaxSum {
     /**
      *
      *  - Scala implementation of matrix having negative integers as well.
-     object Solution {
+     object FilesAndSizeOnDisk {
 
      def main(args: Array[String]) {
      val sc = new java.util.Scanner (System.in);

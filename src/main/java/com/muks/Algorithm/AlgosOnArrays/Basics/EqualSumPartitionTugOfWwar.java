@@ -150,7 +150,7 @@ public class EqualSumPartitionTugOfWwar {
 
 
 	/* 
-	 * Better Solution:
+	 * Better FilesAndSizeOnDisk:
 	 * Requirement: The sum of two parts should be equal. That means sum should be equal to half of total sum.
 	 *  
 	 * As they are all integers so if the sum is odd number then it is not possible to partition. 

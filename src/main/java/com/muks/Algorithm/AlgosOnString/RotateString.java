@@ -44,7 +44,7 @@ public class RotateString {
 
 
 	// ##########################################################################################
-	/* Solution: 
+	/* FilesAndSizeOnDisk:
 	 * First make sure s1 and s2 are of the same length. 
 	 * Then check to see if s2 is a substring of s1 concatenated with s1: */
 		

@@ -820,7 +820,7 @@ public class SinglyLinkedList extends com.muks.DSC.LinkedList.LinkedList {
     /*  =====================================================================================
         In place Sort linked list -> O(n)
 
-        An Efficient Solution works in O(n) time. Below are all steps.
+        An Efficient FilesAndSizeOnDisk works in O(n) time. Below are all steps.
         Steps:
                 1. Have 2 pointers, insertion pointer and curr pointer.
                 2. insertion pointing = head and curr = 2nd node, head.next

@@ -12,7 +12,7 @@ import java.util.List;
 /*  =====   Tricky FAQ  =====
 
     Q - Given a dictionary of millions of words, find all the anagrams of a word
-        Solution:
+        FilesAndSizeOnDisk:
             - Iterating all the words from dictionary;
                 - Sort the words and insert it to a trie
                 - insertion logic, when a word ends, insert the index of the word at the leaf node.
@@ -26,7 +26,7 @@ import java.util.List;
 
 
     Q - Given a dictionary, find all the palindromes of a given word.
-        Solution:
+        FilesAndSizeOnDisk:
             - Same as the above but store final word non-sorted instead of index.
 
  */

@@ -441,11 +441,11 @@ class AlgosBinarySearchTree {
 
     /**
      * =================================================================================================
-     * Non-Optimised Solution:
+     * Non-Optimised FilesAndSizeOnDisk:
      * - Simple solution O(h1 + h2) - where h1 = height of BST-1 and h2 = height of BST-2, is to
      * traverse the tree from left to right and store the leaves into a Stack and compare them later
      * <p>
-     * Optimized Solution:
+     * Optimized FilesAndSizeOnDisk:
      * - Traverse both the trees at the same time and compare the child nodes when found.
      */
     public static boolean compareLeavesOfTwoTrees(TreeNode root1, TreeNode root2) {
