@@ -28,11 +28,11 @@ public class AuctioneerSubject {
                 this.winningBid = bids.get(i);
         }
 
-        notifyAllObservers(this.winningBid);
+        notifyAllObservers();
 
     }
 
-    public void notifyAllObservers(int winningBidValue) {
+    public void notifyAllObservers() {
         for (AuctionListener auctionListener : listeners) {
             auctionListener.listen();
         }

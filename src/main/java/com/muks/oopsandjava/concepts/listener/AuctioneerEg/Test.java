@@ -5,7 +5,9 @@ package com.muks.oopsandjava.concepts.listener.AuctioneerEg;
  */
 public class Test {
     public static void main(String[] args) {
+
         AuctioneerSubject subject = new AuctioneerSubject();
+
         new ListenerRCB(subject);
         new ListenerMI(subject);
 
