@@ -10,7 +10,7 @@ public class FactorialByRecursion {
 	 * Yes, the algorithm is linear, running in O(n) time. 
 	 * This is the case because it executes once every time it decrements the value n, 
 	 * and it decrements the value n until it reaches 0, meaning the function is called recursively n times. 
-	 * This is assuming, of course, that both decrementation  and multiplication are constant operations.
+	 * This is assuming, of DCCourse, that both decrementation  and multiplication are constant operations.
 	 * 
 	 * Logic:
 	 * -----
